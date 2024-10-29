@@ -1,6 +1,8 @@
 > ### QuickSnip
 
-# React.JS
+# JavaScript
+
+Descrição sobre a sessão...
 
 ---
 
