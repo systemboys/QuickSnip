@@ -10,4 +10,4 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 ---
 
-[![JavaScript </>](./images/JavaScript.png)](./React.JS/README.md#reactjs "JavaScript </>")
+[![JavaScript </>](./images/JavaScript.png)](./React.JS/README.md#quicksnip "JavaScript </>")
