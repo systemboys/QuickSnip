@@ -4,6 +4,11 @@
 
 ---
 
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+<!-- /Botões de navegação -->
+
 ## Frontend com React.JS
 1. **React.JS**
    - **Estrutura Básica**
