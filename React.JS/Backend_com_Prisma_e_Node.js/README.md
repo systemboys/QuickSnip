@@ -4,7 +4,7 @@
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#reactjs "Voltar")
 <!-- /Botões de navegação -->
 
 ## Backend com Prisma e Node.js
