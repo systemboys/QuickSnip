@@ -40,8 +40,10 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
      - Otimização de performance com memo e useCallback
      - Testes com React Testing Library
      - Acessibilidade em componentes React
+
 ---
-# Backend com React.JS
+
+## Backend com Prisma e Node.js
 2. **ORM Prisma**
    - **Instalação e Configuração**
      - Configuração inicial do Prisma
@@ -66,5 +68,5 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 ---
 
-Com essa estrutura, todos os tópicos relacionados a **Frontend** estão agora organizados dentro de **React.JS**, facilitando o acesso ao conteúdo específico de React. Quando você adicionar novos snippets, basta ir expandindo os subitens.
+Todos os tópicos relacionados a **Frontend** estão organizados dentro de **React.JS**, facilitando o acesso ao conteúdo específico de React.
 
