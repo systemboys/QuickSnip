@@ -1,4 +1,4 @@
-> ### QuickSnipe
+> ### QuickSnip
 
 # Scripts Prontos: Backend e Frontend
 

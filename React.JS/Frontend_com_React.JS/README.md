@@ -1,4 +1,4 @@
-> ### QuickSnipe
+> ### QuickSnip
 
 # Frontend com React.JS
 

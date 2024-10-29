@@ -1,4 +1,4 @@
-> ### QuickSnipe
+> ### QuickSnip
 
 # Backend com Prisma e Node.js
 
