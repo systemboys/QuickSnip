@@ -2,7 +2,7 @@
 
 # JavaScript
 
-Descrição sobre a sessão...
+Esta seção apresenta a integração entre backend e frontend utilizando Node.js e Prisma no servidor, e React.JS na interface, além de exemplos de scripts prontos para operações CRUD.
 
 ---
 
