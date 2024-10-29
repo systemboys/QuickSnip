@@ -1,0 +1,24 @@
+<mxfile host="Electron" modified="2024-10-29T22:02:45.251Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="XBP6ZCGdfITXD0ecm3T2" version="22.1.2" type="device">
+  <diagram name="Página-1" id="mHiBYUwsEqDnMowjN1yR">
+    <mxGraphModel dx="866" dy="507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RVPmRF5MZWs-w4eM-CkC-1" value="Node.JS | React.JS | ORM Prisma | Scripts Prontos: Backend e Frontend | ..." style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#647687;strokeColor=#314354;fontColor=#ffffff;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="140" y="10" width="550" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RVPmRF5MZWs-w4eM-CkC-4" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;rounded=1;" edge="1" parent="1" source="RVPmRF5MZWs-w4eM-CkC-3" target="RVPmRF5MZWs-w4eM-CkC-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="90" />
+              <mxPoint x="415" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVPmRF5MZWs-w4eM-CkC-3" value="&amp;lt;/&amp;gt;&lt;br&gt;JavaScript" style="rounded=1;whiteSpace=wrap;html=1;fontSize=19;fillColor=#6d8764;strokeColor=#3A5431;fontStyle=1;fontColor=#ffffff;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
