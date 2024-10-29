@@ -1,4 +1,4 @@
-# QuickSnip [</>]
+# QuickSnip
 
 ---
 
