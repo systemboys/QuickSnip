@@ -8,6 +8,7 @@ Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Fron
 
 ### Menu de Snippets QuickSnip
 
+## Frontend
 1. **React.JS**
    - **Estrutura Básica**
      - Criação de componentes funcionais
