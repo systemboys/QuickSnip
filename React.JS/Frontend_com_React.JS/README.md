@@ -9,7 +9,7 @@
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 <!-- /Botões de navegação -->
 
-## Frontend com React.JS
+## Conteúdo
 1. **React.JS**
    - **Estrutura Básica**
      - Criação de componentes funcionais
