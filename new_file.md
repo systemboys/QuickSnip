@@ -14,7 +14,7 @@ Descrição da sessão.
 ## Conteúdo
 1. **Ítem 1**
    - **Subitem 1**
-     - [Título do Link 1 do Subitem 1](# "Título do Link 1 do Subitem 1")
+     - [Título do Link 1 do Subitem 1](#titulo-do-link-1-do-subitem-1 "Título do Link 1 do Subitem 1")
      - [Título do Link 2 do Subitem 1](# "Título do Link 2 do Subitem 1")
      - [Título do Link 3 do Subitem 1](# "Título do Link 3 do Subitem 1")
    - **Subitem 2**
@@ -32,7 +32,7 @@ Detalhes do conteúdo da sessão.
 
 ---
 
-## Título do Link 1 do Subitem 1
+## Titulo do Link 1 do Subitem 1
 
 Conteúdo do link em questão...
 
