@@ -1,4 +1,4 @@
-> ### QuickSnipe
+> ### QuickSnip
 
 # React.JS
 
