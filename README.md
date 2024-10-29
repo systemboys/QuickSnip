@@ -8,6 +8,8 @@ Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Fron
 
 ### Menu de Snippets QuickSnip
 
+---
+
 ## Frontend
 1. **React.JS**
    - **Estrutura Básica**
@@ -38,6 +40,7 @@ Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Fron
      - Otimização de performance com memo e useCallback
      - Testes com React Testing Library
      - Acessibilidade em componentes React
+---
 # Backend
 2. **ORM Prisma**
    - **Instalação e Configuração**
@@ -60,6 +63,8 @@ Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Fron
      - Gerar migrations a partir do schema
      - Aplicar migrations no banco de dados
      - Desfazer migrations
+
+---
 
 Com essa estrutura, todos os tópicos relacionados a **Frontend** estão agora organizados dentro de **React.JS**, facilitando o acesso ao conteúdo específico de React. Quando você adicionar novos snippets, basta ir expandindo os subitens.
 
