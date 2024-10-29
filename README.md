@@ -1,16 +1,16 @@
-# QuickSnip
+# QuickSnip [</>]
 
 ---
 
 > QuickSnip é um repositório de snippets de código para desenvolvedores web. Organizado e constantemente atualizado, oferece trechos prontos de HTML, CSS, JavaScript, e outras tecnologias, otimizando o tempo de desenvolvimento. Copie, cole e acelere a criação dos seus projetos com soluções eficientes.
 
-Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Frontend** englobado dentro de **React.JS**:
+Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 ### Menu de Snippets QuickSnip
 
 ---
 
-## Frontend
+## Frontend com React.JS
 1. **React.JS**
    - **Estrutura Básica**
      - Criação de componentes funcionais
@@ -41,7 +41,7 @@ Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Fron
      - Testes com React Testing Library
      - Acessibilidade em componentes React
 ---
-# Backend
+# Backend com React.JS
 2. **ORM Prisma**
    - **Instalação e Configuração**
      - Configuração inicial do Prisma
