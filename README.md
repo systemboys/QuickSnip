@@ -4,37 +4,39 @@
 
 > QuickSnip é um repositório de snippets de código para desenvolvedores web. Organizado e constantemente atualizado, oferece trechos prontos de HTML, CSS, JavaScript, e outras tecnologias, otimizando o tempo de desenvolvimento. Copie, cole e acelere a criação dos seus projetos com soluções eficientes.
 
+Aqui está a estrutura atualizada conforme solicitado, com o conteúdo de **Frontend** englobado dentro de **React.JS**:
+
 ### Menu de Snippets QuickSnip
 
-1. **Frontend**
-   - **HTML**
-     - Estrutura básica de documento
-     - Formulários e inputs
-     - Elementos semânticos (header, nav, footer)
-   - **CSS**
-     - Flexbox e Grid
-     - Animações e Transições
-     - Media Queries para design responsivo
-   - **JavaScript**
-     - Manipulação do DOM
-     - Funções assíncronas (async/await)
-     - Promises e Fetch API
-   - **React**
-     - Componentes funcionais
-     - Hooks (useState, useEffect)
-     - Roteamento com React Router
-   - **Vue.js**
-     - Instância Vue
-     - Diretivas (v-if, v-for)
-     - Vuex para gerenciamento de estado
-   - **Svelte**
-     - Componentização
-     - Reatividade automática
-     - Stores para gerenciamento de estado
-   - **Tailwind CSS**
-     - Estilos utilitários básicos
-     - Customização de temas
-     - Layout responsivo
+1. **React.JS**
+   - **Estrutura Básica**
+     - Criação de componentes funcionais
+     - JSX e renderização condicional
+     - Props e estado (state)
+   - **Hooks**
+     - useState para gerenciamento de estado
+     - useEffect para efeitos colaterais
+     - useContext para contexto global
+   - **Componentes Avançados**
+     - Componentes controlados e não controlados
+     - Refs com useRef
+     - Lazy loading e Suspense
+   - **Roteamento**
+     - Configuração básica com React Router
+     - Roteamento dinâmico
+     - Redirecionamento e links
+   - **Gerenciamento de Estado**
+     - useReducer para estados complexos
+     - Context API
+     - Integração com Redux
+   - **Estilos**
+     - CSS-in-JS com styled-components
+     - Animações com Framer Motion
+     - Tailwind CSS com React
+   - **Boas Práticas**
+     - Otimização de performance com memo e useCallback
+     - Testes com React Testing Library
+     - Acessibilidade em componentes React
 
 2. **ORM Prisma**
    - **Instalação e Configuração**
@@ -57,4 +59,6 @@
      - Gerar migrations a partir do schema
      - Aplicar migrations no banco de dados
      - Desfazer migrations
+
+Com essa estrutura, todos os tópicos relacionados a **Frontend** estão agora organizados dentro de **React.JS**, facilitando o acesso ao conteúdo específico de React. Quando você adicionar novos snippets, basta ir expandindo os subitens.
 
