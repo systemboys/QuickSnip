@@ -1,8 +1,8 @@
+> ### QuickSnipe
+
 # React.JS
 
 ---
-
-## Conteúdo
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
