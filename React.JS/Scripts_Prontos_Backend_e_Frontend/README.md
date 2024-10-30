@@ -80,7 +80,7 @@ Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo,
 
 Isso garante que, ao editar um administrador, o campo já venha preenchido com o nome completo, mas que também permita alterar o valor durante a edição. No modo de registro, o campo aparecerá vazio como esperado.
 
-> Campo de seleção `<select></select>`.
+> Campo de seleção `<select>...</select>`.
 
 Para aplicar a mesma lógica de polimorfismo ao campo `<select>`, a abordagem é similar à usada no campo de texto. Você precisa inicializar o estado do `level` com o valor correto no modo de edição, garantindo que ele possa ser editado normalmente.
 
