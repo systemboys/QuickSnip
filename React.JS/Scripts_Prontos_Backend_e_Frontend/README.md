@@ -36,6 +36,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
        - Como mover a lógica de rotas para controllers para melhor organização
        - Vantagens da modularização e manutenibilidade do código
+2. **Trabalhando Fenestra, API de janelas para react/redux**
+   - **Corrigindo problemas**
+     - Formulário simples de cadastro com validação de campos
 
 ---
 
