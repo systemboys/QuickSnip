@@ -41,7 +41,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Formulário simples de cadastro com validação de campos
 3. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
-     - [Preencher diferentes tipos de campos usando o console do navegador](# "Preencher diferentes tipos de campos usando o console do navegador")
+     - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
 
 ---
 
