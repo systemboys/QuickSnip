@@ -78,7 +78,7 @@ Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo,
 
 Isso garante que, ao editar um administrador, o campo já venha preenchido com o nome completo, mas que também permita alterar o valor durante a edição. No modo de registro, o campo aparecerá vazio como esperado.
 
-### Evitar problema com a validação do campo em movo Edição
+### Evitar problema com a validação do campo em modo Edição
 
 Esse é um problema ocorre no modo de edição, quando o valor inicial do campo é preenchido diretamente com `admin.full_name`, e não é atualizado o estado `fullUsername` (controlado pelo hook `useState`). Portanto, mesmo que o campo pareça preenchido visualmente, a validação está verificando o estado, que permanece vazio até que o usuário interaja com o campo.
 
