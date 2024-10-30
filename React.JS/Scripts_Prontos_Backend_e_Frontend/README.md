@@ -121,6 +121,106 @@ useEffect(() => {
 
 Assim como no campo de texto, o valor inicial será carregado no modo de edição, mas o usuário ainda poderá modificar a seleção.
 
+> Estrutura com vários campos
+
+Sim, a estrutura que você usou está correta para inicializar um campo de formulário baseado no valor de `admin` quando está no modo de edição. No entanto, se você tiver **cinco campos**, você precisa garantir que cada um seja controlado de forma independente, assim como fizemos para o campo `level`. Cada campo deve ter seu próprio estado e lógica de inicialização dentro do `useEffect`, mas a estrutura geral é a mesma.
+
+Vou mostrar como ficaria com cinco campos no total, seguindo a mesma lógica para cada um.
+
+### Exemplo com cinco campos:
+
+```jsx
+// ... outras linhas ...
+const [fullUsername, setFullUsername] = useState('');
+const [email, setEmail] = useState('');
+const [role, setRole] = useState('');
+const [level, setLevel] = useState('');
+const [status, setStatus] = useState('');
+
+// Usar useEffect para inicializar os valores dos campos no modo de edição
+useEffect(() => {
+    if (polymorphic === 2) {
+        if (admin?.full_name) setFullUsername(admin.full_name);
+        if (admin?.email) setEmail(admin.email);
+        if (admin?.role) setRole(admin.role);
+        if (admin?.level !== undefined) setLevel(admin.level); // Verifica se não é undefined
+        if (admin?.status !== undefined) setStatus(admin.status); // Mesmo tratamento para status
+    }
+}, [polymorphic, admin]);
+
+// ... outras linhas ...
+
+<Form.Group className="mb-3" as={Col} controlId="UserGridFullName">
+    <Form.Label>Nome completo</Form.Label>
+    <Form.Control
+        type="text"
+        size="sm"
+        value={fullUsername}
+        onChange={(e) => setFullUsername(e.target.value)}
+        placeholder="Nome do usuário do sistema..."
+    />
+</Form.Group>
+
+<Form.Group className="mb-3" as={Col} controlId="UserGridEmail">
+    <Form.Label>Email</Form.Label>
+    <Form.Control
+        type="email"
+        size="sm"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email do usuário..."
+    />
+</Form.Group>
+
+<Form.Group className="mb-3" as={Col} controlId="UserGridRole">
+    <Form.Label>Função</Form.Label>
+    <Form.Select
+        size="sm"
+        value={role}
+        onChange={(e) => setRole(e.target.value)}
+    >
+        <option value="">&raquo; Selecione &laquo;</option>
+        <option value="admin">Administrador</option>
+        <option value="editor">Editor</option>
+    </Form.Select>
+</Form.Group>
+
+<Form.Group className="mb-3" as={Col} controlId="UserGridLevel">
+    <Form.Label>Nível de Acesso</Form.Label>
+    <Form.Select
+        size="sm"
+        value={level}
+        onChange={(e) => setLevel(e.target.value)}
+    >
+        <option value="">&raquo; Selecione &laquo;</option>
+        <option value="0">Ilimitado</option>
+        <option value="1">Limitado</option>
+    </Form.Select>
+</Form.Group>
+
+<Form.Group className="mb-3" as={Col} controlId="UserGridStatus">
+    <Form.Label>Status</Form.Label>
+    <Form.Select
+        size="sm"
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+    >
+        <option value="">&raquo; Selecione &laquo;</option>
+        <option value="active">Ativo</option>
+        <option value="inactive">Inativo</option>
+    </Form.Select>
+</Form.Group>
+// ... outras linhas ...
+```
+
+### Explicação:
+1. **Estados separados**: Cada campo tem seu próprio estado controlado (`fullUsername`, `email`, `role`, `level`, `status`).
+2. **`useEffect` inicializa os valores no modo de edição**: O `useEffect` verifica se estamos no modo de edição (`polymorphic === 2`). Se for o caso, ele inicializa os estados com os valores que vierem do objeto `admin`.
+3. **Campos `<select>` e `<input>`**: Tanto os campos de texto quanto os selects são controlados da mesma forma, com o `value` ligado ao estado e `onChange` atualizando o estado conforme o usuário interage com o formulário.
+
+### Dica:
+Lembre-se de garantir que os valores vindos de `admin` sejam válidos antes de inicializar o estado (como fizemos com `admin?.level !== undefined`), para evitar erros caso algum valor seja `null` ou `undefined`.
+
 ### Evitar problema com a validação do campo em modo Edição
 
 Esse é um problema ocorre no modo de edição, quando o valor inicial do campo é preenchido diretamente com `admin.full_name`, e não é atualizado o estado `fullUsername` (controlado pelo hook `useState`). Portanto, mesmo que o campo pareça preenchido visualmente, a validação está verificando o estado, que permanece vazio até que o usuário interaja com o campo.
