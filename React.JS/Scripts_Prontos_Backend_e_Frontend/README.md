@@ -54,6 +54,8 @@ Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para div
 
 Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo, ou seja, ele seja preenchido com o valor já existente quando estiver no modo de edição, e fique vazio no modo de registro, você pode fazer uma pequena alteração no valor inicial do campo. Isso pode ser feito verificando o valor da variável `polymorphic`. Se for igual a `2`, você define o valor do campo como `{admin.full_name}`, caso contrário, deixa o valor como uma string vazia. Veja como você pode modificar o código:
 
+> Campo de texto `type="text"`.
+
 ```jsx
 // ... outras linhas ...
 <Form.Group className="mb-3" as={Col} controlId="UserGridFullName">
@@ -77,6 +79,47 @@ Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo,
   
 
 Isso garante que, ao editar um administrador, o campo já venha preenchido com o nome completo, mas que também permita alterar o valor durante a edição. No modo de registro, o campo aparecerá vazio como esperado.
+
+> Campo de seleção `<select></select>`.
+
+Para aplicar a mesma lógica de polimorfismo ao campo `<select>`, a abordagem é similar à usada no campo de texto. Você precisa inicializar o estado do `level` com o valor correto no modo de edição, garantindo que ele possa ser editado normalmente.
+
+### Modificação para o campo `<select>`:
+
+```jsx
+// ... outras linhas ...
+const [level, setLevel] = useState('');
+
+// Usar useEffect para inicializar o valor de level no modo de edição
+useEffect(() => {
+    if (polymorphic === 2 && admin?.level !== undefined) {
+        setLevel(admin.level); // Inicializa apenas se o level do admin estiver disponível
+    }
+}, [polymorphic, admin]);
+
+// ... outras linhas ...
+
+<Form.Select
+    size="sm"
+    value={level}
+    onChange={(e) => setLevel(e.target.value)} // Permite editar o nível
+    ref={levelInputRef}
+>
+    <option value="">&raquo; Selecione &laquo;</option>
+    <option value="0">Ilimitado</option>
+    <option value="1">Limitado</option>
+</Form.Select>
+// ... outras linhas ...
+```
+
+### Explicação:
+- **`useState` inicial vazio**: O estado `level` é inicializado com uma string vazia para garantir que o campo `<select>` possa ser editado posteriormente.
+  
+- **`useEffect` para inicializar o valor**: Quando o formulário está no modo de edição (`polymorphic === 2`), o valor do `level` é carregado a partir do objeto `admin`, mas isso ocorre apenas uma vez (quando o formulário é renderizado). Isso evita que o valor seja sobrescrito durante a interação do usuário.
+  
+- **Controle do valor via `onChange`**: O campo `<select>` usa o estado `level` para controlar o valor selecionado, e o `onChange` atualiza o estado sempre que o usuário fizer uma nova escolha.
+
+Assim como no campo de texto, o valor inicial será carregado no modo de edição, mas o usuário ainda poderá modificar a seleção.
 
 ### Evitar problema com a validação do campo em modo Edição
 
