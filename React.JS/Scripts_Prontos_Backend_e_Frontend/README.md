@@ -39,6 +39,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 2. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
+3. **Testes e Simulações de Interface**
+   - **Preenchimento Automático de Formulários com JavaScript Nativo**
+     - [Preencher diferentes tipos de campos (text, email, password, select, checkbox, etc.) usando o console do navegador](# "Preencher diferentes tipos de campos (text, email, password, select, checkbox, etc.) usando o console do navegador")
 
 ---
 
@@ -116,6 +119,98 @@ export default router;
 
 ### Conclusão
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Preencher diferentes tipos de campos (text, email, password, select, checkbox, etc.) usando o console do navegador
+
+Ótima ideia! Vamos criar um exemplo mais específico, preenchendo os campos de formulário com base nos `ids` que você mencionou. Aqui está o script atualizado:
+
+### HTML Exemplo:
+Aqui está uma estrutura de HTML para o formulário que você poderia usar:
+
+```html
+<form>
+  <div>
+    <label for="formGridFullName">Nome Completo</label>
+    <input type="text" id="formGridFullName" placeholder="Nome Completo">
+  </div>
+  
+  <div>
+    <label for="formGridEmail">Email</label>
+    <input type="email" id="formGridEmail" placeholder="Email">
+  </div>
+  
+  <div>
+    <label for="formGridBiologicalSex">Sexo Biológico</label>
+    <select id="formGridBiologicalSex">
+      <option value="" disabled selected>Selecione</option>
+      <option value="masculino">Masculino</option>
+      <option value="feminino">Feminino</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="formGridPassword">Senha</label>
+    <input type="password" id="formGridPassword" placeholder="Senha">
+  </div>
+  
+  <div>
+    <label for="custom-switch">Aceitar Termos</label>
+    <input type="checkbox" id="custom-switch">
+  </div>
+</form>
+```
+
+### JavaScript para Preencher os Campos:
+Aqui está o script que você pode executar no console do navegador para preencher esses campos:
+
+```javascript
+// Preencher campo de texto (Nome Completo)
+document.querySelector('#formGridFullName').value = "João da Silva";
+
+// Preencher campo de email
+document.querySelector('#formGridEmail').value = "joao.silva@exemplo.com";
+
+// Selecionar opção no campo de seleção (Sexo Biológico)
+document.querySelector('#formGridBiologicalSex').value = "masculino"; 
+document.querySelector('#formGridBiologicalSex').dispatchEvent(new Event('change')); // dispara o evento de mudança
+
+// Preencher campo de senha
+document.querySelector('#formGridPassword').value = "senhaSegura123";
+
+// Marcar o checkbox (custom switch)
+document.querySelector('#custom-switch').checked = true;
+document.querySelector('#custom-switch').dispatchEvent(new Event('change')); // dispara o evento de mudança
+
+// Disparar eventos de input e change para garantir que a interface reaja (caso esteja usando React/Angular/etc)
+document.querySelectorAll('input, select').forEach(el => {
+  el.dispatchEvent(new Event('input', { bubbles: true }));
+  el.dispatchEvent(new Event('change', { bubbles: true }));
+});
+```
+
+### Explicação:
+
+1. **Nome Completo (`id="formGridFullName"`)**: O campo de texto é preenchido com o valor `"João da Silva"`.
+2. **Email (`id="formGridEmail"`)**: O campo de email é preenchido com `"joao.silva@exemplo.com"`.
+3. **Sexo Biológico (`id="formGridBiologicalSex"`)**: O campo `select` é preenchido com a opção `"masculino"`. Para garantir que o evento de seleção seja processado corretamente, o evento `change` é disparado.
+4. **Senha (`id="formGridPassword"`)**: O campo de senha é preenchido com `"senhaSegura123"`.
+5. **Switch (Checkbox) (`id="custom-switch"`)**: O checkbox é marcado (`checked = true`), e o evento `change` é disparado para simular a interação do usuário.
+
+Esse código simula a ação do usuário preenchendo os campos e disparando os eventos necessários para que a interface do formulário responda como se fosse uma interação real.
+
+### Execução:
+Você pode simplesmente copiar e colar esse código no console do navegador enquanto estiver na página com o formulário, e o JavaScript preencherá os campos automaticamente.
+
+Caso tenha mais campos ou queira ajustes, é só me avisar!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
