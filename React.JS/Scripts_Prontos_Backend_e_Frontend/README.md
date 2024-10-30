@@ -54,7 +54,7 @@ Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para div
 
 Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo, ou seja, ele seja preenchido com o valor já existente quando estiver no modo de edição, e fique vazio no modo de registro, você pode fazer uma pequena alteração no valor inicial do campo. Isso pode ser feito verificando o valor da variável `polymorphic`. Se for igual a `2`, você define o valor do campo como `{admin.full_name}`, caso contrário, deixa o valor como uma string vazia. Veja como você pode modificar o código:
 
-> Campo de texto `type="text"`.
+> ( i ) Campo de texto `type="text"`.
 
 ```jsx
 // ... outras linhas ...
@@ -80,7 +80,7 @@ Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo,
 
 Isso garante que, ao editar um administrador, o campo já venha preenchido com o nome completo, mas que também permita alterar o valor durante a edição. No modo de registro, o campo aparecerá vazio como esperado.
 
-> Campo de seleção `<select>...</select>`.
+> ( i ) Campo de seleção `<select>...</select>`.
 
 Para aplicar a mesma lógica de polimorfismo ao campo `<select>`, a abordagem é similar à usada no campo de texto. Você precisa inicializar o estado do `level` com o valor correto no modo de edição, garantindo que ele possa ser editado normalmente.
 
@@ -121,7 +121,7 @@ useEffect(() => {
 
 Assim como no campo de texto, o valor inicial será carregado no modo de edição, mas o usuário ainda poderá modificar a seleção.
 
-> Estrutura com vários campos
+> ( i ) Estrutura com vários campos
 
 Sim, a estrutura que você usou está correta para inicializar um campo de formulário baseado no valor de `admin` quando está no modo de edição. No entanto, se você tiver **cinco campos**, você precisa garantir que cada um seja controlado de forma independente, assim como fizemos para o campo `level`. Cada campo deve ter seu próprio estado e lógica de inicialização dentro do `useEffect`, mas a estrutura geral é a mesma.
 
