@@ -22,6 +22,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Consulta de dados no backend (Prisma findMany)
      - Paginação e filtros de dados
    - **Edição de Registro (Update)**
+     - [Edição de registros com formulário polimorfo](# "Edição de registros com formulário polimorfo")
      - Edição de itens com dados predefinidos no formulário
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
@@ -119,6 +120,85 @@ export default router;
 
 ### Conclusão
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Edição de registros com formulário polimorfo
+
+Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo, ou seja, ele seja preenchido com o valor já existente quando estiver no modo de edição, e fique vazio no modo de registro, você pode fazer uma pequena alteração no valor inicial do campo. Isso pode ser feito verificando o valor da variável `polymorphic`. Se for igual a `2`, você define o valor do campo como `{admin.full_name}`, caso contrário, deixa o valor como uma string vazia. Veja como você pode modificar o código:
+
+```jsx
+// ... outras linhas ...
+<Form.Group className="mb-3" as={Col} controlId="UserGridFullName">
+    <Form.Label>Nome completo</Form.Label>
+    <Form.Control
+        type="text"
+        size="sm"
+        placeholder="Nome do usuário do sistema..."
+        value={polymorphic === 2 ? (fullUsername || admin.full_name) : fullUsername} // Aqui o valor é polimorfo
+        onChange={(e) => setFullUsername(e.target.value)}
+        ref={fullUsernameInputRef}
+    />
+</Form.Group>
+// ... outras linhas ...
+```
+
+### Explicação:
+- `polymorphic === 2 ? (fullUsername || admin.full_name) : fullUsername`: 
+  - Se `polymorphic` for igual a `2` (modo edição), o campo será preenchido com o valor de `admin.full_name`, a menos que o estado `fullUsername` já tenha sido alterado.
+  - Se `polymorphic` for diferente de `2` (modo registro), o campo será preenchido apenas com o valor da variável `fullUsername`, que inicialmente está vazia.
+  
+
+Isso garante que, ao editar um administrador, o campo já venha preenchido com o nome completo, mas que também permita alterar o valor durante a edição. No modo de registro, o campo aparecerá vazio como esperado.
+
+### Evitar problema com a validação do campo em movo Edição
+
+Esse é um problema ocorre no modo de edição, quando o valor inicial do campo é preenchido diretamente com `admin.full_name`, e não é atualizado o estado `fullUsername` (controlado pelo hook `useState`). Portanto, mesmo que o campo pareça preenchido visualmente, a validação está verificando o estado, que permanece vazio até que o usuário interaja com o campo.
+
+Para corrigir isso, você pode inicializar o estado `fullUsername` com o valor de `admin.full_name` quando o formulário estiver no modo de edição. Uma forma de garantir que o campo seja validado corretamente é usar um `useEffect` que observe a mudança no valor de `polymorphic` e inicialize `fullUsername` com o valor correto ao entrar no modo de edição.
+
+Aqui está a modificação:
+
+### Modificação no uso de `useEffect`:
+
+```jsx
+// ... outras linhas ...
+const [fullUsername, setFullUsername] = useState('');
+
+// Usar useEffect para inicializar o valor de fullUsername no modo de edição
+useEffect(() => {
+    if (polymorphic === 2 && admin?.full_name) {
+        setFullUsername(admin.full_name); // Inicializar fullUsername no modo de edição
+    }
+}, [polymorphic, admin]);
+
+// ... outras linhas ...
+
+async function handleSubmitForm(e) {
+    e.preventDefault();
+
+    // Verificar se o campo "Nome completo do Usuário do sistema" está vazio.
+    if (fullUsername.trim() === '') {
+        fullUsernameInputRef.current.focus();
+        return;
+    }
+
+// ... outras linhas ...
+```
+
+### Explicação:
+
+- O `useEffect` é usado para monitorar a variável `polymorphic` e o objeto `admin`. Se o formulário estiver no modo de edição (`polymorphic === 2`) e houver um valor em `admin.full_name`, ele inicializa o estado `fullUsername` com o nome completo do administrador.
+- Dessa forma, o estado `fullUsername` será preenchido corretamente no momento em que o formulário for renderizado no modo de edição, e a validação irá funcionar corretamente, pois `fullUsername` terá um valor não vazio.
+
+Com essa alteração, o valor do campo será sempre refletido corretamente no estado do componente, permitindo que a validação funcione conforme esperado, tanto para registro quanto para edição.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
