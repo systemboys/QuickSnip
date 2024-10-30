@@ -41,7 +41,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Formulário simples de cadastro com validação de campos
 3. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
-     - [Preencher diferentes tipos de campos (text, email, password, select, checkbox, etc.) usando o console do navegador](# "Preencher diferentes tipos de campos (text, email, password, select, checkbox, etc.) usando o console do navegador")
+     - [Preencher diferentes tipos de campos usando o console do navegador](# "Preencher diferentes tipos de campos usando o console do navegador")
 
 ---
 
@@ -129,7 +129,7 @@ Você pode começar com rotas simples e mover a lógica para controllers quando 
 
 ---
 
-## Preencher diferentes tipos de campos (text, email, password, select, checkbox, etc.) usando o console do navegador
+## Preencher diferentes tipos de campos usando o console do navegador
 
 Ótima ideia! Vamos criar um exemplo mais específico, preenchendo os campos de formulário com base nos `ids` que você mencionou. Aqui está o script atualizado:
 
