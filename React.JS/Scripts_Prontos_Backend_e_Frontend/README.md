@@ -9,29 +9,29 @@
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 <!-- /Botões de navegação -->
 
-Exemplos de CRUD ([Create](# "Create"), [Read](# "Read"), [Update](# "Update"), [Delete](# "Delete")) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
+Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
 
 ## Conteúdo
 1. **Exemplos CRUD com React e Prisma**
-   - **Formulário de Cadastro ([Create](# "Create"))**
+   - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
      - Envio de dados para o backend via API (fetch ou Axios)
      - Armazenamento de dados no banco usando Prisma
-   - **Listagem de Itens com DataTable ([Read](# "Read"))**
+   - **Listagem de Itens com DataTable (Read)**
      - Integração com biblioteca DataTable (React Table, Material UI, etc.)
      - Consulta de dados no backend (Prisma findMany)
      - Paginação e filtros de dados
-   - **Edição de Registro ([Update](# "Update"))**
+   - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - Edição de itens com dados predefinidos no formulário
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
-   - **Exclusão de Registro ([Delete](# "Delete"))**
+   - **Exclusão de Registro (Delete)**
      - Botão de exclusão com confirmação
      - Exclusão de registros via API e atualização da lista no frontend
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
-     - Exemplo completo de um CRUD ([Create](# "Create"), [Read](# "Read"), [Update](# "Update"), [Delete](# "Delete"))
+     - Exemplo completo de um CRUD (Create, Read, Update, Delete)
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
