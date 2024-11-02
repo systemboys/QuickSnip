@@ -57,7 +57,7 @@ Passos com as modificações necessárias, para inplementação de indicador de 
 
 ### Passo 1: Adicionar um Indicador de Carregamento
 
-1. **Crie um componente de `Loader`**: Adicione esse componente logo após as importações no seu arquivo para exibir uma animação de carregamento enquanto os dados estão sendo carregados.
+1. **Crie um componente de `Loader`**: Adicione esse componente logo após as importações no seu arquivo antes da exportação do seu componente para exibir uma animação de carregamento enquanto os dados estão sendo carregados.
 
     ```jsx
     // Componente de carregamento
