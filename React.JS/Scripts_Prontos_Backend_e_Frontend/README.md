@@ -20,7 +20,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Listagem de Itens com DataTable (Read)**
      - Integração com biblioteca DataTable (React Table, Material UI, etc.)
      - Consulta de dados no backend (Prisma findMany)
-     - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](# "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
+     - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
      - Paginação e filtros de dados
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
