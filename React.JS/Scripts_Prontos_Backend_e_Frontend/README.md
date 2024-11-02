@@ -20,6 +20,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Listagem de Itens com DataTable (Read)**
      - Integração com biblioteca DataTable (React Table, Material UI, etc.)
      - Consulta de dados no backend (Prisma findMany)
+     - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](# "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
      - Paginação e filtros de dados
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
@@ -47,6 +48,82 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ---
 
 Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para diversos cenários, como formulários com integração completa entre frontend e backend, listagem de itens, edição, e exclusão com DataTables e outras funcionalidades. A ideia é que essa seção funcione como um guia rápido para montar um CRUD completo ou mesmo pacotes prontos que você pode adaptar e reutilizar facilmente.
+
+---
+
+## Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS
+
+Passos com as modificações necessárias, para inplementação de indicador de carregamento.
+
+### Passo 1: Adicionar um Indicador de Carregamento
+
+1. **Crie um componente de `Loader`**: Adicione esse componente logo após as importações no seu arquivo para exibir uma animação de carregamento enquanto os dados estão sendo carregados.
+
+    ```jsx
+    // Componente de carregamento
+    const Loader = () => (
+      <div className={styles.loaderContainer}>
+        <div className={styles.loader}></div>
+      </div>
+    );
+    ```
+
+2. **Modifique o `return` do componente `ListUsers`**: Adicione o componente `Loader` antes da tabela para que ele seja exibido enquanto `dataLoaded` estiver `false`.
+
+    ```jsx
+    return (
+        <Container>
+            {!dataLoaded && <Loader />} {/* Exibe o loader se os dados ainda não foram carregados */}
+            {dataLoaded && (
+                <>
+                    {/* ...restante do conteúdo */}
+                </>
+            )}
+        </Container>
+    );
+    ```
+
+### Passo 2: Adicionar Estilos para o Indicador de Carregamento
+
+1. **Adicione o seguinte CSS** no arquivo `styles.module.css` para estilizar o componente `Loader`:
+
+    ```css
+    .loaderContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+        z-index: 9999;
+    }
+
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    ```
+
+Essas são as únicas modificações necessárias!
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
 
 ---
 
