@@ -41,6 +41,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 2. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
+   - **Manipulação de Estilos e Classes em Componentes Modais**
+     - [Adicionando Classe na Div Mãe](# "Adicionando Classe na Div Mãe")
 3. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
@@ -563,6 +565,75 @@ export default router;
 
 ### Conclusão
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Adicionando Classe na Div Mãe
+
+Aqui está um passo a passo para implementar a funcionalidade de adicionar e remover classes em uma `div` mãe e manipular diretamente o DOM em um componente React:
+
+### Passo a Passo para Adicionar e Remover Classe em Componente Modal
+
+1. **Importe `useEffect` do React**:
+   Para manipular o DOM ao montar e desmontar o componente, importe o `useEffect` do React, pois ele permite executar código apenas em momentos específicos do ciclo de vida do componente.
+
+2. **Configuração Inicial com `useEffect`**:
+   Utilize o `useEffect` para adicionar a classe à `div` mãe no momento em que o componente é montado e garantir a remoção da classe quando o componente for desmontado.
+   
+3. **Selecionar o Elemento de Janela (`popupElement`)**:
+   Dentro do `useEffect`, use `document.querySelector` para selecionar a `div` mãe ou elemento específico que deseja manipular. No exemplo, seleciona-se o elemento com a classe `fenestra-window-active`.
+
+4. **Adicionar a Classe à `div` Mãe**:
+   Verifique se o `popupElement` foi encontrado e, em seguida, utilize `classList.add` para adicionar uma nova classe. Aqui, a classe é chamada de `"popUpDeleteUser_" + id`, onde `id` é uma variável que torna a classe única para cada instância do componente.
+
+5. **Limpar a Classe ao Desmontar o Componente**:
+   Retorne uma função de "cleanup" dentro do `useEffect`. Essa função remove a classe do elemento `popupElement` ao desmontar o componente, garantindo que o DOM fique limpo ao sair do modal ou componente.
+
+6. **Criar a Função `handleButtonNo` para Remover o Elemento**:
+   Defina uma função chamada `handleButtonNo` que, ao ser chamada, seleciona a `div` com a classe específica (usando `querySelector` e a classe `popUpDeleteUser_` concatenada com `id`). Se o elemento for encontrado, remova-o do DOM com `remove()`.
+
+### Exemplo de Aplicação
+
+Utilize o código a seguir para adicionar e remover a classe dinamicamente:
+
+```jsx
+useEffect(() => {
+    const popupElement = document.querySelector('.fenestra-window-active');
+    
+    if (popupElement) {
+        popupElement.classList.add('popUpDeleteUser_' + id);
+    }
+
+    return () => {
+        if (popupElement) {
+            popupElement.classList.remove('popUpDeleteUser_' + id);
+        }
+    };
+}, []);
+
+function handleButtonNo() {
+    const popupElement = document.querySelector('.popUpDeleteUser_' + id);
+    
+    if (popupElement) {
+        popupElement.remove();
+    }
+}
+```
+
+### Resumo
+1. **Importe `useEffect`**.
+2. **Adicione a classe à `div` mãe no `useEffect`**.
+3. **Remova a classe ao desmontar o componente**.
+4. **Crie a função `handleButtonNo` para remover o elemento do DOM**.
+
+Esses passos garantem uma manipulação de classe consistente em modais ou janelas personalizadas, como no caso do uso com a biblioteca "fenestra".
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
