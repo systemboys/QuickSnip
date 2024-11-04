@@ -28,7 +28,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
    - **Exclusão de Registro (Delete)**
-     - Botão de exclusão com confirmação
+     - [Botão de exclusão com confirmação](# "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
@@ -339,6 +339,150 @@ async function handleSubmitForm(e) {
 - Dessa forma, o estado `fullUsername` será preenchido corretamente no momento em que o formulário for renderizado no modo de edição, e a validação irá funcionar corretamente, pois `fullUsername` terá um valor não vazio.
 
 Com essa alteração, o valor do campo será sempre refletido corretamente no estado do componente, permitindo que a validação funcione conforme esperado, tanto para registro quanto para edição.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Botão de exclusão com confirmação
+
+### Simplificando o formulário para enviar o ID de um item, formulário que confirma a remoção de item
+
+Para atender à sua solicitação, vou simplificar o formulário de maneira que ele contenha apenas a mensagem "Deseja mesmo excluir este registro?" e dois botões, "Sim" (para enviar o formulário) e "Não" (para não fazer nada). Também ajustarei o envio para que o formulário envie apenas o valor `"y"` conforme solicitado. Aqui está o código atualizado:
+
+```jsx
+import {
+    Container,
+    Button,
+    Col,
+    Form,
+    Row
+} from 'react-bootstrap';
+
+import React, { useState, useRef } from 'react';
+
+// Ícones Font-Awesome.
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faCheck,
+    faTimes
+} from '@fortawesome/free-solid-svg-icons';
+
+export function DeleteUser() {
+
+    // Definir o estado para o valor "y".
+    const [confirmationValue] = useState("y");
+
+    // Referenciar o formulário.
+    const formRef = useRef();
+
+    // Função Reset, para resetar o formulário.
+    function handlePopUpNo() {
+        // Não faz nada, pois é apenas o botão "Não".
+    }
+
+    // Função de envio do formulário.
+    async function handleSubmitForm(e) {
+        e.preventDefault();
+
+        // Preparar o objeto com os dados a serem enviados
+        const formData = { confirmation: confirmationValue };
+
+        try {
+            // Fazer a solicitação POST para a API
+            const response = await fetch('http://localhost:3000/deleteYourTable', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData) // Enviar o valor "y" como JSON
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Registro excluído com sucesso:', data);
+    
+                // Resetar o formulário após o envio bem-sucedido (aqui não há necessidade, pois é uma confirmação simples)
+            } else {
+                const errorData = await response.json();
+                console.error('Erro ao excluir registro:', errorData);
+                alert('Erro ao excluir registro. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro de rede ou servidor:', error);
+            alert('Erro de rede ou servidor. Tente novamente mais tarde.');
+        }
+    }
+
+    return (
+        <Container>
+            <Form ref={formRef} onSubmit={handleSubmitForm}>
+                <Row className="mb-3">
+                    <Col sm={12}>
+                        <p>Deseja mesmo excluir este registro?</p>
+                    </Col>
+                </Row>
+                <Button variant="danger" type="submit">
+                    <FontAwesomeIcon icon={faCheck} />{' '}Sim
+                </Button>
+                <Button type="button" onClick={handlePopUpNo} variant="secondary" className="ms-2">
+                    <FontAwesomeIcon icon={faTimes} />{' '}Não
+                </Button>
+            </Form>
+        </Container>
+    );
+}
+```
+
+### Alterações feitas:
+1. **Mensagem de confirmação**: Foi adicionada a mensagem "Deseja mesmo excluir este registro?" acima dos botões.
+2. **Botão "Sim"**: O botão de envio foi renomeado para "Sim", com o ícone correspondente.
+3. **Botão "Não"**: O botão de reset foi renomeado para "Não" e removi sua funcionalidade, como solicitado.
+4. **Envio do formulário**: O formulário agora envia apenas o valor `"y"` como parte de um objeto `confirmation`.
+
+Esse código simplificado atende ao que foi solicitado, mantendo apenas a lógica necessária para exibir a mensagem e enviar a confirmação da exclusão.
+
+### Passando informação para o componente
+
+Para passar o `item.id` para o componente `DeleteUser`, você precisa modificar a chamada de abertura da janela (`fenestra.open`) para incluir o `id` como uma prop do componente. Vou fazer a modificação na linha que você mencionou:
+
+```jsx
+<FontAwesomeIcon
+    className={styles.faTrashCan}
+    icon={faTrashCan}
+    size="1x"
+    title='Excluir usuário'
+    onClick={() => props.fenestra.open({
+        title: "Resumida",
+        resizeable: false,
+        left: (window.innerWidth - 350) / 2,
+        top: (window.innerHeight - 150) / 2,
+        width: 350,
+        height: 150,
+        content: ({ fenestra }) => <DeleteUser id={item.id} />
+    })}
+/>
+```
+
+### O que foi alterado:
+1. **Passagem do `id` como prop**: A linha foi alterada para que o componente `DeleteUser` receba o `id` através de uma prop, ou seja, `id={item.id}`.
+2. **Dentro do componente `DeleteUser`**: Certifique-se de acessar essa prop para usá-la conforme necessário. Por exemplo, dentro do seu componente `DeleteUser`, você pode fazer o seguinte:
+
+   ```jsx
+   export function DeleteUser({ id }) {
+       // Utilize o ID aqui, por exemplo, ao enviar a requisição:
+       console.log("ID recebido:", id);
+   
+       // ... restante do componente
+   }
+   ```
+
+Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e você poderá utilizá-lo para qualquer operação, como enviar no corpo da requisição ou exibir na mensagem de confirmação.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
