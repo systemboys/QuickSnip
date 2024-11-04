@@ -28,7 +28,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
    - **Exclusão de Registro (Delete)**
-     - [Botão de exclusão com confirmação](# "Botão de exclusão com confirmação")
+     - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
