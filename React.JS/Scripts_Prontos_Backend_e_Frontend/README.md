@@ -758,7 +758,7 @@ REACT_APP_API_URL=https://minha-api.com
 REACT_APP_GOOGLE_API_KEY=chave-do-google
 ```
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Conteúdo")
 
 ### 2. Utilização no Código
 Após definir as variáveis no `.env`, você pode acessá-las no código usando `process.env.NOME_DA_VARIAVEL`.
@@ -771,7 +771,7 @@ console.log("URL da API:", apiUrl);
 
 Isso tornará a variável `REACT_APP_API_URL` acessível no código React, e o valor será substituído no processo de build.
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Conteúdo")
 
 ### 3. Adicionando o Arquivo ao `.gitignore`
 O arquivo `.env` normalmente contém informações sensíveis e específicas do ambiente (como chaves e segredos). É uma boa prática adicioná-lo ao `.gitignore` para que ele não seja enviado ao repositório:
@@ -780,7 +780,7 @@ O arquivo `.env` normalmente contém informações sensíveis e específicas do 
 .env
 ```
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Conteúdo")
 
 ### 4. Variáveis Diferentes para Ambientes Diferentes
 Para facilitar a configuração de ambientes, você pode criar arquivos `.env` específicos para cada ambiente:
@@ -790,7 +790,7 @@ Para facilitar a configuração de ambientes, você pode criar arquivos `.env` e
 
 O Create React App carrega automaticamente as variáveis do arquivo correspondente ao ambiente atual (`NODE_ENV`).
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Conteúdo")
 
 ### 5. Limitações e Avisos
 - **Somente em Build Time:** As variáveis são embutidas no bundle do React durante o build, ou seja, você não pode modificá-las em tempo de execução.
