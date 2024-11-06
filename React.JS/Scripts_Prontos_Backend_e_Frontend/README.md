@@ -46,7 +46,6 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 3. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
-## Conteúdo
 4. **Configuração e Segurança em Projetos React**
    - **[Uso de Variáveis de Ambiente com Arquivo .env no React](# "Uso de Variáveis de Ambiente com Arquivo .env no React")**
      - Estrutura e convenções do arquivo `.env` com `REACT_APP_`
