@@ -130,8 +130,8 @@ Essas são as únicas modificações necessárias!
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -352,8 +352,8 @@ Com essa alteração, o valor do campo será sempre refletido corretamente no es
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -496,8 +496,8 @@ Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -576,8 +576,8 @@ Você pode começar com rotas simples e mover a lógica para controllers quando 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -645,8 +645,8 @@ Esses passos garantem uma manipulação de classe consistente em modais ou janel
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -737,8 +737,8 @@ Caso tenha mais campos ou queira ajustes, é só me avisar!
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -831,8 +831,8 @@ Assim, você consegue gerenciar as variáveis de forma prática e segura no Reac
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
