@@ -16,6 +16,6 @@ Esta seção apresenta a integração entre backend e frontend utilizando Node.j
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
-[![Início](../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 <!-- /Botões de navegação -->
 

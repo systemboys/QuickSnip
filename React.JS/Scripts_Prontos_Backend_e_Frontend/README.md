@@ -47,12 +47,12 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
 4. **Configuração e Segurança em Projetos React**
-   - #### **[Uso de Variáveis de Ambiente com Arquivo .env no React](./README.md#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Uso de Variáveis de Ambiente com Arquivo .env no React")**
-     - [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](./README.md#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
-     - [Acessando variáveis de ambiente no código usando `process.env`](./README.md#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
-     - [Adicionando `.env` ao `.gitignore` para evitar exposição](./README.md#3-adicionando-o-arquivo-ao-gitignore "Adicionando o Arquivo ao .gitignore")
-     - [Configuração para diferentes ambientes (desenvolvimento, produção, testes)](./README.md#4-vari%C3%A1veis-diferentes-para-ambientes-diferentes "Variáveis Diferentes para Ambientes Diferentes")
-     - [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](./README.md#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
+   - #### **[Uso de Variáveis de Ambiente com Arquivo .env no React](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Uso de Variáveis de Ambiente com Arquivo .env no React")**
+     - [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
+     - [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
+     - [Adicionando `.env` ao `.gitignore` para evitar exposição](#3-adicionando-o-arquivo-ao-gitignore "Adicionando o Arquivo ao .gitignore")
+     - [Configuração para diferentes ambientes (desenvolvimento, produção, testes)](#4-vari%C3%A1veis-diferentes-para-ambientes-diferentes "Variáveis Diferentes para Ambientes Diferentes")
+     - [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
 
 ---
 
@@ -130,8 +130,8 @@ Essas são as únicas modificações necessárias!
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -352,8 +352,8 @@ Com essa alteração, o valor do campo será sempre refletido corretamente no es
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -496,8 +496,8 @@ Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -576,8 +576,8 @@ Você pode começar com rotas simples e mover a lógica para controllers quando 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -645,8 +645,8 @@ Esses passos garantem uma manipulação de classe consistente em modais ou janel
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -737,8 +737,8 @@ Caso tenha mais campos ou queira ajustes, é só me avisar!
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -758,7 +758,7 @@ REACT_APP_API_URL=https://minha-api.com
 REACT_APP_GOOGLE_API_KEY=chave-do-google
 ```
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 
 ### 2. Utilização no Código
 Após definir as variáveis no `.env`, você pode acessá-las no código usando `process.env.NOME_DA_VARIAVEL`.
@@ -771,7 +771,7 @@ console.log("URL da API:", apiUrl);
 
 Isso tornará a variável `REACT_APP_API_URL` acessível no código React, e o valor será substituído no processo de build.
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 
 ### 3. Adicionando o Arquivo ao `.gitignore`
 O arquivo `.env` normalmente contém informações sensíveis e específicas do ambiente (como chaves e segredos). É uma boa prática adicioná-lo ao `.gitignore` para que ele não seja enviado ao repositório:
@@ -780,7 +780,7 @@ O arquivo `.env` normalmente contém informações sensíveis e específicas do 
 .env
 ```
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 
 ### 4. Variáveis Diferentes para Ambientes Diferentes
 Para facilitar a configuração de ambientes, você pode criar arquivos `.env` específicos para cada ambiente:
@@ -790,7 +790,7 @@ Para facilitar a configuração de ambientes, você pode criar arquivos `.env` e
 
 O Create React App carrega automaticamente as variáveis do arquivo correspondente ao ambiente atual (`NODE_ENV`).
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 
 ### 5. Limitações e Avisos
 - **Somente em Build Time:** As variáveis são embutidas no bundle do React durante o build, ou seja, você não pode modificá-las em tempo de execução.
@@ -831,8 +831,8 @@ Assim, você consegue gerenciar as variáveis de forma prática e segura no Reac
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---

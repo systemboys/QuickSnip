@@ -17,6 +17,6 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 
 <!-- Botões de navegação -->
-[![Início](./images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
+[![Início](./images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 <!-- /Botões de navegação -->
 
