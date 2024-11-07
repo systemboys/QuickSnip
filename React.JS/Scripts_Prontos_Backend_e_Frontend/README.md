@@ -5,8 +5,8 @@
 ---
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
 <!-- /Botões de navegação -->
 
 Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
@@ -128,10 +128,10 @@ Passos com as modificações necessárias, para inplementação de indicador de 
 Essas são as únicas modificações necessárias!
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -350,10 +350,10 @@ async function handleSubmitForm(e) {
 Com essa alteração, o valor do campo será sempre refletido corretamente no estado do componente, permitindo que a validação funcione conforme esperado, tanto para registro quanto para edição.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -494,10 +494,10 @@ Para passar o `item.id` para o componente `DeleteUser`, você precisa modificar 
 Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e você poderá utilizá-lo para qualquer operação, como enviar no corpo da requisição ou exibir na mensagem de confirmação.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -574,10 +574,10 @@ export default router;
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -643,10 +643,10 @@ function handleButtonNo() {
 Esses passos garantem uma manipulação de classe consistente em modais ou janelas personalizadas, como no caso do uso com a biblioteca "fenestra".
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -735,10 +735,10 @@ Você pode simplesmente copiar e colar esse código no console do navegador enqu
 Caso tenha mais campos ou queira ajustes, é só me avisar!
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -758,7 +758,7 @@ REACT_APP_API_URL=https://minha-api.com
 REACT_APP_GOOGLE_API_KEY=chave-do-google
 ```
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 
 ### 2. Utilização no Código
 Após definir as variáveis no `.env`, você pode acessá-las no código usando `process.env.NOME_DA_VARIAVEL`.
@@ -771,7 +771,7 @@ console.log("URL da API:", apiUrl);
 
 Isso tornará a variável `REACT_APP_API_URL` acessível no código React, e o valor será substituído no processo de build.
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 
 ### 3. Adicionando o Arquivo ao `.gitignore`
 O arquivo `.env` normalmente contém informações sensíveis e específicas do ambiente (como chaves e segredos). É uma boa prática adicioná-lo ao `.gitignore` para que ele não seja enviado ao repositório:
@@ -780,7 +780,7 @@ O arquivo `.env` normalmente contém informações sensíveis e específicas do 
 .env
 ```
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 
 ### 4. Variáveis Diferentes para Ambientes Diferentes
 Para facilitar a configuração de ambientes, você pode criar arquivos `.env` específicos para cada ambiente:
@@ -790,7 +790,7 @@ Para facilitar a configuração de ambientes, você pode criar arquivos `.env` e
 
 O Create React App carrega automaticamente as variáveis do arquivo correspondente ao ambiente atual (`NODE_ENV`).
 
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 
 ### 5. Limitações e Avisos
 - **Somente em Build Time:** As variáveis são embutidas no bundle do React durante o build, ou seja, você não pode modificá-las em tempo de execução.
@@ -829,10 +829,10 @@ export default App;
 Assim, você consegue gerenciar as variáveis de forma prática e segura no React!
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](./README.md#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
