@@ -837,7 +837,7 @@ Para diferenciar as URLs de ambiente de desenvolvimento (localhost) e produção
 
 ```env
 # URL da API para o ambiente de produção
-REACT_APP_API_URL_PROD=http://54.196.229.103:3333
+REACT_APP_API_URL_PROD=http://000.000.000.000:3333
 
 # URL da API para o ambiente de desenvolvimento (localhost)
 REACT_APP_API_URL_DEV=http://localhost:3333
@@ -868,7 +868,7 @@ REACT_APP_API_URL=http://localhost:3333
 
 **.env.production**
 ```env
-REACT_APP_API_URL=http://54.196.229.103:3333
+REACT_APP_API_URL=http://000.000.000.000:3333
 ```
 
 No código, você acessaria sempre `process.env.REACT_APP_API_URL`, e o valor correto seria carregado dependendo do ambiente de execução.
