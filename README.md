@@ -12,11 +12,11 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 ---
 
-[![JavaScript </>](./images/JavaScript.png)](./React.JS/#quicksnip "JavaScript </>")
-<!-- [![Docker](./images/Docker.png)](./Docker/#quicksnip "Docker") -->
+[![JavaScript </>](./images/JavaScript.png)](./React.JS/README.md#quicksnip "JavaScript </>")
+<!-- [![Docker](./images/Docker.png)](./Docker/README.md#quicksnip "Docker") -->
 
 
 <!-- Botões de navegação -->
-[![Início](./images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](./images/control/11277_control_stop_up_icon.png)](./README.md#quicksnip "Topo")
 <!-- /Botões de navegação -->
 
