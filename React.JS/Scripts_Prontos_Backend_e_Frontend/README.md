@@ -53,6 +53,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Adicionando `.env` ao `.gitignore` para evitar exposição](#3-adicionando-o-arquivo-ao-gitignore "Adicionando o Arquivo ao .gitignore")
      - [Configuração para diferentes ambientes (desenvolvimento, produção, testes)](#4-vari%C3%A1veis-diferentes-para-ambientes-diferentes "Variáveis Diferentes para Ambientes Diferentes")
      - [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
+     - [Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React](# "Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React")
 
 ---
 
@@ -827,6 +828,50 @@ export default App;
 ```
 
 Assim, você consegue gerenciar as variáveis de forma prática e segura no React!
+
+[![Início](../../images/control/11280_control_up_icon.png)](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "Conteúdo")
+
+### Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React
+
+Para diferenciar as URLs de ambiente de desenvolvimento (localhost) e produção (online), você pode usar nomes de variáveis que indiquem o propósito de cada uma. Aqui estão algumas sugestões:
+
+```env
+# URL da API para o ambiente de produção
+REACT_APP_API_URL_PROD=http://54.196.229.103:3333
+
+# URL da API para o ambiente de desenvolvimento (localhost)
+REACT_APP_API_URL_DEV=http://localhost:3333
+```
+
+Esses nomes deixam claro o propósito de cada URL. No código, você pode decidir qual utilizar com base no ambiente atual.
+
+### Exemplo de Uso no Código
+
+Para escolher a URL correta conforme o ambiente, você pode fazer algo assim:
+
+```javascript
+const apiUrl = process.env.NODE_ENV === 'production' 
+  ? process.env.REACT_APP_API_URL_PROD 
+  : process.env.REACT_APP_API_URL_DEV;
+
+console.log("API URL:", apiUrl);
+```
+
+### Alternativa Usando Apenas uma Variável e Diferentes `.env`
+
+Outra abordagem é criar dois arquivos `.env`, um para desenvolvimento (`.env.development`) e outro para produção (`.env.production`), cada um com a mesma variável `REACT_APP_API_URL`. Dessa forma, a variável muda automaticamente conforme o ambiente:
+
+**.env.development**
+```env
+REACT_APP_API_URL=http://localhost:3333
+```
+
+**.env.production**
+```env
+REACT_APP_API_URL=http://54.196.229.103:3333
+```
+
+No código, você acessaria sempre `process.env.REACT_APP_API_URL`, e o valor correto seria carregado dependendo do ambiente de execução.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
