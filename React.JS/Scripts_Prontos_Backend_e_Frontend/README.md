@@ -873,6 +873,36 @@ REACT_APP_API_URL=http://54.196.229.103:3333
 
 No código, você acessaria sempre `process.env.REACT_APP_API_URL`, e o valor correto seria carregado dependendo do ambiente de execução.
 
+Para substituir `http://localhost:3333` pela variável `process.env.REACT_APP_API_URL`, basta concatenar a URL base com o caminho da rota (`/addAdmins`). Veja como fazer isso:
+
+```jsx
+// Construir a URL completa usando a variável de ambiente
+const apiUrl = `${process.env.REACT_APP_API_URL}/addAdmins`;
+
+// Fazer a solicitação POST para a API
+const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData) // Enviar o objeto como JSON
+});
+```
+
+### Passo a Passo
+1. **Defina a URL base:** Use `process.env.REACT_APP_API_URL` para obter a URL configurada no seu arquivo `.env`.
+2. **Concatenar o caminho da rota:** Combine a URL base com o caminho da API (`/addAdmins`), usando template literals (`` `${...}` ``) para criar a URL completa.
+
+### Observação sobre Configuração do `.env`
+Se estiver rodando em ambiente de desenvolvimento, certifique-se de que o arquivo `.env` contém a variável `REACT_APP_API_URL`:
+
+```env
+# Exemplo de configuração em desenvolvimento
+REACT_APP_API_URL=http://localhost:3333
+```
+
+Assim, ao mudar para produção, você só precisa alterar o valor em `.env.production`, sem modificar o código da aplicação.
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
