@@ -903,6 +903,34 @@ REACT_APP_API_URL=http://localhost:3333
 
 Assim, ao mudar para produção, você só precisa alterar o valor em `.env.production`, sem modificar o código da aplicação.
 
+O arquivo `.env` deve ser colocado no diretório raiz do **Frontend** (ou seja, no mesmo nível de `package.json` do projeto React). É nesse ambiente que as variáveis `process.env.REACT_APP_*` serão acessadas, e o Create React App automaticamente carrega essas variáveis no processo de build.
+
+### Estrutura de Diretório
+
+Supondo uma estrutura de projeto como a seguinte:
+
+```bash
+/meu-projeto
+├── /frontend
+│   ├── .env               # Arquivo .env para o React (frontend)
+│   ├── package.json
+│   ├── src
+│   └── ...
+└── /backend
+    ├── .env               # Arquivo .env para o backend (opcional, se o backend também precisar de variáveis de ambiente)
+    ├── package.json
+    └── ...
+```
+
+O `.env` do frontend estará dentro da pasta `frontend`, e as variáveis serão acessíveis para as requisições e configurações da aplicação React.
+
+### Dicas Importantes
+
+- **Evitar confusão entre variáveis de ambiente**: Certifique-se de que variáveis de ambiente específicas do frontend e backend estão separadas para evitar conflitos, especialmente se você também usa um arquivo `.env` no backend.
+- **Atualizar o build após mudanças no `.env`**: Sempre que alterar o `.env`, reinicie o servidor de desenvolvimento do React para que as novas variáveis sejam carregadas.
+
+Isso garante que o frontend acesse corretamente as variáveis definidas no `.env` para as requisições de API e outras configurações.
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
