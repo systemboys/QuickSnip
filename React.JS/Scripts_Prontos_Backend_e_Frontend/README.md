@@ -5,8 +5,8 @@
 ---
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
 <!-- /Botões de navegação -->
 
 Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
@@ -128,10 +128,10 @@ Passos com as modificações necessárias, para inplementação de indicador de 
 Essas são as únicas modificações necessárias!
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -350,10 +350,10 @@ async function handleSubmitForm(e) {
 Com essa alteração, o valor do campo será sempre refletido corretamente no estado do componente, permitindo que a validação funcione conforme esperado, tanto para registro quanto para edição.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -494,10 +494,10 @@ Para passar o `item.id` para o componente `DeleteUser`, você precisa modificar 
 Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e você poderá utilizá-lo para qualquer operação, como enviar no corpo da requisição ou exibir na mensagem de confirmação.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -574,10 +574,10 @@ export default router;
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -643,10 +643,10 @@ function handleButtonNo() {
 Esses passos garantem uma manipulação de classe consistente em modais ou janelas personalizadas, como no caso do uso com a biblioteca "fenestra".
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -735,10 +735,10 @@ Você pode simplesmente copiar e colar esse código no console do navegador enqu
 Caso tenha mais campos ou queira ajustes, é só me avisar!
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -831,8 +831,8 @@ Assim, você consegue gerenciar as variáveis de forma prática e segura no Reac
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](./#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](./#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
