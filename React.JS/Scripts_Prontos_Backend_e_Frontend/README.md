@@ -931,6 +931,24 @@ O `.env` do frontend estará dentro da pasta `frontend`, e as variáveis serão 
 
 Isso garante que o frontend acesse corretamente as variáveis definidas no `.env` para as requisições de API e outras configurações.
 
+### Verifique se está usando Vite (ou Outro Bundler Diferente de CRA)
+
+Se você está usando **Vite** ou outro bundler no lugar do Create React App, a configuração das variáveis de ambiente é diferente. Em Vite, por exemplo, as variáveis de ambiente precisam começar com `VITE_` em vez de `REACT_APP_`.
+
+Exemplo para Vite:
+```env
+VITE_API_URL=http://localhost:3333
+```
+
+E no código, você acessaria como `import.meta.env.VITE_API_URL`.
+
+### Resumo
+
+- **CRA**: Use `REACT_APP_` e acesse como `process.env.REACT_APP_API_URL`.
+- **Vite**: Use `VITE_` e acesse como `import.meta.env.VITE_API_URL`.
+
+Essas dicas devem resolver problemas.
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
