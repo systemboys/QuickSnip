@@ -54,6 +54,11 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Configuração para diferentes ambientes (desenvolvimento, produção, testes)](#4-vari%C3%A1veis-diferentes-para-ambientes-diferentes "Variáveis Diferentes para Ambientes Diferentes")
      - [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
      - [Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React](#gerenciamento-de-urls-de-api-por-ambiente-com-vari%C3%A1veis-de-ambiente-no-react "Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React")
+   - **Uso de Dados do `localStorage` em Componentes React**
+     - **Acessando `companyId` do `localStorage` para Requisições API**
+       - Instruções para acessar dados como `companyId` do `localStorage` em componentes React
+       - Exemplo genérico para reutilização em múltiplos componentes
+       - Considerações de segurança e verificação de dados antes do uso
 
 ---
 
@@ -948,6 +953,106 @@ E no código, você acessaria como `import.meta.env.VITE_API_URL`.
 - **Vite**: Use `VITE_` e acesse como `import.meta.env.VITE_API_URL`.
 
 Essas dicas devem resolver problemas.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Guia: Como Acessar Dados do localStorage para Requisições API em Componentes React
+
+Guia com instruções claras sobre como acessar dados do `localStorage` (como o `companyId`) e usá-los em requisições API dentro de um `useEffect`. Vou incluir também um exemplo genérico para facilitar a reutilização.
+
+---
+
+### Guia: Como Acessar Dados do `localStorage` para Requisições API em Componentes React
+
+#### Objetivo
+Carregar dados específicos armazenados no `localStorage`, como o `companyId` do usuário, e utilizá-los em chamadas de API dentro de componentes React.
+
+#### Passo a Passo
+
+1. **Acessar o `localStorage`**: Obtenha e parse o valor necessário (por exemplo, `companyId`) diretamente do `localStorage` para uso dentro do componente.
+   
+2. **Configurar o `useEffect`**: Utilize o `useEffect` para realizar a chamada API assim que o componente for montado ou quando o dado necessário for obtido.
+
+3. **Usar o Dado no `useEffect`**: Passar o valor recuperado do `localStorage` (como o `companyId`) na URL da API.
+
+4. **Tratar a Resposta da API**: Atualize o estado do componente com a resposta da API para exibir ou manipular os dados conforme necessário.
+
+---
+
+### Exemplo Genérico
+
+Aqui está um exemplo genérico que você pode seguir para outros componentes:
+
+```javascript
+import React, { useState, useEffect } from 'react';
+import { Api } from 'caminho/para/api'; // Importe seu módulo de API
+
+export function MeuComponente() {
+    const [dados, setDados] = useState([]);
+
+    // 1. Obtenha o `companyId` (ou outro dado) do localStorage
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const companyId = storedUser?.company_id; // Substitua por outro dado, se necessário
+
+    // 2. Use o `useEffect` para fazer a requisição API
+    useEffect(() => {
+        if (companyId) { // Verifique se `companyId` está definido antes de fazer a requisição
+            Api.get(`/suaRotaApi/${companyId}`)
+                .then((res) => {
+                    // 3. Atualize o estado com a resposta da API
+                    setDados(res.data);
+                })
+                .catch((error) => {
+                    console.error("Erro ao buscar dados:", error);
+                });
+        }
+    }, [companyId]); // Coloque `companyId` como dependência, se necessário
+
+    return (
+        <div>
+            {/* Renderize os dados obtidos conforme necessário */}
+            {dados.length > 0 ? (
+                <ul>
+                    {dados.map((item) => (
+                        <li key={item.id}>{item.nome}</li> // Adapte conforme a estrutura de `dados`
+                    ))}
+                </ul>
+            ) : (
+                <p>Nenhum dado disponível</p>
+            )}
+        </div>
+    );
+}
+```
+
+### Explicação do Exemplo
+
+- **Obter `companyId`**: Utilizamos `JSON.parse(localStorage.getItem('user'))` para recuperar o objeto armazenado como string JSON. Em seguida, acessamos o campo `company_id` dentro de `storedUser`.
+
+- **Chamada API Condicional**: No `useEffect`, verificamos se `companyId` está definido antes de fazer a requisição. Isso é importante para evitar erros, caso `companyId` seja `undefined` ou `null`.
+
+- **Tratamento de Erros**: Sempre inclua um `catch` na chamada `Api.get` para capturar e tratar erros, facilitando a depuração e prevenindo falhas silenciosas.
+
+- **Dependência do `useEffect`**: Adicione `companyId` como dependência no array de dependências do `useEffect`, caso o dado possa mudar durante o ciclo de vida do componente.
+
+---
+
+### Reutilização em Outros Componentes
+
+1. **Repita a leitura do `localStorage`** para qualquer dado necessário, como `userId`, `companyId`, ou outros campos específicos.
+2. **Substitua `/suaRotaApi/${companyId}`** com a rota apropriada para o componente atual.
+3. **Atualize o estado e renderize os dados** conforme a estrutura de resposta da API e as necessidades do componente.
+
+---
+
+Seguindo essas instruções, você conseguirá acessar dados do `localStorage` e usá-los em requisições API em diferentes componentes de forma rápida e eficaz!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
