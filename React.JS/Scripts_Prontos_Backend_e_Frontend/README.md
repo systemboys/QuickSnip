@@ -55,10 +55,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
      - [Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React](#gerenciamento-de-urls-de-api-por-ambiente-com-vari%C3%A1veis-de-ambiente-no-react "Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React")
    - **Uso de Dados do `localStorage` em Componentes React**
-     - **Acessando `companyId` do `localStorage` para Requisições API**
-       - Instruções para acessar dados como `companyId` do `localStorage` em componentes React
-       - Exemplo genérico para reutilização em múltiplos componentes
-       - Considerações de segurança e verificação de dados antes do uso
+     - **[Acessando `companyId` do `localStorage` para Requisições API](#guia-como-acessar-dados-do-localstorage-para-requisi%C3%A7%C3%B5es-api-em-componentes-react "Acessando `companyId` do `localStorage` para Requisições API")**
+       - [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
+       - [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
+       - [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
 
 ---
 
