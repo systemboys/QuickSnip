@@ -963,13 +963,9 @@ Essas dicas devem resolver problemas.
 
 ---
 
-## Guia: Como Acessar Dados do localStorage para Requisições API em Componentes React
+## Guia: Como Acessar Dados do `localStorage` para Requisições API em Componentes React
 
 Guia com instruções claras sobre como acessar dados do `localStorage` (como o `companyId`) e usá-los em requisições API dentro de um `useEffect`. Vou incluir também um exemplo genérico para facilitar a reutilização.
-
----
-
-### Guia: Como Acessar Dados do `localStorage` para Requisições API em Componentes React
 
 #### Objetivo
 Carregar dados específicos armazenados no `localStorage`, como o `companyId` do usuário, e utilizá-los em chamadas de API dentro de componentes React.
