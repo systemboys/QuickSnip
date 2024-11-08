@@ -980,13 +980,11 @@ Carregar dados específicos armazenados no `localStorage`, como o `companyId` do
 
 4. **Tratar a Resposta da API**: Atualize o estado do componente com a resposta da API para exibir ou manipular os dados conforme necessário.
 
----
-
 ### Exemplo Genérico
 
 Aqui está um exemplo genérico que você pode seguir para outros componentes:
 
-```javascript
+```jsx
 import React, { useState, useEffect } from 'react';
 import { Api } from 'caminho/para/api'; // Importe seu módulo de API
 
@@ -1038,15 +1036,11 @@ export function MeuComponente() {
 
 - **Dependência do `useEffect`**: Adicione `companyId` como dependência no array de dependências do `useEffect`, caso o dado possa mudar durante o ciclo de vida do componente.
 
----
-
 ### Reutilização em Outros Componentes
 
 1. **Repita a leitura do `localStorage`** para qualquer dado necessário, como `userId`, `companyId`, ou outros campos específicos.
 2. **Substitua `/suaRotaApi/${companyId}`** com a rota apropriada para o componente atual.
 3. **Atualize o estado e renderize os dados** conforme a estrutura de resposta da API e as necessidades do componente.
-
----
 
 Seguindo essas instruções, você conseguirá acessar dados do `localStorage` e usá-los em requisições API em diferentes componentes de forma rápida e eficaz!
 
