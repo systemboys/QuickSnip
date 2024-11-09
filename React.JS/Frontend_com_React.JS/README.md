@@ -18,9 +18,9 @@
    - **Hooks**
      - useState para gerenciamento de estado
      - useEffect para efeitos colaterais
-       - [Explicação detalhada sobre `useEffect` com exemplos práticos](# "Explicação detalhada sobre `useEffect` com exemplos práticos")
-       - Limpeza de efeitos e uso de dependências
-       - Erros comuns e boas práticas com `useEffect`
+       - [Explicação detalhada sobre `useEffect` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-useeffect-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useEffect` com exemplos práticos")
+       - [Limpeza de efeitos e uso de dependências](#3-limpeza-de-efeitos "Limpeza de efeitos e uso de dependências")
+       - [Erros comuns e boas práticas com `useEffect`](#erros-comuns-com-useeffect "Erros comuns e boas práticas com `useEffect`")
      - useContext para contexto global
    - **Componentes Avançados**
      - Componentes controlados e não controlados
@@ -45,7 +45,7 @@
 
 ---
 
-Detalhes do conteúdo da sessão.
+Nesta sessão há varios itens de conteúdos referentes à React.JS.
 
 ---
 
