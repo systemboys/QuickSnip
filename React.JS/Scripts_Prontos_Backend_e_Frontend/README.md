@@ -1114,25 +1114,25 @@ export function MeuComponente() {
 
     // 2. Uso do `useEffect` para fazer a requisição API.
     useEffect(() => {
-        if (companyId) { // Verificação se o `companyId` está definido antes de fazer a requisição.
+        if (companyId) { // Verificar o `companyId` está definido antes de fazer a requisição.
             Api.get(`/suaRotaApi/${companyId}`)
                 .then((res) => {
-                    // 3. Atualização o estado com a resposta da API.
+                    // 3. Atualizar o estado com a resposta da API.
                     setDados(res.data);
                 })
                 .catch((error) => {
                     console.error("Erro ao buscar dados:", error);
                 });
         }
-    }, [companyId]); // Colocação do `companyId` como dependência, se necessário.
+    }, [companyId]); // Colocar do `companyId` como dependência, se necessário.
 
     return (
         <div>
-            {/* Renderização dos dados obtidos conforme necessário. */}
+            {/* Renderizar dos dados obtidos conforme necessário. */}
             {dados.length > 0 ? (
                 <ul>
                     {dados.map((item) => (
-                        <li key={item.id}>{item.nome}</li> // Adaptação conforme a estrutura de `dados`.
+                        <li key={item.id}>{item.nome}</li> // Adaptar conforme a estrutura de `dados`.
                     ))}
                 </ul>
             ) : (
