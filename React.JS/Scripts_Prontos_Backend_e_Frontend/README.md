@@ -524,7 +524,7 @@ routes.delete('/deleteEntity/:parentId/:childId', async (req, res) => {
 
     try {
         // Verificar se o registro existe e está associado ao parâmetro fornecido
-        const recordExists = await prisma.yourEntity.findUnique({
+        const recordExists = await prisma.yourEntity.findFirst({
             where: { 
                 id: parseInt(childId), // Substitua 'id' pelo campo que identifica o registro filho
                 parent_field: parseInt(parentId) // Substitua 'parent_field' pela chave estrangeira
