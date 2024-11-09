@@ -25,9 +25,9 @@
        - [Limpeza de efeitos e uso de dependências](#3-limpeza-de-efeitos "Limpeza de efeitos e uso de dependências")
        - [Erros comuns e boas práticas com `useEffect`](#erros-comuns-com-useeffect "Erros comuns e boas práticas com `useEffect`")
      - useContext para contexto global
-       - [Explicação detalhada sobre `useContext` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-usecontext-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useContext` com exemplos práticos")
-       - [Compartilhando dados globais com `useContext`](#compartilhando-dados-globais-com-usecontext "Compartilhando dados globais com `useContext`")
-       - [Quando usar `useContext` e evitar prop drilling](#quando-usar-usecontext-e-evitar-prop-drilling "Quando usar `useContext` e evitar prop drilling")
+       - [Explicação detalhada sobre `useContext` com exemplos práticos](#o-usecontext-para-contexto-global "Explicação detalhada sobre `useContext` com exemplos práticos")
+       - [Compartilhando dados globais com `useContext`](#exemplo-avan%C3%A7ado-compartilhando-tema-global "Compartilhando dados globais com `useContext`")
+       - [Quando usar `useContext` e evitar prop drilling](#quando-usar-usecontext "Quando usar `useContext` e evitar prop drilling")
    - **Componentes Avançados**
      - Componentes controlados e não controlados
      - Refs com useRef
