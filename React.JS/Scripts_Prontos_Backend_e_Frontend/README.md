@@ -17,12 +17,13 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Formulário simples de cadastro com validação de campos
      - Envio de dados para o backend via API (fetch ou Axios)
      - Armazenamento de dados no banco usando Prisma
+     - [`Gravando` dados do formulário na tabela usando o `ORM Prisma`](#gravando-dados-do-formul%C3%A1rio-na-tabela-usando-o-orm-prisma "Gravando dados do formulário na tabela usando o ORM Prisma")
    - **Listagem de Itens com DataTable (Read)**
      - Integração com biblioteca DataTable (React Table, Material UI, etc.)
      - Consulta de dados no backend (Prisma findMany)
      - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
      - Paginação e filtros de dados
-     - [Formatação de Dados da API em um Array no Formato Específico (JSON)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
+     - [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - Edição de itens com dados predefinidos no formulário
@@ -67,6 +68,119 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ---
 
 Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para diversos cenários, como formulários com integração completa entre frontend e backend, listagem de itens, edição, e exclusão com DataTables e outras funcionalidades. A ideia é que essa seção funcione como um guia rápido para montar um CRUD completo ou mesmo pacotes prontos que você pode adaptar e reutilizar facilmente.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Gravando dados do formulário na tabela usando o ORM Prisma
+
+Para fazer o formulário enviar os dados para a rota `/addAdmins` a fim de gravar as informações na tabela "admins", você precisa fazer alguns ajustes na função de envio de dados. Aqui estão os passos detalhados para garantir que tudo funcione corretamente:
+
+### Passo 1: Configurar o envio de dados para a API
+
+Na função `handleSubmitForm`, após a validação dos campos, você pode enviar os dados para a rota `/addAdmins` usando `fetch` para realizar uma solicitação POST com o corpo da requisição em formato JSON. Veja como você pode fazer isso:
+
+1. Adicione a função de envio de dados com `fetch`.
+2. Capture a resposta e lide com os possíveis erros.
+
+Aqui está o código atualizado:
+
+```jsx
+// Interceptar o evento do submit.
+async function handleSubmitForm(e) {
+    e.preventDefault();
+
+    // Verificar se o campo "Nome completo do Usuário do sistema" está vazio.
+    if (fullUsername.trim() === '') {
+        fullUsernameInputRef.current.focus();
+        return;
+    }
+    // Verificar se o campo "Email do usuário" está vazio.
+    if (email.trim() === '') {
+        emailInputRef.current.focus();
+        return;
+    }
+    // Verificar se o campo "Sexo Biológico" está vazio.
+    if (biologicalSex.trim() === '') { // Alterado para biologicalSex
+        biologicalSexInputRef.current.focus();
+        return;
+    }
+    // Verificar se o campo "Usuário do sistema" está vazio.
+    if (userName.trim() === '') {
+        userNameInputRef.current.focus();
+        return;
+    }
+    // Verificar se o campo "Senha do Usuário do sistema" está vazio.
+    if (password.trim() === '') {
+        passwordInputRef.current.focus();
+        return;
+    }
+
+    // -------------------------- Gravar dados---------------------------
+    // Preparar o objeto com os dados a serem enviados
+    const formData = {
+        full_name:      fullUsername,
+        email:          email,
+        biological_sex: biologicalSex, // Corrigido
+        username:       userName,
+        password:       password,
+        level:          parseInt(level), // Recebe valor INT
+    };
+
+    try {
+        // Fazer a solicitação POST para a API
+        const response = await fetch('http://localhost:3000/addAdmins', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData) // Enviar o objeto como JSON
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Admin adicionado com sucesso:', data);
+
+            // Resetar o formulário após o envio bem-sucedido
+            handleReset();
+        } else {
+            const errorData = await response.json();
+            console.error('Erro ao adicionar admin:', errorData);
+            alert('Erro ao adicionar admin. Verifique os dados e tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro de rede ou servidor:', error);
+        alert('Erro de rede ou servidor. Tente novamente mais tarde.');
+    }
+    // ------------------------- /Gravar dados---------------------------
+
+    // Exibir no console os valores obitidos nos campos.
+    // console.log("Submit", { fullUsername, email, biologicalSex, userName, password, level });
+
+    // Resetar após enviar os dados.
+    handleReset();
+}
+```
+
+### Passo 2: Verificar o envio de dados
+
+Certifique-se de que sua API esteja rodando no servidor local e que a rota `POST /addAdmins` esteja funcionando corretamente. Quando o formulário for enviado com sucesso, os dados serão enviados para a API, e o administrador será adicionado ao banco de dados.
+
+### Passo 3: Lidando com o `level`
+
+No código do frontend, está sendo enviado o campo `level` com um valor inteiro (`int`), pois um seletor para níveis sendo definido com números inteiros, o valor deve ser recebido com `parseInt(level)`.
+
+### Passo 4: Mensagens de feedback para o usuário
+
+Depois de adicionar o administrador com sucesso ou se houver algum erro, você pode mostrar mensagens para o usuário através de `alert()` ou outros componentes de feedback mais elaborados, como `toasts` ou `modals`, dependendo da sua necessidade.
+
+Agora, o seu formulário enviará corretamente as informações para a rota `/addAdmins`, e a rota salvará os dados no banco de dados.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
