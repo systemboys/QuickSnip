@@ -39,7 +39,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - Como mover a lógica de rotas para controllers para melhor organização
        - Vantagens da modularização e manutenibilidade do código
        - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
-       - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
+         - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
 2. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
