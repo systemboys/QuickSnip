@@ -640,6 +640,7 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
        const [data, setData] = useState([]);
        const [error, setError] = useState(null);
 
+       // Realizar a chamada à API para buscar dados associados ao parâmetro especificado.
        useEffect(() => {
            const fetchData = async () => {
                try {
