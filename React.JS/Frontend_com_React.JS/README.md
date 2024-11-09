@@ -17,9 +17,9 @@
      - Props e estado (state)
    - **Hooks**
      - useState para gerenciamento de estado
-       - [Explicação detalhada sobre `useState` com exemplos práticos](# "Explicação detalhada sobre `useState` com exemplos práticos")
-       - Estados complexos (objetos e arrays) com `useState`
-       - Boas práticas e erros comuns ao usar `useState`
+       - [Explicação detalhada sobre `useState` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-usestate-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useState` com exemplos práticos")
+       - [Estados complexos (objetos e arrays) com `useState`](#exemplo-1-contador-simples "Estados complexos (objetos e arrays) com `useState`")
+       - [Boas práticas e erros comuns ao usar `useState`](#atualizando-estado-com-fun%C3%A7%C3%B5es-de-atualiza%C3%A7%C3%A3o "Boas práticas e erros comuns ao usar `useState`")
      - useEffect para efeitos colaterais
        - [Explicação detalhada sobre `useEffect` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-useeffect-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useEffect` com exemplos práticos")
        - [Limpeza de efeitos e uso de dependências](#3-limpeza-de-efeitos "Limpeza de efeitos e uso de dependências")
