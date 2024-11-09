@@ -1108,31 +1108,31 @@ import { Api } from 'caminho/para/api'; // Importe seu módulo de API.
 export function MeuComponente() {
     const [dados, setDados] = useState([]);
 
-    // 1. Obtenha o `companyId` (ou outro dado) do localStorage.
+    // 1. Obter o `companyId` (ou outro dado) do localStorage.
     const storedUser = JSON.parse(localStorage.getItem('user'));
     const companyId = storedUser?.company_id; // Substitua por outro dado, se necessário.
 
-    // 2. Use o `useEffect` para fazer a requisição API.
+    // 2. Uso do `useEffect` para fazer a requisição API.
     useEffect(() => {
-        if (companyId) { // Verifique se `companyId` está definido antes de fazer a requisição.
+        if (companyId) { // Verificado se `companyId` está definido antes de fazer a requisição.
             Api.get(`/suaRotaApi/${companyId}`)
                 .then((res) => {
-                    // 3. Atualize o estado com a resposta da API.
+                    // 3. Atualizado o estado com a resposta da API.
                     setDados(res.data);
                 })
                 .catch((error) => {
                     console.error("Erro ao buscar dados:", error);
                 });
         }
-    }, [companyId]); // Coloque `companyId` como dependência, se necessário.
+    }, [companyId]); // Colocado `companyId` como dependência, se necessário.
 
     return (
         <div>
-            {/* Renderize os dados obtidos conforme necessário. */}
+            {/* Renderizado os dados obtidos conforme necessário. */}
             {dados.length > 0 ? (
                 <ul>
                     {dados.map((item) => (
-                        <li key={item.id}>{item.nome}</li> // Adapte conforme a estrutura de `dados`.
+                        <li key={item.id}>{item.nome}</li> // Adaptado conforme a estrutura de `dados`.
                     ))}
                 </ul>
             ) : (
