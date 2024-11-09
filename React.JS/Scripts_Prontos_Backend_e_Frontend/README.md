@@ -30,6 +30,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Exclusão de Registro (Delete)**
      - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
+     - [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](# "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
@@ -500,6 +501,121 @@ Para passar o `item.id` para o componente `DeleteUser`, você precisa modificar 
    ```
 
 Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e você poderá utilizá-lo para qualquer operação, como enviar no corpo da requisição ou exibir na mensagem de confirmação.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem
+
+Este exemplo mostra como criar uma rota DELETE que recebe múltiplos parâmetros dinâmicos. Esse padrão é útil para excluir registros com base em uma relação entre duas entidades (por exemplo, um administrador associado a uma empresa).
+
+#### Estrutura da Rota no Backend (Node.js/Express)
+
+```ts
+// Exemplo genérico de rota DELETE com múltiplos parâmetros
+routes.delete('/deleteEntity/:parentId/:childId', async (req, res) => {
+    const { parentId, childId } = req.params;
+
+    try {
+        // Verificar se o registro existe e está associado ao parâmetro fornecido
+        const recordExists = await prisma.yourEntity.findUnique({
+            where: { 
+                id: parseInt(childId), // Substitua 'id' pelo campo que identifica o registro filho
+                parent_field: parseInt(parentId) // Substitua 'parent_field' pela chave estrangeira
+            }
+        });
+
+        if (!recordExists) {
+            return res.status(404).json({ error: 'Registro não encontrado ou não associado.' });
+        }
+
+        // Excluir o registro
+        await prisma.yourEntity.delete({
+            where: { id: parseInt(childId) } // Certifique-se de usar o campo correto aqui
+        });
+
+        res.status(200).json({ message: 'Registro excluído com sucesso.' });
+    } catch (error) {
+        console.error('Erro ao excluir registro:', error);
+        res.status(500).json({ error: 'Erro ao excluir registro.' });
+    }
+});
+```
+
+**Substitua os valores genéricos conforme necessário:**
+- `yourEntity`: Nome da entidade/tabela no Prisma (ex.: `admins`, `products`).
+- `parentId`: Identificador do registro "pai" (ex.: `idCompany`).
+- `childId`: Identificador do registro que será excluído (ex.: `id` do administrador).
+- `parent_field`: Nome da coluna da chave estrangeira que referencia o "pai" (ex.: `company_id`).
+
+---
+
+### Instruções para Reutilizar a Estrutura
+
+1. **Defina a Rota no Backend:**
+   - Escolha a URL e parâmetros apropriados para o contexto. Exemplo: `/deleteItem/:categoryId/:itemId`.
+   - Use `req.params` para capturar os valores dinâmicos na rota.
+   - Substitua `yourEntity`, `parent_field`, `parentId` e `childId` conforme as entidades e relações do seu projeto.
+
+2. **Validar Existência e Associação do Registro:**
+   - Use o método `findUnique` ou `findFirst` do Prisma para verificar se o registro existe e está associado ao parâmetro "pai".
+   - Se não encontrar o registro, retorne um status `404` com uma mensagem apropriada.
+
+3. **Excluir o Registro:**
+   - Após validar a existência e associação do registro, utilize `delete` do Prisma para excluí-lo.
+   - Envie uma resposta `200` com uma mensagem de sucesso.
+
+4. **Tratar Erros:**
+   - Use `try-catch` para capturar e logar erros. Retorne um status `500` com uma mensagem de erro genérica em caso de falha.
+
+---
+
+### Exemplo de Requisição no Frontend (React)
+
+Para excluir o registro a partir do frontend, utilize uma função com `fetch` ou `axios` que envia uma requisição DELETE para a rota.
+
+```jsx
+import React from 'react';
+
+const handleDelete = async (parentId, childId) => {
+    try {
+        const response = await fetch(`/deleteEntity/${parentId}/${childId}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) throw new Error('Erro ao excluir o registro');
+
+        const result = await response.json();
+        console.log(result.message); // Exibe a mensagem de sucesso
+        // Atualize o estado ou faça outras ações necessárias após a exclusão
+    } catch (error) {
+        console.error('Erro:', error.message);
+    }
+};
+```
+
+**Explicação do código:**
+- `parentId` e `childId` são os parâmetros dinâmicos passados para a rota.
+- `fetch` com o método `DELETE` envia a requisição para o backend.
+- Em caso de sucesso, uma mensagem de confirmação é exibida no console e o frontend pode atualizar o estado para refletir a exclusão.
+
+---
+
+### Resumo para Adaptação em Outros Projetos
+
+1. **Configuração da Rota:** Defina a URL da rota com os parâmetros dinâmicos.
+2. **Verificação de Existência e Associação:** Use `findUnique` para validar que o registro existe e está associado ao registro pai.
+3. **Exclusão do Registro:** Utilize `delete` do Prisma após a verificação.
+4. **Requisição no Frontend:** Utilize `fetch` ou `axios` para enviar a requisição DELETE, passando os parâmetros necessários.
+5. **Tratamento de Erros e Sucesso:** Implemente logs e mensagens de feedback para garantir uma boa experiência para o usuário.
+
+Essa estrutura pode ser reutilizada e adaptada facilmente para outras operações de exclusão em sistemas com relações de chave estrangeira.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
