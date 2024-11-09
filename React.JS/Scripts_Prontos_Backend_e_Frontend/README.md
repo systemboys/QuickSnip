@@ -33,6 +33,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
      - [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
+     - [Rota de Exclusão de Administrador via ID e Integração com Frontend React](#rota-de-exclus%C3%A3o-de-administrador-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota de Exclusão de Administrador via ID e Integração com Frontend React")
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
@@ -781,6 +782,103 @@ const handleDelete = async (parentId, childId) => {
 5. **Tratamento de Erros e Sucesso:** Implemente logs e mensagens de feedback para garantir uma boa experiência para o usuário.
 
 Essa estrutura pode ser reutilizada e adaptada facilmente para outras operações de exclusão em sistemas com relações de chave estrangeira.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota de Exclusão de Administrador via ID e Integração com Frontend React
+
+### **Rota de Exclusão de Administrador**
+
+#### **Descrição**:
+Essa rota é usada para excluir um administrador da tabela `admins` com base no seu `ID`. A requisição feita para essa rota é do tipo `DELETE`.
+
+#### **Rota**:
+```jsx
+// Excluir administrador pelo ID
+routes.delete('/deleteAdmin/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Verificar se o administrador existe
+        const adminExists = await prisma.admins.findUnique({
+            where: { id: parseInt(id) },
+        });
+
+        if (!adminExists) {
+            return res.status(404).json({ error: 'Administrador não encontrado' });
+        }
+
+        // Excluir o administrador
+        await prisma.admins.delete({
+            where: { id: parseInt(id) },
+        });
+
+        return res.status(200).json({ message: 'Administrador excluído com sucesso' });
+    } catch (error) {
+        console.error('Erro ao excluir admin:', error);
+        return res.status(500).json({ error: 'Erro ao excluir administrador' });
+    }
+});
+```
+
+#### **Como requisitar a rota no frontend**:
+No frontend (React, por exemplo), faça uma requisição `DELETE` para o seguinte endpoint, passando o `ID` do administrador que será excluído:
+
+```javascript
+const response = await fetch(`http://localhost:5000/deleteAdmin/${adminId}`, {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+```
+
+#### **Exemplo de uso no componente React**:
+No componente React, você pode usar a seguinte estrutura para fazer a requisição e lidar com a resposta:
+
+```jsx
+async function handleSubmitForm(e) {
+    e.preventDefault();
+
+    try {
+        // Fazer a solicitação DELETE para a API com o ID
+        const response = await fetch(`http://localhost:5000/deleteAdmin/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Administrador excluído com sucesso:', data);
+
+            // Fechar a janela flutuante após exclusão bem-sucedida
+            if (fenestra) {
+                fenestra.close();  // Fechar a janela do Fenestra
+            }
+        } else {
+            const errorData = await response.json();
+            console.error('Erro ao excluir administrador:', errorData);
+            alert('Erro ao excluir administrador. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro de rede ou servidor:', error);
+        alert('Erro de rede ou servidor. Tente novamente mais tarde.');
+    }
+}
+```
+
+#### **Notas**:
+- **ID**: O ID do administrador deve ser passado na URL ao fazer a requisição. Certifique-se de que o valor está sendo fornecido corretamente no componente React.
+- **Mensagens de sucesso/erro**: A API retorna uma mensagem de sucesso se a exclusão for bem-sucedida e uma mensagem de erro se o administrador não for encontrado ou houver falha no processo.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
