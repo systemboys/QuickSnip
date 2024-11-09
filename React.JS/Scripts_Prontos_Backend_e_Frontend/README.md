@@ -554,8 +554,6 @@ routes.delete('/deleteEntity/:parentId/:childId', async (req, res) => {
 - `childId`: Identificador do registro que será excluído (ex.: `id` do administrador).
 - `parent_field`: Nome da coluna da chave estrangeira que referencia o "pai" (ex.: `company_id`).
 
----
-
 ### Instruções para Reutilizar a Estrutura
 
 1. **Defina a Rota no Backend:**
@@ -573,8 +571,6 @@ routes.delete('/deleteEntity/:parentId/:childId', async (req, res) => {
 
 4. **Tratar Erros:**
    - Use `try-catch` para capturar e logar erros. Retorne um status `500` com uma mensagem de erro genérica em caso de falha.
-
----
 
 ### Exemplo de Requisição no Frontend (React)
 
@@ -604,8 +600,6 @@ const handleDelete = async (parentId, childId) => {
 - `parentId` e `childId` são os parâmetros dinâmicos passados para a rota.
 - `fetch` com o método `DELETE` envia a requisição para o backend.
 - Em caso de sucesso, uma mensagem de confirmação é exibida no console e o frontend pode atualizar o estado para refletir a exclusão.
-
----
 
 ### Resumo para Adaptação em Outros Projetos
 
