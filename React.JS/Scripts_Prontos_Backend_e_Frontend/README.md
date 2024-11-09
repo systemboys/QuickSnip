@@ -25,7 +25,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Paginação e filtros de dados
      - [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
    - **Consulta de Registro Único (Single)**
-     - [Rota Genérica para Consulta de Registro Único por ID](# "Rota Genérica para Consulta de Registro Único por ID")
+     - [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
      - [Exemplo de Componente React para Exibir Detalhes de um Registro](# "Exemplo de Componente React para Exibir Detalhes de um Registro")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
@@ -356,7 +356,7 @@ routes.get('/getEntity/:id', async (req, res) => {
 - **Nome da Rota**: Substitua `'/getEntity/:id'` pelo endpoint desejado, como `'/getUser/:id'` ou `'/getProduct/:id'`.
 - **Tabela (Entidade)**: Substitua `entity` no código Prisma pelo nome da tabela real definida no seu `schema.prisma` (ex.: `prisma.users`, `prisma.products`, etc.).
 
-## Como Requisitar a Rota no Frontend (React)
+### Como Requisitar a Rota no Frontend (React)
 
 No frontend, você pode fazer uma requisição `GET` para essa rota passando o `ID` do registro que deseja obter.
 
