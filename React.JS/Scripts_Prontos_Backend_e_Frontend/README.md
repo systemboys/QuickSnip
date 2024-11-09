@@ -158,7 +158,7 @@ Essas são as únicas modificações necessárias!
 Para formatar os dados retornados pela consulta em um array no formato desejado, você pode fazer o seguinte:
 
 ```jsx
-// Selecionar dados na tabela "table", a partir do "category".
+// Realizar a chamada à API para buscar dados associados ao parâmetro especificado.
 const [listBackground, setListBackground] = useState([]);
 useEffect(() => {
   Api.get(`/backgroundsId/${category}`).then((res) => {
