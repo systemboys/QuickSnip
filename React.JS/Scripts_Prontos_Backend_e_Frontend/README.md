@@ -38,6 +38,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
        - Como mover a lógica de rotas para controllers para melhor organização
        - Vantagens da modularização e manutenibilidade do código
+       - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](# "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
+       - [Requisição da Rota no Componente React](# "Requisição da Rota no Componente React")
 2. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
@@ -578,6 +580,118 @@ export default router;
 
 ### Conclusão
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma
+
+Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma rota que receba um parâmetro dinâmico e filtre registros com base em uma chave estrangeira. Também incluo a forma de fazer a requisição no frontend para utilizar essa rota. 
+
+### Exemplo Genérico para Criar uma Rota com Parâmetro e Filtragem
+
+1. **Estrutura da Rota no Backend (Node.js/Express)**
+
+   Adicione uma rota na sua API que receba um parâmetro dinâmico (ex.: `:id`) e faça uma consulta ao banco de dados utilizando o Prisma, filtrando pelo campo de chave estrangeira (ex.: `foreign_key_field`).
+
+   ```ts
+   // Estrutura genérica da rota
+   routes.get('/your-entity/:id', async (req, res) => {
+       const { id } = req.params;
+
+       try {
+           const data = await prisma.yourEntity.findMany({
+               where: {
+                   foreign_key_field: Number(id) // Substitua 'foreign_key_field' pelo nome da chave estrangeira real
+               },
+               orderBy: {
+                   id: 'desc'
+               }
+           });
+
+           console.log(data); // Log para verificar a saída
+           res.status(200).json(data);
+       } catch (error) {
+           console.error('Erro ao buscar dados:', error);
+           res.status(500).json({ error: 'Erro ao buscar dados' });
+       }
+   });
+   ```
+
+   **Substitua os valores genéricos conforme necessário**:
+   - `your-entity`: o nome da entidade (ex.: `admins`, `products`, etc.).
+   - `foreign_key_field`: o nome da chave estrangeira no banco de dados (ex.: `company_id`).
+   - `id`: o campo de ordenação pode ser `id` ou qualquer outra coluna desejada.
+
+2. **Instruções para Requisição da Rota no Frontend (React)**
+
+   Para fazer a requisição no componente do frontend, você pode utilizar `fetch` ou uma biblioteca como `axios`. Aqui está um exemplo usando `fetch`:
+
+   ```jsx
+   import React, { useEffect, useState } from 'react';
+
+   const YourComponent = ({ id }) => {
+       const [data, setData] = useState([]);
+       const [error, setError] = useState(null);
+
+       useEffect(() => {
+           const fetchData = async () => {
+               try {
+                   const response = await fetch(`/your-entity/${id}`);
+                   if (!response.ok) throw new Error('Erro na requisição');
+                   
+                   const result = await response.json();
+                   setData(result);
+               } catch (err) {
+                   setError(err.message);
+                   console.error('Erro ao buscar dados:', err);
+               }
+           };
+
+           if (id) {
+               fetchData();
+           }
+       }, [id]);
+
+       return (
+           <div>
+               {error && <p>Erro: {error}</p>}
+               <ul>
+                   {data.map((item) => (
+                       <li key={item.id}>{item.nome}</li> {/* Ajuste conforme os campos */}
+                   ))}
+               </ul>
+           </div>
+       );
+   };
+
+   export default YourComponent;
+   ```
+
+   **Explicação do código:**
+   - `fetchData()`: Faz uma requisição `GET` para a rota, usando o `id` passado como parâmetro.
+   - `setData()`: Armazena o resultado retornado para renderização.
+   - `error`: Exibe uma mensagem caso ocorra erro na requisição.
+
+### Resumo das Etapas para Reutilizar o Exemplo
+
+1. **No Backend**:
+   - Crie uma rota `GET` com um parâmetro dinâmico `:id`.
+   - Use `findMany` (ou `findUnique`, caso deseje um único registro) no Prisma para consultar a entidade filtrando pela chave estrangeira correspondente.
+   - Converta o `id` para `Number` para assegurar a compatibilidade de tipo.
+
+2. **No Frontend**:
+   - Utilize `fetch` (ou `axios`) para fazer a requisição para a rota da API, passando o `id` necessário.
+   - Armazene e manipule os dados recebidos com `useState` e `useEffect`.
+   - Renderize os dados conforme necessário no componente.
+
+Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáveis e adaptáveis para diferentes entidades e relações no seu sistema.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
