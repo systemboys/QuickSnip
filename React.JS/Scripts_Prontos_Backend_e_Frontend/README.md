@@ -146,6 +146,8 @@ Essas são as únicas modificações necessárias!
 
 ---
 
+## Formatação de Dados da API em um Array no Formato Específico (JSON)
+
 Para formatar os dados retornados pela consulta em um array no formato desejado, você pode fazer o seguinte:
 
 ```jsx
