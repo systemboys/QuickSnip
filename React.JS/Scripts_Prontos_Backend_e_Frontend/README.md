@@ -26,7 +26,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
    - **Consulta de Registro Único (Single)**
      - [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
-     - [Exemplo de Componente React para Exibir Detalhes de um Registro](# "Exemplo de Componente React para Exibir Detalhes de um Registro")
+     - [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - Edição de itens com dados predefinidos no formulário
