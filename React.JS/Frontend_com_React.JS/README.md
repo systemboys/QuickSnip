@@ -25,6 +25,9 @@
        - [Limpeza de efeitos e uso de dependências](#3-limpeza-de-efeitos "Limpeza de efeitos e uso de dependências")
        - [Erros comuns e boas práticas com `useEffect`](#erros-comuns-com-useeffect "Erros comuns e boas práticas com `useEffect`")
      - useContext para contexto global
+       - [Explicação detalhada sobre `useContext` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-usecontext-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useContext` com exemplos práticos")
+       - [Compartilhando dados globais com `useContext`](#compartilhando-dados-globais-com-usecontext "Compartilhando dados globais com `useContext`")
+       - [Quando usar `useContext` e evitar prop drilling](#quando-usar-usecontext-e-evitar-prop-drilling "Quando usar `useContext` e evitar prop drilling")
    - **Componentes Avançados**
      - Componentes controlados e não controlados
      - Refs com useRef
@@ -394,3 +397,202 @@ O `useEffect` é um hook poderoso que permite realizar efeitos colaterais em com
 
 ---
 
+## O `useContext` para contexto global
+
+O `useContext` é um hook no React que permite acessar o valor de um contexto em qualquer lugar de um componente funcional, sem precisar "passar" props através de vários níveis de componentes. Isso é útil para compartilhar informações globais, como dados de autenticação, configurações de tema, ou preferências do usuário, entre diversos componentes sem a necessidade de prop drilling (passagem de props por múltiplos componentes intermediários).
+
+### Como o `useContext` Funciona
+
+Para entender como `useContext` funciona, primeiro precisamos entender o contexto (`Context`) no React. O contexto é criado usando a função `React.createContext`, que retorna um objeto contendo um `Provider` e um `Consumer`.
+
+- **`Provider`**: O `Provider` é um componente que "fornece" o valor do contexto para os componentes filhos.
+- **`Consumer`**: O `Consumer` é um componente que permite acessar o valor do contexto. Com o hook `useContext`, você pode acessar o valor diretamente, sem precisar usar o `Consumer`.
+
+O `useContext` simplifica o acesso ao valor do contexto em componentes funcionais. Ele recebe o próprio contexto como argumento e retorna o valor atual do contexto fornecido pelo `Provider`.
+
+### Sintaxe Básica
+
+```javascript
+const valor = useContext(MyContext);
+```
+
+- `MyContext` é o contexto criado com `React.createContext`.
+- `valor` será o valor atual do contexto, que pode ser um número, string, objeto, função, etc.
+
+### Exemplo Completo de Uso do `useContext`
+
+#### Passo 1: Criar um Contexto
+
+Primeiro, criamos um contexto que será usado para armazenar o estado global. Neste exemplo, vamos criar um contexto para dados de autenticação.
+
+```javascript
+import React, { createContext, useState } from 'react';
+
+// Criação do contexto de autenticação
+export const AuthContext = createContext();
+
+// Componente Provider que fornecerá o contexto
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
+
+    const login = (userData) => {
+        setUser(userData); // Simula o login do usuário
+    };
+
+    const logout = () => {
+        setUser(null); // Simula o logout do usuário
+    };
+
+    return (
+        <AuthContext.Provider value={{ user, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
+}
+```
+
+- `AuthContext` é o contexto criado.
+- `AuthProvider` é o componente que fornece o contexto para os componentes filhos.
+- `login` e `logout` são funções de manipulação do estado `user`, que simulam a entrada e saída do usuário.
+
+#### Passo 2: Envolver a Aplicação com o `Provider`
+
+Para que o contexto esteja disponível em toda a aplicação, envolva o `AuthProvider` ao redor de componentes que precisam acessar o contexto. Normalmente, isso é feito no ponto mais alto da árvore de componentes, como `App.js`.
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { AuthProvider } from './AuthContext';
+
+ReactDOM.render(
+    <AuthProvider>
+        <App />
+    </AuthProvider>,
+    document.getElementById('root')
+);
+```
+
+#### Passo 3: Consumir o Contexto com `useContext`
+
+Agora, em qualquer componente dentro de `AuthProvider`, podemos acessar o contexto de autenticação com o `useContext`.
+
+```javascript
+import React, { useContext } from 'react';
+import { AuthContext } from './AuthContext';
+
+function UserProfile() {
+    const { user, login, logout } = useContext(AuthContext);
+
+    return (
+        <div>
+            {user ? (
+                <>
+                    <p>Bem-vindo, {user.name}!</p>
+                    <button onClick={logout}>Sair</button>
+                </>
+            ) : (
+                <button onClick={() => login({ name: 'Marcos' })}>Entrar</button>
+            )}
+        </div>
+    );
+}
+```
+
+Neste exemplo:
+
+- `useContext(AuthContext)` é usado para acessar o valor do contexto, que inclui o usuário (`user`) e as funções `login` e `logout`.
+- Dependendo de `user`, mostramos uma mensagem de boas-vindas e um botão de logout, ou um botão de login que simula a entrada do usuário.
+
+### Exemplo Avançado: Compartilhando Tema Global
+
+Outro exemplo comum é compartilhar configurações de tema (como "claro" e "escuro") entre os componentes da aplicação.
+
+#### Criando o Contexto de Tema
+
+```javascript
+import React, { createContext, useState } from 'react';
+
+export const ThemeContext = createContext();
+
+export function ThemeProvider({ children }) {
+    const [theme, setTheme] = useState('light');
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    };
+
+    return (
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+            {children}
+        </ThemeContext.Provider>
+    );
+}
+```
+
+#### Usando o `Provider` em `App.js`
+
+```javascript
+import React from 'react';
+import { ThemeProvider } from './ThemeContext';
+import AppContent from './AppContent';
+
+function App() {
+    return (
+        <ThemeProvider>
+            <AppContent />
+        </ThemeProvider>
+    );
+}
+
+export default App;
+```
+
+#### Consumindo o Contexto de Tema
+
+No componente `AppContent`, consumimos o contexto de tema com o `useContext`.
+
+```javascript
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function AppContent() {
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
+    return (
+        <div style={{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
+            <h1>Tema atual: {theme}</h1>
+            <button onClick={toggleTheme}>Alternar Tema</button>
+        </div>
+    );
+}
+
+export default AppContent;
+```
+
+### Explicação
+
+- `theme` armazena o valor atual do tema, e `toggleTheme` altera entre "light" e "dark".
+- `AppContent` usa `theme` para alterar as cores de fundo e do texto, criando um tema dinâmico que reflete o valor do contexto.
+
+### Resumo do `useContext`
+
+1. **Criar o Contexto**: Usando `React.createContext()` para criar um contexto.
+2. **Fornecer o Contexto**: Envolver os componentes com o `Provider` para que o contexto esteja acessível.
+3. **Consumir o Contexto**: Utilizar `useContext` em qualquer componente dentro do `Provider` para acessar o valor do contexto.
+
+### Quando Usar `useContext`
+
+- **Dados Globais**: Ideal para informações que precisam ser acessadas em várias partes da aplicação, como dados de autenticação, preferências do usuário, temas e configurações de idioma.
+- **Evitar Prop Drilling**: Simplifica o código evitando a passagem de props por vários níveis de componentes intermediários.
+
+O `useContext` é uma ferramenta poderosa para gerenciamento de dados globais em uma aplicação React e, quando combinado com o `useState` ou `useReducer` no `Provider`, permite gerenciar estados complexos de forma eficiente.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
