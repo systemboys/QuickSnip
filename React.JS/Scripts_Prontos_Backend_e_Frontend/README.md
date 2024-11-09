@@ -24,6 +24,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
      - Paginação e filtros de dados
      - [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
+   - **Consulta de Registro Único (Single)**
+     - [Rota Genérica para Consulta de Registro Único por ID](# "Rota Genérica para Consulta de Registro Único por ID")
+     - [Exemplo de Componente React para Exibir Detalhes de um Registro](# "Exemplo de Componente React para Exibir Detalhes de um Registro")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - Edição de itens com dados predefinidos no formulário
@@ -307,6 +310,127 @@ Certifique-se de que as propriedades `thumb`, `title`, `category` e `date` corre
 > O `useEffect` é usado para executar esse código sempre que a categoria for alterada. A dependência vazia `[]` no final indica que o efeito deve ser executado apenas uma vez, após a montagem do componente.
 >
 > Por fim, o `console.log(listBackground)` é usado para exibir o valor atual de `listBackground` no console. Isso pode ser útil para verificar se os dados foram obtidos corretamente e para depurar eventuais problemas.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota Genérica para Consulta de Registro Único por ID
+
+Para criar uma rota genérica que busque um registro específico pelo `ID`, vou apresentar um exemplo que você pode reutilizar em diferentes componentes. Esta rota irá fazer uma consulta `GET` baseada no `ID` do registro e retornará os dados desse registro em formato JSON. A lógica do frontend em React também é genérica, para que você possa adaptá-la a qualquer componente "single" que precise exibir detalhes de um item específico.
+
+### **Rota no Backend (Node.js/Express)**
+
+Abaixo, uma rota genérica `GET` para buscar um registro específico em uma tabela do banco de dados pelo `ID` usando Prisma:
+
+```ts
+// Rota genérica para obter um registro pelo ID
+routes.get('/getEntity/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Buscar o registro no banco de dados
+        const entity = await prisma.entity.findUnique({
+            where: { id: parseInt(id) },
+        });
+
+        if (!entity) {
+            return res.status(404).json({ error: 'Registro não encontrado' });
+        }
+
+        // Retornar o registro encontrado
+        return res.status(200).json(entity);
+    } catch (error) {
+        console.error('Erro ao buscar registro:', error);
+        return res.status(500).json({ error: 'Erro ao buscar registro' });
+    }
+});
+```
+
+#### **Instruções para Adaptação**:
+- **Nome da Rota**: Substitua `'/getEntity/:id'` pelo endpoint desejado, como `'/getUser/:id'` ou `'/getProduct/:id'`.
+- **Tabela (Entidade)**: Substitua `entity` no código Prisma pelo nome da tabela real definida no seu `schema.prisma` (ex.: `prisma.users`, `prisma.products`, etc.).
+
+## Como Requisitar a Rota no Frontend (React)
+
+No frontend, você pode fazer uma requisição `GET` para essa rota passando o `ID` do registro que deseja obter.
+
+### **Exemplo Genérico de Requisição no Frontend**
+
+Abaixo, uma função genérica que realiza a requisição e busca os dados do registro pelo `ID`:
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function SingleEntityComponent({ id }) {
+    const [entityData, setEntityData] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch(`http://localhost:5000/getEntity/${id}`);
+                if (!response.ok) throw new Error('Erro ao buscar dados');
+
+                const data = await response.json();
+                setEntityData(data);
+            } catch (error) {
+                console.error('Erro de rede ou servidor:', error);
+                setError('Erro ao buscar dados. Tente novamente mais tarde.');
+            }
+        }
+
+        if (id) {
+            fetchData(); // Executa a requisição ao montar o componente ou quando o ID muda
+        }
+    }, [id]);
+
+    if (error) return <p>{error}</p>;
+
+    return (
+        <div>
+            {entityData ? (
+                <div>
+                    <h2>{entityData.title}</h2> {/* Exemplo: ajuste conforme os campos */}
+                    <p>{entityData.description}</p> {/* Exemplo: ajuste conforme os campos */}
+                    {/* Renderize outros dados do registro */}
+                </div>
+            ) : (
+                <p>Carregando...</p>
+            )}
+        </div>
+    );
+}
+
+export default SingleEntityComponent;
+```
+
+### **Instruções para Adaptação**:
+- **URL**: Substitua `http://localhost:5000/getEntity/${id}` pelo endpoint correto da API.
+- **Campos**: Adapte `entityData.title` e `entityData.description` para os campos reais da resposta da API.
+- **Tratamento de Erro**: A variável `error` exibe uma mensagem em caso de erro na requisição. Você pode personalizar essa mensagem ou substituí-la por um componente de feedback visual (ex.: toast ou modal).
+
+### Exemplo Completo: Passo a Passo
+
+1. **Crie a Rota no Backend**:
+   - Defina a rota `GET` com `findUnique` para buscar um registro específico pelo `ID`.
+   - Retorne o registro encontrado ou um erro caso não exista.
+
+2. **Defina o Componente "Single" no Frontend**:
+   - Use `useEffect` para fazer a requisição `GET` quando o componente for montado.
+   - Guarde os dados do registro no estado `entityData` e exiba no componente.
+   - Adapte os campos e a lógica de renderização para corresponder aos dados específicos que você deseja exibir.
+
+3. **Verifique e Teste a Requisição**:
+   - Certifique-se de que o ID passado para o componente corresponde ao registro que deseja exibir.
+   - Use `console.log(entityData)` para depurar e visualizar a resposta.
+
+Essa abordagem permite que você reutilize essa estrutura genérica para buscar e exibir detalhes de qualquer registro específico em uma "página single" em React, apenas substituindo o nome da rota e os campos conforme necessário.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
