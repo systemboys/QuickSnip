@@ -68,6 +68,13 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para diversos cenários, como formulários com integração completa entre frontend e backend, listagem de itens, edição, e exclusão com DataTables e outras funcionalidades. A ideia é que essa seção funcione como um guia rápido para montar um CRUD completo ou mesmo pacotes prontos que você pode adaptar e reutilizar facilmente.
 
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
 ---
 
 ## Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS
