@@ -115,7 +115,7 @@ Passos com as modificações necessárias, para inplementação de indicador de 
         background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
         z-index: 9999;
     }
-
+    
     .loader {
         border: 16px solid #f3f3f3;
         border-top: 16px solid #3498db;
@@ -124,7 +124,7 @@ Passos com as modificações necessárias, para inplementação de indicador de 
         height: 120px;
         animation: spin 2s linear infinite;
     }
-
+    
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
@@ -969,6 +969,8 @@ Guia com instruções claras sobre como acessar dados do `localStorage` (como o 
 
 #### Objetivo
 Carregar dados específicos armazenados no `localStorage`, como o `companyId` do usuário, e utilizá-los em chamadas de API dentro de componentes React.
+
+![LocalStorage](./images/localStorage_1.png)
 
 #### Passo a Passo
 
