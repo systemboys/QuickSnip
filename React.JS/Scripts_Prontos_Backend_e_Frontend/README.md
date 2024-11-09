@@ -33,7 +33,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
      - [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
-     - [Rota de Exclusão de Administrador via ID e Integração com Frontend React](#rota-de-exclus%C3%A3o-de-administrador-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota de Exclusão de Administrador via ID e Integração com Frontend React")
+     - [Rota Genérica de Exclusão via ID e Integração com Frontend React](#rota-de-exclus%C3%A3o-de-administrador-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
@@ -792,64 +792,58 @@ Essa estrutura pode ser reutilizada e adaptada facilmente para outras operaçõe
 
 ---
 
-## Rota de Exclusão de Administrador via ID e Integração com Frontend React
+## Rota Genérica de Exclusão via ID e Integração com Frontend React
 
-### **Rota de Exclusão de Administrador**
+Aqui está uma versão genérica das instruções para que você possa usá-las em diferentes contextos e componentes ao configurar rotas de exclusão por ID com integração no frontend em React.
+
+### **Rota de Exclusão por ID**
 
 #### **Descrição**:
-Essa rota é usada para excluir um administrador da tabela `admins` com base no seu `ID`. A requisição feita para essa rota é do tipo `DELETE`.
+Esta rota é usada para excluir um registro de uma tabela específica com base em seu `ID`. A requisição para essa rota é do tipo `DELETE`.
 
 #### **Rota**:
 ```jsx
-// Excluir administrador pelo ID
-routes.delete('/deleteAdmin/:id', async (req, res) => {
+// Rota genérica para excluir um registro pelo ID
+routes.delete('/deleteEntity/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        // Verificar se o administrador existe
-        const adminExists = await prisma.admins.findUnique({
+        // Verificar se o registro existe na tabela especificada
+        const entityExists = await prisma.entity.findUnique({
             where: { id: parseInt(id) },
         });
 
-        if (!adminExists) {
-            return res.status(404).json({ error: 'Administrador não encontrado' });
+        if (!entityExists) {
+            return res.status(404).json({ error: 'Registro não encontrado' });
         }
 
-        // Excluir o administrador
-        await prisma.admins.delete({
+        // Excluir o registro
+        await prisma.entity.delete({
             where: { id: parseInt(id) },
         });
 
-        return res.status(200).json({ message: 'Administrador excluído com sucesso' });
+        return res.status(200).json({ message: 'Registro excluído com sucesso' });
     } catch (error) {
-        console.error('Erro ao excluir admin:', error);
-        return res.status(500).json({ error: 'Erro ao excluir administrador' });
+        console.error('Erro ao excluir registro:', error);
+        return res.status(500).json({ error: 'Erro ao excluir registro' });
     }
 });
 ```
 
-#### **Como requisitar a rota no frontend**:
-No frontend (React, por exemplo), faça uma requisição `DELETE` para o seguinte endpoint, passando o `ID` do administrador que será excluído:
+#### **Instruções para Adaptação**:
+- **Nome da Rota**: Substitua `'/deleteEntity/:id'` pela rota desejada, como `'/deleteUser/:id'` ou `'/deleteProduct/:id'`.
+- **Tabela (Entidade)**: Substitua `entity` no código Prisma pelo nome da tabela real no seu `schema.prisma` (ex.: `prisma.users`, `prisma.products`, etc.).
 
+### **Como Requisitar a Rota no Frontend**
+
+No frontend (React), faça uma requisição `DELETE` para a rota de exclusão, passando o `ID` do registro a ser excluído.
+
+#### **Exemplo Genérico de Requisição no Frontend**:
 ```javascript
-const response = await fetch(`http://localhost:5000/deleteAdmin/${adminId}`, {
-    method: 'DELETE',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-});
-```
-
-#### **Exemplo de uso no componente React**:
-No componente React, você pode usar a seguinte estrutura para fazer a requisição e lidar com a resposta:
-
-```jsx
-async function handleSubmitForm(e) {
-    e.preventDefault();
-
+async function handleDelete(id) {
     try {
-        // Fazer a solicitação DELETE para a API com o ID
-        const response = await fetch(`http://localhost:5000/deleteAdmin/${id}`, {
+        // Requisição DELETE para a API com o ID
+        const response = await fetch(`http://localhost:5000/deleteEntity/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -858,16 +852,13 @@ async function handleSubmitForm(e) {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Administrador excluído com sucesso:', data);
+            console.log('Registro excluído com sucesso:', data);
 
-            // Fechar a janela flutuante após exclusão bem-sucedida
-            if (fenestra) {
-                fenestra.close();  // Fechar a janela do Fenestra
-            }
+            // Execute ações adicionais aqui, como atualizar a lista de registros
         } else {
             const errorData = await response.json();
-            console.error('Erro ao excluir administrador:', errorData);
-            alert('Erro ao excluir administrador. Tente novamente.');
+            console.error('Erro ao excluir registro:', errorData);
+            alert('Erro ao excluir registro. Tente novamente.');
         }
     } catch (error) {
         console.error('Erro de rede ou servidor:', error);
@@ -876,9 +867,51 @@ async function handleSubmitForm(e) {
 }
 ```
 
+#### **Instruções para Adaptação**:
+- **URL**: Substitua `'http://localhost:5000/deleteEntity/${id}'` pelo endpoint correto da rota de exclusão.
+- **Ações Adicionais**: Após a exclusão, você pode adicionar ações específicas, como atualizar a lista de registros ou exibir uma mensagem de sucesso.
+
+### **Exemplo de Uso no Componente React**
+
+No componente React, utilize a função de exclusão, passando o ID do registro a ser removido:
+
+```jsx
+import React from 'react';
+
+function DeleteButton({ id }) {
+    async function handleDelete() {
+        try {
+            const response = await fetch(`http://localhost:5000/deleteEntity/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                console.log('Registro excluído com sucesso');
+                // Atualize a interface ou lista de registros, se necessário
+            } else {
+                console.error('Erro ao excluir registro');
+                alert('Erro ao excluir registro. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro de rede ou servidor:', error);
+            alert('Erro de rede ou servidor. Tente novamente mais tarde.');
+        }
+    }
+
+    return <button onClick={handleDelete}>Excluir</button>;
+}
+
+export default DeleteButton;
+```
+
 #### **Notas**:
-- **ID**: O ID do administrador deve ser passado na URL ao fazer a requisição. Certifique-se de que o valor está sendo fornecido corretamente no componente React.
-- **Mensagens de sucesso/erro**: A API retorna uma mensagem de sucesso se a exclusão for bem-sucedida e uma mensagem de erro se o administrador não for encontrado ou houver falha no processo.
+- **ID**: O ID do registro deve ser passado corretamente ao componente.
+- **Mensagens de sucesso/erro**: O código exibe mensagens no console ou em um `alert()` para indicar o sucesso ou falha da operação. Para uma experiência melhor, você pode usar componentes de feedback como `toasts` ou `modals`.
+
+Esse guia genérico permite que você configure e reutilize a lógica de exclusão de registros com facilidade em diversos componentes e tabelas do seu sistema.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
