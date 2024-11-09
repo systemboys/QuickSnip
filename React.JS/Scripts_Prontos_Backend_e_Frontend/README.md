@@ -33,7 +33,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
      - [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
-     - [Rota Genérica de Exclusão via ID e Integração com Frontend React](#rota-de-exclus%C3%A3o-de-administrador-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
+     - [Rota Genérica de Exclusão via ID e Integração com Frontend React](#rota-gen%C3%A9rica-de-exclus%C3%A3o-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
