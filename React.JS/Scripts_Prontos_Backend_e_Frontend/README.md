@@ -38,7 +38,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
        - Como mover a lógica de rotas para controllers para melhor organização
        - Vantagens da modularização e manutenibilidade do código
-       - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](# "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
+       - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
        - [Requisição da Rota no Componente React](# "Requisição da Rota no Componente React")
 2. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
@@ -629,7 +629,7 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
    - `foreign_key_field`: o nome da chave estrangeira no banco de dados (ex.: `company_id`).
    - `id`: o campo de ordenação pode ser `id` ou qualquer outra coluna desejada.
 
-2. **Instruções para Requisição da Rota no Frontend (React)**
+2. #### **Instruções para Requisição da Rota no Frontend (React)**
 
    Para fazer a requisição no componente do frontend, você pode utilizar `fetch` ou uma biblioteca como `axios`. Aqui está um exemplo usando `fetch`:
 
