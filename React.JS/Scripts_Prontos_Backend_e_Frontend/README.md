@@ -22,6 +22,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Consulta de dados no backend (Prisma findMany)
      - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
      - Paginação e filtros de dados
+     - [Formatação de Dados da API em um Array no Formato Específico (JSON)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - Edição de itens com dados predefinidos no formulário
@@ -135,6 +136,53 @@ Passos com as modificações necessárias, para inplementação de indicador de 
     ```
 
 Essas são as únicas modificações necessárias!
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+Para formatar os dados retornados pela consulta em um array no formato desejado, você pode fazer o seguinte:
+
+```jsx
+// Selecionar dados na tabela "table", a partir do "category".
+const [listBackground, setListBackground] = useState([]);
+useEffect(() => {
+  Api.get(`/backgroundsId/${category}`).then((res) => {
+    const formattedData = res.data.map((item) => ({
+      image: `/img/backgrounds/${item.thumb}`,
+      title: item.title,
+      category: item.category,
+      date: item.date,
+    }));
+    setListBackground(formattedData);
+  });
+}, []);
+
+console.log(listBackground); // Retorno no console.
+```
+
+> ( ! ) A chamada à API deve ficar dentro do componente!
+
+Aqui, usamos o método `map()` para percorrer cada item retornado pela consulta e criar um novo objeto no formato desejado. Em seguida, definimos o estado `listBackground` com o array `formattedData`, que contém os dados formatados.
+
+Certifique-se de que as propriedades `thumb`, `title`, `category` e `date` correspondam aos nomes corretos dos campos na resposta da API.
+
+> Esse código faz uma chamada à API para obter dados da tabela "backgroundsId" com base na categoria fornecida. Ele usa os hooks `useState` e `useEffect` para fazer a chamada da API e formatar os dados recebidos.
+>
+> A chamada à API é feita através do `Api.get()` e usa o caminho `/backgroundsId/${category}` para buscar os dados correspondentes à categoria especificada.
+>
+> Quando a resposta da API é recebida, o código formata os dados retornados usando o método `map()`. Cada item retornado é transformado em um objeto com as propriedades `image`, `title`, `category` e `date`.
+>
+> Em seguida, os dados formatados são atribuídos ao estado `listBackground` usando a função `setListBackground`. Isso atualiza o estado com os dados obtidos da API.
+>
+> O `useEffect` é usado para executar esse código sempre que a categoria for alterada. A dependência vazia `[]` no final indica que o efeito deve ser executado apenas uma vez, após a montagem do componente.
+>
+> Por fim, o `console.log(listBackground)` é usado para exibir o valor atual de `listBackground` no console. Isso pode ser útil para verificar se os dados foram obtidos corretamente e para depurar eventuais problemas.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
