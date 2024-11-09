@@ -644,7 +644,7 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
        useEffect(() => {
            const fetchData = async () => {
                try {
-                   const response = await fetch(`/your-entity/${id}`);
+                   const response = await fetch(`/your-entity/${id}`); // Passado o parâmetro.
                    if (!response.ok) throw new Error('Erro na requisição');
                    
                    const result = await response.json();
