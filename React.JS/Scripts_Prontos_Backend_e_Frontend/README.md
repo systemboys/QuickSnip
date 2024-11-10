@@ -72,6 +72,18 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
        - [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
        - [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
+5. **Manipulação de Arrays em JavaScript**
+   - [Obter dados de um `Array` com o `map()`](#obter-dados-de-um-array-com-map "Obter dados de um Array com map()")
+   - [Executar Array dentro do retorno de um componente](#executar-array-dentro-do-retorno-de-um-componente "Executar Array dentro do retorno de um componente")
+   - [Mapeamento direto no map()](#mapeamento-direto-no-map "Mapeamento direto no map()")
+   - [Pequenos macetes de Array](#pequenos-macetes-de-array "Pequenos macetes de Array")
+      - [Filtrar itens mistos de um array](#filtrar-itens-mistos-de-um-array "Filtrar itens mistos de um array")
+      - [Filtrar os números ímpares de um array](#filtrar-os-n%C3%BAmeros-%C3%ADmpares-de-um-array "Filtrar os números ímpares de um array")
+      - [Retornar o index da idade maior que 30 anos](#retornar-o-index-da-idade-maior-que-30-anos "Retornar o index da idade maior que 30 anos")
+   - [Array `map()`, `filter()` e `reduce()`](#array-map-filter-e-reduce "Array map(), filter() e reduce()")
+      - [Array map()](#array-map "Array map()")
+      - [Array filter()](#array-filter "Array filter()")
+      - [Array reduce()](#array-reduce "Array reduce()")
 
 ---
 
