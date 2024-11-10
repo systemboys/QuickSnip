@@ -41,6 +41,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
        - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
+       - [Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend](# "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
@@ -1171,6 +1172,106 @@ export default CreateEntityForm;
 1. **Backend**: Crie a rota `POST /createEntity`, receba os dados de `req.body` e salve-os na tabela usando Prisma.
 2. **Frontend**: Defina o formulário em React para capturar os dados e enviar para a rota.
 3. **Requisição**: Faça a requisição `POST`, trate a resposta e exiba uma mensagem de sucesso ou erro para o usuário.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend
+
+### Rota Backend: Listagem de Registros (Read)
+
+Essa rota `GET` buscará todos os registros de uma tabela no banco de dados e retornará os dados em formato JSON.
+
+#### **Exemplo da Rota no Backend (Node.js/Express)**
+
+```ts
+// Rota genérica para listar todos os registros
+routes.get('/getEntities', async (req, res) => {
+    try {
+        // Buscar todos os registros na tabela especificada
+        const entities = await prisma.entity.findMany({
+            orderBy: { createdAt: 'desc' } // Ordena por data de criação, adapte conforme necessário
+        });
+
+        return res.status(200).json(entities);
+    } catch (error) {
+        console.error('Erro ao buscar registros:', error);
+        return res.status(500).json({ error: 'Erro ao buscar registros' });
+    }
+});
+```
+
+#### **Instruções para Adaptação**:
+- **Nome da Rota**: Substitua `'/getEntities'` pelo endpoint desejado, como `'/getUsers'` ou `'/getProducts'`.
+- **Tabela (Entidade)**: Substitua `entity` pelo nome da tabela real no seu `schema.prisma` (ex.: `users`, `products`).
+- **Ordenação**: Ajuste `orderBy` conforme necessário (ex.: ordenação por `id`, `title`, etc.).
+
+---
+
+### Requisição no Frontend (React)
+
+No frontend, criaremos uma função que realiza uma requisição `GET` para buscar os registros e exibi-los em uma lista.
+
+#### **Exemplo de Requisição para Listar Registros**
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function EntityList() {
+    const [entities, setEntities] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:5000/getEntities');
+                if (!response.ok) throw new Error('Erro ao buscar registros');
+
+                const data = await response.json();
+                setEntities(data);
+            } catch (error) {
+                console.error('Erro de rede ou servidor:', error);
+                setError('Erro ao buscar registros. Tente novamente mais tarde.');
+            }
+        }
+
+        fetchData();
+    }, []);
+
+    if (error) return <p>{error}</p>;
+
+    return (
+        <div>
+            <h2>Lista de Registros</h2>
+            <ul>
+                {entities.map((entity) => (
+                    <li key={entity.id}>
+                        <h3>{entity.title}</h3> {/* Exemplo: ajuste conforme os campos */}
+                        <p>{entity.description}</p> {/* Exemplo: ajuste conforme os campos */}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+export default EntityList;
+```
+
+#### **Instruções para Adaptação**:
+- **URL da Requisição**: Substitua `'http://localhost:5000/getEntities'` pela URL correta do endpoint.
+- **Campos do Item**: Ajuste `entity.title` e `entity.description` para os campos reais da resposta da API.
+
+#### **Resumo das Etapas**:
+1. **Backend**: Configure a rota `GET /getEntities` para retornar todos os registros da tabela.
+2. **Frontend**: Use `useEffect` para realizar a requisição `GET` ao montar o componente.
+3. **Exibição**: Mapeie o array `entities` para exibir os dados no frontend.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
