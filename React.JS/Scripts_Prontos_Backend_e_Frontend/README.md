@@ -40,6 +40,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
+       - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](# "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
@@ -1036,6 +1037,140 @@ export default DeleteButton;
 - **Mensagens de sucesso/erro**: O código exibe mensagens no console ou em um `alert()` para indicar o sucesso ou falha da operação. Para uma experiência melhor, você pode usar componentes de feedback como `toasts` ou `modals`.
 
 Esse guia genérico permite que você configure e reutilize a lógica de exclusão de registros com facilidade em diversos componentes e tabelas do seu sistema.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend
+
+### Rota Backend: Criação de Registro (Create)
+
+Primeiro, vamos configurar a rota `POST` para adicionar um novo registro à tabela do banco de dados usando Prisma.
+
+#### **Exemplo da Rota no Backend (Node.js/Express)**
+
+```ts
+// Rota genérica para criar um novo registro
+routes.post('/createEntity', async (req, res) => {
+    const { title, description } = req.body; // Adapte os campos conforme a tabela
+
+    try {
+        // Criar o novo registro no banco de dados
+        const newEntity = await prisma.entity.create({
+            data: {
+                title,        // Exemplo de campo: substitua conforme necessário
+                description   // Exemplo de campo: substitua conforme necessário
+            }
+        });
+
+        return res.status(201).json(newEntity);
+    } catch (error) {
+        console.error('Erro ao criar registro:', error);
+        return res.status(500).json({ error: 'Erro ao criar registro' });
+    }
+});
+```
+
+#### **Instruções para Adaptação**:
+- **Rota**: Substitua `'/createEntity'` pelo endpoint desejado, como `'/createUser'` ou `'/createProduct'`.
+- **Tabela (Entidade)**: Troque `entity` pelo nome real da tabela definida no `schema.prisma` (ex.: `users`, `products`).
+- **Campos**: Ajuste `title` e `description` para os campos que deseja salvar, de acordo com a tabela do banco.
+
+---
+
+### Requisição no Frontend (React)
+
+Para enviar os dados do formulário para essa rota, faremos uma requisição `POST` usando `fetch` em um componente React.
+
+#### **Exemplo de Requisição para Criar Registro**
+
+```jsx
+import React, { useState } from 'react';
+
+function CreateEntityForm() {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [message, setMessage] = useState('');
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        const formData = {
+            title,
+            description,
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/createEntity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setMessage('Registro criado com sucesso!');
+                console.log('Novo registro:', data);
+
+                // Limpar o formulário após a criação
+                setTitle('');
+                setDescription('');
+            } else {
+                const errorData = await response.json();
+                console.error('Erro ao criar registro:', errorData);
+                setMessage('Erro ao criar registro. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro de rede ou servidor:', error);
+            setMessage('Erro de rede ou servidor. Tente novamente mais tarde.');
+        }
+    }
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Título:
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Descrição:
+                    <input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </label>
+                <button type="submit">Criar Registro</button>
+            </form>
+            {message && <p>{message}</p>}
+        </div>
+    );
+}
+
+export default CreateEntityForm;
+```
+
+#### **Instruções para Adaptação**:
+- **URL da Requisição**: Substitua `'http://localhost:5000/createEntity'` pela URL do endpoint correto.
+- **Campos do Formulário**: Adapte `title` e `description` conforme necessário para outros campos.
+
+#### **Resumo das Etapas**:
+1. **Backend**: Crie a rota `POST /createEntity`, receba os dados de `req.body` e salve-os na tabela usando Prisma.
+2. **Frontend**: Defina o formulário em React para capturar os dados e enviar para a rota.
+3. **Requisição**: Faça a requisição `POST`, trate a resposta e exiba uma mensagem de sucesso ou erro para o usuário.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
