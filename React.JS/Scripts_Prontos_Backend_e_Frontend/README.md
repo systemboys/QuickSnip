@@ -40,7 +40,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Tratamento de erros e feedback ao usuário
    - **Integração Completa de Frontend e Backend**
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
-       - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](# "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
+       - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
