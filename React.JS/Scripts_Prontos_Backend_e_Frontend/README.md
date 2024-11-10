@@ -1647,18 +1647,18 @@ Organizar as rotas em controllers ajuda a manter o código do backend mais modul
 Organize seu projeto em pastas para separar as rotas e controllers:
 
 ```
-/project-root
-|-- /controllers
-|   |-- entityController.js
-|
-|-- /routes
-|   |-- entityRoutes.js
-|
-|-- /prisma
-|   |-- schema.prisma
-|
-|-- app.js
-|-- server.js
+./project-root
+├─ ./controllers/
+│   └─ ./entityController.js
+│
+├─ ./routes/
+│   └─ ./entityRoutes.js
+│
+├─ ./prisma/
+│   └─ ./schema.prisma
+│
+├─ ./app.js
+└─ ./server.js
 ```
 
 1. **controllers/**: Contém todos os arquivos de controllers, cada um com a lógica de CRUD para uma entidade.
