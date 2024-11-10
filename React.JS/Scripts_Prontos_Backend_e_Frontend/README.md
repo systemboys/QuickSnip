@@ -42,6 +42,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Exemplo completo de um CRUD (Create, Read, Update, Delete)
        - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
        - [Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend](#rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
+       - [Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend](# "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
@@ -1272,6 +1273,165 @@ export default EntityList;
 1. **Backend**: Configure a rota `GET /getEntities` para retornar todos os registros da tabela.
 2. **Frontend**: Use `useEffect` para realizar a requisição `GET` ao montar o componente.
 3. **Exibição**: Mapeie o array `entities` para exibir os dados no frontend.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend
+
+### Rota Backend: Atualização de Registro (Update)
+
+Essa rota `PUT` permite atualizar um registro específico com base em seu `ID`.
+
+#### **Exemplo da Rota no Backend (Node.js/Express)**
+
+```ts
+// Rota genérica para atualizar um registro pelo ID
+routes.put('/updateEntity/:id', async (req, res) => {
+    const { id } = req.params;
+    const { title, description } = req.body; // Adapte os campos conforme necessário
+
+    try {
+        // Verificar se o registro existe antes de atualizar
+        const entityExists = await prisma.entity.findUnique({
+            where: { id: parseInt(id) },
+        });
+
+        if (!entityExists) {
+            return res.status(404).json({ error: 'Registro não encontrado' });
+        }
+
+        // Atualizar o registro no banco de dados
+        const updatedEntity = await prisma.entity.update({
+            where: { id: parseInt(id) },
+            data: {
+                title,
+                description,
+            }
+        });
+
+        return res.status(200).json(updatedEntity);
+    } catch (error) {
+        console.error('Erro ao atualizar registro:', error);
+        return res.status(500).json({ error: 'Erro ao atualizar registro' });
+    }
+});
+```
+
+#### **Instruções para Adaptação**:
+- **Nome da Rota**: Substitua `'/updateEntity/:id'` pelo endpoint desejado, como `'/updateUser/:id'`.
+- **Tabela (Entidade)**: Substitua `entity` pelo nome real da tabela no `schema.prisma` (ex.: `users`, `products`).
+- **Campos**: Ajuste `title` e `description` para os campos da tabela que deseja atualizar.
+
+---
+
+### Requisição no Frontend (React)
+
+No frontend, criaremos uma função para enviar uma requisição `PUT` com os dados atualizados para essa rota.
+
+#### **Exemplo de Requisição para Atualizar um Registro**
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function UpdateEntityForm({ entityId }) {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        // Busca os dados atuais para preenchimento inicial do formulário
+        async function fetchEntityData() {
+            try {
+                const response = await fetch(`http://localhost:5000/getEntity/${entityId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setTitle(data.title);
+                    setDescription(data.description);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar registro:', error);
+            }
+        }
+
+        fetchEntityData();
+    }, [entityId]);
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        const updatedData = {
+            title,
+            description,
+        };
+
+        try {
+            const response = await fetch(`http://localhost:5000/updateEntity/${entityId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedData)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setMessage('Registro atualizado com sucesso!');
+                console.log('Registro atualizado:', data);
+            } else {
+                const errorData = await response.json();
+                console.error('Erro ao atualizar registro:', errorData);
+                setMessage('Erro ao atualizar registro. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro de rede ou servidor:', error);
+            setMessage('Erro de rede ou servidor. Tente novamente mais tarde.');
+        }
+    }
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Título:
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Descrição:
+                    <input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </label>
+                <button type="submit">Atualizar Registro</button>
+            </form>
+            {message && <p>{message}</p>}
+        </div>
+    );
+}
+
+export default UpdateEntityForm;
+```
+
+#### **Instruções para Adaptação**:
+- **URL da Requisição**: Substitua `'http://localhost:5000/updateEntity/${entityId}'` com a URL correta da API.
+- **Campos do Formulário**: Ajuste `title` e `description` para os campos que deseja atualizar no formulário.
+
+#### **Resumo das Etapas**:
+1. **Backend**: Crie a rota `PUT /updateEntity/:id` para atualizar os dados de um registro específico com base no `ID`.
+2. **Frontend**: Use um formulário em React com os valores iniciais preenchidos. Submeta os dados atualizados para a rota `PUT`.
+3. **Requisição e Feedback**: Trate a resposta da requisição e exiba uma mensagem de sucesso ou erro.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
