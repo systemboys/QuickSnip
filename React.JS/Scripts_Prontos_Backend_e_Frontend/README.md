@@ -277,9 +277,9 @@ Essas são as únicas modificações necessárias!
 
 ## Formatação de Dados da API em um Array no Formato Específico (JSON)
 
-Aqui está o conteúdo reescrito de forma genérica para que você possa utilizá-lo em outros componentes, com adaptações necessárias.
+Aqui está uma forma genérica para que você possa utilizá-la em outros componentes, com adaptações necessárias.
 
-Para formatar os dados retornados pela consulta em um array com a estrutura desejada, siga os passos abaixo:
+Para formatar os dados retornados pela consulta em um array com a estrutura desejada em JSON, siga os passos abaixo:
 
 ```jsx
 // Realizar a chamada à API para buscar dados e formatá-los conforme o necessário.
