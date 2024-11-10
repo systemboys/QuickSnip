@@ -47,7 +47,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e `controllers` no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
-       - [Como mover a lógica de rotas para controllers para melhor organização](# "Como mover a lógica de rotas para controllers para melhor organização")
+       - [Como mover a lógica de rotas para controllers para melhor organização](#como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
        - Vantagens da modularização e manutenibilidade do código
        - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
          - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
