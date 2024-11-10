@@ -43,7 +43,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
        - [Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend](#rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
        - [Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend](#rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
-       - [Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend](# "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
+       - [Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend](#rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
