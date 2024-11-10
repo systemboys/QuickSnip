@@ -43,6 +43,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
        - [Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend](#rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
        - [Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend](#rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
+       - [Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend](# "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e controllers no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
@@ -1432,6 +1433,117 @@ export default UpdateEntityForm;
 1. **Backend**: Crie a rota `PUT /updateEntity/:id` para atualizar os dados de um registro específico com base no `ID`.
 2. **Frontend**: Use um formulário em React com os valores iniciais preenchidos. Submeta os dados atualizados para a rota `PUT`.
 3. **Requisição e Feedback**: Trate a resposta da requisição e exiba uma mensagem de sucesso ou erro.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend
+
+### Rota Backend: Exclusão de Registro (Delete)
+
+Essa rota `DELETE` permite excluir um registro específico com base em seu `ID`.
+
+#### **Exemplo da Rota no Backend (Node.js/Express)**
+
+```ts
+// Rota genérica para excluir um registro pelo ID
+routes.delete('/deleteEntity/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Verificar se o registro existe antes de excluir
+        const entityExists = await prisma.entity.findUnique({
+            where: { id: parseInt(id) },
+        });
+
+        if (!entityExists) {
+            return res.status(404).json({ error: 'Registro não encontrado' });
+        }
+
+        // Excluir o registro no banco de dados
+        await prisma.entity.delete({
+            where: { id: parseInt(id) },
+        });
+
+        return res.status(200).json({ message: 'Registro excluído com sucesso' });
+    } catch (error) {
+        console.error('Erro ao excluir registro:', error);
+        return res.status(500).json({ error: 'Erro ao excluir registro' });
+    }
+});
+```
+
+#### **Instruções para Adaptação**:
+- **Nome da Rota**: Substitua `'/deleteEntity/:id'` pelo endpoint desejado, como `'/deleteUser/:id'`.
+- **Tabela (Entidade)**: Substitua `entity` pelo nome real da tabela no `schema.prisma` (ex.: `users`, `products`).
+- **Verificação de Existência**: A verificação `findUnique` garante que o registro existe antes de tentar excluí-lo, evitando erros.
+
+---
+
+### Requisição no Frontend (React)
+
+No frontend, criaremos uma função que faz uma requisição `DELETE` para essa rota com o ID do registro que queremos excluir.
+
+#### **Exemplo de Requisição para Excluir um Registro**
+
+```jsx
+import React, { useState } from 'react';
+
+function DeleteEntityButton({ entityId, onDelete }) {
+    const [message, setMessage] = useState('');
+
+    async function handleDelete() {
+        try {
+            const response = await fetch(`http://localhost:5000/deleteEntity/${entityId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setMessage('Registro excluído com sucesso!');
+                console.log('Registro excluído:', entityId);
+
+                // Acionar a função callback para atualizar a lista
+                if (onDelete) onDelete(entityId);
+            } else {
+                const errorData = await response.json();
+                console.error('Erro ao excluir registro:', errorData);
+                setMessage('Erro ao excluir registro. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro de rede ou servidor:', error);
+            setMessage('Erro de rede ou servidor. Tente novamente mais tarde.');
+        }
+    }
+
+    return (
+        <div>
+            <button onClick={handleDelete}>Excluir Registro</button>
+            {message && <p>{message}</p>}
+        </div>
+    );
+}
+
+export default DeleteEntityButton;
+```
+
+#### **Instruções para Adaptação**:
+- **URL da Requisição**: Substitua `'http://localhost:5000/deleteEntity/${entityId}'` pelo endpoint correto da API.
+- **Callback `onDelete`**: Utilize `onDelete` para atualizar a lista de registros no frontend após a exclusão, se necessário.
+- **Mensagens**: Personalize as mensagens de sucesso ou erro exibidas ao usuário.
+
+#### **Resumo das Etapas**:
+1. **Backend**: Configure a rota `DELETE /deleteEntity/:id` para excluir o registro com o ID fornecido.
+2. **Frontend**: Use um botão em React que chama a função `handleDelete` para realizar a exclusão.
+3. **Callback para Atualização**: Opcionalmente, use `onDelete` para atualizar a lista de registros no frontend após a exclusão.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
