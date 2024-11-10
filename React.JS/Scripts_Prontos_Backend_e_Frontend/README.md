@@ -277,43 +277,50 @@ Essas são as únicas modificações necessárias!
 
 ## Formatação de Dados da API em um Array no Formato Específico (JSON)
 
-Para formatar os dados retornados pela consulta em um array no formato desejado, você pode fazer o seguinte:
+Aqui está o conteúdo reescrito de forma genérica para que você possa utilizá-lo em outros componentes, com adaptações necessárias.
+
+Para formatar os dados retornados pela consulta em um array com a estrutura desejada, siga os passos abaixo:
 
 ```jsx
-// Realizar a chamada à API para buscar dados associados ao parâmetro especificado.
-const [listBackground, setListBackground] = useState([]);
+// Realizar a chamada à API para buscar dados e formatá-los conforme o necessário.
+const [dataList, setDataList] = useState([]);
 useEffect(() => {
-  Api.get(`/backgroundsId/${category}`).then((res) => {
+  Api.get(`/entityEndpoint/${parameter}`).then((res) => {
     const formattedData = res.data.map((item) => ({
-      image: `/img/backgrounds/${item.thumb}`,
-      title: item.title,
-      category: item.category,
-      date: item.date,
+      image: `/img/entities/${item.imageField}`, // Exemplo: ajuste conforme necessário
+      title: item.titleField,                    // Exemplo: ajuste conforme necessário
+      category: item.categoryField,              // Exemplo: ajuste conforme necessário
+      date: item.dateField,                      // Exemplo: ajuste conforme necessário
     }));
-    setListBackground(formattedData);
+    setDataList(formattedData);
   });
-}, []);
+}, [parameter]);
 
-console.log(listBackground); // Retorno no console.
+console.log(dataList); // Exibe os dados formatados no console.
 ```
 
-> ( ! ) A chamada à API deve ficar dentro do componente!
+> **Nota:** A chamada à API deve ser realizada dentro do componente React.
 
-Aqui, usamos o método `map()` para percorrer cada item retornado pela consulta e criar um novo objeto no formato desejado. Em seguida, definimos o estado `listBackground` com o array `formattedData`, que contém os dados formatados.
+### Explicação do Código
 
-Certifique-se de que as propriedades `thumb`, `title`, `category` e `date` correspondam aos nomes corretos dos campos na resposta da API.
+1. **Chamada à API**: Usamos `Api.get()` para realizar a requisição, passando o `parameter` dinâmico para a URL do endpoint. O `parameter` pode ser um ID ou categoria, dependendo da aplicação.
+2. **Formatação dos Dados**: O método `map()` percorre cada item da resposta da API, criando um novo array `formattedData` com a estrutura desejada.
+3. **Definindo o Estado**: Usamos `setDataList` para atualizar o estado `dataList` com o array `formattedData`, que contém os dados formatados.
+4. **Exibindo no Console**: O `console.log(dataList)` permite verificar os dados formatados, facilitando a depuração.
 
-> Esse código faz uma chamada à API para obter dados da tabela "backgroundsId" com base na categoria fornecida. Ele usa os hooks `useState` e `useEffect` para fazer a chamada da API e formatar os dados recebidos.
->
-> A chamada à API é feita através do `Api.get()` e usa o caminho `/backgroundsId/${category}` para buscar os dados correspondentes à categoria especificada.
->
-> Quando a resposta da API é recebida, o código formata os dados retornados usando o método `map()`. Cada item retornado é transformado em um objeto com as propriedades `image`, `title`, `category` e `date`.
->
-> Em seguida, os dados formatados são atribuídos ao estado `listBackground` usando a função `setListBackground`. Isso atualiza o estado com os dados obtidos da API.
->
-> O `useEffect` é usado para executar esse código sempre que a categoria for alterada. A dependência vazia `[]` no final indica que o efeito deve ser executado apenas uma vez, após a montagem do componente.
->
-> Por fim, o `console.log(listBackground)` é usado para exibir o valor atual de `listBackground` no console. Isso pode ser útil para verificar se os dados foram obtidos corretamente e para depurar eventuais problemas.
+### Observações Importantes
+
+- **Campos da API**: Certifique-se de que os campos `imageField`, `titleField`, `categoryField` e `dateField` correspondem aos nomes corretos na resposta da API. Substitua-os conforme necessário.
+- **Hooks React**: Este código usa `useState` para armazenar os dados e `useEffect` para executar a chamada à API. O `useEffect` é configurado para ser executado apenas uma vez ou quando `parameter` é alterado.
+- **Atualização Condicional**: Adicione `parameter` como dependência no `useEffect` para refazer a consulta quando o valor de `parameter` mudar.
+
+### Exemplo Completo
+
+> Este código realiza uma requisição para buscar dados da API, formata os dados e os armazena em um estado do componente. É útil para exibir listas, catálogos ou outras coleções com uma estrutura específica.
+
+
+
+Você pode adaptar essa estrutura para qualquer componente que precise buscar, formatar e exibir dados!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
