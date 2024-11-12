@@ -52,7 +52,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
          - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
 2. **Paginação de Listas com React e Prisma**
-   - [Componente de Paginação Genérico para Listas](# "Componente de Paginação Genérico para Listas")
+   - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
      - [Arquivo de Rota: `routes.ts`](# "Arquivo de Rota: `routes.ts`")
      - [Componente de Paginação: `index.jsx`](# "Componente de Paginação: `index.jsx`")
 3. **Trabalhando Fenestra, API de janelas para react/redux**
@@ -2042,7 +2042,7 @@ Esse componente genérico permite a paginação de listas grandes no frontend se
 
 ---
 
-Arquivo: `routes.ts`
+#### Arquivo: `routes.ts`
 ```typescript
 // Rota para buscar itens com paginação
 routes.get('/items/:companyId', async (req, res) => {
@@ -2085,7 +2085,7 @@ Essa rota implementa a paginação no servidor usando Prisma. Ela recebe o `comp
 
 ---
 
-Arquivo: `index.jsx`
+#### Arquivo: `index.jsx`
 ```javascript
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
