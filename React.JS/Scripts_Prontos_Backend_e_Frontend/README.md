@@ -2178,6 +2178,8 @@ Para implementar uma paginação customizada no estilo da imagem, podemos criar 
 
 Abaixo está uma modificação no código de paginação, que adiciona essa lógica e gera os botões conforme o layout solicitado.
 
+### ( i ) A rota é a da diga anterior, [clique aqui](#arquivo-routests "clique aqui").
+
 ### Passo 1: Criar a Função de Geração de Páginas
 
 Essa função gera os números de página, adicionando "..." quando necessário, para manter o design mais compacto.
