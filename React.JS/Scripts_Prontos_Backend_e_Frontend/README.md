@@ -90,8 +90,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
       - [Array filter()](#array-filter "Array filter()")
       - [Array reduce()](#array-reduce "Array reduce()")
 7. **Configuração do Ambiente Prisma**
-   - [Sincronizar Modelo do Banco de Dados](# "Sincronizar Modelo do Banco de Dados")
-   - [Gerar Tipos e Classes a Partir do Schema](# "Gerar Tipos e Classes a Partir do Schema")
+   - [Sincronizar Modelo do Banco de Dados](#sincronizar-modelo-do-banco-de-dados "Sincronizar Modelo do Banco de Dados")
+   - [Gerar Tipos e Classes a Partir do Schema](#gerar-tipos-e-classes-a-partir-do-schema "Gerar Tipos e Classes a Partir do Schema")
 
 ---
 
