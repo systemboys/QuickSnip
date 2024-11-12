@@ -1971,11 +1971,11 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
 
    ```jsx
    import React, { useEffect, useState } from 'react';
-
+   
    const YourComponent = ({ id }) => {
        const [data, setData] = useState([]);
        const [error, setError] = useState(null);
-
+   
        // Realizar a chamada à API para buscar dados associados ao parâmetro especificado.
        useEffect(() => {
            const fetchData = async () => {
@@ -1990,12 +1990,12 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
                    console.error('Erro ao buscar dados:', err);
                }
            };
-
+   
            if (id) {
                fetchData();
            }
        }, [id]);
-
+   
        return (
            <div>
                {error && <p>Erro: {error}</p>}
@@ -2007,7 +2007,7 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
            </div>
        );
    };
-
+   
    export default YourComponent;
    ```
 
@@ -2162,6 +2162,9 @@ export function PaginatedList() {
 Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos itens em `items.map(...)`.
 
 ***A exemplo de teste, crie uma tabela com o nome `test_table` e execute os INSERTs abaixo***
+
+![Tabela para testes](./images/Table_for_tests.png "Crie a tabela e faça testes!")
+
 ```sql
 INSERT INTO test_table (item_description, registration_date, registration_time, company_id) VALUES
                        ('Item 01',        '2024-01-10',      '16:59:31',        1),
