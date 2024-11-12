@@ -2040,8 +2040,6 @@ Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáv
 
 Esse componente genérico permite a paginação de listas grandes no frontend sem a necessidade de carregar todos os dados de uma vez. Ele funciona com chamadas ao servidor para carregar apenas os itens necessários para a página atual, reduzindo o uso de memória e melhorando o desempenho. Esse exemplo utiliza uma lista simples de itens, renderizados como parágrafos (`<p>...</p>`).
 
----
-
 #### Arquivo: `routes.ts`
 ```typescript
 // Rota para buscar itens com paginação
@@ -2082,8 +2080,6 @@ Essa rota implementa a paginação no servidor usando Prisma. Ela recebe o `comp
 - **Ordena** os registros por `id` em ordem decrescente.
 - **Aplica paginação** usando `skip` e `take` para definir o intervalo de itens a serem retornados.
 - **Retorna a página de itens** e o número total de páginas (`totalPages`), permitindo que o frontend saiba quantas páginas existem para navegação.
-
----
 
 #### Arquivo: `index.jsx`
 ```javascript
@@ -2160,9 +2156,180 @@ export function PaginatedList() {
    - Cada item é renderizado como um parágrafo (`<p>`).
    - Os botões de navegação permitem ao usuário mudar de página, com uma indicação visual da página atual e do total de páginas.
 
+Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos itens em `items.map(...)`.
+
 ---
 
-Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos itens em `items.map(...)`.
+Para implementar uma paginação customizada no estilo da imagem, podemos criar uma lógica que gera os botões de página com "..." quando há muitas páginas. Essa abordagem melhora a experiência do usuário ao permitir a navegação direta para as primeiras e últimas páginas, além de exibir a página atual e algumas páginas ao redor.
+
+Abaixo está uma modificação no código de paginação, que adiciona essa lógica e gera os botões conforme o layout solicitado.
+
+### Passo 1: Criar a Função de Geração de Páginas
+
+Essa função gera os números de página, adicionando "..." quando necessário, para manter o design mais compacto.
+
+```javascript
+function generatePageNumbers(currentPage, totalPages) {
+    const pageNumbers = [];
+
+    if (totalPages <= 10) {
+        // Caso total de páginas seja 10 ou menos, exibir todas as páginas
+        for (let i = 1; i <= totalPages; i++) {
+            pageNumbers.push(i);
+        }
+    } else {
+        // Exibir as três primeiras, três últimas e três ao redor da página atual
+        pageNumbers.push(1, 2, 3);
+
+        if (currentPage > 5) {
+            pageNumbers.push("..."); // Adiciona "..." após as primeiras páginas
+        }
+
+        const start = Math.max(4, currentPage - 1);
+        const end = Math.min(totalPages - 3, currentPage + 1);
+
+        for (let i = start; i <= end; i++) {
+            pageNumbers.push(i);
+        }
+
+        if (currentPage < totalPages - 4) {
+            pageNumbers.push("..."); // Adiciona "..." antes das últimas páginas
+        }
+
+        pageNumbers.push(totalPages - 2, totalPages - 1, totalPages);
+    }
+
+    return pageNumbers;
+}
+```
+
+### Passo 2: Implementar a Exibição de Botões de Paginação
+
+No componente principal, modifique o bloco de paginação para usar a função `generatePageNumbers` e renderizar os botões conforme o layout desejado.
+
+```javascript
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Api } from '../../server/api';
+
+export function PaginatedList() {
+    const [items, setItems] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const limit = 10;
+
+    const fetchItems = async (currentPage) => {
+        try {
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            const companyId = storedUser?.company_id;
+            const response = await Api.get(`/items/${companyId}?page=${currentPage}&limit=${limit}`);
+            
+            setItems(response.data.data);
+            setTotalPages(response.data.totalPages);
+            setPage(response.data.currentPage);
+        } catch (error) {
+            console.error("Erro ao carregar itens:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchItems(page);
+    }, [page]);
+
+    const handlePreviousPage = () => {
+        if (page > 1) setPage(page - 1);
+    };
+
+    const handleNextPage = () => {
+        if (page < totalPages) setPage(page + 1);
+    };
+
+    // Função que gera o layout de botões com "..."
+    const renderPageButtons = () => {
+        const pageNumbers = generatePageNumbers(page, totalPages);
+
+        return pageNumbers.map((pageNum, index) => (
+            <Button
+                key={index}
+                variant={pageNum === page ? "primary" : "secondary"}
+                onClick={() => typeof pageNum === "number" && setPage(pageNum)}
+                disabled={pageNum === "..."}
+            >
+                {pageNum}
+            </Button>
+        ));
+    };
+
+    return (
+        <div>
+            <div>
+                {items.map((item, index) => (
+                    <p key={index}>{item.name}</p>
+                ))}
+            </div>
+            <div className="pagination-controls" style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                <Button onClick={handlePreviousPage} disabled={page === 1}>{"<"}</Button>
+                {renderPageButtons()}
+                <Button onClick={handleNextPage} disabled={page === totalPages}>{">"}</Button>
+            </div>
+        </div>
+    );
+}
+
+// Função para gerar números de página com "..."
+function generatePageNumbers(currentPage, totalPages) {
+    const pageNumbers = [];
+
+    if (totalPages <= 10) {
+        for (let i = 1; i <= totalPages; i++) {
+            pageNumbers.push(i);
+        }
+    } else {
+        pageNumbers.push(1, 2, 3);
+
+        if (currentPage > 5) {
+            pageNumbers.push("...");
+        }
+
+        const start = Math.max(4, currentPage - 1);
+        const end = Math.min(totalPages - 3, currentPage + 1);
+
+        for (let i = start; i <= end; i++) {
+            pageNumbers.push(i);
+        }
+
+        if (currentPage < totalPages - 4) {
+            pageNumbers.push("...");
+        }
+
+        pageNumbers.push(totalPages - 2, totalPages - 1, totalPages);
+    }
+
+    return pageNumbers;
+}
+```
+
+### Explicação da Lógica
+
+1. **Função `generatePageNumbers`**:
+   - Gera os números de página a serem exibidos, adicionando "..." quando há muitas páginas.
+   - Quando o total de páginas é 10 ou menos, exibe todos os números.
+   - Quando o total é maior, exibe as três primeiras, três últimas e três páginas ao redor da página atual.
+
+2. **Função `renderPageButtons`**:
+   - Usa `generatePageNumbers` para gerar o layout de botões.
+   - Adiciona a classe `primary` no botão da página atual e `secondary` nos outros.
+
+3. **Navegação**:
+   - Botões de navegação `"<"` e `">"` permitem avançar e retroceder nas páginas, e estão desativados quando atingem o início ou o final.
+
+### Resultado Esperado
+
+A exibição dos botões de paginação deve ficar parecida com o modelo solicitado:
+- Exibindo as três primeiras páginas, a página atual com duas ao redor dela, e as três últimas páginas.
+- Exibindo "..." para indicar páginas intermediárias quando aplicável.
+
+Esse layout otimiza a navegação para listas extensas, mantendo a interface simples e acessível.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
