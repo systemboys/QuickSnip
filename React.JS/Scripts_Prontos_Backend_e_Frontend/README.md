@@ -51,15 +51,19 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
        - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
          - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
-2. **Trabalhando Fenestra, API de janelas para react/redux**
+2. **Paginação de Listas com React e Prisma**
+   - [Componente de Paginação Genérico para Listas](# "Componente de Paginação Genérico para Listas")
+     - [Arquivo de Rota: `routes.ts`](# "Arquivo de Rota: `routes.ts`")
+     - [Componente de Paginação: `index.jsx`](# "Componente de Paginação: `index.jsx`")
+3. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
    - **Manipulação de Estilos e Classes em Componentes Modais**
      - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
-3. **Testes e Simulações de Interface**
+4. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
-4. **Configuração e Segurança em Projetos React**
+5. **Configuração e Segurança em Projetos React**
    - #### **[Uso de Variáveis de Ambiente com Arquivo .env no React](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react-1 "Uso de Variáveis de Ambiente com Arquivo .env no React")**
      - [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
      - [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
@@ -72,7 +76,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
        - [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
        - [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
-5. **Manipulação de Arrays em JavaScript**
+6. **Manipulação de Arrays em JavaScript**
    - [Obter dados de um `Array` com o `map()`](#obter-dados-de-um-array-com-map "Obter dados de um Array com map()")
    - [Executar Array dentro do retorno de um componente](#executar-array-dentro-do-retorno-de-um-componente "Executar Array dentro do retorno de um componente")
    - [Mapeamento direto no map()](#mapeamento-direto-no-map "Mapeamento direto no map()")
@@ -2022,6 +2026,143 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
    - Renderize os dados conforme necessário no componente.
 
 Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáveis e adaptáveis para diferentes entidades e relações no seu sistema.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Componente de Paginação Genérico para Listas
+
+Esse componente genérico permite a paginação de listas grandes no frontend sem a necessidade de carregar todos os dados de uma vez. Ele funciona com chamadas ao servidor para carregar apenas os itens necessários para a página atual, reduzindo o uso de memória e melhorando o desempenho. Esse exemplo utiliza uma lista simples de itens, renderizados como parágrafos (`<p>...</p>`).
+
+---
+
+Arquivo: `routes.ts`
+```typescript
+// Rota para buscar itens com paginação
+routes.get('/items/:companyId', async (req, res) => {
+    const { companyId } = req.params;
+    const page = parseInt(req.query.page as string) || 1; // Página atual (1 por padrão)
+    const limit = parseInt(req.query.limit as string) || 10; // Limite de itens por página (10 por padrão)
+    const skip = (page - 1) * limit; // Calcular quantos registros pular com base na página
+
+    try {
+        const items = await prisma.items.findMany({
+            where: { company_id: Number(companyId) },
+            orderBy: { id: 'desc' },
+            skip: skip,
+            take: limit
+        });
+
+        const totalItems = await prisma.items.count({
+            where: { company_id: Number(companyId) }
+        });
+
+        res.status(200).json({
+            data: items,
+            totalPages: Math.ceil(totalItems / limit),
+            currentPage: page
+        });
+    } catch (error) {
+        console.error('Erro ao buscar itens:', error);
+        res.status(500).json({ error: 'Erro ao buscar itens' });
+    }
+});
+```
+
+**Explicação da rota:**
+
+Essa rota implementa a paginação no servidor usando Prisma. Ela recebe o `companyId` como parâmetro e os parâmetros de consulta `page` e `limit` para determinar a página atual e o número de itens por página. A rota:
+- **Filtra pelos registros** do `company_id` correspondente.
+- **Ordena** os registros por `id` em ordem decrescente.
+- **Aplica paginação** usando `skip` e `take` para definir o intervalo de itens a serem retornados.
+- **Retorna a página de itens** e o número total de páginas (`totalPages`), permitindo que o frontend saiba quantas páginas existem para navegação.
+
+---
+
+Arquivo: `index.jsx`
+```javascript
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Api } from '../../server/api';
+
+export function PaginatedList() {
+    const [items, setItems] = useState([]); // Itens a serem exibidos
+    const [page, setPage] = useState(1); // Página atual
+    const [totalPages, setTotalPages] = useState(1); // Total de páginas
+    const limit = 10; // Número de itens por página
+
+    // Função para buscar itens paginados
+    const fetchItems = async (currentPage) => {
+        try {
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            const companyId = storedUser?.company_id;
+            const response = await Api.get(`/items/${companyId}?page=${currentPage}&limit=${limit}`);
+            
+            setItems(response.data.data); // Define os itens para a página atual
+            setTotalPages(response.data.totalPages); // Define o total de páginas
+            setPage(response.data.currentPage); // Define a página atual
+        } catch (error) {
+            console.error("Erro ao carregar itens:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchItems(page); // Carrega os itens ao montar o componente e ao mudar de página
+    }, [page]);
+
+    // Funções de navegação
+    const handlePreviousPage = () => {
+        if (page > 1) setPage(page - 1);
+    };
+
+    const handleNextPage = () => {
+        if (page < totalPages) setPage(page + 1);
+    };
+
+    return (
+        <div>
+            <div>
+                {items.map((item, index) => (
+                    <p key={index}>{item.name}</p> // Renderiza cada item como um parágrafo
+                ))}
+            </div>
+            <div className="pagination-controls">
+                <Button onClick={handlePreviousPage} disabled={page === 1}>Anterior</Button>
+                <span>Página {page} de {totalPages}</span>
+                <Button onClick={handleNextPage} disabled={page === totalPages}>Próxima</Button>
+            </div>
+        </div>
+    );
+}
+```
+
+**Explicação da chamada:**
+
+1. **Estados do componente**:
+   - `items`: Armazena os itens da página atual, recebidos do backend.
+   - `page`: Controla a página atual.
+   - `totalPages`: Armazena o número total de páginas, permitindo controlar a navegação.
+
+2. **Função `fetchItems`**:
+   - Chama a API para buscar os itens paginados, passando `page` e `limit` como parâmetros para controlar a quantidade de dados recebida.
+   - Usa o `companyId` do usuário armazenado no `localStorage` para buscar apenas os itens da empresa correspondente.
+
+3. **Navegação entre páginas**:
+   - `handlePreviousPage` e `handleNextPage` atualizam o estado `page` para a página anterior ou próxima, respeitando os limites (primeira e última página).
+   
+4. **Renderização**:
+   - Cada item é renderizado como um parágrafo (`<p>`).
+   - Os botões de navegação permitem ao usuário mudar de página, com uma indicação visual da página atual e do total de páginas.
+
+---
+
+Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos itens em `items.map(...)`.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
