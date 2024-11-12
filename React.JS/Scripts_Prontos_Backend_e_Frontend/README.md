@@ -55,6 +55,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
      - [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
      - [Componente de Paginação: `index.jsx`](#arquivo-indexjsx "Componente de Paginação: `index.jsx`")
+   - [Outro exemplo genérico com botões ilimitados com Reticências (...)](#outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
 3. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
@@ -2160,7 +2161,7 @@ Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos 
 
 ---
 
-#### Outro exemplo genérico com botões ilimitados com Reticências (...)
+## Outro exemplo genérico com botões ilimitados com Reticências (...)
 
 Para implementar uma paginação customizada no estilo da imagem, podemos criar uma lógica que gera os botões de página com "..." quando há muitas páginas. Essa abordagem melhora a experiência do usuário ao permitir a navegação direta para as primeiras e últimas páginas, além de exibir a página atual e algumas páginas ao redor.
 
