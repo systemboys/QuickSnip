@@ -2160,6 +2160,8 @@ Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos 
 
 ---
 
+#### Outro exemplo genérico com botões ilimitados com Reticências (...)
+
 Para implementar uma paginação customizada no estilo da imagem, podemos criar uma lógica que gera os botões de página com "..." quando há muitas páginas. Essa abordagem melhora a experiência do usuário ao permitir a navegação direta para as primeiras e últimas páginas, além de exibir a página atual e algumas páginas ao redor.
 
 Abaixo está uma modificação no código de paginação, que adiciona essa lógica e gera os botões conforme o layout solicitado.
