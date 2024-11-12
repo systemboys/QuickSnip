@@ -89,6 +89,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
       - [Array map()](#array-map "Array map()")
       - [Array filter()](#array-filter "Array filter()")
       - [Array reduce()](#array-reduce "Array reduce()")
+7. **Configuração do Ambiente Prisma**
+   - [Sincronizar Modelo do Banco de Dados](# "Sincronizar Modelo do Banco de Dados")
+   - [Gerar Tipos e Classes a Partir do Schema](# "Gerar Tipos e Classes a Partir do Schema")
 
 ---
 
@@ -3173,6 +3176,35 @@ console.log(total); // Retornando "39.2".
 ```
 
 > Sempre a cada rodada que acontece do reduce, o valor que você está retornando vai se tornar o próximo acumulado e ele pega o próximo do array.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Comandos do Prisma para Sincronização e Geração de Tipos
+
+### Sincronizar Modelo do Banco de Dados
+Use o comando abaixo para sincronizar o modelo do Prisma com o estado atual do banco de dados. Isso é útil quando há mudanças diretas no banco de dados e você quer refletir essas alterações no esquema do Prisma.
+
+```bash
+npx prisma db pull
+```
+
+Esse comando atualiza o arquivo `schema.prisma` com as definições mais recentes de tabelas e colunas do banco de dados.
+
+### Gerar Tipos e Classes a Partir do Schema
+Após qualquer modificação no arquivo `schema.prisma`, execute o comando a seguir para gerar os tipos e as classes necessárias para o uso com o Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+Esse comando cria automaticamente o cliente Prisma, facilitando o acesso aos modelos e consultas ao banco de dados dentro do seu código JavaScript ou TypeScript.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
