@@ -53,8 +53,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
          - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
 2. **Paginação de Listas com React e Prisma**
    - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
-     - [Arquivo de Rota: `routes.ts`](# "Arquivo de Rota: `routes.ts`")
-     - [Componente de Paginação: `index.jsx`](# "Componente de Paginação: `index.jsx`")
+     - [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
+     - [Componente de Paginação: `index.jsx`](#arquivo-indexjsx "Componente de Paginação: `index.jsx`")
 3. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
