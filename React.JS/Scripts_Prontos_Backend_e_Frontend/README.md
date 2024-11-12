@@ -2239,8 +2239,8 @@ export function PaginatedList() {
 
     const fetchItems = async (currentPage) => {
         try {
-            // (!) Essas duas linhas recuperam uma informação no 'localStorage',
-            // se não for necessário, remova junto com 'companyId' aqui e na rota!
+            // (!) As variáveis 'storedUser' e 'companyId' recuperam uma informação no 'localStorage',
+            // se não forem necessárias, pode removê-las daqui e na rota!
             const storedUser = JSON.parse(localStorage.getItem('user'));
             const companyId = storedUser?.company_id;
 
