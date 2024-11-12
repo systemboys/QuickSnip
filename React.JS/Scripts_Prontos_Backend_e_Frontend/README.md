@@ -2172,6 +2172,10 @@ Esse modelo pode ser usado para qualquer lista, bastando modificar o layout dos 
 
 Para implementar uma paginação customizada no estilo da imagem, podemos criar uma lógica que gera os botões de página com "..." quando há muitas páginas. Essa abordagem melhora a experiência do usuário ao permitir a navegação direta para as primeiras e últimas páginas, além de exibir a página atual e algumas páginas ao redor.
 
+```tex
+| < | 1 | 2 | 3 | ... | 18 | 19 | 20 | > |
+```
+
 Abaixo está uma modificação no código de paginação, que adiciona essa lógica e gera os botões conforme o layout solicitado.
 
 ### Passo 1: Criar a Função de Geração de Páginas
