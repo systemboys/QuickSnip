@@ -2285,7 +2285,7 @@ export function PaginatedList() {
             </div>
             <div className="pagination-controls" style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
                 <Button onClick={handlePreviousPage} disabled={page === 1}>{"<"}</Button>
-                {renderPageButtons()}
+                    {renderPageButtons()}
                 <Button onClick={handleNextPage} disabled={page === totalPages}>{">"}</Button>
             </div>
         </div>
