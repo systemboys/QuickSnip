@@ -2239,8 +2239,11 @@ export function PaginatedList() {
 
     const fetchItems = async (currentPage) => {
         try {
+            // (!) Essas duas linhas recuperam uma informação no 'localStorage',
+            // se não for necessário, remova junto com 'companyId' aqui e na rota!
             const storedUser = JSON.parse(localStorage.getItem('user'));
             const companyId = storedUser?.company_id;
+
             const response = await Api.get(`/items/${companyId}?page=${currentPage}&limit=${limit}`);
             
             setItems(response.data.data);
