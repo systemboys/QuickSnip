@@ -2267,7 +2267,7 @@ export function PaginatedList() {
         return pageNumbers.map((pageNum, index) => (
             <Button
                 key={index}
-                variant={pageNum === page ? "primary" : "secondary"}
+                variant={pageNum === page ? "secondary" : "primary"}
                 onClick={() => typeof pageNum === "number" && setPage(pageNum)}
                 disabled={pageNum === "..."}
             >
