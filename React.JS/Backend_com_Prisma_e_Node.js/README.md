@@ -33,6 +33,9 @@
      - Desfazer migrations
      - [Sincronizar Modelo do Banco de Dados](#sincronizar-modelo-do-banco-de-dados "Sincronizar Modelo do Banco de Dados")
      - [Gerar Tipos e Classes a Partir do Schema](#gerar-tipos-e-classes-a-partir-do-schema "Gerar Tipos e Classes a Partir do Schema")
+   - **Manutenção de Dependências**
+     - [Atualizar Dependências do Prisma](# "Comandos para Atualizar e Corrigir Dependências do Prisma")
+     - [Corrigir Vulnerabilidades de Segurança](# "Comandos para Atualizar e Corrigir Dependências do Prisma")
 
 ---
 
@@ -66,6 +69,38 @@ npx prisma generate
 ```
 
 Esse comando cria automaticamente o cliente Prisma, facilitando o acesso aos modelos e consultas ao banco de dados dentro do seu código JavaScript ou TypeScript.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Comandos para Atualizar e Corrigir Dependências do Prisma
+
+### 1. Atualizar Dependências do Prisma
+
+Este comando atualiza as dependências `@prisma/client` e `prisma` para a versão mais recente no seu projeto. É útil para garantir que você esteja utilizando as últimas correções de bugs e melhorias.
+
+```bash
+npm update @prisma/client prisma
+```
+
+### 2. Corrigir Vulnerabilidades com `npm audit fix`
+
+O comando abaixo executa uma verificação de vulnerabilidades de segurança e tenta corrigir automaticamente problemas nas dependências do projeto.
+
+```bash
+npm audit fix
+```
+
+### Observação
+Sempre verifique o impacto de cada atualização no seu projeto, especialmente ao corrigir vulnerabilidades, pois algumas atualizações podem ser incompatíveis com versões específicas de bibliotecas que você utiliza.
+
+Essas anotações podem ser úteis para manter as dependências de seus projetos em dia e mais seguras.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
