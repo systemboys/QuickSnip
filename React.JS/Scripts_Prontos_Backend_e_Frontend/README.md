@@ -92,7 +92,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
       - [Array filter()](#array-filter "Array filter()")
       - [Array reduce()](#array-reduce "Array reduce()")
 7. **Resolução de Problemas e Manutenção do Projeto**
-   - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](# "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
+   - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
 
 ---
 
