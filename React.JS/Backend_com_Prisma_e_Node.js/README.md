@@ -34,8 +34,8 @@
      - [Sincronizar Modelo do Banco de Dados](#sincronizar-modelo-do-banco-de-dados "Sincronizar Modelo do Banco de Dados")
      - [Gerar Tipos e Classes a Partir do Schema](#gerar-tipos-e-classes-a-partir-do-schema "Gerar Tipos e Classes a Partir do Schema")
    - **Manutenção de Dependências**
-     - [Atualizar Dependências do Prisma](# "Comandos para Atualizar e Corrigir Dependências do Prisma")
-     - [Corrigir Vulnerabilidades de Segurança](# "Comandos para Atualizar e Corrigir Dependências do Prisma")
+     - [Atualizar Dependências do Prisma](#1-atualizar-depend%C3%AAncias-do-prisma "Comandos para Atualizar e Corrigir Dependências do Prisma")
+     - [Corrigir Vulnerabilidades de Segurança](#2-corrigir-vulnerabilidades-com-npm-audit-fix "Comandos para Atualizar e Corrigir Dependências do Prisma")
 
 ---
 
