@@ -95,9 +95,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
 8. **Estrutura e Implementação de Componentes**
    - **Abas com Props para Componentes**
-     - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](# "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
-     - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](# "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
-     - [Acessando e Exibindo Dados de Props em Componentes de Abas](# "Acessando e Exibindo Dados de Props em Componentes de Abas")
+     - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
+     - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundofnature "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
 
 ---
 
