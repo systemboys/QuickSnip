@@ -2229,9 +2229,11 @@ Abaixo está uma modificação no código de paginação, que adiciona essa lóg
 
 Essa função gera os números de página, adicionando "..." quando necessário, para manter o design mais compacto.
 
-> ( ! ) Coloque esta função fora do componente!
+> ( ! ) Esta função já está incrementada no código fora do componente na parte inferior!
+> ( ! ) Não repita!
 
 ```javascript
+// Função para gerar números de página com "..."
 function generatePageNumbers(currentPage, totalPages) {
     const pageNumbers = [];
 
