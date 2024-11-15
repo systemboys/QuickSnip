@@ -3326,10 +3326,10 @@ export function SystemSettings_Backgrounds() {
 
 ---
 
-#### **Componentes Filhos - Exemplo com SystemSettings_BackgroundOfNature**
+#### **Componentes Filhos - Exemplo com SystemSettings_BackgroundCategory**
 
 ##### Descrição
-Cada componente de aba, como `SystemSettings_BackgroundOfNature`, recebe uma prop `number` que contém um valor único. Essa prop é usada para lógica interna do componente e para renderização condicional.
+Cada componente de aba, como `SystemSettings_BackgroundCategory`, recebe uma prop `number` que contém um valor único. Essa prop é usada para lógica interna do componente e para renderização condicional.
 
 ##### Código
 ```jsx
