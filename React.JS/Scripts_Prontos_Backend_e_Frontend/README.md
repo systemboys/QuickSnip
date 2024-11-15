@@ -96,7 +96,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 8. **Estrutura e Implementação de Componentes**
    - **Abas com Props para Componentes**
      - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
-     - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundofnature "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
+     - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
 
 ---
 
