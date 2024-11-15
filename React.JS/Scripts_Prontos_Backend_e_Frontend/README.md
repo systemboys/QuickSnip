@@ -93,6 +93,11 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
       - [Array reduce()](#array-reduce "Array reduce()")
 7. **Resolução de Problemas e Manutenção do Projeto**
    - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
+8. **Estrutura e Implementação de Componentes**
+   - **Abas com Props para Componentes**
+     - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](# "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
+     - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](# "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
+     - [Acessando e Exibindo Dados de Props em Componentes de Abas](# "Acessando e Exibindo Dados de Props em Componentes de Abas")
 
 ---
 
@@ -3266,6 +3271,87 @@ Quando o problema persiste e nenhuma das soluções comuns resolve, uma última 
 ### Por Que Isso Funciona?
 
 Esse procedimento pode corrigir problemas de CORS e outros conflitos, eliminando bibliotecas duplicadas, versões incompatíveis ou arquivos temporários que o Node.js pode ter armazenado. É especialmente útil quando configurações e soluções prévias não surtiram efeito.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Implementação de Abas com Props para Componentes
+
+#### **Objetivo**
+Implementar um sistema de abas no React usando o componente `Tabs` do `react-bootstrap` e passar um valor único para cada componente de aba usando props.
+
+---
+
+#### **Componente Principal - SystemSettings_Background**
+
+##### Descrição
+O componente `SystemSettings_Background` utiliza o componente `Tabs` para organizar cinco componentes (`SystemSettings_BackgroundOfNature`, `SystemSettings_BackgroundGradient`, etc.) em diferentes abas. Cada componente recebe um número único via props, que pode ser usado para lógica específica em cada um.
+
+##### Código
+```jsx
+import { Tab, Tabs } from 'react-bootstrap';
+import { SystemSettings_BackgroundCategory } from './BackgroundCategory/';
+
+export function SystemSettings_Backgrounds() {
+    return (
+        <Tabs
+            defaultActiveKey="NatureBackgrounds"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+        >
+            <Tab eventKey="NatureBackgrounds" title="Natureza">
+                <SystemSettings_BackgroundCategory number={6} />
+            </Tab>
+            <Tab eventKey="GradientBackgrounds" title="Gradiente">
+                <SystemSettings_BackgroundCategory number={2} />
+            </Tab>
+            <Tab eventKey="BackgroundMaterialDesign" title="Design">
+                <SystemSettings_BackgroundCategory number={3} />
+            </Tab>
+            <Tab eventKey="WebBackgrounds" title="Da Web">
+                <SystemSettings_BackgroundCategory number={4} />
+            </Tab>
+            <Tab eventKey="OtherBackgrounds" title="Outros">
+                <SystemSettings_BackgroundCategory number={5} />
+            </Tab>
+        </Tabs>
+    );
+}
+```
+
+---
+
+#### **Componentes Filhos - Exemplo com SystemSettings_BackgroundOfNature**
+
+##### Descrição
+Cada componente de aba, como `SystemSettings_BackgroundOfNature`, recebe uma prop `number` que contém um valor único. Essa prop é usada para lógica interna do componente e para renderização condicional.
+
+##### Código
+```jsx
+export function SystemSettings_BackgroundCategory({ number }) {
+    useEffect(() => {
+        console.log(`Número recebido: ${number}`);
+        // Utilize o número conforme necessário
+    }, [number]);
+
+    return (
+        <div>
+            <h1>Plano de Fundo da Aba {number}</h1>
+            <p>Número recebido: {number}</p>
+        </div>
+    );
+}
+```
+
+##### Notas
+- **Props**: As props permitem passar dados e configurações personalizadas para cada componente.
+- **Hooks**: `useEffect` pode ser usado para acionar efeitos colaterais com base no valor recebido.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
