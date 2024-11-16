@@ -51,6 +51,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
        - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
          - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
+     - [Função Genérica para Consultas e Operações CRUD com Prisma](# "Função Genérica para Consultas e Operações CRUD com Prisma")
 2. **Paginação de Listas com React e Prisma**
    - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
      - [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
@@ -2035,6 +2036,137 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
    - Renderize os dados conforme necessário no componente.
 
 Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáveis e adaptáveis para diferentes entidades e relações no seu sistema.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Função Genérica para Consultas e Operações CRUD com Prisma
+
+### Implementando um CRUD Genérico com TypeScript e Prisma para Consultas Dinâmicas
+
+Funções genéricas que realizam consultas ao banco de dados de forma dinâmica, utilizando parâmetros para definir as instruções da consulta. Esse CRUD a seguir é totalmente genérico e dinâmico em uma aplicação backend (especialmente com Prisma) precisa ser feita com cuidado para garantir segurança e boa organização.
+
+Vou explicar o conceito de uma função genérica de CRUD usando **TypeScript** e **Prisma ORM**, onde você pode passar os parâmetros como nome da tabela (ou modelo do Prisma), tipo de operação (CRUD), filtros e outros parâmetros adicionais. Vou incluir um exemplo básico abaixo para ilustrar como isso pode ser feito.
+
+### 1. Estrutura Básica da Função CRUD Genérica
+
+Você pode criar um arquivo como `databaseService.ts` onde vai definir essa função. O objetivo é que ela receba os parâmetros, identifique o tipo de operação e faça a chamada adequada ao Prisma. Vou incluir um exemplo da estrutura:
+
+```typescript
+import { PrismaClient, Prisma } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+interface CrudParams {
+  model: keyof PrismaClient; // Nome do modelo Prisma (tabela)
+  action: 'findUnique' | 'findMany' | 'create' | 'update' | 'delete';
+  data?: any; // Dados para criação/atualização
+  where?: any; // Condições de busca
+  select?: any; // Seleção de campos
+  include?: any; // Relacionamentos a serem incluídos
+}
+
+async function genericCrud<T>({ model, action, data, where, select, include }: CrudParams): Promise<T | T[]> {
+  try {
+    const result = await (prisma[model] as any)[action]({
+      ...(data && { data }),
+      ...(where && { where }),
+      ...(select && { select }),
+      ...(include && { include }),
+    });
+
+    return result;
+  } catch (error) {
+    console.error(`Erro ao executar ${action} no modelo ${model}:`, error);
+    throw error;
+  }
+}
+
+export default genericCrud;
+```
+
+### 2. Como Funciona
+
+A função `genericCrud` é uma função genérica que recebe um objeto `CrudParams` com as seguintes propriedades:
+
+- `model`: Define o modelo Prisma (tabela) em que a operação será realizada.
+- `action`: Define a ação CRUD a ser executada (`findUnique`, `findMany`, `create`, `update`, `delete`).
+- `data`: Dados para criação ou atualização.
+- `where`: Condições de filtro (equivalente ao `WHERE` em SQL).
+- `select`: Permite selecionar campos específicos para retorno.
+- `include`: Define os relacionamentos a serem carregados no retorno.
+
+A função então utiliza o modelo e a ação passados para chamar a operação Prisma correspondente.
+
+### 3. Exemplo de Uso
+
+Para utilizar a função, você pode chamá-la passando os parâmetros específicos de cada operação. Por exemplo:
+
+#### Busca de um item específico (`findUnique`)
+
+```typescript
+const user = await genericCrud({
+  model: 'user', // Nome do modelo Prisma
+  action: 'findUnique',
+  where: { id: 1 }, // Condição para buscar o usuário de ID 1
+});
+```
+
+#### Criação de um novo item (`create`)
+
+```typescript
+const newUser = await genericCrud({
+  model: 'user',
+  action: 'create',
+  data: {
+    name: 'John Doe',
+    email: 'johndoe@example.com',
+  },
+});
+```
+
+#### Atualização de um item (`update`)
+
+```typescript
+const updatedUser = await genericCrud({
+  model: 'user',
+  action: 'update',
+  where: { id: 1 },
+  data: {
+    email: 'newemail@example.com',
+  },
+});
+```
+
+#### Exclusão de um item (`delete`)
+
+```typescript
+const deletedUser = await genericCrud({
+  model: 'user',
+  action: 'delete',
+  where: { id: 1 },
+});
+```
+
+### 4. Considerações Importantes
+
+1. **Segurança**: Um CRUD genérico assim é flexível, mas também pode ser arriscado se o acesso for exposto sem controle. Verifique sempre a autenticação e a autorização antes de permitir que qualquer usuário faça operações diretamente na base de dados.
+  
+2. **Validação**: Esse exemplo permite uma entrada bastante dinâmica, então você precisa validar bem os parâmetros para evitar erros e garantir que apenas operações seguras sejam permitidas.
+
+3. **Tipos Genéricos**: A função usa `<T>` para indicar que o tipo de retorno é genérico, então ela pode retornar qualquer tipo de dado baseado no modelo usado. Isso facilita no TypeScript, pois o retorno sempre será tipado.
+
+### 5. Extensão para Outros Parâmetros
+
+Caso você queira incluir outros tipos de comportamento, como passar o tipo de retorno e condições adicionais, considere expandir o `CrudParams` para incluir essas opções, sempre com validações para manter o código seguro.
+
+Essa estrutura dá flexibilidade para um CRUD genérico usando Prisma e TypeScript, além de ser escalável e fácil de adaptar.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
