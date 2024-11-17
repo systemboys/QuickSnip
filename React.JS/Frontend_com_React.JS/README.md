@@ -887,8 +887,9 @@ Por favor veja a explicação da propriedade `align-items` para entender quais s
 
 ### Juliana Amoasei
 
+| Perfil | Especialização |
+| ------------------------------------------------------- | :----------------------------------------------------------- |
 | ![Juliana Amoasei](./images/css_flex_box/32266030.jpeg) | ***Juliana Amoasei***<br />Desenvolvedora JavaScript com background multidisciplinar, sempre aprendendo para ensinar e vice-versa. Acredito no potencial do conhecimento como agente de mudança pessoal e social. Atuo como instrutora na Escola de Programação da Alura e, fora da tela preta, me dedico ao Kung Fu e a nerdices em geral. |
-| ------------------------------------------------------- | ------------------------------------------------------------ |
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
