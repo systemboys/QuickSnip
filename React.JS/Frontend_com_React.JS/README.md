@@ -47,6 +47,7 @@
      - [Guia Completo de Flexbox CSS](#flexbox-css-guia-completo-elementos-e-exemplos "Guia Completo de Flexbox CSS")
        - [O que é o Flexbox](#o-que-%C3%A9-o-flexbox "O que é o Flexbox")
        - [Importante!](#importante "Importante!")
+       - [Juliana Amoasei](#juliana-amoasei "Juliana Amoasei")
    - **Boas Práticas**
      - Otimização de performance com memo e useCallback
      - Testes com React Testing Library
@@ -878,11 +879,16 @@ Por favor veja a explicação da propriedade `align-items` para entender quais s
   }
 ```
 
-## Importante!
+### Importante!
 
 - O CSS só enxerga a hierarquia pai-filho; não vai aplicar as propriedades Flex para elementos que não estejam diretamente relacionados;
 - Para que as propriedades funcionem nos elementos-filhos, as pais devem ter propriedade `display: flex;`.
 - As propriedades `float`, `clear` e `vertical-align` não têm efeito em flex-items.
+
+### Juliana Amoasei
+
+| ![Juliana Amoasei](./images/css_flex_box/32266030.jpeg) | ### Juliana Amoasei<br />Desenvolvedora JavaScript com background multidisciplinar, sempre aprendendo para ensinar e vice-versa. Acredito no potencial do conhecimento como agente de mudança pessoal e social. Atuo como instrutora na Escola de Programação da Alura e, fora da tela preta, me dedico ao Kung Fu e a nerdices em geral. |
+| ------------------------------------------------------- | ------------------------------------------------------------ |
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
