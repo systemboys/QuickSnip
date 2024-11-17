@@ -2368,7 +2368,7 @@ Para implementar uma paginação customizada no estilo da imagem, podemos criar 
 
 > Exemplo com Bootstrap
 
-[![Início](./images/Pagination_Example.png)]("Exemplo de paginação com o Bootstrap")
+[![Início](./images/Pagination_Example.png)](# "Exemplo de paginação com o Bootstrap")
 
 Abaixo está uma modificação no código de paginação, que adiciona essa lógica e gera os botões conforme o layout solicitado.
 
