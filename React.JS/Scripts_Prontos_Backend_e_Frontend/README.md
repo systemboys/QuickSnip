@@ -2366,6 +2366,10 @@ Para implementar uma paginação customizada no estilo da imagem, podemos criar 
 |  <   |  1   |  2   |  3   | ...  |  10  |  11  |  12  | ...  |  18  |  19  |  20  |  >   |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 
+> Exemplo com Bootstrap
+
+[![Início](./images/Pagination_Example.png)]("Exemplo de paginação com o Bootstrap")
+
 Abaixo está uma modificação no código de paginação, que adiciona essa lógica e gera os botões conforme o layout solicitado.
 
 ### ( i ) A rota é a da diga anterior, [clique aqui](#arquivo-routests "clique aqui").
