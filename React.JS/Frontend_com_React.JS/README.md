@@ -44,8 +44,8 @@
      - CSS-in-JS com styled-components
      - Animações com Framer Motion
      - Tailwind CSS com React
-     - [Guia Completo de Flexbox CSS](#guia-completo-de-flexbox-css "Guia Completo de Flexbox CSS")
-       - [O que é o Flexbox](# "O que é o Flexbox")
+     - [Guia Completo de Flexbox CSS](#flexbox-css-guia-completo-elementos-e-exemplos "Guia Completo de Flexbox CSS")
+       - [O que é o Flexbox](#o-que-%C3%A9-o-flexbox "O que é o Flexbox")
    - **Boas Práticas**
      - Otimização de performance com memo e useCallback
      - Testes com React Testing Library
@@ -601,13 +601,25 @@ O `useContext` é uma ferramenta poderosa para gerenciamento de dados globais em
 
 ## Flexbox CSS: Guia Completo, Elementos e Exemplos
 
-![Felxbox CSS](./images/css-guia-do-flexbox.1731866670.png)
+![Felxbox CSS](./css_flex_box/images/css-guia-do-flexbox.1731866670.png)
 
 O Flexbox tem como meta ser um modo mais eficiente para criar leiautes, alinhar e distribuir espaços entre itens em um container, mesmo quando as dimensões destes itens são desconhecidas e/ou dinâmicas (daí o termo "flex").
 
 Vamos aprender os fundamentos do CSS Flexbox para alinhamento e posicionamento, e como utilizar suas funcionalidades corretamente.
 
 ### O que é o Flexbox
+
+Por muito tempo, as únicas ferramentas disponíveis para criar leiautes em CSS e posicionar elementos com boa compatibilidade entre browsers eram float e position. Porém, essas ferramentas possuem algumas limitações muito frustrantes, especialmente no que diz respeito à responsividade. Algumas tarefas que consideramos básicas em um leiaute, como centralização vertical de um elemento-filho com relação a um elemento-pai ou fazer com que elementos-filhos ocupem a mesma quantidade de espaço, ou colunas terem o mesmo tamanho independente da quantidade de conteúdo interno, eram impossíveis ou muito difíceis de serem manejadas com floats ou position, ao menos de forma prática e flexível.
+
+A ferramenta Flexbox (de Flexible Box) foi criada para tornar essas tarefas mais simples e funcionais: os filhos de um elemento com Flexbox podem se posicionar em qualquer direção e pode ter dimensões flexíveis para se adaptar.
+
+### Elementos
+
+O Flexbox é um módulo completo e não uma única propriedade; algumas delas devem ser declaradas no container (o elemento-pai, que chamamos de flex container), enquanto outras devem ser declaradas nos elementos-filhos (os flex itens).
+
+Se o leiaute "padrão" é baseado nas direções block e inline, o leiaute Flex é baseado em direções "flex flow". Veja abaixo um diagrama da especificação, explicando a ideia central por trás do leiaute Flex.
+
+![Elementos](./css_flex_box/images/00-basic-terminology.png)
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
