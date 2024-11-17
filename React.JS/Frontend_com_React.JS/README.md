@@ -44,6 +44,8 @@
      - CSS-in-JS com styled-components
      - Animações com Framer Motion
      - Tailwind CSS com React
+     - [Guia Completo de Flexbox CSS](#guia-completo-de-flexbox-css "Guia Completo de Flexbox CSS")
+       - [O que é o Flexbox](# "O que é o Flexbox")
    - **Boas Práticas**
      - Otimização de performance com memo e useCallback
      - Testes com React Testing Library
@@ -587,6 +589,25 @@ export default AppContent;
 - **Evitar Prop Drilling**: Simplifica o código evitando a passagem de props por vários níveis de componentes intermediários.
 
 O `useContext` é uma ferramenta poderosa para gerenciamento de dados globais em uma aplicação React e, quando combinado com o `useState` ou `useReducer` no `Provider`, permite gerenciar estados complexos de forma eficiente.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Flexbox CSS: Guia Completo, Elementos e Exemplos
+
+![Felxbox CSS](./images/css-guia-do-flexbox.1731866670.png)
+
+O Flexbox tem como meta ser um modo mais eficiente para criar leiautes, alinhar e distribuir espaços entre itens em um container, mesmo quando as dimensões destes itens são desconhecidas e/ou dinâmicas (daí o termo "flex").
+
+Vamos aprender os fundamentos do CSS Flexbox para alinhamento e posicionamento, e como utilizar suas funcionalidades corretamente.
+
+### O que é o Flexbox
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
