@@ -3514,3 +3514,252 @@ export function SystemSettings_BackgroundCategory({ number }) {
 
 ---
 
+## Envio de Emails com Backend utilizando Nodemailer
+
+Este guia demonstra como configurar um backend com **Node.js** para enviar emails utilizando a biblioteca **Nodemailer**. Ele também mostra como integrar o backend com um frontend React.
+
+---
+
+### Estrutura de Diretórios
+
+```plaintext
+project/
+├── server/
+│   ├── api/
+│   │   └── email.js       # Rota para envio de email
+│   ├── server.js          # Configuração principal do servidor
+│   ├── .env               # Configurações sensíveis (e-mail e senha)
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── ContactForm.jsx  # Componente React para o formulário
+│   │   └── App.jsx        # Aplicação principal
+├── package.json           # Configuração do projeto
+```
+
+---
+
+### Configuração do Backend
+
+#### 1. Instalar Dependências
+
+No diretório `server`, instale as dependências necessárias:
+
+```bash
+npm install express nodemailer dotenv
+```
+
+#### 2. Configuração do Servidor
+
+Crie o arquivo `server/server.js`:
+
+```javascript
+import express from 'express';
+import emailRouter from './api/email.js'; // Importa a rota para envio de email
+import dotenv from 'dotenv';
+
+dotenv.config(); // Carrega as variáveis do arquivo .env
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(express.json()); // Middleware para interpretar JSON
+app.use('/api', emailRouter); // Rota para APIs
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+```
+
+#### 3. Criar Rota para Envio de Email
+
+No diretório `server/api`, crie o arquivo `email.js`:
+
+```javascript
+import express from 'express';
+import nodemailer from 'nodemailer';
+
+const router = express.Router();
+
+router.post('/send-email', async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // Pode ser outro provedor (Outlook, Yahoo, etc.)
+      auth: {
+        user: process.env.EMAIL_USER, // Email configurado no arquivo .env
+        pass: process.env.EMAIL_PASS, // Senha de app (não a senha do email pessoal)
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"${name}" <${email}>`, // Remetente
+      to: 'suporte@seudominio.com', // Destinatário
+      subject, // Assunto
+      text: message, // Corpo do email
+    });
+
+    res.status(200).json({ message: 'E-mail enviado com sucesso!' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao enviar o e-mail.' });
+  }
+});
+
+export default router;
+```
+
+#### 4. Configuração do `.env`
+
+Crie o arquivo `server/.env` para armazenar variáveis sensíveis:
+
+```plaintext
+EMAIL_USER=seuemail@gmail.com
+EMAIL_PASS=suasenhadeapp
+```
+
+> **Nota:** Use uma senha de aplicativo gerada pelo provedor do e-mail (ex.: Gmail).
+
+---
+
+### Configuração do Frontend
+
+#### 1. Criar o Formulário de Contato
+
+No diretório `client/src/components`, crie o arquivo `ContactForm.jsx`:
+
+```jsx
+import React, { useState } from 'react';
+
+const ContactForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !subject || !message) {
+      alert('Todos os campos são obrigatórios.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      if (response.ok) {
+        alert('E-mail enviado com sucesso!');
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+      } else {
+        alert('Erro ao enviar o e-mail.');
+      }
+    } catch (error) {
+      console.error('Erro ao conectar com o servidor:', error);
+      alert('Falha ao conectar com o servidor.');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Nome:
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </label>
+      <label>
+        E-mail:
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      <label>
+        Assunto:
+        <input
+          type="text"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
+      </label>
+      <label>
+        Mensagem:
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+      </label>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+};
+
+export default ContactForm;
+```
+
+#### 2. Integrar o Formulário no Frontend
+
+No arquivo `client/src/App.jsx`:
+
+```jsx
+import React from 'react';
+import ContactForm from './components/ContactForm';
+
+const App = () => (
+  <div>
+    <h1>Formulário de Contato</h1>
+    <ContactForm />
+  </div>
+);
+
+export default App;
+```
+
+---
+
+### Executar o Projeto
+
+1. **Iniciar o servidor backend**:
+   No diretório `server`:
+   ```bash
+   node server.js
+   ```
+
+2. **Iniciar o frontend**:
+   No diretório `client`:
+   ```bash
+   npm start
+   ```
+
+---
+
+### Notas Finais
+
+- Substitua `suporte@seudominio.com` pelo endereço de e-mail para onde as mensagens devem ser enviadas.
+- Certifique-se de que o backend esteja acessível ao frontend, configurando proxies ou utilizando um endereço de rede público.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
