@@ -107,6 +107,14 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Abas com Props para Componentes**
      - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
      - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
+9. **Envio de Emails e Comunicação Backend**
+   - **Envio de Emails com Nodemailer**
+     - [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios-para-projeto-de-envio-de-emails "Estrutura de Diretórios para Projeto de Envio de Emails")
+     - [Configuração do Servidor com Express e Nodemailer](#configura%C3%A7%C3%A3o-do-servidor-com-express-e-nodemailer "Configuração do Servidor com Express e Nodemailer")
+     - [Criação da Rota para Envio de Email com Nodemailer](#cria%C3%A7%C3%A3o-da-rota-para-envio-de-email-com-nodemailer "Criação da Rota para Envio de Email com Nodemailer")
+     - [Integração com o Frontend (React)](#integra%C3%A7%C3%A3o-com-o-frontend-react "Integração com o Frontend (React)")
+     - [Uso de Arquivo `.env` para Configurações Sensíveis](#uso-de-arquivo-env-para-configura%C3%A7%C3%B5es-sens%C3%ADveis "Uso de Arquivo .env para Configurações Sensíveis")
+     - [Instruções para Executar o Projeto](#instru%C3%A7%C3%B5es-para-executar-o-projeto "Instruções para Executar o Projeto")
 
 ---
 
