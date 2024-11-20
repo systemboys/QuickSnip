@@ -244,6 +244,149 @@ Agora, o seu formulário enviará corretamente as informações para a rota `/ad
 
 ---
 
+## Exemplo de Formulário com Validação e Interceptação de Submit
+
+Abaixo está o exemplo atualizado, incluindo validação dos campos para garantir que o usuário não envie o formulário com campos vazios.
+
+---
+
+### Passo 1: Configure os estados e os valores iniciais
+
+Declare os estados que armazenarão os valores de cada campo e um estado para os erros:
+
+```jsx
+import React, { useState } from "react";
+
+export function ExampleFormWithValidation() {
+    const [campo1, setCampo1] = useState("");
+    const [campo2, setCampo2] = useState("");
+    const [campo3, setCampo3] = useState("");
+    const [errors, setErrors] = useState({});
+```
+
+---
+
+### Passo 2: Crie uma função de validação
+
+Essa função verifica se os campos estão preenchidos e retorna um objeto com os erros encontrados:
+
+```jsx
+    const validateFields = () => {
+        const newErrors = {};
+        if (!campo1.trim()) newErrors.campo1 = "Campo1 é obrigatório.";
+        if (!campo2.trim()) newErrors.campo2 = "Campo2 é obrigatório.";
+        if (!campo3.trim()) newErrors.campo3 = "Campo3 é obrigatório.";
+        return newErrors;
+    };
+```
+
+---
+
+### Passo 3: Intercepte o envio do formulário e aplique validação
+
+Adicione uma lógica para validar os campos antes de enviar os dados:
+
+```jsx
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Intercepta o envio padrão
+
+        const validationErrors = validateFields();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors); // Atualiza os erros no estado
+            return;
+        }
+
+        // Limpa os erros e exibe os valores no console
+        setErrors({});
+        console.log("Valores do formulário:", { campo1, campo2, campo3 });
+    };
+```
+
+---
+
+### Passo 4: Renderize o formulário com exibição de mensagens de erro
+
+Exiba mensagens de erro abaixo dos campos, caso eles estejam inválidos:
+
+```jsx
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label>
+                    Campo1:
+                    <input
+                        type="text"
+                        value={campo1}
+                        onChange={(e) => setCampo1(e.target.value)}
+                    />
+                </label>
+                {errors.campo1 && <p style={{ color: "red" }}>{errors.campo1}</p>}
+            </div>
+            <div>
+                <label>
+                    Campo2:
+                    <input
+                        type="text"
+                        value={campo2}
+                        onChange={(e) => setCampo2(e.target.value)}
+                    />
+                </label>
+                {errors.campo2 && <p style={{ color: "red" }}>{errors.campo2}</p>}
+            </div>
+            <div>
+                <label>
+                    Campo3:
+                    <input
+                        type="text"
+                        value={campo3}
+                        onChange={(e) => setCampo3(e.target.value)}
+                    />
+                </label>
+                {errors.campo3 && <p style={{ color: "red" }}>{errors.campo3}</p>}
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    );
+}
+```
+
+---
+
+### Passo 5: Teste e ajuste
+
+1. **Preencha os campos e clique em enviar**:
+   - Se os campos estiverem vazios, mensagens de erro em vermelho serão exibidas abaixo de cada campo.
+   - Caso estejam preenchidos, os valores serão exibidos no console.
+
+2. **Exemplo de saída no console**:
+```json
+{
+    "campo1": "Valor preenchido no Campo1",
+    "campo2": "Valor preenchido no Campo2",
+    "campo3": "Valor preenchido no Campo3"
+}
+```
+
+3. **Mensagem de erro exibida** (se o Campo1 estiver vazio):
+```
+Campo1 é obrigatório.
+```
+
+---
+
+### Resultado Final:
+
+Um formulário funcional e validado, que impede o envio de campos vazios e exibe mensagens claras de erro para o usuário.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
 ## Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS
 
 Passos com as modificações necessárias, para inplementação de indicador de carregamento.
