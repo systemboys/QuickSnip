@@ -262,6 +262,8 @@ export function ExampleFormWithValidation() {
     const [campo2, setCampo2] = useState("");
     const [campo3, setCampo3] = useState("");
     const [errors, setErrors] = useState({});
+
+// ... outras linhas ...
 ```
 
 ---
@@ -287,8 +289,9 @@ Essa função verifica se os campos estão preenchidos e retorna um objeto com o
 Adicione uma lógica para validar os campos antes de enviar os dados:
 
 ```jsx
+    // Interceptar o envio padrão.
     const handleSubmit = (e) => {
-        e.preventDefault(); // Intercepta o envio padrão
+        e.preventDefault();
 
         const validationErrors = validateFields();
         if (Object.keys(validationErrors).length > 0) {
@@ -296,7 +299,7 @@ Adicione uma lógica para validar os campos antes de enviar os dados:
             return;
         }
 
-        // Limpa os erros e exibe os valores no console
+        // Limpar os erros e exibe os valores no console.
         setErrors({});
         console.log("Valores do formulário:", { campo1, campo2, campo3 });
     };
