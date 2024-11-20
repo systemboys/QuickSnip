@@ -18,6 +18,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Envio de dados para o backend via API (fetch ou Axios)
      - Armazenamento de dados no banco usando Prisma
      - [`Gravando` dados do formulário na tabela usando o `ORM Prisma`](#gravando-dados-do-formul%C3%A1rio-na-tabela-usando-o-orm-prisma "Gravando dados do formulário na tabela usando o ORM Prisma")
+   - **Validação de Formulários**
+     - [Validação Simples de Campos com Mensagens de Erro](#valida%C3%A7%C3%A3o-simples-de-campos-com-mensagens-de-erro "Validação Simples de Campos com Mensagens de Erro")
    - **Listagem de Itens com DataTable (Read)**
      - Integração com biblioteca DataTable (React Table, Material UI, etc.)
      - Consulta de dados no backend (Prisma findMany)
