@@ -31,7 +31,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
-     - [Edição de itens com dados predefinidos no formulário](# "Edição de itens com dados predefinidos no formulário")
+     - [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
    - **Exclusão de Registro (Delete)**
