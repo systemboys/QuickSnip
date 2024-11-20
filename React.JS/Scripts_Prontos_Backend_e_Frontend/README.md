@@ -31,7 +31,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
-     - Edição de itens com dados predefinidos no formulário
+     - [Edição de itens com dados predefinidos no formulário](# "Edição de itens com dados predefinidos no formulário")
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
    - **Exclusão de Registro (Delete)**
@@ -855,6 +855,153 @@ async function handleSubmitForm(e) {
 - Dessa forma, o estado `fullUsername` será preenchido corretamente no momento em que o formulário for renderizado no modo de edição, e a validação irá funcionar corretamente, pois `fullUsername` terá um valor não vazio.
 
 Com essa alteração, o valor do campo será sempre refletido corretamente no estado do componente, permitindo que a validação funcione conforme esperado, tanto para registro quanto para edição.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+Aqui está um exemplo genérico documentado para o seu Codex. O código contém comentários detalhados indicando as linhas que devem ser modificadas para resolver o problema de sincronização entre os valores do formulário e os dados da API.
+
+---
+
+## Exemplo Genérico: Sincronizando Valores do Formulário com Dados da API
+
+Este exemplo demonstra como criar um formulário React onde os valores iniciais vêm de uma API e podem ser atualizados dinamicamente pelos usuários. Ele resolve problemas comuns ao lidar com `defaultValue` substituindo-o por `value` vinculado ao estado.
+
+### Código
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import { Container, Button, Col, Form, Row } from 'react-bootstrap';
+
+export function GenericFormExample() {
+    // Estados para armazenar os valores do formulário
+    const [field1, setField1] = useState(""); // Campo 1
+    const [field2, setField2] = useState(""); // Campo 2
+    const [errors, setErrors] = useState({}); // Armazena os erros de validação
+
+    // Obtém o ID da empresa do localStorage (ou substitua por outra lógica)
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const companyId = storedUser?.company_id;
+
+    // Função para validar os campos
+    const validateFields = () => {
+        const newErrors = {};
+        if (!field1.trim()) newErrors.field1 = "Campo 1 é obrigatório!";
+        if (!field2.trim()) newErrors.field2 = "Campo 2 é obrigatório!";
+        return newErrors;
+    };
+
+    // Função para enviar o formulário
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const validationErrors = validateFields();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        // Se não houver erros, exibe os valores no console
+        setErrors({});
+        console.log("Valores do formulário:", { field1, field2 });
+    };
+
+    // Requisição para buscar dados da API e preencher os estados
+    useEffect(() => {
+        fetch(`/api/company/${companyId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                // Atualize os estados com os valores da API
+                setField1(data.field1 || ""); // Modifique o nome do campo conforme necessário
+                setField2(data.field2 || ""); // Modifique o nome do campo conforme necessário
+            });
+    }, [companyId]); // Executa apenas quando `companyId` muda
+
+    return (
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <Row>
+                    <Col sm={6}>
+                        <Form.Group controlId="formField1">
+                            <Form.Label>Campo 1</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={field1} // Substitua `defaultValue` por `value`
+                                placeholder="Digite algo no campo 1"
+                                onChange={(e) => setField1(e.target.value)} // Atualiza o estado com o valor inserido
+                            />
+                            {errors.field1 && (
+                                <p style={{ color: "red" }}>{errors.field1}</p> // Exibe mensagem de erro, se necessário
+                            )}
+                        </Form.Group>
+                    </Col>
+                    <Col sm={6}>
+                        <Form.Group controlId="formField2">
+                            <Form.Label>Campo 2</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={field2} // Substitua `defaultValue` por `value`
+                                placeholder="Digite algo no campo 2"
+                                onChange={(e) => setField2(e.target.value)} // Atualiza o estado com o valor inserido
+                            />
+                            {errors.field2 && (
+                                <p style={{ color: "red" }}>{errors.field2}</p> // Exibe mensagem de erro, se necessário
+                            )}
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Button variant="primary" type="submit">
+                    Salvar
+                </Button>
+            </Form>
+        </Container>
+    );
+}
+```
+
+---
+
+### Notas Importantes
+
+1. **Modificação Principal**:
+   - Substitua `defaultValue` por `value` para vincular o valor do campo ao estado.
+   - Use `onChange` para atualizar o estado com os valores inseridos pelo usuário.
+
+2. **Carregamento de Dados**:
+   - Utilize o `useEffect` para buscar dados da API ao montar o componente e preencha os estados com os valores retornados.
+   - Garanta que os valores iniciais dos estados sejam strings vazias (`""`) para evitar erros ao tentar acessar dados indefinidos.
+
+3. **Validação**:
+   - Adicione validação ao formulário para garantir que os campos sejam preenchidos antes do envio.
+   - Mostre mensagens de erro ao lado dos campos inválidos.
+
+4. **API e Campos Personalizados**:
+   - Altere a URL `/api/company/${companyId}` e os campos `field1` e `field2` conforme a estrutura dos dados da sua API.
+
+---
+
+### Resultado Esperado
+
+- **Ao carregar o formulário**: Os campos serão preenchidos automaticamente com os dados obtidos da API.
+- **Ao editar os campos**: O estado será atualizado dinamicamente.
+- **Ao enviar o formulário**: Se houver erros, mensagens serão exibidas; caso contrário, os valores serão exibidos no console.
+
+### Exemplo de Saída no Console
+
+```json
+{
+    "field1": "Valor do Campo 1",
+    "field2": "Valor do Campo 2"
+}
+```
+
+Guarde este exemplo no Codex como referência para lidar com formulários dinâmicos em React!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
