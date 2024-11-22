@@ -38,12 +38,12 @@
      - [Corrigir Vulnerabilidades de Segurança](#2-corrigir-vulnerabilidades-com-npm-audit-fix "Comandos para Atualizar e Corrigir Dependências do Prisma")
 2. **Gerenciamento de Banco de Dados**
    - **Estrutura de Tabelas**
-     - [Adicionar Colunas em Tabelas Existentes](# "Adicionar Colunas em Tabelas Existentes")
-     - [Transformar Colunas em Chaves Estrangeiras](# "Transformar Colunas em Chaves Estrangeiras")
-     - [Remover Chaves Estrangeiras](# "Remover Chaves Estrangeiras")
-     - [Renomear Chaves Estrangeiras](# "Renomear Chaves Estrangeiras")
-     - [Verificar Consistência de Dados](# "Verificar Consistência de Dados para Chaves Estrangeiras")
-     - [Resumo das Boas Práticas](# "Resumo das Boas Práticas para Chaves Estrangeiras")
+     - [Adicionar Colunas em Tabelas Existentes](#adicionar-uma-nova-coluna-como-chave-estrangeira "Adicionar Colunas em Tabelas Existentes")
+     - [Transformar Colunas em Chaves Estrangeiras](#transformar-uma-coluna-existente-em-uma-chave-estrangeira "Transformar Colunas em Chaves Estrangeiras")
+     - [Verificar Consistência de Dados](#verificar-consist%C3%AAncia-dos-dados-antes-de-criar-uma-fk "Verificar Consistência de Dados para Chaves Estrangeiras")
+     - [Remover Chaves Estrangeiras](#remover-uma-chave-estrangeira "Remover Chaves Estrangeiras")
+     - [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")
+     - [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
 
 ---
 
