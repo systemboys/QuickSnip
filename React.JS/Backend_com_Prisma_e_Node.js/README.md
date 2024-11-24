@@ -45,12 +45,12 @@
      - [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")
      - [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
    - **Linguagem SQL**
-     - [Introdução ao SQL](#introducao-ao-sql "Introdução ao SQL")
-     - [DDL (Data Definition Language)](#ddl-data-definition-language "DDL (Data Definition Language)")
-     - [DML (Data Manipulation Language)](#dml-data-manipulation-language "DML (Data Manipulation Language)")
-     - [DQL (Data Query Language)](#dql-data-query-language "DQL (Data Query Language)")
-     - [DCL (Data Control Language)](#dcl-data-control-language "DCL (Data Control Language)")
-     - [DTL (Data Transaction Language)](#dtl-data-transaction-language "DTL (Data Transaction Language)")
+     - [Introdução ao SQL](#sql---linguagem-de-consulta-estruturada "Introdução ao SQL")
+     - [DDL (Data Definition Language)](#1-ddl-data-definition-language---linguagem-de-defini%C3%A7%C3%A3o-de-dados "DDL (Data Definition Language)")
+     - [DML (Data Manipulation Language)](#2-dml-data-manipulation-language---linguagem-de-manipula%C3%A7%C3%A3o-de-dados "DML (Data Manipulation Language)")
+     - [DQL (Data Query Language)](#3-dql-data-query-language---linguagem-de-consulta-de-dados "DQL (Data Query Language)")
+     - [DCL (Data Control Language)](#4-dcl-data-control-language---linguagem-de-controle-de-dados "DCL (Data Control Language)")
+     - [DTL (Data Transaction Language)](#5-dtl-data-transaction-language---linguagem-de-transa%C3%A7%C3%A3o-de-dados "DTL (Data Transaction Language)")
 
 ---
 
@@ -238,10 +238,6 @@ ADD CONSTRAINT fk_novo_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(i
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
-
----
-
-Com base na imagem enviada, vou detalhar as informações relacionadas às linguagens e comandos SQL organizados nos seus principais subgrupos, para que você possa salvar no seu Codex.  
 
 ---
 
