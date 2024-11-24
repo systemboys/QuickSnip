@@ -44,6 +44,13 @@
      - [Remover Chaves Estrangeiras](#remover-uma-chave-estrangeira "Remover Chaves Estrangeiras")
      - [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")
      - [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
+   - **Linguagem SQL**
+     - [Introdução ao SQL](#introducao-ao-sql "Introdução ao SQL")
+     - [DDL (Data Definition Language)](#ddl-data-definition-language "DDL (Data Definition Language)")
+     - [DML (Data Manipulation Language)](#dml-data-manipulation-language "DML (Data Manipulation Language)")
+     - [DQL (Data Query Language)](#dql-data-query-language "DQL (Data Query Language)")
+     - [DCL (Data Control Language)](#dcl-data-control-language "DCL (Data Control Language)")
+     - [DTL (Data Transaction Language)](#dtl-data-transaction-language "DTL (Data Transaction Language)")
 
 ---
 
@@ -234,3 +241,95 @@ ADD CONSTRAINT fk_novo_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(i
 
 ---
 
+Com base na imagem enviada, vou detalhar as informações relacionadas às linguagens e comandos SQL organizados nos seus principais subgrupos, para que você possa salvar no seu Codex.  
+
+---
+
+# SQL - Linguagem de Consulta Estruturada
+
+A **SQL (Structured Query Language)** é uma linguagem padrão usada para gerenciar e manipular bancos de dados relacionais. Ela é dividida em categorias baseadas no tipo de operações realizadas. Abaixo estão os principais grupos e seus comandos mais comuns:
+
+---
+
+## **1. DDL (Data Definition Language - Linguagem de Definição de Dados)**
+
+Os comandos DDL são usados para definir e modificar a estrutura de um banco de dados, como tabelas, índices e esquemas.  
+### Comandos Principais:
+- **CREATE**: Cria novos objetos no banco de dados, como tabelas, índices, ou esquemas.
+  - Exemplo: `CREATE TABLE alunos (id INT, nome VARCHAR(50));`
+- **DROP**: Remove objetos do banco de dados, como tabelas ou esquemas.
+  - Exemplo: `DROP TABLE alunos;`
+- **ALTER**: Modifica a estrutura de um objeto existente, como adicionar ou remover colunas de uma tabela.
+  - Exemplo: `ALTER TABLE alunos ADD data_nascimento DATE;`
+
+---
+
+## **2. DML (Data Manipulation Language - Linguagem de Manipulação de Dados)**
+
+Os comandos DML são usados para manipular os dados dentro das tabelas.  
+### Comandos Principais:
+- **INSERT**: Insere dados em uma tabela.
+  - Exemplo: `INSERT INTO alunos (id, nome) VALUES (1, 'João');`
+- **UPDATE**: Atualiza dados existentes em uma tabela.
+  - Exemplo: `UPDATE alunos SET nome = 'Maria' WHERE id = 1;`
+- **DELETE**: Remove dados de uma tabela.
+  - Exemplo: `DELETE FROM alunos WHERE id = 1;`
+
+---
+
+## **3. DQL (Data Query Language - Linguagem de Consulta de Dados)**
+
+DQL é responsável pelas consultas no banco de dados, ou seja, pela recuperação de dados.
+### Comandos Principais:
+- **SELECT**: Recupera dados de uma tabela.
+  - Exemplo: `SELECT nome FROM alunos;`
+- **FROM**: Especifica de qual tabela os dados serão recuperados.
+  - Exemplo: `SELECT * FROM alunos;`
+- **JOIN**: Combina dados de duas ou mais tabelas baseadas em uma relação entre elas.
+  - Exemplo: `SELECT alunos.nome, cursos.nome FROM alunos JOIN cursos ON alunos.id_curso = cursos.id;`
+
+---
+
+## **4. DCL (Data Control Language - Linguagem de Controle de Dados)**
+
+Os comandos DCL controlam o acesso e as permissões dentro do banco de dados.  
+### Comandos Principais:
+- **GRANT**: Concede permissões a usuários.
+  - Exemplo: `GRANT SELECT ON alunos TO usuario1;`
+- **REVOKE**: Remove permissões de usuários.
+  - Exemplo: `REVOKE SELECT ON alunos FROM usuario1;`
+
+---
+
+## **5. DTL (Data Transaction Language - Linguagem de Transação de Dados)**
+
+Os comandos DTL lidam com a gestão de transações no banco de dados, garantindo integridade e consistência.
+### Comandos Principais:
+- **COMMIT**: Confirma as alterações realizadas durante uma transação.
+  - Exemplo: `COMMIT;`
+- **SAVEPOINT**: Define um ponto de salvamento dentro de uma transação.
+  - Exemplo: `SAVEPOINT ponto1;`
+- **ROLLBACK**: Reverte as alterações até um ponto definido ou ao início da transação.
+  - Exemplo: `ROLLBACK TO ponto1;`
+
+---
+
+### **Resumo Visual**
+- **DDL**: CREATE, DROP, ALTER  
+- **DML**: INSERT, UPDATE, DELETE  
+- **DQL**: SELECT, FROM, JOIN  
+- **DCL**: GRANT, REVOKE  
+- **DTL**: COMMIT, SAVEPOINT, ROLLBACK  
+
+---
+
+Com essa organização, você pode consultar rapidamente os comandos SQL e entender em que contexto eles são usados no gerenciamento de bancos de dados.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
