@@ -245,6 +245,8 @@ ADD CONSTRAINT fk_novo_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(i
 
 A **SQL (Structured Query Language)** é uma linguagem padrão usada para gerenciar e manipular bancos de dados relacionais. Ela é dividida em categorias baseadas no tipo de operações realizadas. Abaixo estão os principais grupos e seus comandos mais comuns:
 
+![Gerenciamento de Banco de Dados](./images/Linguagem_SQL.drawio.png)
+
 ---
 
 ## **1. DDL (Data Definition Language - Linguagem de Definição de Dados)**
