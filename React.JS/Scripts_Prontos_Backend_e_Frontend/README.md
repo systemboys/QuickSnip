@@ -32,6 +32,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
+     - [Editar dados de um registro no formulário](# "Editar dados de um registro no formulário")
+     - [Modelo Genérico para Formulários com Modo de Edição e Registro](# "Modelo Genérico para Formulários com Modo de Edição e Registro")
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
    - **Exclusão de Registro (Delete)**
@@ -865,10 +867,6 @@ Com essa alteração, o valor do campo será sempre refletido corretamente no es
 
 ---
 
-Aqui está um exemplo genérico documentado para o seu Codex. O código contém comentários detalhados indicando as linhas que devem ser modificadas para resolver o problema de sincronização entre os valores do formulário e os dados da API.
-
----
-
 ## Exemplo Genérico: Sincronizando Valores do Formulário com Dados da API
 
 Este exemplo demonstra como criar um formulário React onde os valores iniciais vêm de uma API e podem ser atualizados dinamicamente pelos usuários. Ele resolve problemas comuns ao lidar com `defaultValue` substituindo-o por `value` vinculado ao estado.
@@ -1001,7 +999,203 @@ export function GenericFormExample() {
 }
 ```
 
-Guarde este exemplo no Codex como referência para lidar com formulários dinâmicos em React!
+Exemplo referência para lidar com formulários dinâmicos em React!
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Editar dados de um registro no formulário
+
+### Implementação Ajustada
+
+Aplicar as mudanças:
+
+1. O `useEffect` inicializa o estado `admin` ao carregar os dados.
+2. Um `useEffect` separado atualiza os campos com os valores do `admin` apenas no modo de edição.
+3. O formulário utiliza apenas os valores de estado (`fullUsername`, `email`, etc.) nos campos, garantindo consistência.
+
+As partes do código ficarão assim:
+
+```jsx
+useEffect(() => {
+    const fetchAdminData = async () => {
+        try {
+            const response = await fetch(`${apiUrl}/singleAdmin/${companyId}/${id}`);
+            if (!response.ok) throw new Error('Erro ao buscar administrador');
+            const data = await response.json();
+            setAdmin(data);
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+    if (polymorphic === 2) {
+        fetchAdminData();
+    }
+}, [id, apiUrl, companyId, polymorphic]);
+
+useEffect(() => {
+    if (admin) {
+        setFullUsername(admin.full_name || "");
+        setEmail(admin.email || "");
+        setBiologicalSex(admin.biological_sex || "");
+        setUserName(admin.username || "");
+        setLevel(admin.level !== undefined ? String(admin.level) : "");
+    }
+}, [admin]);
+```
+
+E no JSX dos campos:
+
+```jsx
+<Form.Control
+    type="text"
+    size="sm"
+    placeholder=""
+    value={fullUsername}
+    onChange={(e) => setFullUsername(e.target.value)}
+    ref={fullUsernameInputRef}
+/>
+```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Modelo Genérico para Formulários com Modo de Edição e Registro
+
+Este exemplo ilustra como implementar um formulário genérico em React, suportando os modos de registro e edição. O modelo utiliza `useState` para gerenciar os valores dos campos e `useEffect` para inicializar os valores no modo de edição.
+
+```jsx
+import React, { useState, useEffect, useRef } from 'react';
+
+export function GenericForm({ id, apiUrl, onClose }) {
+    // Estados dos campos do formulário
+    const [field1, setField1] = useState('');
+    const [field2, setField2] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    // Referência ao formulário
+    const formRef = useRef();
+
+    // Variável que define o modo (1 = Registro, 2 = Edição)
+    const isEditMode = Boolean(id);
+
+    // Estado para armazenar dados no modo de edição
+    const [formData, setFormData] = useState(null);
+
+    // Buscar dados no modo de edição
+    useEffect(() => {
+        if (isEditMode) {
+            const fetchData = async () => {
+                setLoading(true);
+                try {
+                    const response = await fetch(`${apiUrl}/${id}`);
+                    if (!response.ok) throw new Error('Erro ao buscar dados.');
+                    const data = await response.json();
+                    setFormData(data);
+                } catch (err) {
+                    setError(err.message);
+                } finally {
+                    setLoading(false);
+                }
+            };
+            fetchData();
+        }
+    }, [id, apiUrl]);
+
+    // Inicializar os campos com os dados recuperados
+    useEffect(() => {
+        if (formData) {
+            setField1(formData.field1 || '');
+            setField2(formData.field2 || '');
+        }
+    }, [formData]);
+
+    // Função para interceptar o envio do formulário
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            field1,
+            field2,
+        };
+
+        try {
+            const response = await fetch(`${apiUrl}${isEditMode ? `/${id}` : ''}`, {
+                method: isEditMode ? 'PUT' : 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            if (!response.ok) throw new Error('Erro ao enviar formulário.');
+            alert(isEditMode ? 'Dados atualizados!' : 'Dados registrados!');
+            if (onClose) onClose();
+        } catch (err) {
+            alert(err.message);
+        }
+    };
+
+    // Função para resetar os campos
+    const handleReset = () => {
+        formRef.current.reset();
+        setField1('');
+        setField2('');
+    };
+
+    return (
+        <form ref={formRef} onSubmit={handleSubmit}>
+            {loading ? (
+                <p>Carregando...</p>
+            ) : (
+                <>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    <div>
+                        <label>
+                            Campo 1:
+                            <input
+                                type="text"
+                                value={field1}
+                                onChange={(e) => setField1(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Campo 2:
+                            <input
+                                type="text"
+                                value={field2}
+                                onChange={(e) => setField2(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    <button type="submit">{isEditMode ? 'Atualizar' : 'Registrar'}</button>
+                    <button type="button" onClick={handleReset}>
+                        Resetar
+                    </button>
+                    {onClose && (
+                        <button type="button" onClick={onClose}>
+                            Cancelar
+                        </button>
+                    )}
+                </>
+            )}
+        </form>
+    );
+}
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
