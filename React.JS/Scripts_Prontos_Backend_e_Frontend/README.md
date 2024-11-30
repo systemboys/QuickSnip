@@ -1081,7 +1081,7 @@ Este exemplo ilustra como implementar um formulário genérico em React, suporta
 ```jsx
 import React, { useState, useEffect, useRef } from 'react';
 
-export function GenericForm({ id, apiUrl, onClose }) {
+export function GenericForm({ id, apiUrl }) {
     // Estados dos campos do formulário
     const [field1, setField1] = useState('');
     const [field2, setField2] = useState('');
@@ -1141,7 +1141,6 @@ export function GenericForm({ id, apiUrl, onClose }) {
             });
             if (!response.ok) throw new Error('Erro ao enviar formulário.');
             alert(isEditMode ? 'Dados atualizados!' : 'Dados registrados!');
-            if (onClose) onClose();
         } catch (err) {
             alert(err.message);
         }
@@ -1185,11 +1184,6 @@ export function GenericForm({ id, apiUrl, onClose }) {
                     <button type="button" onClick={handleReset}>
                         Resetar
                     </button>
-                    {onClose && (
-                        <button type="button" onClick={onClose}>
-                            Cancelar
-                        </button>
-                    )}
                 </>
             )}
         </form>
