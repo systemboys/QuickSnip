@@ -32,8 +32,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
-     - [Editar dados de um registro no formulário](# "Editar dados de um registro no formulário")
-     - [Modelo Genérico para Formulários com Modo de Edição e Registro](# "Modelo Genérico para Formulários com Modo de Edição e Registro")
+     - [Editar dados de um registro no formulário](#editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
+     - [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
    - **Exclusão de Registro (Delete)**
