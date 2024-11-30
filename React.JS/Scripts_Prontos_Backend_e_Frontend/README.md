@@ -1103,7 +1103,7 @@ export function GenericForm({ id, apiUrl }) {
             const fetchData = async () => {
                 setLoading(true);
                 try {
-                    const response = await fetch(`${apiUrl}/myRoute/${id}`);
+                    const response = await fetch(`${apiUrl}/${id}`);
                     if (!response.ok) throw new Error('Erro ao buscar dados.');
                     const data = await response.json();
                     setFormData(data);
