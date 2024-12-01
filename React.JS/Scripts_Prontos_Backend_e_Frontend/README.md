@@ -75,7 +75,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 3. **Notificações no Frontend com React**
    - [Modificação para substituir o alert() por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
    - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
-   - [Usar as notificações com `CSS Modules`](# "Usar as notificações com 'CSS Modules'")
+   - [Usar as notificações com `CSS Modules`](#usar-as-notifica%C3%A7%C3%B5es-com-css-modules "Usar as notificações com 'CSS Modules'")
 4. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
