@@ -48,7 +48,7 @@
        - [O que é o Flexbox](#o-que-%C3%A9-o-flexbox "O que é o Flexbox")
        - [Importante!](#importante "Importante!")
        - [Juliana Amoasei](#juliana-amoasei "Juliana Amoasei")
-     - **Modelo de CSS Responsivo**
+     - Modelo de CSS Responsivo
        - [Modelo de CSS Responsivo com Media Queries](#modelo-de-css-responsivo-com-media-queries "Modelo de CSS Responsivo com Media Queries")
    - **Boas Práticas**
      - Otimização de performance com memo e useCallback
