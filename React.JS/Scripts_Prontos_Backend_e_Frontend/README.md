@@ -3078,7 +3078,7 @@ if (response.status === 200) {
 No retorno (`return`) do seu componente, adicione este código logo acima do `Container`:
 ```jsx
 {successMessage && (
-    <div className="success-message">
+    <div className="successMessage">
         {successMessage}
     </div>
 )}
@@ -3088,10 +3088,10 @@ No retorno (`return`) do seu componente, adicione este código logo acima do `Co
 Adicione o seguinte CSS para estilizar a mensagem. Você pode colocar isso no arquivo CSS correspondente (`styles.module.css` ou qualquer outro arquivo CSS importado no componente):
 
 ```css
-.success-message {
+.successMessage {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    right: 10px;
     background-color: green;
     color: white;
     padding: 10px 20px;
@@ -3181,8 +3181,8 @@ Crie um arquivo `Notification.css` ou adicione ao seu arquivo de estilo global:
 /* Estilo base para notificações */
 .notification {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    right: 10px;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 14px;
