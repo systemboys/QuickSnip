@@ -3131,7 +3131,7 @@ Este método é mais amigável do que o `alert` padrão e oferece uma experiênc
 
 ---
 
-## Componente Genérico de Notificação
+## Exemplo de Reutilização de Notificações com Diferentes Tipos
 
 Aqui está o exemplo genérico para criar notificações de sucesso, alerta e erro com estilos personalizados:
 
