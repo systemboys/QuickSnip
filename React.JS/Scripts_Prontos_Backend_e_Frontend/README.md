@@ -123,6 +123,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Uso de Arquivo `.env` para Configurações Sensíveis](#4-configura%C3%A7%C3%A3o-do-env "Uso de Arquivo .env para Configurações Sensíveis")
      - [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
      - [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
+11. **Estilização Responsiva com CSS**
+   - [Modelo de CSS Responsivo com Media Queries](# "Modelo de CSS Responsivo com Media Queries")
 
 ---
 
@@ -4545,6 +4547,82 @@ export default App;
 
 - Substitua `suporte@seudominio.com` pelo endereço de e-mail para onde as mensagens devem ser enviadas.
 - Certifique-se de que o backend esteja acessível ao frontend, configurando proxies ou utilizando um endereço de rede público.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Modelo de CSS Responsivo com Media Queries
+
+Este modelo de CSS pode ser usado para adaptar a estilização de uma aplicação com base nas dimensões da tela. Ele define estilos gerais, bem como estilos específicos para dispositivos menores que 600px e dispositivos maiores ou iguais a 600px.
+
+```css
+/* Estilos padrão (Desktop) */
+body {
+  font-size: 16px;
+  margin: 20px;
+  background-color: #f5f5f5;
+}
+
+/* Estilos para telas menores que 600px */
+@media (max-width: 599px) {
+  body {
+    font-size: 14px;
+    margin: 10px;
+    background-color: #e0f7fa;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Estilos para telas maiores ou iguais a 600px */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+    margin: 30px;
+    background-color: #fff3e0;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .button {
+    width: 200px;
+    font-size: 16px;
+  }
+}
+```
+
+### Explicação
+1. **Estilos Globais**:
+   - Use como base os estilos aplicáveis a todos os dispositivos (Desktop, por exemplo).
+2. **`@media (max-width: 599px)`**:
+   - Estilos aplicados para telas menores que 600px, como smartphones.
+3. **`@media (min-width: 600px)`**:
+   - Estilos aplicados para telas maiores ou iguais a 600px, como tablets ou laptops.
+
+### Como Usar
+1. **Adicione este CSS no seu projeto**:
+   - Inclua-o em um arquivo CSS separado (por exemplo, `responsive.css`) ou dentro de uma tag `<style>` em seu HTML.
+2. **Ajuste as classes conforme necessário**:
+   - Substitua `.container`, `.button`, e outras classes com as específicas do seu projeto.
+3. **Teste em dispositivos diferentes**:
+   - Utilize ferramentas de desenvolvedor no navegador (F12) para simular diferentes larguras de tela e verificar os ajustes.
+
+Agora você pode usar este modelo para tornar suas aplicações responsivas de forma eficiente!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
