@@ -75,6 +75,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 3. **Notificações no Frontend com React**
    - [Modificação para substituir o alert() por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
    - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
+   - [Usar as notificações com `CSS Modules`](# "Usar as notificações com 'CSS Modules'")
 4. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
@@ -3245,6 +3246,103 @@ Crie um arquivo `Notification.css` ou adicione ao seu arquivo de estilo global:
 
 ### Reutilização
 Este exemplo genérico pode ser facilmente reutilizado em qualquer projeto. Você pode passar mensagens personalizadas e o tipo de notificação desejado (`success`, `warning`, ou `error`) para criar uma experiência de notificação rica e dinâmica.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Usar as notificações com 'CSS Modules'
+
+Para usar "CSS Modules" no trecho que contém a notificação, você precisa importar o módulo CSS no componente e substituir as classes CSS padrão pelas propriedades do objeto `styles` fornecido pelo "CSS Module". Aqui está como fazer:
+
+### Passo 1: Certifique-se de Importar o CSS Module
+No topo do seu componente, importe o módulo CSS como você já faz em outras partes do código:
+```jsx
+import styles from './Notification.module.css'; // Substitua pelo nome correto do seu arquivo
+```
+
+---
+
+### Passo 2: Ajuste a Classe da Notificação
+Substitua o trecho abaixo:
+```jsx
+<div className={`notification ${notification.type}`}>
+```
+
+Por este, que utiliza as classes do CSS Module:
+```jsx
+<div className={`${styles.notification} ${styles[notification.type]}`}>
+```
+
+Aqui, usamos `styles.notification` para a classe base e `styles[notification.type]` para adicionar a classe específica (`success`, `warning`, ou `error`), de acordo com o tipo de notificação.
+
+---
+
+### Passo 3: Atualize o CSS Module
+No arquivo CSS Module (`Notification.module.css`), ajuste as classes com nomes adequados para refletir os tipos de notificação. Exemplo:
+
+```css
+.notification {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    color: white;
+    opacity: 1;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* Notificação de sucesso */
+.success {
+    background-color: green;
+}
+
+/* Notificação de alerta */
+.warning {
+    background-color: orange;
+}
+
+/* Notificação de erro */
+.error {
+    background-color: red;
+}
+
+/* Animação para desaparecer suavemente */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+```
+
+---
+
+### Resultado Final do JSX
+O JSX atualizado ficará assim:
+```jsx
+{notification.message && (
+    <div className={`${styles.notification} ${styles[notification.type]}`}>
+        {notification.message}
+    </div>
+)}
+```
+
+Com isso, o "CSS Module" será aplicado corretamente para cada tipo de notificação (sucesso, alerta ou erro).
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
