@@ -73,11 +73,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
      - [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
 3. **Notificações no Frontend com React**
-   - [Modificação para substituir o alert() por uma mensagem estilizada](# "Modificação para substituir o alert() por uma mensagem estilizada")
-   - [Implementação de Notificação Genérica no Canto Inferior com Estilização](#implementa%C3%A7%C3%A3o-de-notifica%C3%A7%C3%A3o-gen%C3%A9rica-no-canto-inferior-com-estiliza%C3%A7%C3%A3o "Implementação de Notificação Genérica no Canto Inferior com Estilização")
-   - [Notificação para Sucesso, Alerta e Erro](#notifica%C3%A7%C3%A3o-para-sucesso-alerta-e-erro "Notificação para Sucesso, Alerta e Erro")
-   - [Customização de Estilos de Notificação com CSS](#customiza%C3%A7%C3%A3o-de-estilos-de-notifica%C3%A7%C3%A3o-com-css "Customização de Estilos de Notificação com CSS")
-   - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
+   - [Modificação para substituir o alert() por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
+   - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#componente-gen%C3%A9rico-de-notifica%C3%A7%C3%A3o "Exemplo de Reutilização de Notificações com Diferentes Tipos")
 4. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
