@@ -74,7 +74,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
 3. **Notificações no Frontend com React**
    - [Modificação para substituir o alert() por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
-   - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#componente-gen%C3%A9rico-de-notifica%C3%A7%C3%A3o "Exemplo de Reutilização de Notificações com Diferentes Tipos")
+   - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
 4. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
