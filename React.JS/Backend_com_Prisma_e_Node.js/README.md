@@ -429,10 +429,6 @@ Clique em **Send** para excluir o item.
 - Utilize as abas **History** e **Collections** no Insomnia para organizar os testes.
 - Documente os endpoints com descrições detalhadas para facilitar futuros testes.
 
----
-
-Agora basta ilustrar cada uma dessas operações com imagens ou capturas de tela do Insomnia para complementar o exemplo!
-
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
