@@ -3091,12 +3091,12 @@ Adicione o seguinte CSS para estilizar a mensagem. Você pode colocar isso no ar
 ```css
 .successMessage {
     position: fixed;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     background-color: green;
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 2.5px;
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: fadeOut 1s ease-in-out forwards;
@@ -3182,10 +3182,10 @@ Crie um arquivo `Notification.css` ou adicione ao seu arquivo de estilo global:
 /* Estilo base para notificações */
 .notification {
     position: fixed;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 2.5px;
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -3289,10 +3289,10 @@ No arquivo CSS Module (`Notification.module.css`), ajuste as classes com nomes a
 ```css
 .notification {
     position: fixed;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 2.5px;
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
