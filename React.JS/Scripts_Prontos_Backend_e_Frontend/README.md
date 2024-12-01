@@ -1829,7 +1829,10 @@ Essa rota `PUT` permite atualizar um registro específico com base em seu `ID`.
 // Rota genérica para atualizar um registro pelo ID
 routes.put('/updateEntity/:id', async (req, res) => {
     const { id } = req.params;
-    const { title, description } = req.body; // Adapte os campos conforme necessário
+    const {
+        title,
+        description
+    } = req.body; // Adapte os campos conforme necessário
 
     try {
         // Verificar se o registro existe antes de atualizar
