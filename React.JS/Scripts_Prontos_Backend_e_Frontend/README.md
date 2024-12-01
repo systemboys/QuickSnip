@@ -1598,7 +1598,10 @@ Primeiro, vamos configurar a rota `POST` para adicionar um novo registro à tabe
 ```ts
 // Rota genérica para criar um novo registro
 routes.post('/createEntity', async (req, res) => {
-    const { title, description } = req.body; // Adapte os campos conforme a tabela
+    const {
+        title,
+        description
+    } = req.body; // Adapte os campos conforme a tabela
 
     try {
         // Criar o novo registro no banco de dados
