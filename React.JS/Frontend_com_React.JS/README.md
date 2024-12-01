@@ -48,6 +48,8 @@
        - [O que é o Flexbox](#o-que-%C3%A9-o-flexbox "O que é o Flexbox")
        - [Importante!](#importante "Importante!")
        - [Juliana Amoasei](#juliana-amoasei "Juliana Amoasei")
+       - **Modelo de CSS Responsivo**
+         - [Modelo de CSS Responsivo com Media Queries](#modelo-de-css-responsivo-com-media-queries "Modelo de CSS Responsivo com Media Queries")
    - **Boas Práticas**
      - Otimização de performance com memo e useCallback
      - Testes com React Testing Library
@@ -890,6 +892,82 @@ Por favor veja a explicação da propriedade `align-items` para entender quais s
 | Perfil | Especialização |
 | ------------------------------------------------------- | :----------------------------------------------------------- |
 | ![Juliana Amoasei](./images/css_flex_box/32266030.jpeg) | ***Juliana Amoasei***<br />Desenvolvedora JavaScript com background multidisciplinar, sempre aprendendo para ensinar e vice-versa. Acredito no potencial do conhecimento como agente de mudança pessoal e social. Atuo como instrutora na Escola de Programação da Alura e, fora da tela preta, me dedico ao Kung Fu e a nerdices em geral. |
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Modelo de CSS Responsivo com Media Queries
+
+Este modelo de CSS pode ser usado para adaptar a estilização de uma aplicação com base nas dimensões da tela. Ele define estilos gerais, bem como estilos específicos para dispositivos menores que 600px e dispositivos maiores ou iguais a 600px.
+
+```css
+/* Estilos padrão (Desktop) */
+body {
+  font-size: 16px;
+  margin: 20px;
+  background-color: #f5f5f5;
+}
+
+/* Estilos para telas menores que 600px */
+@media (max-width: 599px) {
+  body {
+    font-size: 14px;
+    margin: 10px;
+    background-color: #e0f7fa;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Estilos para telas maiores ou iguais a 600px */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+    margin: 30px;
+    background-color: #fff3e0;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .button {
+    width: 200px;
+    font-size: 16px;
+  }
+}
+```
+
+### Explicação
+1. **Estilos Globais**:
+   - Use como base os estilos aplicáveis a todos os dispositivos (Desktop, por exemplo).
+2. **`@media (max-width: 599px)`**:
+   - Estilos aplicados para telas menores que 600px, como smartphones.
+3. **`@media (min-width: 600px)`**:
+   - Estilos aplicados para telas maiores ou iguais a 600px, como tablets ou laptops.
+
+### Como Usar
+1. **Adicione este CSS no seu projeto**:
+   - Inclua-o em um arquivo CSS separado (por exemplo, `responsive.css`) ou dentro de uma tag `<style>` em seu HTML.
+2. **Ajuste as classes conforme necessário**:
+   - Substitua `.container`, `.button`, e outras classes com as específicas do seu projeto.
+3. **Teste em dispositivos diferentes**:
+   - Utilize ferramentas de desenvolvedor no navegador (F12) para simular diferentes larguras de tela e verificar os ajustes.
+
+Agora você pode usar este modelo para tornar suas aplicações responsivas de forma eficiente!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
