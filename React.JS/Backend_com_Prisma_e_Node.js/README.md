@@ -367,6 +367,8 @@ Este guia apresenta como configurar e testar um CRUD utilizando o **Insomnia**, 
 
 Clique em **Send** para testar a criação do item.
 
+![Create (POST)](./images/Insomnia/Create_POST.png)
+
 ---
 
 #### **2. Read (GET)**  
@@ -377,11 +379,14 @@ Clique em **Send** para testar a criação do item.
 Clique em **Send** para recuperar todos os itens.
 
 **Item específico**:  
+
 - **URL:** `/items/:id`  
   - Substitua `:id` pelo ID do item que deseja buscar.
 - **Método:** GET  
 
 Clique em **Send** para recuperar os detalhes do item.
+
+![Read (GET)](./images/Insomnia/Read_GET.png)
 
 ---
 
@@ -401,6 +406,8 @@ Clique em **Send** para recuperar os detalhes do item.
 
 Clique em **Send** para atualizar o item.
 
+![Update (PUT)](./images/Insomnia/Update_PUT.png)
+
 ---
 
 #### **4. Delete (DELETE)**  
@@ -409,6 +416,8 @@ Clique em **Send** para atualizar o item.
 - **Método:** DELETE  
 
 Clique em **Send** para excluir o item.
+
+![Delete (DELETE)](./images/Insomnia/Delete_DELETE.png)
 
 ---
 
@@ -422,6 +431,8 @@ Clique em **Send** para excluir o item.
 ```
 3. Substitua os endpoints por variáveis dinâmicas, como:  
    - **Exemplo:** `{{ base_url }}/items`
+
+![Manage Environments](./images/Insomnia/Manage_Environments.png)
 
 ---
 
