@@ -51,6 +51,15 @@
      - [DQL (Data Query Language)](#3-dql-data-query-language---linguagem-de-consulta-de-dados "DQL (Data Query Language)")
      - [DCL (Data Control Language)](#4-dcl-data-control-language---linguagem-de-controle-de-dados "DCL (Data Control Language)")
      - [DTL (Data Transaction Language)](#5-dtl-data-transaction-language---linguagem-de-transa%C3%A7%C3%A3o-de-dados "DTL (Data Transaction Language)")
+3. **Testes e Depuração de APIs**
+   - **Testando Endpoints com Insomnia**
+     - [Executando um CRUD no Insomnia](#executando-um-crud-no-insomnia "Executando um CRUD no Insomnia")
+     - [Configuração de Variáveis de Ambiente no Insomnia](#configuracao-de-variaveis-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
+     - [Exportação e Compartilhamento de Coleções](#exportacao-e-compartilhamento-de-colecoes-no-insomnia "Exportação e Compartilhamento de Coleções no Insomnia")
+   - **Debug de APIs com Postman**
+     - [Configuração de Requisições](# "Configuração de Requisições")
+     - [Execução de Coleções com Testes Automatizados](# "Execução de Coleções com Testes Automatizados")
+     - [Integração com Monitores de Produção](# "Integração com Monitores de Produção")
 
 ---
 
@@ -322,6 +331,112 @@ Os comandos DTL lidam com a gestão de transações no banco de dados, garantind
 ---
 
 Com essa organização, você pode consultar rapidamente os comandos SQL e entender em que contexto eles são usados no gerenciamento de bancos de dados.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Como Executar um CRUD no Insomnia
+
+### Introdução
+Este guia apresenta como configurar e testar um CRUD utilizando o **Insomnia**, ferramenta popular para testar APIs RESTful. As instruções estão separadas em etapas para criar, ler, atualizar e excluir registros em uma API.
+
+---
+
+### Configuração Inicial
+1. **Abra o Insomnia** e crie um novo espaço de trabalho ou selecione um existente.
+2. Configure o endpoint base da sua API, por exemplo: `http://localhost:3000/api`.
+3. Certifique-se de que a API está rodando localmente ou em ambiente de desenvolvimento.
+
+---
+
+### Operações do CRUD
+
+#### **1. Create (POST)**  
+- **URL:** `/items`  
+- **Método:** POST  
+- **Body (JSON):**
+```json
+{
+  "name": "Item Exemplo",
+  "description": "Descrição do item exemplo"
+}
+```
+- **Headers:**  
+  - `Content-Type: application/json`  
+
+Clique em **Send** para testar a criação do item.
+
+---
+
+#### **2. Read (GET)**  
+**Lista completa de itens**:
+- **URL:** `/items`  
+- **Método:** GET  
+
+Clique em **Send** para recuperar todos os itens.
+
+**Item específico**:  
+- **URL:** `/items/:id`  
+  - Substitua `:id` pelo ID do item que deseja buscar.
+- **Método:** GET  
+
+Clique em **Send** para recuperar os detalhes do item.
+
+---
+
+#### **3. Update (PUT)**  
+- **URL:** `/items/:id`  
+  - Substitua `:id` pelo ID do item a ser atualizado.
+- **Método:** PUT  
+- **Body (JSON):**
+```json
+{
+  "name": "Item Atualizado",
+  "description": "Descrição atualizada do item"
+}
+```
+- **Headers:**  
+  - `Content-Type: application/json`  
+
+Clique em **Send** para atualizar o item.
+
+---
+
+#### **4. Delete (DELETE)**  
+- **URL:** `/items/:id`  
+  - Substitua `:id` pelo ID do item a ser excluído.
+- **Método:** DELETE  
+
+Clique em **Send** para excluir o item.
+
+---
+
+### Configuração de Ambiente no Insomnia
+1. Clique em **Manage Environments** no menu superior.
+2. Adicione um novo ambiente com a estrutura:
+```json
+{
+  "base_url": "http://localhost:3000/api"
+}
+```
+3. Substitua os endpoints por variáveis dinâmicas, como:  
+   - **Exemplo:** `{{ base_url }}/items`
+
+---
+
+### Dica Extra
+- Utilize as abas **History** e **Collections** no Insomnia para organizar os testes.
+- Documente os endpoints com descrições detalhadas para facilitar futuros testes.
+
+---
+
+Agora basta ilustrar cada uma dessas operações com imagens ou capturas de tela do Insomnia para complementar o exemplo!
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
