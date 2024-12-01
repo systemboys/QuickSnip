@@ -3155,7 +3155,7 @@ export function NotificationExample() {
             <button onClick={() => showNotification("Operação realizada com sucesso!", "success")}>
                 Notificação de Sucesso
             </button>
-            <button onClick={() => showNotification("Atenção! Algo pode estar errado.", "warning")}>
+            <button onClick={() => showNotification("Algo pode estar errado!", "warning")}>
                 Notificação de Alerta
             </button>
             <button onClick={() => showNotification("Erro ao processar a operação!", "error")}>
