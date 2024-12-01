@@ -53,13 +53,8 @@
      - [DTL (Data Transaction Language)](#5-dtl-data-transaction-language---linguagem-de-transa%C3%A7%C3%A3o-de-dados "DTL (Data Transaction Language)")
 3. **Testes e Depuração de APIs**
    - **Testando Endpoints com Insomnia**
-     - [Executando um CRUD no Insomnia](#executando-um-crud-no-insomnia "Executando um CRUD no Insomnia")
-     - [Configuração de Variáveis de Ambiente no Insomnia](#configuracao-de-variaveis-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
-     - [Exportação e Compartilhamento de Coleções](#exportacao-e-compartilhamento-de-colecoes-no-insomnia "Exportação e Compartilhamento de Coleções no Insomnia")
-   - **Debug de APIs com Postman**
-     - [Configuração de Requisições](# "Configuração de Requisições")
-     - [Execução de Coleções com Testes Automatizados](# "Execução de Coleções com Testes Automatizados")
-     - [Integração com Monitores de Produção](# "Integração com Monitores de Produção")
+     - [Executando um CRUD no Insomnia](#como-executar-um-crud-no-insomnia "Executando um CRUD no Insomnia")
+     - [Configuração de Variáveis de Ambiente no Insomnia](#configura%C3%A7%C3%A3o-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
 
 ---
 
