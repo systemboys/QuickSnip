@@ -124,7 +124,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
      - [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
 11. **Estilização Responsiva com CSS**
-   - [Modelo de CSS Responsivo com Media Queries](#modelo-de-css-responsivo-com-media-queries "Modelo de CSS Responsivo com Media Queries")
+   - **Modelo de CSS Responsivo**
+     - [Modelo de CSS Responsivo com Media Queries](#modelo-de-css-responsivo-com-media-queries "Modelo de CSS Responsivo com Media Queries")
 
 ---
 
