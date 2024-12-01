@@ -72,15 +72,21 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Outro exemplo genérico com botões ilimitados com Reticências (...)](#outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
      - [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
      - [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
-3. **Trabalhando Fenestra, API de janelas para react/redux**
+3. **Notificações no Frontend com React**
+   - [Modificação para substituir o alert() por uma mensagem estilizada](# "Modificação para substituir o alert() por uma mensagem estilizada")
+   - [Implementação de Notificação Genérica no Canto Inferior com Estilização](#implementa%C3%A7%C3%A3o-de-notifica%C3%A7%C3%A3o-gen%C3%A9rica-no-canto-inferior-com-estiliza%C3%A7%C3%A3o "Implementação de Notificação Genérica no Canto Inferior com Estilização")
+   - [Notificação para Sucesso, Alerta e Erro](#notifica%C3%A7%C3%A3o-para-sucesso-alerta-e-erro "Notificação para Sucesso, Alerta e Erro")
+   - [Customização de Estilos de Notificação com CSS](#customiza%C3%A7%C3%A3o-de-estilos-de-notifica%C3%A7%C3%A3o-com-css "Customização de Estilos de Notificação com CSS")
+   - [Exemplo de Reutilização de Notificações com Diferentes Tipos](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
+4. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
    - **Manipulação de Estilos e Classes em Componentes Modais**
      - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
-4. **Testes e Simulações de Interface**
+5. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
-5. **Configuração e Segurança em Projetos React**
+6. **Configuração e Segurança em Projetos React**
    - **Uso de Variáveis de Ambiente com Arquivo .env no React**
      - [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
      - [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
@@ -93,7 +99,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
        - [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
        - [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
-6. **Manipulação de Arrays em JavaScript**
+7. **Manipulação de Arrays em JavaScript**
    - [Obter dados de um `Array` com o `map()`](#obter-dados-de-um-array-com-map "Obter dados de um Array com map()")
    - [Executar Array dentro do retorno de um componente](#executar-array-dentro-do-retorno-de-um-componente "Executar Array dentro do retorno de um componente")
    - [Mapeamento direto no map()](#mapeamento-direto-no-map "Mapeamento direto no map()")
@@ -105,13 +111,13 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
       - [Array map()](#array-map "Array map()")
       - [Array filter()](#array-filter "Array filter()")
       - [Array reduce()](#array-reduce "Array reduce()")
-7. **Resolução de Problemas e Manutenção do Projeto**
+8. **Resolução de Problemas e Manutenção do Projeto**
    - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
-8. **Estrutura e Implementação de Componentes**
+9. **Estrutura e Implementação de Componentes**
    - **Abas com Props para Componentes**
      - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
      - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
-9. **Envio de Emails e Comunicação Backend**
+10. **Envio de Emails e Comunicação Backend**
    - **Envio de Emails com Nodemailer**
      - [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios "Estrutura de Diretórios para Projeto de Envio de Emails")
      - [Configuração do Servidor com Express e Nodemailer](#configura%C3%A7%C3%A3o-do-backend "Configuração do Servidor com Express e Nodemailer")
@@ -3040,6 +3046,208 @@ A exibição dos botões de paginação deve ficar parecida com o modelo solicit
 - Exibindo "..." para indicar páginas intermediárias quando aplicável.
 
 Esse layout otimiza a navegação para listas extensas, mantendo a interface simples e acessível.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Modificação para substituir o alert() por uma mensagem estilizada
+
+Aqui está a modificação para substituir o `alert()` por uma mensagem estilizada exibida no canto inferior esquerdo. A mensagem desaparecerá suavemente após 5 segundos.
+
+### Passo 1: Adicione um Estado para Controlar a Exibição da Mensagem
+No início do seu componente, adicione este estado:
+```jsx
+const [successMessage, setSuccessMessage] = useState("");
+```
+
+### Passo 2: Atualize a Função `handleSubmit`
+Modifique o trecho onde o `alert()` é chamado para usar a mensagem personalizada:
+```jsx
+if (response.status === 200) {
+    const data = response.data;
+    setSuccessMessage("Registro atualizado com sucesso!");
+    console.log("Registro atualizado:", data);
+    setTimeout(() => setSuccessMessage(""), 5000); // Remove a mensagem após 5 segundos
+}
+```
+
+### Passo 3: Adicione a Div para Mostrar a Mensagem
+No retorno (`return`) do seu componente, adicione este código logo acima do `Container`:
+```jsx
+{successMessage && (
+    <div className="success-message">
+        {successMessage}
+    </div>
+)}
+```
+
+### Passo 4: Estilo da Mensagem (CSS)
+Adicione o seguinte CSS para estilizar a mensagem. Você pode colocar isso no arquivo CSS correspondente (`styles.module.css` ou qualquer outro arquivo CSS importado no componente):
+
+```css
+.success-message {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeOut 1s ease-in-out forwards;
+    z-index: 1000; /* Certifique-se de que está acima de outros elementos */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+```
+
+### Funcionamento Completo:
+1. Quando a atualização for bem-sucedida, a mensagem "Registro atualizado com sucesso!" será exibida no canto inferior esquerdo.
+2. A mensagem desaparecerá suavemente após 5 segundos, graças à função `setTimeout` e à animação CSS `fadeOut`.
+
+### Resultado
+Este método é mais amigável do que o `alert` padrão e oferece uma experiência visual melhor para o usuário.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Componente Genérico de Notificação
+
+Aqui está o exemplo genérico para criar notificações de sucesso, alerta e erro com estilos personalizados:
+
+```jsx
+import React, { useState } from 'react';
+import './Notification.css'; // Certifique-se de importar o CSS
+
+export function NotificationExample() {
+    const [notification, setNotification] = useState({ message: "", type: "" });
+
+    // Função para exibir notificações
+    const showNotification = (message, type) => {
+        setNotification({ message, type }); // Define a mensagem e o tipo
+        setTimeout(() => setNotification({ message: "", type: "" }), 5000); // Remove após 5 segundos
+    };
+
+    return (
+        <div>
+            {/* Botões de exemplo para disparar notificações */}
+            <button onClick={() => showNotification("Operação realizada com sucesso!", "success")}>
+                Notificação de Sucesso
+            </button>
+            <button onClick={() => showNotification("Atenção! Algo pode estar errado.", "warning")}>
+                Notificação de Alerta
+            </button>
+            <button onClick={() => showNotification("Erro ao processar a operação!", "error")}>
+                Notificação de Erro
+            </button>
+
+            {/* Div da notificação */}
+            {notification.message && (
+                <div className={`notification ${notification.type}`}>
+                    {notification.message}
+                </div>
+            )}
+        </div>
+    );
+}
+```
+
+---
+
+### CSS para Estilização
+Crie um arquivo `Notification.css` ou adicione ao seu arquivo de estilo global:
+
+```css
+/* Estilo base para notificações */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    color: white;
+    opacity: 1;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* Notificação de sucesso */
+.notification.success {
+    background-color: green;
+}
+
+/* Notificação de alerta */
+.notification.warning {
+    background-color: orange;
+}
+
+/* Notificação de erro */
+.notification.error {
+    background-color: red;
+}
+
+/* Animação para desaparecer suavemente */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+```
+
+---
+
+### Funcionamento
+1. **Tipos de Notificação:**
+   - `success` (verde): Para sucesso.
+   - `warning` (laranja): Para alertas.
+   - `error` (vermelho): Para erros.
+2. **Função `showNotification`:** Aceita dois argumentos:
+   - `message`: Texto a ser exibido.
+   - `type`: Define a classe CSS para estilização (`success`, `warning`, `error`).
+3. **Mensagem Desaparece:** A mensagem desaparece suavemente após 5 segundos.
+
+---
+
+### Resultado
+- **Sucesso:** Mostra uma notificação verde com texto branco.
+- **Alerta:** Mostra uma notificação laranja com texto branco.
+- **Erro:** Mostra uma notificação vermelha com texto branco.
+
+---
+
+### Reutilização
+Este exemplo genérico pode ser facilmente reutilizado em qualquer projeto. Você pode passar mensagens personalizadas e o tipo de notificação desejado (`success`, `warning`, ou `error`) para criar uma experiência de notificação rica e dinâmica.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
