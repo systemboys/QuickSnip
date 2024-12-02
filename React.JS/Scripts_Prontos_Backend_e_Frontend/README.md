@@ -4794,7 +4794,7 @@ if (oldElement) {
 }
 ```
 
-> ( ! ) Exemplo de uso: Esse script, pode ser executado em algum evento, antes do `return(...)`!
+> ( ! ) Exemplo de uso: Esse script, pode ser executado em algum evento, dentro do componente antes do `return(...)`!
 
 ### Explicação:
 1. **Selecionar o Elemento Alvo:**
