@@ -4740,60 +4740,9 @@ if (oldElement) {
 
 ### Substituir um Elemento do DOM por um Componente React
 
-Para substituir o conteúdo do elemento com o componente React `<ListUsers fenestra={fenestra} />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.render`. Vamos ajustar o código para fazer isso:
+Para substituir o conteúdo do elemento com o componente React `<ListUsers fenestra={fenestra} />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.createRoot`. Veja o código a seguir:
 
-### Código Atualizado:
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ListUsers } from '../../Users';
-
-// Seleciona o elemento que será substituído
-const oldElement = document.getElementById('elementId'); // Se for um ID
-// const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
-if (oldElement) {
-    // Cria um novo elemento para renderizar o componente React
-    const newElement = document.createElement('div');
-    newElement.className = 'replacement-element';
-
-    // Substitui o elemento antigo pelo novo
-    oldElement.parentNode.replaceChild(newElement, oldElement);
-
-    // Renderiza o componente React no novo elemento
-    ReactDOM.render(<ListUsers fenestra={fenestra} />, newElement);
-
-    console.log('Componente ListUsers renderizado com sucesso!');
-} else {
-    console.error('Elemento a ser substituído não encontrado!');
-}
-```
-
-### Explicação:
-1. **Selecionar o Elemento Alvo:**
-   O script localiza o elemento com `id='list-group-tabs-example-tabpane-#link3'`.
-
-2. **Criar um Novo Elemento para Substituição:**
-   Um novo elemento `<div>` é criado como container para o componente React. A classe `replacement-element` é adicionada para estilização, se necessário.
-
-3. **Substituir o Elemento Antigo:**
-   O novo elemento substitui o antigo usando `replaceChild`.
-
-4. **Renderizar o Componente React:**
-   O ReactDOM é usado para renderizar `<ListUsers fenestra={fenestra} />` no novo elemento substituto.
-
-### Considerações:
-- **React no Frontend:** Essa abordagem é válida quando você precisa combinar manipulação do DOM com renderizações React.
-- **Manutenção do Estado no React:** Se o `fenestra` vier de um estado ou contexto React, certifique-se de que está acessível no escopo do script.
-
-Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento substituído.
-
-> ( ! ) Possível erro!
-
-Se houver erro, poderá estar relacionado à migração do React para a versão 18 ou posterior. A partir dessa versão, o método `ReactDOM.render` foi substituído pelo `ReactDOM.createRoot` para gerenciar a renderização de aplicativos React. Vamos ajustar o código para usar a API correta.
-
-### Código Ajustado para React 18+
-Aqui está como você pode corrigir o script para compatibilidade com React 18:
-
+### Código:
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Importação para React 18+
@@ -4820,26 +4769,25 @@ if (oldElement) {
 }
 ```
 
-### Principais Ajustes:
-1. **Substituição de `ReactDOM.render` por `ReactDOM.createRoot`:**
-   - `ReactDOM.render` foi depreciado no React 18.
-   - Use `ReactDOM.createRoot` para criar uma raiz de renderização e renderizar o componente React.
+### Explicação:
+1. **Selecionar o Elemento Alvo:**
+   O script localiza o elemento com `id='list-group-tabs-example-tabpane-#link3'`.
+   ( ! ) Pode ser uma classe também, mudando `getElementById('elementID')` para `querySelector('.elementClass')`!
 
-2. **Nova Importação:** 
-   - Certifique-se de importar `ReactDOM` de `'react-dom/client'`, que contém a API `createRoot`.
+2. **Criar um Novo Elemento para Substituição:**
+   Um novo elemento `<div>` é criado como container para o componente React. A classe `replacement-element` é adicionada para estilização, se necessário.
 
-3. **Renderização com `root.render`:**
-   - Após criar a raiz (`root`), use o método `render` para renderizar o componente.
+3. **Substituir o Elemento Antigo:**
+   O novo elemento substitui o antigo usando `replaceChild`.
 
-### Observações:
-- **Mapa de Código (Source Map Warning):** 
-   O aviso sobre `Error: request failed with status 404` no mapa de código não afeta o funcionamento do React. Ele indica que o navegador não conseguiu encontrar o arquivo `installHook.js.map`. Isso geralmente é ignorável em desenvolvimento.
+4. **Renderizar o Componente React:**
+   O ReactDOM é usado para renderizar `<ListUsers fenestra={fenestra} />` no novo elemento substituto.
 
-- **Link na Mensagem de Aviso:** 
-   O link `https://reactjs.org/link/switch-to-createroot` na mensagem do console é uma referência oficial para ajudar na migração para o React 18.
+### Considerações:
+- **React no Frontend:** Essa abordagem é válida quando você precisa combinar manipulação do DOM com renderizações React.
+- **Manutenção do Estado no React:** Se o `fenestra` vier de um estado ou contexto React, certifique-se de que está acessível no escopo do script.
 
-### Teste e Verificação
-Após ajustar o código, verifique novamente no navegador. O erro relacionado ao `ReactDOM.render` não deve mais aparecer. 🚀
+Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento substituído.
 
 ---
 
