@@ -123,13 +123,13 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Uso de Arquivo `.env` para Configurações Sensíveis](#4-configura%C3%A7%C3%A3o-do-env "Uso de Arquivo .env para Configurações Sensíveis")
      - [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
      - [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
-3. **Manipulação de Objetos no DOM com JavaScript**
-   - [Remover um Elemento Específico pelo ID](# "Remover um Elemento Específico pelo ID")
-   - [Adicionar um Elemento Antes de Outro no DOM](# "Adicionar um Elemento Antes de Outro no DOM")
-   - [Adicionar um Elemento Depois de Outro no DOM](# "Adicionar um Elemento Depois de Outro no DOM")
-   - [Substituir um Elemento por Outro no DOM](# "Substituir um Elemento por Outro no DOM")
-   - [Adicionar um Novo Elemento como Filho de Outro](# "Adicionar um Novo Elemento como Filho de Outro")
-   - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](# "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
+11. **Manipulação de Objetos no DOM com JavaScript**
+   - [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
+   - [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
+   - [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
+   - [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
+   - [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
+   - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
 
 ---
 
