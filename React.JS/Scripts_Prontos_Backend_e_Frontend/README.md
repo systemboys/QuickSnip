@@ -29,7 +29,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Consulta de Registro Único (Single)**
      - [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
      - [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
-     - [Rota para Obter o ID do Último Registro Criado](# "Rota para Obter o ID do Último Registro Criado")
+     - [Rota para Obter o ID do Último Registro Criado](#rota-para-obter-o-id-do-%C3%BAltimo-registro-criado "Rota para Obter o ID do Último Registro Criado")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
