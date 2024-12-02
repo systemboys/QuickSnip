@@ -129,6 +129,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
    - [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
    - [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
+   - [Substituir um Elemento do DOM por um Componente React](# "Substituir um Elemento do DOM por um Componente React")
+   - [Exemplo Genérico para Substituir Elemento do DOM por Componente React](# "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
    - [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
    - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
 
@@ -4734,6 +4736,115 @@ if (oldElement) {
 ```
 
 ---
+
+### Substituir um Elemento do DOM por um Componente React
+
+Para substituir o conteúdo do elemento com o componente React `<ListUsers fenestra={fenestra} />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.render`. Vamos ajustar o código para fazer isso:
+
+### Código Atualizado:
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ListUsers } from '../../Users';
+
+// Seleciona o elemento que será substituído
+const oldElement = document.getElementById('list-group-tabs-example-tabpane-#link3');
+if (oldElement) {
+    // Cria um novo elemento para renderizar o componente React
+    const newElement = document.createElement('div');
+    newElement.className = 'replacement-element';
+
+    // Substitui o elemento antigo pelo novo
+    oldElement.parentNode.replaceChild(newElement, oldElement);
+
+    // Renderiza o componente React no novo elemento
+    ReactDOM.render(<ListUsers fenestra={fenestra} />, newElement);
+
+    console.log('Componente ListUsers renderizado com sucesso!');
+} else {
+    console.error('Elemento a ser substituído não encontrado!');
+}
+```
+
+### Explicação:
+1. **Selecionar o Elemento Alvo:**
+   O script localiza o elemento com `id='list-group-tabs-example-tabpane-#link3'`.
+
+2. **Criar um Novo Elemento para Substituição:**
+   Um novo elemento `<div>` é criado como container para o componente React. A classe `replacement-element` é adicionada para estilização, se necessário.
+
+3. **Substituir o Elemento Antigo:**
+   O novo elemento substitui o antigo usando `replaceChild`.
+
+4. **Renderizar o Componente React:**
+   O ReactDOM é usado para renderizar `<ListUsers fenestra={fenestra} />` no novo elemento substituto.
+
+### Considerações:
+- **React no Frontend:** Essa abordagem é válida quando você precisa combinar manipulação do DOM com renderizações React.
+- **Manutenção do Estado no React:** Se o `fenestra` vier de um estado ou contexto React, certifique-se de que está acessível no escopo do script.
+
+Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento substituído.
+
+---
+
+### Exemplo Genérico para Substituir Elemento do DOM por Componente React
+
+Este exemplo demonstra como substituir um elemento do DOM existente por um componente React, garantindo que a manipulação do DOM seja integrada ao ciclo de vida do React.
+
+#### Código Genérico
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// Exemplo de componente React
+const ExampleComponent = ({ propValue }) => (
+    <div>
+        <h1>Componente React</h1>
+        <p>Propriedade recebida: {propValue}</p>
+    </div>
+);
+
+// Função para substituir um elemento do DOM por um componente React
+function replaceElementWithReactComponent(elementId, ReactComponent, props = {}) {
+    // Seleciona o elemento que será substituído
+    const oldElement = document.getElementById(elementId);
+    if (oldElement) {
+        // Cria um novo elemento para renderizar o componente React
+        const newElement = document.createElement('div');
+        newElement.className = 'replacement-element';
+
+        // Substitui o elemento antigo pelo novo
+        oldElement.parentNode.replaceChild(newElement, oldElement);
+
+        // Renderiza o componente React no novo elemento
+        ReactDOM.render(<ReactComponent {...props} />, newElement);
+
+        console.log(`Elemento #${elementId} substituído com sucesso!`);
+    } else {
+        console.error(`Elemento com o ID '${elementId}' não foi encontrado.`);
+    }
+}
+
+// Exemplo de uso
+replaceElementWithReactComponent('elemento-alvo', ExampleComponent, { propValue: 'Exemplo de valor' });
+```
+
+#### Explicação:
+1. **Componente React**: O exemplo utiliza `ExampleComponent`, que pode ser substituído por qualquer componente React.
+2. **Função Reutilizável**: A função `replaceElementWithReactComponent` facilita a substituição de qualquer elemento do DOM por um componente React.
+3. **Parâmetros Dinâmicos**:
+   - `elementId`: O ID do elemento que será substituído.
+   - `ReactComponent`: O componente React que será renderizado.
+   - `props`: Propriedades passadas para o componente React.
+
+#### Como Usar:
+1. Substitua `ExampleComponent` pelo seu componente.
+2. Passe o `ID` do elemento alvo e as propriedades necessárias para o componente.
+3. Garanta que o elemento alvo existe no DOM antes de executar o script.
+
+#### Observações:
+- **Consistência com React**: Use essa abordagem apenas quando necessário manipular diretamente o DOM; priorize soluções React sempre que possível.
+- **Desmontar Componentes**: Se o elemento que será substituído já tiver um componente React, considere desmontá-lo antes de substituir o DOM. Use `ReactDOM.unmountComponentAtNode` para evitar vazamentos de memória.
 
 ### Adicionar um Novo Elemento como Filho de Outro
 
