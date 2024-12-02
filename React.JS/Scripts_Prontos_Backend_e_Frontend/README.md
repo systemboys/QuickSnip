@@ -4786,7 +4786,7 @@ if (oldElement) {
 
 Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento substituído.
 
-> (!) Possível erro!
+> ( ! ) Possível erro!
 
 Se houver erro, poderá estar relacionado à migração do React para a versão 18 ou posterior. A partir dessa versão, o método `ReactDOM.render` foi substituído pelo `ReactDOM.createRoot` para gerenciar a renderização de aplicativos React. Vamos ajustar o código para usar a API correta.
 
