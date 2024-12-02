@@ -4740,28 +4740,47 @@ if (oldElement) {
 
 ### Substituir um Elemento do DOM por um Componente React
 
-Para substituir o conteúdo do elemento com o componente React `<ListUsers fenestra={fenestra} />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.createRoot`. Veja o código a seguir:
+Para substituir o elemento por um componente React `<ReactComponent />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.createRoot`. Veja os códigos a seguir:
 
-### Código:
+### Códigos:
+
+Adicione um novo `elemento alvo`, no nosso caso, é uma `div`:
+
+1. **Selecionar o Elemento Alvo:**
+
 ```jsx
-import React from 'react';
+{/* ... outras linhas ... */}
+<Container>
+    <div className="elementClass">
+        <ReactComponent />
+    </div>
+</Container>
+{/* ... outras linhas ... */}
+```
+
+Importe o `ReactDOM` e o `ReactComponent` no componente que executará o script.
+
+1. **Importações:**
+```jsx
 import ReactDOM from 'react-dom/client';
 import { ReactComponent } from '../../ReactComponent';
+```
 
+2. **Script que substituirá o elemento alvo:**
+```jsx
 // Seleciona o elemento que será substituído
-const oldElement = document.getElementById('elementID'); // Se for um ID
-// const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
+const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
 if (oldElement) {
     // Cria um novo elemento para renderizar o componente React
     const newElement = document.createElement('div');
-    newElement.className = 'replacement-element';
+    newElement.className = 'elementClass';
 
     // Substitui o elemento antigo pelo novo
     oldElement.parentNode.replaceChild(newElement, oldElement);
 
     // Cria a raiz para renderizar com React
     const root = ReactDOM.createRoot(newElement);
-    root.render(<ReactComponent fenestra={fenestra} />);
+    root.render(<ReactComponent />);
 
     console.log('Componente ReactComponent renderizado com sucesso!');
 } else {
@@ -4781,7 +4800,7 @@ if (oldElement) {
    O novo elemento substitui o antigo usando `replaceChild`.
 
 4. **Renderizar o Componente React:**
-   O ReactDOM é usado para renderizar `<ReactComponent fenestra={fenestra} />` no novo elemento substituto.
+   O ReactDOM é usado para renderizar `<ReactComponent />` no novo elemento substituto.
 
 ### Considerações:
 - **React no Frontend:** Essa abordagem é válida quando você precisa combinar manipulação do DOM com renderizações React.
