@@ -29,6 +29,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Consulta de Registro Único (Single)**
      - [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
      - [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
+     - [Rota para Obter o ID do Último Registro Criado](# "Rota para Obter o ID do Último Registro Criado")
    - **Edição de Registro (Update)**
      - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
      - [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
@@ -646,6 +647,93 @@ export default SingleEntityComponent;
    - Use `console.log(entityData)` para depurar e visualizar a resposta.
 
 Essa abordagem permite que você reutilize essa estrutura genérica para buscar e exibir detalhes de qualquer registro específico em uma "página single" em React, apenas substituindo o nome da rota e os campos conforme necessário.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Rota para Obter o ID do Último Registro Criado
+
+Para retornar apenas o ID do último registro, você pode usar o Prisma para buscar um único registro ordenado de forma decrescente pela data de criação (`createdAt`). Aqui está a rota ajustada:
+
+```ts
+// Rota para buscar o ID do último registro
+routes.get('/getLastEntityId', async (req, res) => {
+    try {
+        // Buscar o último registro na tabela especificada
+        const lastEntity = await prisma.entity.findFirst({
+            orderBy: { createdAt: 'desc' }, // Ordena por data de criação em ordem decrescente
+            select: { id: true }, // Seleciona apenas o campo "id"
+        });
+
+        if (!lastEntity) {
+            return res.status(404).json({ error: 'Nenhum registro encontrado' });
+        }
+
+        return res.status(200).json(lastEntity);
+    } catch (error) {
+        console.error('Erro ao buscar o último ID:', error);
+        return res.status(500).json({ error: 'Erro ao buscar o último ID' });
+    }
+});
+```
+
+### Explicação:
+1. **`findFirst`**: Busca o primeiro registro que corresponde à consulta, ordenado por `createdAt` em ordem decrescente. Isso garante que você obtenha o registro mais recente.
+2. **`select: { id: true }`**: Especifica que apenas o campo `id` será retornado, reduzindo a quantidade de dados transferidos.
+3. **Verificação de existência**: Caso não existam registros, retorna um erro 404 indicando que nenhum registro foi encontrado.
+
+Essa rota é eficiente e atende ao seu caso de uso específico.
+
+---
+
+Segue um exemplo de como você pode fazer a requisição à rota `/getLastEntityId` utilizando o `fetch` no frontend ou em um script Node.js:
+
+### Exemplo com `fetch` no Frontend:
+```ts
+async function fetchLastEntityId() {
+    try {
+        const response = await fetch('/getLastEntityId'); // Ajuste a URL conforme necessário
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log('Último ID:', data.id);
+    } catch (error) {
+        console.error('Erro ao buscar o último ID:', error);
+    }
+}
+
+fetchLastEntityId();
+```
+
+### Exemplo com Axios (Frontend ou Node.js):
+```ts
+import axios from 'axios';
+
+async function fetchLastEntityId() {
+    try {
+        const response = await axios.get('/getLastEntityId'); // Ajuste a URL conforme necessário
+        console.log('Último ID:', response.data.id);
+    } catch (error) {
+        console.error('Erro ao buscar o último ID:', error.response?.data || error.message);
+    }
+}
+
+fetchLastEntityId();
+```
+
+### Explicação:
+1. **`fetch`**: É uma API nativa para requisições HTTP no navegador, simples e eficiente.
+2. **`axios`**: Uma biblioteca mais avançada que facilita o tratamento de respostas HTTP e erros.
+3. **Ajuste de URL**: Certifique-se de que a URL da API está correta. Se você está em um ambiente local, pode ser algo como `http://localhost:3000/getLastEntityId`.
+
+Adapte o código de acordo com seu ambiente (ex.: inclusão de headers, autenticação, etc.).
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
