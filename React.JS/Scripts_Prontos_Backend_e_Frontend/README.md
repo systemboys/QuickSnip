@@ -3345,6 +3345,7 @@ No arquivo CSS Module (`Notification.module.css`), ajuste as classes com nomes a
 ### Resultado Final do JSX
 O JSX atualizado ficará assim:
 ```jsx
+{/* Div da notificação */}
 {notification.message && (
     <div className={`${styles.notification} ${styles[notification.type]}`}>
         {notification.message}
