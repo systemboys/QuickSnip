@@ -4745,12 +4745,12 @@ Para substituir o conteúdo do elemento com o componente React `<ListUsers fenes
 ### Código:
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client'; // Importação para React 18+
-import { ListUsers } from '../../Users';
+import { createRoot } from 'react-dom/client';
+import { ReactComponent } from '../../ReactComponent';
 
 // Seleciona o elemento que será substituído
-const oldElement = document.getElementById('list-group-tabs-example-tabpane-#link3'); // Se for um ID
-// const oldElement = document.querySelector('.list-group-tabs-example-tabpane'); // Se for uma Classe
+const oldElement = document.getElementById('elementID'); // Se for um ID
+// const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
 if (oldElement) {
     // Cria um novo elemento para renderizar o componente React
     const newElement = document.createElement('div');
@@ -4759,11 +4759,11 @@ if (oldElement) {
     // Substitui o elemento antigo pelo novo
     oldElement.parentNode.replaceChild(newElement, oldElement);
 
-    // Cria a raiz para renderizar com React 18+
+    // Cria a raiz para renderizar com React
     const root = ReactDOM.createRoot(newElement);
-    root.render(<ListUsers fenestra={fenestra} />);
+    root.render(<ReactComponent fenestra={fenestra} />);
 
-    console.log('Componente ListUsers renderizado com sucesso!');
+    console.log('Componente ReactComponent renderizado com sucesso!');
 } else {
     console.error('Elemento a ser substituído não encontrado!');
 }
@@ -4771,7 +4771,7 @@ if (oldElement) {
 
 ### Explicação:
 1. **Selecionar o Elemento Alvo:**
-   O script localiza o elemento com `id='list-group-tabs-example-tabpane-#link3'`.
+   O script localiza o elemento com `id='elementID'`.
    ( ! ) Pode ser uma classe também, mudando `getElementById('elementID')` para `querySelector('.elementClass')`!
 
 2. **Criar um Novo Elemento para Substituição:**
@@ -4781,13 +4781,13 @@ if (oldElement) {
    O novo elemento substitui o antigo usando `replaceChild`.
 
 4. **Renderizar o Componente React:**
-   O ReactDOM é usado para renderizar `<ListUsers fenestra={fenestra} />` no novo elemento substituto.
+   O ReactDOM é usado para renderizar `<ReactComponent fenestra={fenestra} />` no novo elemento substituto.
 
 ### Considerações:
 - **React no Frontend:** Essa abordagem é válida quando você precisa combinar manipulação do DOM com renderizações React.
 - **Manutenção do Estado no React:** Se o `fenestra` vier de um estado ou contexto React, certifique-se de que está acessível no escopo do script.
 
-Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento substituído.
+Com isso, o componente `<ReactComponent>` será renderizado no lugar do elemento substituído.
 
 ---
 
@@ -4800,7 +4800,7 @@ Este exemplo demonstra como substituir um elemento do DOM existente por um compo
 > Importação do ReactDOM
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 ```
 
 > Exemplo de componente React
