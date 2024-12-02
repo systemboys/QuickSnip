@@ -4744,9 +4744,9 @@ Para substituir o elemento por um componente React `<ReactComponent />`, você d
 
 ### Códigos:
 
-Adicione um novo `elemento alvo`, no nosso caso, é uma `div`:
+Adicione um novo `elemento alvo`, no nosso caso, é uma `div` e siga os três passos a seguir:
 
-1. **Indiciar o Elemento Alvo:**
+1. **Indicação o Elemento Alvo:**
 
 ```jsx
 {/* ... outras linhas ... */}
@@ -4758,13 +4758,15 @@ Adicione um novo `elemento alvo`, no nosso caso, é uma `div`:
 
 Importe o `ReactDOM` e o `ReactComponent` no componente que executará o script.
 
-1. **Importações:**
+2. **Importações dependentes:**
 ```jsx
 import ReactDOM from 'react-dom/client';
 import { ReactComponent } from '../../ReactComponent';
 ```
 
-2. **Script que substituirá o elemento alvo:**
+Implemente o script a seguir no seu componente. 
+
+3. **Script que substituirá o elemento alvo:**
 ```jsx
 // Seleciona o elemento que será substituído
 const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
