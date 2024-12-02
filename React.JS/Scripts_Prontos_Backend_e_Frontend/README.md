@@ -130,7 +130,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
      > **Substituição de conteúdo**
      > - [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
-     > - [`Substituir` um `Elemento` do DOM por um `Componente React`](#substituir-um-elemento-do-dom-por-um-componente-react "Substituir um Elemento do DOM por um Componente React")
+     > - [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
      > - [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
    - [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
    - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
@@ -4738,7 +4738,7 @@ if (oldElement) {
 
 ---
 
-### Substituir um Elemento do DOM por um Componente React
+### Substituir um Elemento do DOM por um elemento com Componente React
 
 Para substituir o elemento por um componente React `<ReactComponent />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.createRoot`. Veja os códigos a seguir:
 
@@ -4774,17 +4774,17 @@ import { ReactComponent } from '../../ReactComponent';
 Implemente o script a seguir no seu componente. 
 
 ```jsx
-// Seleciona o elemento que será substituído
-const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
+// Substituir o Elemento do DOM pelo elemento com o Componente React '<ReactComponent />'.
+const oldElement = document.querySelector('.elementClass'); // Seleciona o elemento que será substituído.
 if (oldElement) {
-    // Cria um novo elemento para renderizar o componente React
+    // Cria um novo elemento para renderizar o componente React.
     const newElement = document.createElement('div');
     newElement.className = 'elementClass';
 
-    // Substitui o elemento antigo pelo novo
+    // Substitui o elemento antigo pelo novo.
     oldElement.parentNode.replaceChild(newElement, oldElement);
 
-    // Cria a raiz para renderizar com React
+    // Cria a raiz para renderizar com React.
     const root = ReactDOM.createRoot(newElement);
     root.render(<ReactComponent />);
 
@@ -4855,9 +4855,9 @@ const ExampleComponent = ({ propValue }) => (
 );
 ```
 
-> Função para substituir um elemento do DOM por um componente React
+> Função para substituir um elemento do DOM por um elemento com componente React
 ```jsx
-// Função para substituir um elemento do DOM por um componente React
+// Função para substituir um elemento do DOM por um elemento com componente React
 function replaceElementWithReactComponent(elementId, ReactComponent, props = {}) {
     // Seleciona o elemento que será substituído
     const oldElement = document.getElementById('elementId');
@@ -4887,7 +4887,7 @@ replaceElementWithReactComponent('elemento-alvo', ExampleComponent, { propValue:
 
 #### Explicação:
 1. **Componente React**: O exemplo utiliza `ExampleComponent`, que pode ser substituído por qualquer componente React.
-2. **Função Reutilizável**: A função `replaceElementWithReactComponent` facilita a substituição de qualquer elemento do DOM por um componente React.
+2. **Função Reutilizável**: A função `replaceElementWithReactComponent` facilita a substituição de qualquer elemento do DOM por um elemento com componente React.
 3. **Parâmetros Dinâmicos**:
    - `elementId`: O ID do elemento que será substituído.
    - `ReactComponent`: O componente React que será renderizado.
