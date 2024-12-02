@@ -4749,7 +4749,7 @@ import ReactDOM from 'react-dom';
 import { ListUsers } from '../../Users';
 
 // Seleciona o elemento que será substituído
-const oldElement = document.getElementById('list-group-tabs-example-tabpane-#link3');
+const oldElement = document.getElementById('elementId');
 if (oldElement) {
     // Cria um novo elemento para renderizar o componente React
     const newElement = document.createElement('div');
@@ -4816,7 +4816,7 @@ const ExampleComponent = ({ propValue }) => (
 // Função para substituir um elemento do DOM por um componente React
 function replaceElementWithReactComponent(elementId, ReactComponent, props = {}) {
     // Seleciona o elemento que será substituído
-    const oldElement = document.getElementById(elementId);
+    const oldElement = document.getElementById('elementId');
     if (oldElement) {
         // Cria um novo elemento para renderizar o componente React
         const newElement = document.createElement('div');
