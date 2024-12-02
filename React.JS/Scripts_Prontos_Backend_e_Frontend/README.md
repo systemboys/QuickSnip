@@ -4745,7 +4745,7 @@ Para substituir o conteúdo do elemento com o componente React `<ListUsers fenes
 ### Código:
 ```jsx
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import { ReactComponent } from '../../ReactComponent';
 
 // Seleciona o elemento que será substituído
@@ -4800,7 +4800,7 @@ Este exemplo demonstra como substituir um elemento do DOM existente por um compo
 > Importação do ReactDOM
 ```jsx
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 ```
 
 > Exemplo de componente React
