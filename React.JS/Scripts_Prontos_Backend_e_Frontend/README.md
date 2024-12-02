@@ -4756,6 +4756,8 @@ Adicione um novo `elemento alvo`, no nosso caso, será uma `div` e siga os três
 {/* ... outras linhas ... */}
 ```
 
+> ( ! ) Se houver algo dentro do elemento e você precisa substítuir, como pro exemplo, um componente que precisa ser renderizado novamente, coloque-o dentro do elemento alvo!
+
 2. **Importações dependentes:**
 
 Importe o `ReactDOM` e o `ReactComponent` no componente que executará o script.
