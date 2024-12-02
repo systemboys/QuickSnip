@@ -4800,7 +4800,7 @@ Este exemplo demonstra como substituir um elemento do DOM existente por um compo
 > Importação do ReactDOM
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 ```
 
 > Exemplo de componente React
@@ -4829,7 +4829,7 @@ function replaceElementWithReactComponent(elementId, ReactComponent, props = {})
         oldElement.parentNode.replaceChild(newElement, oldElement);
 
         // Renderiza o componente React no novo elemento
-        ReactDOM.render(<ReactComponent {...props} />, newElement);
+        ReactDOM.createRoot(<ReactComponent {...props} />, newElement);
 
         console.log(`Elemento #${elementId} substituído com sucesso!`);
     } else {
