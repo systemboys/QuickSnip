@@ -4746,7 +4746,7 @@ Para substituir o elemento por um componente React `<ReactComponent />`, você d
 
 1. **Indicação o Elemento Alvo:**
 
-Adicione um novo `elemento alvo`, no nosso caso, é uma `div` e siga os três passos a seguir:
+Adicione um novo `elemento alvo`, no nosso caso, será uma `div` e siga os três passos a seguir:
 
 ```jsx
 {/* ... outras linhas ... */}
