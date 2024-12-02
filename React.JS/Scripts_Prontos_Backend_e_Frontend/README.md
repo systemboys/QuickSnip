@@ -4696,6 +4696,110 @@ if (referenceRow) {
 }
 ```
 
+Para adicionar dinamicamente uma linha nessa tabela, precisamos criar um novo elemento `<tr>` e preencher suas colunas (`<td>` e `<th>`) com os dados fornecidos. O código ajustado para adicionar uma linha à tabela seria o seguinte:
+
+### Script atualizado:
+```jsx
+// Seleciona o elemento de referência
+const referenceElement = document.getElementById('test_table_admins');
+if (referenceElement) {
+    // Cria um novo elemento de linha (<tr>)
+    const newRow = document.createElement('tr');
+    
+    // Cria as colunas da linha (<td> e <th>)
+    const rowContent = `
+        <td>99</td>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+        <th>d</th>
+    `;
+
+    // Adiciona o conteúdo às células da linha
+    newRow.innerHTML = rowContent;
+
+    // Insere a nova linha no final do corpo da tabela
+    referenceElement.appendChild(newRow);
+
+    console.log('Nova linha adicionada à tabela!');
+} else {
+    console.error('Tabela não encontrada!');
+}
+```
+
+### Explicação do código:
+
+1. **Seleciona o elemento de referência**:
+   - O elemento `test_table_admins` é o `<tbody>` da tabela, onde as linhas estão sendo geradas dinamicamente.
+
+2. **Cria a linha `<tr>`**:
+   - Utilizamos `document.createElement('tr')` para criar uma nova linha vazia.
+
+3. **Preenche o conteúdo da linha**:
+   - Com `newRow.innerHTML = rowContent`, definimos o conteúdo HTML das células dessa linha.
+
+4. **Adiciona a nova linha à tabela**:
+   - Usamos `referenceElement.appendChild(newRow)` para inserir a linha no final do corpo da tabela (`<tbody>`).
+
+5. **Mensagem de sucesso ou erro**:
+   - Caso a tabela (`<tbody>`) seja encontrada, adicionamos a linha; caso contrário, mostramos um erro no console.
+
+### Resultado esperado:
+
+Uma nova linha será adicionada ao final da tabela, com os valores fornecidos:
+
+| ID  | Nome | Usuário | Nível | Ação |
+|-----|------|---------|-------|------|
+| 99  | a    | b       | c     | d    |
+
+Se precisar adicionar a linha em uma posição específica, basta utilizar `insertBefore` em vez de `appendChild`.
+
+Para adicionar a nova linha antes dos outros itens existentes na tabela, você pode usar o método `insertBefore`. No caso, você precisa adicionar a nova linha como o primeiro filho do `<tbody>` (`test_table_admins`). O código ajustado fica assim:
+
+### Script atualizado:
+```jsx
+// Seleciona o elemento de referência
+const referenceElement = document.getElementById('test_table_admins');
+if (referenceElement) {
+    // Cria um novo elemento de linha (<tr>)
+    const newRow = document.createElement('tr');
+    
+    // Cria as colunas da linha (<td> e <th>)
+    const rowContent = `
+        <td>99</td>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+        <th>d</th>
+    `;
+
+    // Adiciona o conteúdo às células da linha
+    newRow.innerHTML = rowContent;
+
+    // Insere a nova linha antes do primeiro elemento do corpo da tabela
+    const firstChild = referenceElement.firstChild;
+    referenceElement.insertBefore(newRow, firstChild);
+
+    console.log('Nova linha adicionada antes das outras!');
+} else {
+    console.error('Tabela não encontrada!');
+}
+```
+
+### Alterações feitas:
+
+1. **Identificar o primeiro filho do `<tbody>`**:
+   - Usamos `referenceElement.firstChild` para capturar o primeiro elemento existente dentro de `<tbody>`.
+
+2. **Adicionar antes do primeiro filho**:
+   - O método `insertBefore(newRow, firstChild)` insere a nova linha (`newRow`) antes do primeiro elemento (`firstChild`).
+
+### Resultado:
+
+Agora, a nova linha será adicionada como a primeira linha dentro do `<tbody>`, aparecendo antes de todos os itens existentes na tabela. 
+
+Se precisar de mais ajustes ou tiver dúvidas, é só perguntar! 😊
+
 ---
 
 Esses exemplos são altamente reutilizáveis e podem ser adaptados para diferentes cenários. Se precisar de mais adaptações ou esclarecimentos, é só pedir! 😊
