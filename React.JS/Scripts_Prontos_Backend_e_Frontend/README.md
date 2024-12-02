@@ -522,35 +522,35 @@ Os dados abaixo, são expostos no formato `json`:
       "title": "Título 5",
       "category": "category-5",
       "date": "2024-12-10T00:00:00.000Z"
-  	},
-  	{
+    },
+    {
       "id": 4,
       "image": "https://www.site.com/images/image4.jpg",
       "title": "Título 4",
       "category": "category-4",
       "date": "2024-12-11T00:00:00.000Z"
-  	},
-  	{
+    },
+    {
       "id": 3,
       "image": "https://www.site.com/images/image3.jpg",
       "title": "Título 3",
       "category": "category-3",
       "date": "2024-12-12T00:00:00.000Z"
-  	},
-  	{
+    },
+    {
       "id": 2,
       "image": "https://www.site.com/images/image2.jpg",
       "title": "Título 2",
       "category": "category-2",
       "date": "2024-12-13T00:00:00.000Z"
-  	},
-  	{
+    },
+    {
       "id": 1,
       "image": "https://www.site.com/images/image1.jpg",
       "title": "Título 1",
       "category": "category-1",
       "date": "2024-12-14T00:00:00.000Z"
-  	}
+    }
   ]
 }
 ```
