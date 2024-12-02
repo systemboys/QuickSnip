@@ -4767,6 +4767,8 @@ import ReactDOM from 'react-dom/client';
 import { ReactComponent } from '../../ReactComponent';
 ```
 
+> ( ! ) `ReactComponent` será o componente o qual estará dentro do elemento alvo, importe no início do seu código!
+
 3. **Script que substituirá o elemento alvo:**
 
 Implemente o script a seguir no seu componente. 
@@ -4791,6 +4793,8 @@ if (oldElement) {
     console.error('Elemento a ser substituído não encontrado!');
 }
 ```
+
+> ( ! ) Exemplo de uso: Esse script, pode ser executado em algum evento, antes do `return(...)`!
 
 ### Explicação:
 1. **Selecionar o Elemento Alvo:**
