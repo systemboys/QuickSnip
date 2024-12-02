@@ -4786,6 +4786,59 @@ if (oldElement) {
 
 Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento substituído.
 
+> (!) Possível erro!
+
+Se houver erro, poderá estar relacionado à migração do React para a versão 18 ou posterior. A partir dessa versão, o método `ReactDOM.render` foi substituído pelo `ReactDOM.createRoot` para gerenciar a renderização de aplicativos React. Vamos ajustar o código para usar a API correta.
+
+### Código Ajustado para React 18+
+Aqui está como você pode corrigir o script para compatibilidade com React 18:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client'; // Importação para React 18+
+import { ListUsers } from '../../Users';
+
+// Seleciona o elemento que será substituído
+const oldElement = document.getElementById('list-group-tabs-example-tabpane-#link3');
+if (oldElement) {
+    // Cria um novo elemento para renderizar o componente React
+    const newElement = document.createElement('div');
+    newElement.className = 'replacement-element';
+
+    // Substitui o elemento antigo pelo novo
+    oldElement.parentNode.replaceChild(newElement, oldElement);
+
+    // Cria a raiz para renderizar com React 18+
+    const root = ReactDOM.createRoot(newElement);
+    root.render(<ListUsers fenestra={fenestra} />);
+
+    console.log('Componente ListUsers renderizado com sucesso!');
+} else {
+    console.error('Elemento a ser substituído não encontrado!');
+}
+```
+
+### Principais Ajustes:
+1. **Substituição de `ReactDOM.render` por `ReactDOM.createRoot`:**
+   - `ReactDOM.render` foi depreciado no React 18.
+   - Use `ReactDOM.createRoot` para criar uma raiz de renderização e renderizar o componente React.
+
+2. **Nova Importação:** 
+   - Certifique-se de importar `ReactDOM` de `'react-dom/client'`, que contém a API `createRoot`.
+
+3. **Renderização com `root.render`:**
+   - Após criar a raiz (`root`), use o método `render` para renderizar o componente.
+
+### Observações:
+- **Mapa de Código (Source Map Warning):** 
+   O aviso sobre `Error: request failed with status 404` no mapa de código não afeta o funcionamento do React. Ele indica que o navegador não conseguiu encontrar o arquivo `installHook.js.map`. Isso geralmente é ignorável em desenvolvimento.
+
+- **Link na Mensagem de Aviso:** 
+   O link `https://reactjs.org/link/switch-to-createroot` na mensagem do console é uma referência oficial para ajudar na migração para o React 18.
+
+### Teste e Verificação
+Após ajustar o código, verifique novamente no navegador. O erro relacionado ao `ReactDOM.render` não deve mais aparecer. 🚀
+
 ---
 
 ### Exemplo Genérico para Substituir Elemento do DOM por Componente React
