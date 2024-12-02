@@ -123,6 +123,13 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Uso de Arquivo `.env` para Configurações Sensíveis](#4-configura%C3%A7%C3%A3o-do-env "Uso de Arquivo .env para Configurações Sensíveis")
      - [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
      - [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
+3. **Manipulação de Objetos no DOM com JavaScript**
+   - [Remover um Elemento Específico pelo ID](# "Remover um Elemento Específico pelo ID")
+   - [Adicionar um Elemento Antes de Outro no DOM](# "Adicionar um Elemento Antes de Outro no DOM")
+   - [Adicionar um Elemento Depois de Outro no DOM](# "Adicionar um Elemento Depois de Outro no DOM")
+   - [Substituir um Elemento por Outro no DOM](# "Substituir um Elemento por Outro no DOM")
+   - [Adicionar um Novo Elemento como Filho de Outro](# "Adicionar um Novo Elemento como Filho de Outro")
+   - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](# "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
 
 ---
 
@@ -4545,6 +4552,152 @@ export default App;
 
 - Substitua `suporte@seudominio.com` pelo endereço de e-mail para onde as mensagens devem ser enviadas.
 - Certifique-se de que o backend esteja acessível ao frontend, configurando proxies ou utilizando um endereço de rede público.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Manipulação de Objetos no DOM com JavaScript
+
+Aqui estão exemplos genéricos de manipulações no DOM usando JavaScript. Estes exemplos podem ser usados para remover, adicionar antes ou adicionar depois de um elemento existente no DOM.
+
+---
+
+### Remover um Elemento Específico pelo ID
+
+```javascript
+// Seleciona o elemento pelo ID
+const element = document.getElementById('example_id');
+if (element) {
+    element.remove(); // Remove o elemento do DOM
+    console.log('Elemento removido com sucesso!');
+} else {
+    console.error('Elemento não encontrado!');
+}
+```
+
+---
+
+### Adicionar um Elemento Antes de Outro no DOM
+
+```javascript
+// Seleciona o elemento de referência
+const referenceElement = document.getElementById('example_id');
+if (referenceElement) {
+    // Cria um novo elemento
+    const newElement = document.createElement('div');
+    newElement.textContent = 'Novo elemento antes';
+    newElement.className = 'new-element';
+
+    // Insere o novo elemento antes do elemento de referência
+    referenceElement.parentNode.insertBefore(newElement, referenceElement);
+    console.log('Novo elemento adicionado antes do elemento de referência!');
+} else {
+    console.error('Elemento de referência não encontrado!');
+}
+```
+
+---
+
+### Adicionar um Elemento Depois de Outro no DOM
+
+```javascript
+// Seleciona o elemento de referência
+const referenceElement = document.getElementById('example_id');
+if (referenceElement) {
+    // Cria um novo elemento
+    const newElement = document.createElement('div');
+    newElement.textContent = 'Novo elemento depois';
+    newElement.className = 'new-element';
+
+    // Insere o novo elemento após o elemento de referência
+    referenceElement.parentNode.insertBefore(newElement, referenceElement.nextSibling);
+    console.log('Novo elemento adicionado depois do elemento de referência!');
+} else {
+    console.error('Elemento de referência não encontrado!');
+}
+```
+
+---
+
+### Substituir um Elemento por Outro no DOM
+
+```javascript
+// Seleciona o elemento que será substituído
+const oldElement = document.getElementById('example_id');
+if (oldElement) {
+    // Cria um novo elemento
+    const newElement = document.createElement('div');
+    newElement.textContent = 'Elemento substituto';
+    newElement.className = 'replacement-element';
+
+    // Substitui o elemento antigo pelo novo
+    oldElement.parentNode.replaceChild(newElement, oldElement);
+    console.log('Elemento substituído com sucesso!');
+} else {
+    console.error('Elemento a ser substituído não encontrado!');
+}
+```
+
+---
+
+### Adicionar um Novo Elemento como Filho de Outro
+
+```javascript
+// Seleciona o elemento pai
+const parentElement = document.getElementById('example_parent');
+if (parentElement) {
+    // Cria um novo elemento
+    const newElement = document.createElement('div');
+    newElement.textContent = 'Novo elemento filho';
+    newElement.className = 'child-element';
+
+    // Adiciona o novo elemento como filho do elemento pai
+    parentElement.appendChild(newElement);
+    console.log('Novo elemento filho adicionado com sucesso!');
+} else {
+    console.error('Elemento pai não encontrado!');
+}
+```
+
+---
+
+### Exemplo de Uso para Estruturas de Tabela
+
+Para uso em tabelas, você pode adaptar qualquer exemplo acima. Por exemplo:
+
+**Adicionar uma Linha Depois de Outra Linha:**
+
+```javascript
+// Seleciona a linha de referência
+const referenceRow = document.getElementById('example_row');
+if (referenceRow) {
+    // Cria uma nova linha
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>Novo ID</td>
+        <td>Nome Exemplo</td>
+        <td>Usuário Exemplo</td>
+        <td>Nível Exemplo</td>
+        <td>Ação</td>
+    `;
+
+    // Insere a nova linha após a linha de referência
+    referenceRow.parentNode.insertBefore(newRow, referenceRow.nextSibling);
+    console.log('Nova linha adicionada com sucesso!');
+} else {
+    console.error('Linha de referência não encontrada!');
+}
+```
+
+---
+
+Esses exemplos são altamente reutilizáveis e podem ser adaptados para diferentes cenários. Se precisar de mais adaptações ou esclarecimentos, é só pedir! 😊
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
