@@ -4756,7 +4756,7 @@ Adicione um novo `elemento alvo`, no nosso caso, será uma `div` e siga os três
 {/* ... outras linhas ... */}
 ```
 
-> ( ! ) Se houver algo dentro do elemento e você precisa substítuir, como pro exemplo, um componente que precisa ser renderizado novamente, coloque-o dentro do elemento alvo!
+> ( ! ) Se houver algo dentro do elemento e você precisa substituí-lo, como pro exemplo, um componente que precisa ser renderizado novamente, coloque-o dentro do elemento alvo!
 
 2. **Importações dependentes:**
 
