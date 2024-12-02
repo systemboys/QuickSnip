@@ -4793,12 +4793,14 @@ Com isso, o componente `<ListUsers>` será renderizado no lugar do elemento subs
 Este exemplo demonstra como substituir um elemento do DOM existente por um componente React, garantindo que a manipulação do DOM seja integrada ao ciclo de vida do React.
 
 #### Código Genérico
+
+> Importação do ReactDOM
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 ```
 
-**Exemplo de componente React**
+> Exemplo de componente React
 ```jsx
 // Exemplo de componente React
 const ExampleComponent = ({ propValue }) => (
@@ -4809,7 +4811,7 @@ const ExampleComponent = ({ propValue }) => (
 );
 ```
 
-**Função para substituir um elemento do DOM por um componente React**
+> Função para substituir um elemento do DOM por um componente React
 ```jsx
 // Função para substituir um elemento do DOM por um componente React
 function replaceElementWithReactComponent(elementId, ReactComponent, props = {}) {
@@ -4833,7 +4835,7 @@ function replaceElementWithReactComponent(elementId, ReactComponent, props = {})
 }
 ```
 
-**Exemplo de uso**
+> Exemplo de uso
 ```jsx
 // Exemplo de uso
 replaceElementWithReactComponent('elemento-alvo', ExampleComponent, { propValue: 'Exemplo de valor' });
