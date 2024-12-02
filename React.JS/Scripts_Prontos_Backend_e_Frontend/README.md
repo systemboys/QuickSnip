@@ -4796,7 +4796,10 @@ Este exemplo demonstra como substituir um elemento do DOM existente por um compo
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
+```
 
+**Exemplo de componente React**
+```jsx
 // Exemplo de componente React
 const ExampleComponent = ({ propValue }) => (
     <div>
@@ -4804,7 +4807,10 @@ const ExampleComponent = ({ propValue }) => (
         <p>Propriedade recebida: {propValue}</p>
     </div>
 );
+```
 
+**Função para substituir um elemento do DOM por um componente React**
+```jsx
 // Função para substituir um elemento do DOM por um componente React
 function replaceElementWithReactComponent(elementId, ReactComponent, props = {}) {
     // Seleciona o elemento que será substituído
@@ -4825,7 +4831,10 @@ function replaceElementWithReactComponent(elementId, ReactComponent, props = {})
         console.error(`Elemento com o ID '${elementId}' não foi encontrado.`);
     }
 }
+```
 
+**Exemplo de uso**
+```jsx
 // Exemplo de uso
 replaceElementWithReactComponent('elemento-alvo', ExampleComponent, { propValue: 'Exemplo de valor' });
 ```
