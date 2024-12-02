@@ -4751,9 +4751,7 @@ Adicione um novo `elemento alvo`, no nosso caso, é uma `div`:
 ```jsx
 {/* ... outras linhas ... */}
 <Container>
-    <div className="elementClass">
-        <ReactComponent />
-    </div>
+    <div className="elementClass"></div>
 </Container>
 {/* ... outras linhas ... */}
 ```
@@ -4801,6 +4799,20 @@ if (oldElement) {
 
 4. **Renderizar o Componente React:**
    O ReactDOM é usado para renderizar `<ReactComponent />` no novo elemento substituto.
+
+5. **Conclusão:**
+   O elemento alvo terá o `<ReactComponent />` como conteúdo.
+
+   > Exemplo:
+   ```jsx
+   {/* ... outras linhas ... */}
+   <Container>
+       <div className="elementClass">
+           <ReactComponent />
+       </div>
+   </Container>
+   {/* ... outras linhas ... */}
+   ```
 
 ### Considerações:
 - **React no Frontend:** Essa abordagem é válida quando você precisa combinar manipulação do DOM com renderizações React.
