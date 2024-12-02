@@ -4749,7 +4749,8 @@ import ReactDOM from 'react-dom';
 import { ListUsers } from '../../Users';
 
 // Seleciona o elemento que será substituído
-const oldElement = document.getElementById('elementId');
+const oldElement = document.getElementById('elementId'); // Se for um ID
+// const oldElement = document.querySelector('.elementClass'); // Se for uma Classe
 if (oldElement) {
     // Cria um novo elemento para renderizar o componente React
     const newElement = document.createElement('div');
@@ -4799,7 +4800,8 @@ import ReactDOM from 'react-dom/client'; // Importação para React 18+
 import { ListUsers } from '../../Users';
 
 // Seleciona o elemento que será substituído
-const oldElement = document.getElementById('list-group-tabs-example-tabpane-#link3');
+const oldElement = document.getElementById('list-group-tabs-example-tabpane-#link3'); // Se for um ID
+// const oldElement = document.querySelector('.list-group-tabs-example-tabpane'); // Se for uma Classe
 if (oldElement) {
     // Cria um novo elemento para renderizar o componente React
     const newElement = document.createElement('div');
