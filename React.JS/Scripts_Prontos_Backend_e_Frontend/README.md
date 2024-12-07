@@ -74,6 +74,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
      - [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
 3. **Notificações no Frontend com React**
+   - [Notificação de Conexão de Internet](#notifica%C3%A7%C3%A3o-de-conex%C3%A3o-de-internet "Notificação de Conexão de Internet")
    - [Modificação para substituir o `alert()` por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
    - [Exemplo de Reutilização de Notificações com `Diferentes Tipos`](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
    - [Usar as notificações com `CSS Modules`](#usar-as-notifica%C3%A7%C3%B5es-com-css-modules "Usar as notificações com 'CSS Modules'")
@@ -3191,6 +3192,99 @@ A exibição dos botões de paginação deve ficar parecida com o modelo solicit
 - Exibindo "..." para indicar páginas intermediárias quando aplicável.
 
 Esse layout otimiza a navegação para listas extensas, mantendo a interface simples e acessível.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Notificação de Conexão de Internet
+
+Este exemplo implementa uma notificação simples que alerta o usuário quando a conexão com a internet é perdida. Ele utiliza **React hooks** e **event listeners** para monitorar o status de conexão (`online` e `offline`).
+
+### Componente React: `ConnectionNotification.jsx`
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+export function ConnectionNotification() {
+    const [isOffline, setIsOffline] = useState(false);
+
+    useEffect(() => {
+        function updateOnlineStatus() {
+            setIsOffline(!navigator.onLine);
+        }
+
+        // Adiciona listeners para conexão e desconexão
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        // Verifica o status da conexão ao montar o componente
+        updateOnlineStatus();
+
+        // Remove listeners ao desmontar o componente
+        return () => {
+            window.removeEventListener('online', updateOnlineStatus);
+            window.removeEventListener('offline', updateOnlineStatus);
+        };
+    }, []);
+
+    return (
+        <div style={{
+            position: 'fixed',
+            top: 10,
+            right: 10,
+            backgroundColor: 'red',
+            color: 'white',
+            padding: '10px',
+            borderRadius: '5px',
+            display: isOffline ? 'block' : 'none',
+            zIndex: 1000,
+        }}>
+            Internet desconectada!
+        </div>
+    );
+}
+```
+
+### Como Usar:
+
+1. **Importe o componente onde será utilizado:**
+
+```jsx
+import { ConnectionNotification } from './ConnectionNotification';
+```
+
+2. **Adicione ao seu JSX:**
+
+```jsx
+function App() {
+    return (
+        <div>
+            <ConnectionNotification />
+            <h1>Minha Aplicação</h1>
+        </div>
+    );
+}
+```
+
+### Explicação:
+
+1. **Estado `isOffline`**: Controla a visibilidade da notificação com base no status de conexão.
+2. **Hook `useEffect`**:
+   - Adiciona event listeners para os eventos `online` e `offline`.
+   - Atualiza o estado sempre que o status de conexão mudar.
+   - Remove os listeners ao desmontar o componente para evitar vazamento de memória.
+3. **Estilo Inline**:
+   - O estilo do componente é configurado inline, mas pode ser movido para um arquivo CSS, se necessário.
+
+---
+
+Este exemplo pode ser usado como base para adicionar notificações de status de conexão em qualquer projeto React.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
