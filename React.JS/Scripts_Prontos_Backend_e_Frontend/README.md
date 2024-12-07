@@ -83,7 +83,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Formulário simples de cadastro com validação de campos
    - **Manipulação de Estilos e Classes em Componentes Modais**
      - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
-   - [Usando Imagens PNG como Ícones em Componentes React](# "Usando Imagens PNG como Ícones em Componentes React")
+   - [Usando Imagens PNG como Ícones em Componentes React](#usando-imagens-png-como-%C3%ADcones-em-componentes-react "Usando Imagens PNG como Ícones em Componentes React")
 5. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
