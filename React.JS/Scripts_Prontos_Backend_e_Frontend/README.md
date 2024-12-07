@@ -3282,7 +3282,26 @@ function App() {
 3. **Estilo Inline**:
    - O estilo do componente é configurado inline, mas pode ser movido para um arquivo CSS, se necessário.
 
----
+### Centralizar a notificação no centro da tela
+
+```jsx
+
+<div style={{
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)', // Centraliza no eixo X e Y
+    backgroundColor: 'red',
+    color: 'white',
+    padding: '10px',
+    borderRadius: '5px',
+    display: isOffline ? 'block' : 'none',
+    zIndex: 1000,
+    textAlign: 'center', // Centraliza o texto no conteúdo
+}}>
+    Internet desconectada!
+</div>
+```
 
 Este exemplo pode ser usado como base para adicionar notificações de status de conexão em qualquer projeto React.
 
