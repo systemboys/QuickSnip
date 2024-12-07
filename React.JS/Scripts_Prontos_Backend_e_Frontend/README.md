@@ -83,6 +83,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Formulário simples de cadastro com validação de campos
    - **Manipulação de Estilos e Classes em Componentes Modais**
      - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
+   - [Usando Imagens PNG como Ícones em Componentes React](# "Usando Imagens PNG como Ícones em Componentes React")
 5. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
@@ -3673,6 +3674,177 @@ function handleButtonNo() {
 4. **Crie a função `handleButtonNo` para remover o elemento do DOM**.
 
 Esses passos garantem uma manipulação de classe consistente em modais ou janelas personalizadas, como no caso do uso com a biblioteca "fenestra".
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Usando Imagens PNG como Ícones em Componentes React
+
+### Descrição
+Este exemplo mostra como substituir ícones de bibliotecas como Font Awesome por imagens PNG em um componente React. Usamos o elemento `<img />` para exibir o ícone, garantindo flexibilidade para personalizar o tamanho e o caminho da imagem.
+
+### Exemplo de Implementação
+Aqui está um exemplo genérico que pode ser adaptado para diferentes contextos no seu projeto:
+
+```jsx
+import React from 'react';
+
+const MyComponent = ({ onClick }) => {
+  return (
+    <div className="icon-container">
+      <button onClick={onClick} title="Ação do Ícone">
+        <img 
+          src="/path/to/your-icon.png" 
+          alt="Ícone Descritivo" 
+          style={{ width: '48px', height: '48px' }} 
+        />
+      </button>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+### Explicação do Código
+1. **Elemento `<img />`**:
+   - O atributo `src` especifica o caminho para o arquivo PNG.
+   - O atributo `alt` descreve a imagem para melhorar a acessibilidade.
+   - O estilo inline (`style={{ width: '48px', height: '48px' }}`) define o tamanho do ícone. Você pode ajustá-lo ou usar classes CSS.
+
+2. **Botão Envolvendo o Ícone**:
+   - O ícone está dentro de um elemento `<button>` para torná-lo clicável.
+   - O atributo `title` adiciona uma dica visual ao passar o mouse sobre o botão.
+
+3. **Callback para Clique**:
+   - O atributo `onClick` está configurado para executar uma função quando o ícone é clicado.
+
+### Estrutura de Diretórios
+Certifique-se de organizar os arquivos corretamente:
+```
+src/
+├── components/
+│   └── MyComponent.jsx
+├── assets/
+│   └── icons/
+│       └── your-icon.png
+```
+
+### Dica Extra: Importar a Imagem
+Para setups com Webpack, Vite ou Create React App, importe o ícone diretamente no arquivo do componente:
+
+```jsx
+import yourIcon from '../assets/icons/your-icon.png';
+
+const MyComponent = ({ onClick }) => {
+  return (
+    <div className="icon-container">
+      <button onClick={onClick} title="Ação do Ícone">
+        <img 
+          src={yourIcon} 
+          alt="Ícone Descritivo" 
+          style={{ width: '48px', height: '48px' }} 
+        />
+      </button>
+    </div>
+  );
+};
+```
+
+Com isso, o caminho para a imagem é resolvido automaticamente pelo bundler, garantindo que os assets sejam processados corretamente.
+
+### Estilização Opcional
+Adicione classes CSS para controlar o estilo da imagem e do botão:
+
+```css
+.icon-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-container img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+```
+
+Este exemplo pode ser facilmente adaptado para outros componentes e cenários no seu projeto.
+
+### Veja o código adaptado no React-Fenestra
+
+Para usar uma imagem PNG como ícone no seu componente, você pode substituir o uso do componente `<FontAwesomeIcon />` por um elemento `<img />`. O elemento `<img />` permite especificar a fonte da imagem (o caminho para o arquivo PNG) diretamente no atributo `src`. Aqui está como você pode fazer a adaptação:
+
+### Código adaptado
+```jsx
+... outras linhas ...
+  return (
+    <Desktop
+      icons={[
+
+        ({ fenestra }) =>
+          <Icon title="Configurações"
+            icon={
+              <img 
+                src="/path/to/config-icon.png" 
+                alt="Ícone Configurações" 
+                style={{ width: '48px', height: '48px' }} 
+              />
+            }
+            onClick={() => fenestra.open({
+              title: "Configurações",
+              left: (window.innerWidth - 990) / 2,
+              top: (window.innerHeight - 510) / 2,
+              width: 990,
+              height: 510,
+              content: ({ fenestra }) =>
+                <SettingsForTheSystem fenestra={fenestra} />
+            })}
+          />,
+... outras linhas ...
+```
+
+### Explicação das mudanças
+1. **Substituir `<FontAwesomeIcon />` por `<img />`**:
+   - Usei o elemento `<img />` para exibir a imagem PNG. O caminho para a imagem foi passado no atributo `src`.
+   - O atributo `alt` adiciona um texto descritivo para acessibilidade e para casos em que a imagem não é carregada.
+
+2. **Adicionando estilo para o tamanho da imagem**:
+   - Defini as dimensões da imagem diretamente no `style`. Ajuste os valores de `width` e `height` conforme necessário para alinhar o tamanho do ícone com o design.
+
+3. **Caminho para a imagem**:
+   - Substitua `"/path/to/config-icon.png"` pelo caminho correto para o seu arquivo PNG. Ele pode estar em um diretório público, como `public/icons/`, ou ser importado diretamente como módulo (veja a seção **Dica Extra**).
+
+---
+
+### Dica Extra: Importar o arquivo PNG
+Se você estiver usando uma configuração como o Create React App, Next.js ou outra ferramenta de build que suporte Webpack, pode importar a imagem diretamente no JavaScript:
+
+```jsx
+import configIcon from '/path/to/config-icon.png';
+
+... outras linhas ...
+
+<Icon title="Configurações"
+  icon={
+    <img 
+      src={configIcon} 
+      alt="Ícone Configurações" 
+      style={{ width: '48px', height: '48px' }} 
+    />
+  }
+  onClick={...}
+/>
+```
+
+Com isso, você pode organizar melhor seus assets e garantir que o caminho da imagem seja resolvido corretamente pelo bundler.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
