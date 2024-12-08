@@ -84,6 +84,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Manipulação de Estilos e Classes em Componentes Modais**
      - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
    - [Usando Imagens PNG como Ícones em Componentes React](#usando-imagens-png-como-%C3%ADcones-em-componentes-react "Usando Imagens PNG como Ícones em Componentes React")
+     - [Uso de URLs Externas para Imagens em Componentes React](#uso-de-urls-externas-para-imagens-em-componentes-react "Uso de URLs Externas para Imagens em Componentes React")
 5. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
@@ -3845,6 +3846,78 @@ import configIcon from '/path/to/config-icon.png';
 ```
 
 Com isso, você pode organizar melhor seus assets e garantir que o caminho da imagem seja resolvido corretamente pelo bundler.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Uso de URLs Externas para Imagens em Componentes React
+
+A importação direta de uma URL externa não funciona no JavaScript padrão ou no Webpack porque a importação espera arquivos locais que possam ser processados no build. No entanto, você pode usar imagens externas no React diretamente no atributo `src` do elemento `<img />`.
+
+### Como Resolver
+Em vez de tentar importar a URL externa, use-a diretamente no `src` do elemento `<img />`. Veja como:
+
+```jsx
+... outras linhas ...
+<Icon 
+  title="Configurações"
+  icon={
+    <img 
+      src="https://github.com/systemboys/SiSFloatBase_image/blob/main/Settings_icon.png?raw=true"
+      alt="Ícone Configurações"
+      style={{ width: '48px', height: '48px' }}
+    />
+  }
+  onClick={...}
+/>
+... outras linhas ...
+```
+
+### Explicação
+1. **Uso de URL no `src`**:
+   - A URL externa pode ser passada diretamente para o atributo `src` no elemento `<img />`. Certifique-se de que a URL seja acessível e permita o carregamento da imagem.
+
+2. **Sem Importação Necessária**:
+   - Não é necessário importar a imagem porque você está usando o caminho absoluto diretamente.
+
+---
+
+### Por Que Importar Não Funciona?
+- O método `import` processa os arquivos localmente (normalmente no momento do build) e não suporta URLs externas.
+- URLs externas devem ser usadas como valores de string, atribuídas diretamente no código.
+
+Se você realmente precisa de um método programático para carregar imagens externas em diferentes partes do código, considere usar uma função que encapsule a URL e retorne o elemento:
+
+```jsx
+const ExternalIcon = ({ src, alt, size = 48 }) => (
+  <img 
+    src={src} 
+    alt={alt} 
+    style={{ width: size, height: size }} 
+  />
+);
+
+... outras linhas ...
+
+<Icon 
+  title="Configurações"
+  icon={
+    <ExternalIcon 
+      src="https://github.com/systemboys/SiSFloatBase_image/blob/main/Settings_icon.png?raw=true"
+      alt="Ícone Configurações"
+    />
+  }
+  onClick={...}
+/>
+```
+
+Com essa abordagem, você pode reutilizar o componente `ExternalIcon` para carregar imagens externas em qualquer lugar do seu projeto.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
