@@ -3322,6 +3322,88 @@ function App() {
 
 Este exemplo pode ser usado como base para adicionar notificações de status de conexão em qualquer projeto React.
 
+---
+
+É possível implementar uma funcionalidade que verifica se o dispositivo tem acesso à internet, independentemente de estar conectado via cabo ou Wi-Fi. Para isso, é necessário realizar requisições periódicas a um servidor confiável (como `https://google.com` ou outro domínio de alta disponibilidade). Caso a requisição falhe, podemos considerar que não há conexão com a internet.
+
+Segue um exemplo atualizado do componente:
+
+### Componente Atualizado: **ConnectionNotification.jsx**
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+export function ConnectionNotification() {
+    const [isOffline, setIsOffline] = useState(false);
+
+    useEffect(() => {
+        let intervalId;
+
+        // Função para verificar conexão com a internet
+        async function checkInternetConnection() {
+            try {
+                // Faz uma requisição simples para um endpoint confiável
+                const response = await fetch('https://www.google.com', { mode: 'no-cors' });
+                setIsOffline(false); // Se houver resposta, está online
+            } catch (error) {
+                setIsOffline(true); // Qualquer erro indica offline
+            }
+        }
+
+        // Verifica a conexão ao montar o componente
+        checkInternetConnection();
+
+        // Configura intervalos para verificar a conexão
+        intervalId = setInterval(checkInternetConnection, 5000); // Verifica a cada 5 segundos
+
+        // Remove o intervalo ao desmontar o componente
+        return () => clearInterval(intervalId);
+    }, []);
+
+    return (
+        <div style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)', // Centraliza no eixo X e Y
+            backgroundColor: 'red',
+            color: 'white',
+            padding: '10px',
+            borderRadius: '5px',
+            display: isOffline ? 'block' : 'none',
+            zIndex: 1000,
+            textAlign: 'center', // Centraliza o texto no conteúdo
+        }}>
+            Internet desconectada!
+        </div>
+    );
+}
+```
+
+### Explicação das alterações:
+
+1. **Verificação ativa de conexão:**
+   - A função `checkInternetConnection` realiza uma requisição HTTP simples para verificar a conectividade com a internet. O `fetch` tenta acessar um recurso confiável.
+   - O cabeçalho `mode: 'no-cors'` é usado para evitar bloqueios de CORS em requisições básicas, onde não nos importamos com a resposta, apenas se a requisição falhou ou não.
+
+2. **Intervalo de Verificação:**
+   - Configuramos um intervalo de 5 segundos (ou o valor desejado) para verificar a conexão regularmente.
+   - Essa abordagem é útil para detectar quedas de internet mesmo em situações onde o Wi-Fi ou cabo permanece conectado, mas a conexão externa está indisponível.
+
+3. **Remoção do Intervalo:**
+   - Ao desmontar o componente, o intervalo configurado é limpo para evitar vazamento de memória.
+
+### Vantagens:
+- Detecta queda de conexão externa.
+- Atualiza em tempo real.
+- Pode ser adaptado para incluir notificações visuais ou sonoras.
+
+### Observação:
+Se necessário, um servidor de backend pode ser configurado para responder a essas requisições, minimizando dependências externas. Usar um domínio como `google.com` é apenas uma sugestão prática. 
+
+### Como usar:
+Substitua o código antigo pelo novo componente e mantenha o mesmo fluxo de integração no projeto (`<ConnectionNotification />`).
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
