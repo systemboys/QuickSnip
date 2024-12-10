@@ -3316,7 +3316,7 @@ function App() {
     zIndex: 1000,
     textAlign: 'center', // Centraliza o texto no conteúdo
 }}>
-    Internet desconectada!
+    Conexão com a internet perdida!
 </div>
 ```
 
