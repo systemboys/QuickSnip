@@ -158,8 +158,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
 14. **CSS e Layouts em React**
    - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
-     - [Implementação de Quadros no Canto Inferior Direito](#implementa%C3%A7%C3%A3o-de-quadros-no-canto-inferior-direito "Implementação de Quadros no Canto Inferior Direito")
-     - [Estilização de Componentes com Altura Flexível](#estiliza%C3%A7%C3%A3o-de-componentes-com-altura-flex%C3%ADvel "Estilização de Componentes com Altura Flexível")
+     - [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
+     - [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
 
 ---
 
