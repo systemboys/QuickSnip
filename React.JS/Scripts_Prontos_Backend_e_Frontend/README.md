@@ -156,6 +156,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 13. **Incorporando Serviços Externos em Aplicações React**
    - **Google Maps**
      - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
+14. **CSS e Layouts em React**
+   - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
+     - [Implementação de Quadros no Canto Inferior Direito](#implementa%C3%A7%C3%A3o-de-quadros-no-canto-inferior-direito "Implementação de Quadros no Canto Inferior Direito")
+     - [Estilização de Componentes com Altura Flexível](#estiliza%C3%A7%C3%A3o-de-componentes-com-altura-flex%C3%ADvel "Estilização de Componentes com Altura Flexível")
 
 ---
 
@@ -6514,6 +6518,101 @@ export default CompanyLocation;
 ```
 
 Agora você pode reutilizar este componente para exibir localizações com o Google Maps em seus projetos React.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Componentes Fixos e Posicionados no Layout com CSS
+
+Aqui está um exemplo de como implementar os quadros descritos utilizando **React** e **CSS**. O código atende aos requisitos de estilo, posicionamento e flexibilidade no conteúdo.
+
+### Estrutura do Componente React
+
+```jsx
+import React from 'react';
+import './FloatingBoxes.css';
+
+const FloatingBoxes = () => {
+  return (
+    <div className="box-container">
+      <div className="box">Conteúdo do Quadro 1</div>
+      <div className="box">Conteúdo do Quadro 2</div>
+      <div className="box">Conteúdo do Quadro 3</div>
+    </div>
+  );
+};
+
+export default FloatingBoxes;
+```
+
+### Estilos CSS (FloatingBoxes.css)
+
+```css
+/* Estilos principais */
+.box-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Estilos para cada quadro */
+.box {
+  width: 165px;
+  min-height: 80px;
+  margin-bottom: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Remove margem do último quadro */
+.box:last-child {
+  margin-bottom: 0;
+}
+```
+
+### Funcionamento e Explicação
+
+1. **Container fixo no canto inferior direito**: A `div` principal (`box-container`) é posicionada no canto inferior direito usando `position: fixed` com `bottom: 10px` e `right: 10px`.
+
+2. **Quadros flexíveis**: Cada quadro (`.box`) possui largura fixa (`165px`), altura mínima (`80px`) e uma margem inferior de `5px` entre eles. Essa margem é aplicada automaticamente, exceto no último quadro.
+
+3. **Ajuste de altura automático**: Graças à propriedade `min-height`, os quadros expandem automaticamente conforme o conteúdo cresce.
+
+4. **Estilo reutilizável**: Para adicionar novos quadros, basta duplicar a `div` com a classe `box` no componente `FloatingBoxes`.
+
+### Resultado Esperado
+
+Os quadros aparecerão um embaixo do outro no canto inferior direito da página. Quando um dos quadros tiver conteúdo maior, ele se ajustará automaticamente sem sobreposição.
+
+### Exemplo de Uso
+
+Caso deseje adicionar mais quadros, basta copiar e colar no componente:
+
+```jsx
+<div className="box">Novo Quadro</div>
+```
+
+### Personalização
+
+Se quiser ajustar o espaçamento ou cores:
+- Modifique `margin-bottom` para ajustar o espaçamento entre os quadros.
+- Altere `background-color` e `border` para personalizar o estilo visual dos quadros.
+
+Pronto! 🚀 Este é um código simples e eficaz que cumpre com os requisitos descritos.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
