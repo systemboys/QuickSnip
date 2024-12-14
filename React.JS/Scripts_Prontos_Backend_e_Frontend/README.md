@@ -6562,6 +6562,7 @@ export default FloatingBoxes;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 0;
 }
 
 /* Estilos para cada quadro */
