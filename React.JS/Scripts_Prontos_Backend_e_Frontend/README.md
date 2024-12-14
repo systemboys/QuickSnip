@@ -152,6 +152,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Como `Rolar` a Barra de Rotação `para o Topo` de uma Página ao Carregá-la com JavaScript](#como-rolar-a-barra-de-rota%C3%A7%C3%A3o-para-o-topo-de-uma-p%C3%A1gina-ao-carreg%C3%A1-la-com-javascript "Como Rolar a Barra de Rotação para o Topo de uma Página ao Carregá-la com JavaScript")
    - [Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura](#removendo-tags-html-em-reactjs-uma-abordagem-simples-e-segura "Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura")
    - [Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante](#removendo-tags-html-com-reactjs-uma-abordagem-simples-e-elegante "Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante")
+13. **Incorporando Serviços Externos em Aplicações React**
+   - **Google Maps**
+     - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
 
 ---
 
@@ -6314,6 +6317,69 @@ console.log(textWithoutHtml);
 A função `removeHtmlTags` recebe um texto que contém tags HTML e usa a expressão regular `<[^>]+>` para encontrar todas as tags e, em seguida, usa o método `replace` para substituir essas tags por uma string vazia, efetivamente removendo-as.
 
 Lembre-se de que essa abordagem remove todas as tags HTML, incluindo qualquer conteúdo que possa estar entre as tags. Certifique-se de que isso seja o que você deseja para o seu caso específico.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Componente React para Exibição de Localização com Google Maps
+
+Este exemplo demonstra como incorporar um mapa do Google Maps em um componente React utilizando um `iframe`. A latitude e a longitude da localização desejada são passadas dinamicamente na URL.
+
+### Código
+
+```jsx
+// Importação de estilos, se necessário
+import styles from './YourStyles.module.css';
+
+// Coordenadas da localização da empresa
+const companyLatitude = "-5.078706";
+const companyLongitude = "-42.800151";
+
+const CompanyLocation = (
+  <iframe
+    src={`https://www.google.com/maps?q=${companyLatitude},${companyLongitude}&hl=pt&z=15&output=embed`}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className={styles.iframe}
+  ></iframe>
+);
+
+export default CompanyLocation;
+```
+
+### Explicação
+
+1. **Coordenadas da localização**: Substitua `companyLatitude` e `companyLongitude` pelas coordenadas da localização que você deseja exibir no mapa.
+2. **Parâmetros da URL**:
+   - `hl=pt`: Define o idioma como português.
+   - `z=15`: Define o nível de zoom no mapa.
+   - `output=embed`: Gera a URL no formato de incorporação.
+3. **Estilização**: Use a classe CSS `iframe` para ajustar a aparência do mapa, conforme definido no arquivo de estilos.
+4. **Propriedades do `iframe`**:
+   - `allowFullScreen`: Permite que o mapa seja exibido em tela cheia.
+   - `loading="lazy"`: Melhora o desempenho ao carregar o mapa apenas quando necessário.
+   - `referrerPolicy`: Configura a política de referenciadores para melhorar a segurança.
+
+### Observação
+
+- Certifique-se de incluir os estilos personalizados no arquivo `YourStyles.module.css` (ou similar). Exemplo de estilo básico para o iframe:
+
+```css
+.iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+```
+
+Agora você pode reutilizar este componente para exibir localizações com o Google Maps em seus projetos React.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
