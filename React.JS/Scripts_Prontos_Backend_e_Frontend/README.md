@@ -117,6 +117,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
 9. **Estrutura e Implementação de Componentes**
    - **Abas com Props para Componentes**
+     - [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
      - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
      - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
 10. **Envio de Emails e Comunicação Backend**
@@ -4818,6 +4819,139 @@ Quando o problema persiste e nenhuma das soluções comuns resolve, uma última 
 ### Por Que Isso Funciona?
 
 Esse procedimento pode corrigir problemas de CORS e outros conflitos, eliminando bibliotecas duplicadas, versões incompatíveis ou arquivos temporários que o Node.js pode ter armazenado. É especialmente útil quando configurações e soluções prévias não surtiram efeito.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Componente de Ping React com Histórico de Respostas
+
+Este componente em React realiza pings periódicos em um servidor ou URL especificado, exibindo os tempos de resposta no formato de um histórico limitado por uma quantidade configurável de linhas. Ideal para aplicações que precisam monitorar o tempo de resposta de serviços web.
+
+### Código do Componente
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+const PingComponent = () => {
+    const [pingHistory, setPingHistory] = useState([]);
+    const shootPingAgainst = "https://www.google.com"; // URL de destino do ping
+    const targetName = "Google"; // Nome amigável do alvo
+    const quantityOfLines = 14; // Quantidade máxima de linhas no histórico
+
+    const pingHost = async () => {
+        try {
+            const startTime = performance.now();
+            await fetch(shootPingAgainst, { mode: 'no-cors' });
+            const endTime = performance.now();
+            const time = (endTime - startTime).toFixed(1);
+            const newPing = `64 bytes : time=${time} ms`;
+
+            // Atualiza o histórico, limitando o número de linhas
+            setPingHistory((prevHistory) => {
+                const updatedHistory = [...prevHistory, newPing];
+                return updatedHistory.length > quantityOfLines
+                    ? updatedHistory.slice(1)
+                    : updatedHistory;
+            });
+        } catch (error) {
+            const errorPing = 'Error: Ping failed';
+            setPingHistory((prevHistory) => {
+                const updatedHistory = [...prevHistory, errorPing];
+                return updatedHistory.length > quantityOfLines
+                    ? updatedHistory.slice(1)
+                    : updatedHistory;
+            });
+        }
+    };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            pingHost();
+        }, 1000); // Realiza o ping a cada 1 segundo
+
+        return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
+    }, []);
+
+    return (
+        <div
+            style={{
+                width: '165px',
+                height: '200px',
+                backgroundColor: '#000',
+                borderRadius: '2.5px',
+                color: '#689F38',
+                fontFamily: 'monospace',
+                overflow: 'hidden',
+                padding: '10px',
+                boxSizing: 'border-box',
+                border: '1px solid #689F38',
+            }}
+        >
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    overflowY: 'hidden',
+                    fontSize: '10px',
+                }}
+            >
+                <p style={{ margin: '0 auto', lineHeight: '1.2' }}>
+                    ### [{targetName}] ###
+                </p>
+                {pingHistory.map((ping, index) => (
+                    <p key={index} style={{ margin: '0', lineHeight: '1.2' }}>
+                        {ping}
+                    </p>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default PingComponent;
+```
+
+### Como Usar
+
+1. **Importação e Renderização**: Importe o componente e renderize-o em qualquer lugar da sua aplicação:
+   ```jsx
+   import PingComponent from './PingComponent';
+
+   function App() {
+       return (
+           <div>
+               <PingComponent />
+           </div>
+       );
+   }
+
+   export default App;
+   ```
+
+2. **Customização**:
+   - Altere `shootPingAgainst` para o URL que deseja monitorar.
+   - Modifique `targetName` para um nome descritivo do alvo.
+   - Ajuste `quantityOfLines` para limitar o número de registros exibidos no histórico.
+
+3. **Estilo**:
+   O componente inclui um estilo básico que pode ser ajustado diretamente nos objetos `style` ou extraído para um arquivo CSS.
+
+4. **Limitações**:
+   - A opção `mode: 'no-cors'` no `fetch` é usada para evitar problemas de CORS, mas pode limitar a captura de respostas completas.
+   - O componente não utiliza bibliotecas externas, mantendo-o leve, mas a funcionalidade de ping depende da disponibilidade da rede e permissões do navegador.
+
+---
+
+### Observações
+
+Este componente é ideal para monitoramento básico. Para soluções mais avançadas, considere o uso de ferramentas especializadas e logs detalhados com frameworks de monitoramento.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
