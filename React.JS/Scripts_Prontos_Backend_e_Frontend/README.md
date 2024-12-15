@@ -120,6 +120,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
      - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
      - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
+   - [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
 10. **Envio de Emails e Comunicação Backend**
    - **Envio de Emails com Nodemailer**
      - [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios "Estrutura de Diretórios para Projeto de Envio de Emails")
@@ -3780,6 +3781,68 @@ function handleButtonNo() {
 4. **Crie a função `handleButtonNo` para remover o elemento do DOM**.
 
 Esses passos garantem uma manipulação de classe consistente em modais ou janelas personalizadas, como no caso do uso com a biblioteca "fenestra".
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Renderização Condicional de Elementos com Base na Largura da Tela em React.js
+
+Você pode usar o hook `useState` e o evento `resize` para criar essa funcionalidade. O exemplo abaixo mostra como você pode implementar isso:
+
+### Código:
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+const ResponsiveDiv = () => {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 600);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+    // Limpar o evento ao desmontar o componente
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <div>
+      {isLargeScreen && <div>Esta é uma tela maior que 600px.</div>}
+    </div>
+  );
+};
+
+export default ResponsiveDiv;
+```
+
+### Explicação:
+1. **Hook `useState`**:
+   - Usamos `useState` para controlar se a tela é maior que 600px (`isLargeScreen`).
+
+2. **Verificar a largura inicial**:
+   - O estado inicial é definido com base na largura da janela (`window.innerWidth`).
+
+3. **Evento `resize`**:
+   - Dentro de um `useEffect`, adicionamos um listener para o evento `resize`, que é acionado sempre que a janela é redimensionada.
+   - Quando isso acontece, a função `handleResize` atualiza o estado com base na largura atual da janela.
+
+4. **Limpeza do evento**:
+   - O retorno do `useEffect` remove o listener quando o componente é desmontado, evitando possíveis vazamentos de memória.
+
+5. **Renderização condicional**:
+   - Usamos uma expressão condicional para exibir o `<div>` apenas quando a largura for maior que 600px.
+
+Esse componente é funcional e reutilizável. É só importar e usar no seu projeto React. 😊
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
