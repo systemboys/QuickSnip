@@ -1986,6 +1986,33 @@ export default EntityList;
 2. **Frontend**: Use `useEffect` para realizar a requisição `GET` ao montar o componente.
 3. **Exibição**: Mapeie o array `entities` para exibir os dados no frontend.
 
+#### **Implementação de Filtros Dinâmicos em Rotas com Parâmetros URL**
+
+Para adaptar a sua rota de modo que ela receba um parâmetro, como um `id` na URL, você precisa utilizar o objeto `req.params`. Este parâmetro será capturado na rota e poderá ser utilizado na consulta para filtrar os registros com base no valor fornecido.
+
+Aqui está como fazer isso de forma criativa:
+
+1. **Defina o parâmetro na rota**: Adicione o parâmetro à definição da URL, por exemplo: `/getEntities/:id`.
+
+2. **Capture o parâmetro na requisição**: Utilize `req.params` para acessar o valor do parâmetro fornecido na URL.
+
+3. **Ajuste a consulta no Prisma**: Use o valor capturado no campo `where` da consulta, convertendo-o para o tipo apropriado, se necessário.
+
+O código ficaria algo assim:
+
+```ts
+const { id } = req.params; // Extraia o parâmetro da URL
+
+const entity = await prisma.entity.findMany({
+    where: { id: parseInt(id) }, // Filtre os registros com base no ID fornecido
+    orderBy: { createdAt: 'desc' } // Continue ordenando, se necessário
+});
+```
+
+Agora, quando você fizer uma requisição para uma URL como `/getEntities/123`, o `id` será capturado como `"123"`, convertido para um número com `parseInt(id)` e usado para filtrar os registros no banco de dados.
+
+Essa abordagem permite que a rota seja dinâmica e atenda a diferentes IDs fornecidos, tornando-a mais versátil e útil em cenários de consultas específicas!
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
