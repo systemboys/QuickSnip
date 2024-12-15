@@ -2011,7 +2011,21 @@ const entity = await prisma.entity.findMany({
 
 Agora, quando você fizer uma requisição para uma URL como `/getEntities/123`, o `id` será capturado como `"123"`, convertido para um número com `parseInt(id)` e usado para filtrar os registros no banco de dados.
 
-> ( i ) Para obter dados, defina os valores como o exemplo `entities[0]?.title`.
+---
+
+### Instrução Complementada
+
+Se você quiser refinar o código e lidar com arrays vazios de forma mais clara, pode adicionar uma verificação extra para tratar a ausência de registros explicitamente. Por exemplo:
+
+```jsx
+const firstEntityName = entities[0]?.full_name || 'Registro não encontrado';
+```
+
+Neste exemplo:
+- Se `entities[0]` existir, retorna o valor de `full_name`.
+- Caso contrário, retorna a string `'Registro não encontrado'`.
+
+---
 
 Essa abordagem permite que a rota seja dinâmica e atenda a diferentes IDs fornecidos, tornando-a mais versátil e útil em cenários de consultas específicas!
 
