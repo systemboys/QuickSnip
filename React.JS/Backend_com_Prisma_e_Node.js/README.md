@@ -55,6 +55,10 @@
    - **Testando Endpoints com Insomnia**
      - [Executando um CRUD no Insomnia](#como-executar-um-crud-no-insomnia "Executando um CRUD no Insomnia")
      - [Configuração de Variáveis de Ambiente no Insomnia](#configura%C3%A7%C3%A3o-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
+4. **Resolução de Erros Comuns no Desenvolvimento**
+   - [Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)](#erro-eaddrinuse---porta-ja-esta-em-uso-no-linux-debian "Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)")
+   - [Como identificar e encerrar processos do Node.js](#como-identificar-e-encerrar-processos-do-nodejs "Como identificar e encerrar processos do Node.js")
+   - [Corrigindo problemas de dependências no Node.js](#corrigindo-problemas-de-dependencias-no-nodejs "Corrigindo problemas de dependências no Node.js")
 
 ---
 
@@ -439,6 +443,137 @@ Clique em **Send** para excluir o item.
 ### Dica Extra
 - Utilize as abas **History** e **Collections** no Insomnia para organizar os testes.
 - Documente os endpoints com descrições detalhadas para facilitar futuros testes.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+### Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)
+
+**Descrição:**  
+Esse erro acontece quando um processo está tentando escutar em uma porta que já está sendo usada por outro processo.
+
+---
+
+#### **Passo a Passo para Resolver**
+
+1. **Identificar o processo que está usando a porta:**
+   Execute o comando abaixo substituindo `<PORTA>` pela porta em questão (ex.: 3333):
+   ```bash
+   lsof -i :<PORTA>
+   ```
+   **Exemplo de saída:**
+   ```
+   COMMAND   PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+   node      1234  marcos  22u  IPv4  12345      0t0  TCP *:3333 (LISTEN)
+   ```
+
+   - **COMMAND:** Nome do programa (ex.: `node`).
+   - **PID:** ID do processo (ex.: `1234`).
+
+2. **Encerrar o processo que está usando a porta:**
+   Depois de identificar o **PID**, encerre o processo com:
+   ```bash
+   kill -9 <PID>
+   ```
+   **Exemplo:**
+   ```bash
+   kill -9 1234
+   ```
+
+3. **Liberar automaticamente a porta (opcional):**
+   Você pode usar a ferramenta `npx` para liberar a porta diretamente:
+   ```bash
+   npx kill-port <PORTA>
+   ```
+
+4. **Alterar a porta no código do servidor (se necessário):**
+   Caso precise, modifique o código para usar uma porta diferente:
+   ```typescript
+   const PORT = process.env.PORT || 4444; // Porta alternativa
+   app.listen(PORT, () => {
+     console.log(`Server running on port ${PORT}`);
+   });
+   ```
+
+---
+
+#### **Automatizar no Desenvolvimento**
+
+- **Adicionar ao `package.json`:**
+  Configure scripts no seu projeto para sempre liberar a porta antes de iniciar:
+  ```json
+  "scripts": {
+    "start": "npx kill-port 3333 && node src/server.js",
+    "dev": "npx kill-port 3333 && nodemon src/server.js"
+  }
+  ```
+
+- **Ferramentas para gestão de processos:**
+  Use `pkill` para encerrar processos do Node.js de forma rápida:
+  ```bash
+  pkill -f node
+  ```
+
+---
+
+#### **Ferramentas do Linux para Monitoramento**
+
+- **`netstat`:** Para verificar portas em uso:
+  ```bash
+  netstat -tuln | grep <PORTA>
+  ```
+
+- **`ss`:** Alternativa moderna ao `netstat`:
+  ```bash
+  ss -ltnp | grep :<PORTA>
+  ```
+
+- **`ps`:** Ver processos em execução:
+  ```bash
+  ps aux | grep node
+  ```
+
+---
+
+#### **Exemplo Completo**
+
+1. Porta `3333` está em uso:
+   ```bash
+   lsof -i :3333
+   ```
+   Saída:
+   ```
+   COMMAND   PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+   node      4567  marcos  22u  IPv4  12345      0t0  TCP *:3333 (LISTEN)
+   ```
+
+2. Encerrar o processo:
+   ```bash
+   kill -9 4567
+   ```
+
+3. Reiniciar o servidor:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+#### **Dica Final para Linux/Debian**
+Adicione um alias no seu `.bashrc` para simplificar o processo:
+```bash
+alias freeport='f() { lsof -i :$1 && kill -9 $(lsof -t -i :$1); }; f'
+```
+Depois, basta executar:
+```bash
+freeport 3333
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
