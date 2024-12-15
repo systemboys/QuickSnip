@@ -2009,7 +2009,7 @@ const entity = await prisma.entity.findMany({
 });
 ```
 
-> ( i ) Para obter dados, defina os valores como o exemplo `entities[0]?.full_name`.
+> ( i ) Para obter dados, defina os valores como o exemplo `entities[0]?.title`.
 
 Agora, quando você fizer uma requisição para uma URL como `/getEntities/123`, o `id` será capturado como `"123"`, convertido para um número com `parseInt(id)` e usado para filtrar os registros no banco de dados.
 
