@@ -2011,8 +2011,6 @@ const entity = await prisma.entity.findMany({
 
 Agora, quando você fizer uma requisição para uma URL como `/getEntities/123`, o `id` será capturado como `"123"`, convertido para um número com `parseInt(id)` e usado para filtrar os registros no banco de dados.
 
----
-
 ### Como funciona `entities[0]?.title`
 
 1. **`entities[0]`**: Acessa o primeiro item do array retornado pela consulta. Isso assume que `entities` contém pelo menos um registro.
@@ -2029,8 +2027,6 @@ const firstEntityName = entities[0]?.title || 'Registro não encontrado';
 Neste exemplo:
 - Se `entities[0]` existir, retorna o valor de `title`.
 - Caso contrário, retorna a string `'Registro não encontrado'`.
-
----
 
 Essa abordagem permite que a rota seja dinâmica e atenda a diferentes IDs fornecidos, tornando-a mais versátil e útil em cenários de consultas específicas!
 
