@@ -2013,16 +2013,21 @@ Agora, quando você fizer uma requisição para uma URL como `/getEntities/123`,
 
 ---
 
+### Como funciona `entities[0]?.title`
+
+1. **`entities[0]`**: Acessa o primeiro item do array retornado pela consulta. Isso assume que `entities` contém pelo menos um registro.
+2. **`?.` (Optional Chaining)**: Verifica se `entities[0]` não é `undefined` ou `null` antes de tentar acessar a propriedade `title`. Caso seja, o resultado será `undefined` ao invés de um erro.
+
 ### Instrução Complementada
 
 Se você quiser refinar o código e lidar com arrays vazios de forma mais clara, pode adicionar uma verificação extra para tratar a ausência de registros explicitamente. Por exemplo:
 
 ```jsx
-const firstEntityName = entities[0]?.full_name || 'Registro não encontrado';
+const firstEntityName = entities[0]?.title || 'Registro não encontrado';
 ```
 
 Neste exemplo:
-- Se `entities[0]` existir, retorna o valor de `full_name`.
+- Se `entities[0]` existir, retorna o valor de `title`.
 - Caso contrário, retorna a string `'Registro não encontrado'`.
 
 ---
