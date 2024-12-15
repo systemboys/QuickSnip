@@ -57,8 +57,8 @@
      - [Configuração de Variáveis de Ambiente no Insomnia](#configura%C3%A7%C3%A3o-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
 4. **Resolução de Erros Comuns no Desenvolvimento**
    - [Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)](#erro-eaddrinuse---porta-j%C3%A1-est%C3%A1-em-uso-no-linux-debian "Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)")
-   - [Como identificar e encerrar processos do Node.js](#passo-a-passo-para-resolver "Como identificar e encerrar processos do Node.js")
-   - [Corrigindo problemas de dependências no Node.js](#automatizar-no-desenvolvimento "Corrigindo problemas de dependências no Node.js")
+     - [Como identificar e encerrar processos do Node.js](#passo-a-passo-para-resolver "Como identificar e encerrar processos do Node.js")
+     - [Corrigindo problemas de dependências no Node.js](#automatizar-no-desenvolvimento "Corrigindo problemas de dependências no Node.js")
 
 ---
 
