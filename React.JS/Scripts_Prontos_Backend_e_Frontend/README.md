@@ -139,6 +139,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      > - [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
    - [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
    - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
+   - [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
 12. **Funções Utilitárias e Automatizações**
    - [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
      - [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
@@ -5816,6 +5817,64 @@ Se precisar de mais ajustes ou tiver dúvidas, é só perguntar! 😊
 ---
 
 Esses exemplos são altamente reutilizáveis e podem ser adaptados para diferentes cenários. Se precisar de mais adaptações ou esclarecimentos, é só pedir! 😊
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Manipulação Dinâmica do Título da Página com JavaScript
+
+Aqui está um pequeno script JavaScript que altera dinamicamente o conteúdo da tag `<title>` de uma página:
+
+### Script JavaScript para mudar o título da página
+
+```javascript
+function changePageTitle(newTitle) {
+    document.title = newTitle;
+}
+
+// Exemplo de uso
+changePageTitle("Novo Título da Página");
+```
+
+### Como usar:
+1. Copie o script acima.
+2. Insira-o no seu arquivo JavaScript ou diretamente em uma tag `<script>` no HTML.
+3. Substitua `"Novo Título da Página"` pelo título que deseja aplicar.
+
+### Aplicação em uma Página HTML
+
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da página</title>
+</head>
+<body>
+    <h1>Bem-vindo à página</h1>
+    <button onclick="changePageTitle('Título atualizado!')">Mudar Título</button>
+
+    <script>
+        function changePageTitle(newTitle) {
+            document.title = newTitle;
+        }
+    </script>
+</body>
+</html>
+```
+
+### O que acontece:
+1. Inicialmente, o título da página será `Título da página`.
+2. Quando você clicar no botão, o título será alterado para `Título atualizado!`.
+
+Essa é uma abordagem simples, mas poderosa, para dinamicamente alterar o título da página.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
