@@ -121,6 +121,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
      - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
    - [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
+   - [Navegação Dinâmica com React Router para Redirecionamento](#navega%C3%A7%C3%A3o-din%C3%A2mica-com-react-router-para-redirecionamento "Navegação Dinâmica com React Router para Redirecionamento")
 10. **Envio de Emails e Comunicação Backend**
    - **Envio de Emails com Nodemailer**
      - [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios "Estrutura de Diretórios para Projeto de Envio de Emails")
@@ -3889,6 +3890,91 @@ export default ResponsiveDiv;
    - Usamos uma expressão condicional para exibir o `<div>` apenas quando a largura for maior que 600px.
 
 Esse componente é funcional e reutilizável. É só importar e usar no seu projeto React. 😊
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Navegação Dinâmica com React Router: Redirecionando para Componentes em uma SPA
+
+Para redirecionar para o componente `<RegisterSegment />` ao clicar no link, você pode usar o roteamento do React com a biblioteca **React Router**. Isso permitirá que você navegue para diferentes componentes ou páginas em sua aplicação.
+
+### Passos para implementar:
+
+1. **Configure o roteamento na sua aplicação**:
+   Se ainda não tiver o roteamento configurado, instale o **React Router**:
+   ```bash
+   npm install react-router-dom
+   ```
+
+2. **Defina as rotas no seu aplicativo**:
+   No seu arquivo principal, por exemplo, `App.js` ou `index.js`, adicione as rotas para `<Login />` e `<RegisterSegment />`.
+
+   ```jsx
+   import React from 'react';
+   import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+   import Login from './Login';
+   import RegisterSegment from './RegisterSegment';
+
+   function App() {
+       return (
+           <Router>
+               <Routes>
+                   <Route path="/" element={<Login />} />
+                   <Route path="/register" element={<RegisterSegment />} />
+               </Routes>
+           </Router>
+       );
+   }
+
+   export default App;
+   ```
+
+3. **Atualize o link na seção de login**:
+   No componente de login, substitua o `href="#"` pelo componente `<Link />` do **React Router**:
+
+   ```jsx
+   import { Link } from 'react-router-dom';
+   ...
+   return (
+       ...
+       <p className={styles.forget}>
+           Não tem uma conta? 
+           <Link to="/register" title="Clique para criar uma nova conta">Inscrever-se</Link>
+       </p>
+       ...
+   );
+   ```
+
+4. **Implemente o componente `<RegisterSegment />`**:
+   Certifique-se de que o componente `<RegisterSegment />` está definido e pronto para ser exibido.
+
+   ```jsx
+   import React from 'react';
+
+   function RegisterSegment() {
+       return (
+           <section>
+               <h2>Crie sua Conta</h2>
+               <form>
+                   {/* Formulário de registro */}
+               </form>
+           </section>
+       );
+   }
+
+   export default RegisterSegment;
+   ```
+
+### Resultado esperado:
+Agora, ao clicar no link "Inscrever-se", o usuário será redirecionado para o caminho `/register`, e o componente `<RegisterSegment />` será exibido.
+
+Essa abordagem também mantém a navegação gerenciada pelo React Router, sem recarregar a página.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
