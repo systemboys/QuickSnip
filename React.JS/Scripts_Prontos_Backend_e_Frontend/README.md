@@ -1905,7 +1905,7 @@ Essa rota `GET` buscará todos os registros de uma tabela no banco de dados e re
 #### **Exemplo da Rota no Backend (Node.js/Express)**
 
 ```ts
-// Rota genérica para listar todos os registros
+// Rota selecionar e recuperar os dados da tabela "entity".
 routes.get('/getEntities', async (req, res) => {
     try {
         // Buscar todos os registros na tabela especificada
@@ -1980,6 +1980,7 @@ export default EntityList;
 
 #### **Instruções para Adaptação**:
 - **URL da Requisição**: Substitua `'http://localhost:5000/getEntities'` pela URL correta do endpoint.
+    > ( i ) Dica! Você pode definir a URL Base da sua API no arquivo `.env`, [clique aqui](#uso-de-vari%C3%A1veis-de-ambiente-com-arquivo-env-no-react "clique aqui") para ver exemplos!
 - **Campos do Item**: Ajuste `entity.title` e `entity.description` para os campos reais da resposta da API.
 
 #### **Resumo das Etapas**:
