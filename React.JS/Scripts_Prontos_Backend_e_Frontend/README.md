@@ -2009,9 +2009,9 @@ const entity = await prisma.entity.findMany({
 });
 ```
 
-> ( i ) Para obter dados, defina os valores como o exemplo `entities[0]?.title`.
-
 Agora, quando você fizer uma requisição para uma URL como `/getEntities/123`, o `id` será capturado como `"123"`, convertido para um número com `parseInt(id)` e usado para filtrar os registros no banco de dados.
+
+> ( i ) Para obter dados, defina os valores como o exemplo `entities[0]?.title`.
 
 Essa abordagem permite que a rota seja dinâmica e atenda a diferentes IDs fornecidos, tornando-a mais versátil e útil em cenários de consultas específicas!
 
