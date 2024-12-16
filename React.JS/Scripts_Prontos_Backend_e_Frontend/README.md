@@ -6899,8 +6899,7 @@ Para manter a produtividade e organização no desenvolvimento do projeto, utili
 
 > ( i ) Marcos Auélio Rocha da Silva (Engenheiro de Software).
 >
-> - *Ícones: "folder", "server" e "symbol-misc".*
-> - *Cores: As cores, escolha uma cor qualquer para os três, ajuda a não misturar com outros projetos.*
+> *Ícones: "folder", "server" e "symbol-misc".*
 
 1. **Terminal Geral (`bash SiSFloatBase`)**  
    
