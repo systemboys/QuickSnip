@@ -163,6 +163,18 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
      - [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
      - [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
+15. **Meu Fluxo de Trabalho e Boas Práticas**
+   - **Organização Pessoal e Produtividade**
+     - Como organizo meus ambientes de trabalho e softwares abertos
+     - [Organização de Terminais: Fluxo de Trabalho Produtivo](# "Organização de Terminais: Fluxo de Trabalho Produtivo")
+   - **Estilo de Programação**
+     - Regras pessoais para manter o código limpo
+   - **Processo de Desenvolvimento**
+     - Exemplo de Planejamento de Funcionalidades
+   - **Testes e Melhoria Contínua**
+     - Ferramentas para Automação de Testes
+   - **Boas Práticas**
+     - Boas Práticas de Colaboração em Projetos Git
 
 ---
 
@@ -6867,6 +6879,55 @@ Se quiser ajustar o espaçamento ou cores:
 - Altere `background-color` e `border` para personalizar o estilo visual dos quadros.
 
 Pronto! 🚀 Este é um código simples e eficaz que cumpre com os requisitos descritos.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Organização de Terminais: Fluxo de Trabalho Produtivo
+
+Para manter a produtividade e organização no desenvolvimento do projeto, utilizo uma estrutura de **três terminais separados**, cada um com uma responsabilidade específica. Essa divisão facilita a execução de tarefas simultâneas e evita confusões ao rodar o sistema. A organização é a seguinte:
+
+1. **Terminal Geral (`bash SiSFloatBase`)**  
+   - Este terminal é o ponto central para **instalar dependências** e executar comandos adicionais durante o desenvolvimento.  
+   - Utilizo para instalar pacotes do **Node.js/React.js**, rodar scripts de teste e outras operações gerais do projeto.  
+   - Exemplo de uso:
+     ```bash
+     npm install <pacote>
+     npm run build
+     ```
+
+2. **Terminal Backend (`npm api`)**  
+   - Este terminal é dedicado à execução do servidor **backend** do projeto.  
+   - Utilizo para iniciar o servidor localmente e monitorar logs de requisições e erros.  
+   - Comando comum:
+     ```bash
+     npm run dev
+     ```
+
+3. **Terminal Frontend (`npm frontend`)**  
+   - Neste terminal, executo o servidor do **frontend**, garantindo que a interface esteja rodando corretamente.  
+   - Uso para testes visuais, ver mudanças em tempo real e monitorar erros da aplicação React.  
+   - Comando comum:
+     ```bash
+     npm start
+     ```
+
+---
+
+### **Por que essa organização funciona?**  
+- **Clareza**: Cada terminal tem uma responsabilidade única, evitando confusões durante o desenvolvimento.  
+- **Produtividade**: Facilita o monitoramento em tempo real de logs e execução de comandos sem precisar alternar ou reiniciar processos.  
+- **Eficiência**: Deixa o fluxo de trabalho mais ágil, pois consigo rodar o backend e o frontend ao mesmo tempo, enquanto instalo recursos no terminal principal.
+
+---
+
+Essa prática simples ajuda a manter o foco e organiza melhor as tarefas enquanto o projeto está em desenvolvimento. 🚀
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
