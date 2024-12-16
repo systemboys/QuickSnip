@@ -166,7 +166,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 15. **Meu Fluxo de Trabalho e Boas Práticas**
    - **Organização Pessoal e Produtividade**
      - Como organizo meus ambientes de trabalho e softwares abertos
-     - [Organização de Terminais: Fluxo de Trabalho Produtivo](# "Organização de Terminais: Fluxo de Trabalho Produtivo")
+     - [Organização de Terminais: Fluxo de Trabalho Produtivo](#organiza%C3%A7%C3%A3o-de-terminais-fluxo-de-trabalho-produtivo "Organização de Terminais: Fluxo de Trabalho Produtivo")
    - **Estilo de Programação**
      - Regras pessoais para manter o código limpo
    - **Processo de Desenvolvimento**
@@ -3932,7 +3932,7 @@ Para redirecionar para o componente `<RegisterSegment />` ao clicar no link, voc
    import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
    import Login from './Login';
    import RegisterSegment from './RegisterSegment';
-
+   
    function App() {
        return (
            <Router>
@@ -3943,7 +3943,7 @@ Para redirecionar para o componente `<RegisterSegment />` ao clicar no link, voc
            </Router>
        );
    }
-
+   
    export default App;
    ```
 
@@ -3968,7 +3968,7 @@ Para redirecionar para o componente `<RegisterSegment />` ao clicar no link, voc
 
    ```jsx
    import React from 'react';
-
+   
    function RegisterSegment() {
        return (
            <section>
@@ -3979,7 +3979,7 @@ Para redirecionar para o componente `<RegisterSegment />` ao clicar no link, voc
            </section>
        );
    }
-
+   
    export default RegisterSegment;
    ```
 
@@ -5134,7 +5134,7 @@ export default PingComponent;
 1. **Importação e Renderização**: Importe o componente e renderize-o em qualquer lugar da sua aplicação:
    ```jsx
    import PingComponent from './PingComponent';
-
+   
    function App() {
        return (
            <div>
@@ -5142,7 +5142,7 @@ export default PingComponent;
            </div>
        );
    }
-
+   
    export default App;
    ```
 
@@ -6893,7 +6893,14 @@ Pronto! 🚀 Este é um código simples e eficaz que cumpre com os requisitos de
 
 Para manter a produtividade e organização no desenvolvimento do projeto, utilizo uma estrutura de **três terminais separados**, cada um com uma responsabilidade específica. Essa divisão facilita a execução de tarefas simultâneas e evita confusões ao rodar o sistema. A organização é a seguinte:
 
+| Terminais no VSCode                                          | Informações                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![Terminais](../Backend_com_Prisma_e_Node.js/images/Terminals.png) | A imagem ilustra como organizo e utilizo os terminais de forma separada em projetos que envolvem Backend e Frontend, com o objetivo de manter a estrutura organizada e otimizar a produtividade no desenvolvimento. |
+
+
+
 1. **Terminal Geral (`bash SiSFloatBase`)**  
+   
    - Este terminal é o ponto central para **instalar dependências** e executar comandos adicionais durante o desenvolvimento.  
    - Utilizo para instalar pacotes do **Node.js/React.js**, rodar scripts de teste e outras operações gerais do projeto.  
    - Exemplo de uso:
@@ -6901,7 +6908,7 @@ Para manter a produtividade e organização no desenvolvimento do projeto, utili
      npm install <pacote>
      npm run build
      ```
-
+   
 2. **Terminal Backend (`npm api`)**  
    - Este terminal é dedicado à execução do servidor **backend** do projeto.  
    - Utilizo para iniciar o servidor localmente e monitorar logs de requisições e erros.  
