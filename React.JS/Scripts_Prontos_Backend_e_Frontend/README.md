@@ -6897,7 +6897,7 @@ Para manter a produtividade e organização no desenvolvimento do projeto, utili
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![Terminais](../Backend_com_Prisma_e_Node.js/images/Terminals.png) | A imagem ilustra como organizo e utilizo os terminais de forma separada em projetos que envolvem Backend e Frontend, com o objetivo de manter a estrutura organizada e otimizar a produtividade no desenvolvimento. |
 
-
+> ( i ) Marcos Auélio Rocha da Silva (Engenheiro de Software).
 
 1. **Terminal Geral (`bash SiSFloatBase`)**  
    
