@@ -5201,6 +5201,41 @@ export default FullIconExample;
 
 Com essas instruções, você pode facilmente implementar e personalizar ícones do **Font-Awesome** em projetos React! 🚀
 
+### Visualizar e escolher os ícones do Font-Awesome
+
+Para visualizar e escolher os ícones do **Font-Awesome**, você pode acessar o site oficial onde está disponível a **lista completa de ícones**:
+
+### Link para a lista de ícones do Font-Awesome:
+- [Font-Awesome Icons](https://fontawesome.com/icons)
+
+---
+
+### **Como encontrar ícones específicos?**
+
+1. **Pesquisar por nome ou palavra-chave**:
+   - No campo de busca do site, digite palavras-chave relacionadas ao ícone desejado, como "check", "home", "user", "arrow", etc.
+
+2. **Filtrar por estilo de ícones**:
+   - Você pode alternar entre os estilos:
+     - **Solid**: Ícones preenchidos.
+     - **Regular**: Ícones com contornos mais finos.
+     - **Brands**: Ícones de marcas (como Facebook, GitHub, etc.).
+
+3. **Visualizar e copiar o nome do ícone**:
+   - Ao selecionar um ícone, o site exibe o nome correspondente, que pode ser usado na sua aplicação, por exemplo:
+     ```jsx
+     import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+     ```
+
+---
+
+### Dica Extra:
+- Você também pode usar diretamente a busca do Google para achar ícones rapidamente com termos como:
+  - **"Font Awesome check icon"**
+  - **"Font Awesome github brand icon"**
+
+Com essas informações, será fácil navegar pelo site e selecionar os ícones que você deseja utilizar no projeto! 🚀
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
