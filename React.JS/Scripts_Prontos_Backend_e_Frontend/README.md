@@ -177,6 +177,11 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Ferramentas para Automação de Testes
    - **Boas Práticas**
      - Boas Práticas de Colaboração em Projetos Git
+16. **Recebendo e Usando Propriedades (`props`) em Componentes React**
+   - [Modelo Genérico para Receber e Usar Props em Componentes React](#modelo-gen%C3%A9rico-para-receber-e-usar-props-em-componentes-react "Modelo Genérico para Receber e Usar Props em Componentes React")
+     - [Exemplo para Componentes Funcionais](#exemplo-para-componentes-funcionais "Exemplo para Componentes Funcionais")
+     - [Exemplo para Componentes de Classe](#exemplo-para-componentes-de-classe "Exemplo para Componentes de Classe")
+     - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-com-proptypes-e-typescript "Boas Práticas com PropTypes e TypeScript")
 
 ---
 
@@ -7142,6 +7147,131 @@ Para manter a produtividade e organização no desenvolvimento do projeto, utili
 ---
 
 Essa prática simples ajuda a manter o foco e organiza melhor as tarefas enquanto o projeto está em desenvolvimento. 🚀
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Recebendo e Usando Propriedades (`props`) em Componentes React
+
+Este modelo explica como criar componentes React que recebem e utilizam propriedades (`props`), com exemplos em componentes funcionais, de classe e boas práticas para validação e tipagem.
+
+---
+
+### Componente Funcional
+
+Para receber propriedades em um componente funcional, você pode desestruturar os `props` diretamente no argumento da função:
+
+```jsx
+const MeuComponente = ({ propriedade1, propriedade2 }) => {
+  return (
+    <div>
+      <p>Propriedade 1: {propriedade1}</p>
+      <p>Propriedade 2: {propriedade2}</p>
+    </div>
+  );
+};
+```
+
+Se preferir, você também pode acessar os `props` diretamente sem desestruturá-los:
+
+```jsx
+const MeuComponente = (props) => {
+  return (
+    <div>
+      <p>Propriedade 1: {props.propriedade1}</p>
+      <p>Propriedade 2: {props.propriedade2}</p>
+    </div>
+  );
+};
+```
+
+------
+
+### Componente de Classe
+
+Se estiver utilizando um componente de classe, as propriedades podem ser acessadas através de `this.props`:
+
+```jsx
+class MeuComponente extends React.Component {
+  render() {
+    const { propriedade1, propriedade2 } = this.props;
+    return (
+      <div>
+        <p>Propriedade 1: {propriedade1}</p>
+        <p>Propriedade 2: {propriedade2}</p>
+      </div>
+    );
+  }
+}
+```
+
+------
+
+### Boas Práticas: Tipagem e Validação
+
+#### Usando TypeScript
+
+Se estiver utilizando TypeScript, defina a interface ou tipo dos `props` para maior segurança e clareza:
+
+```tsx
+interface MeuComponenteProps {
+  propriedade1: string;
+  propriedade2: number;
+}
+
+const MeuComponente: React.FC<MeuComponenteProps> = ({ propriedade1, propriedade2 }) => {
+  return (
+    <div>
+      <p>Propriedade 1: {propriedade1}</p>
+      <p>Propriedade 2: {propriedade2}</p>
+    </div>
+  );
+};
+```
+
+#### Usando PropTypes
+
+Se estiver utilizando JavaScript, valide os `props` com a biblioteca `prop-types`:
+
+```jsx
+import PropTypes from 'prop-types';
+
+const MeuComponente = ({ propriedade1, propriedade2 }) => {
+  return (
+    <div>
+      <p>Propriedade 1: {propriedade1}</p>
+      <p>Propriedade 2: {propriedade2}</p>
+    </div>
+  );
+};
+
+MeuComponente.propTypes = {
+  propriedade1: PropTypes.string.isRequired,
+  propriedade2: PropTypes.number.isRequired,
+};
+```
+
+------
+
+### Exemplo de Uso
+
+```jsx
+const App = () => {
+  return <MeuComponente propriedade1="Exemplo" propriedade2={42} />;
+};
+```
+
+Com base nesse modelo, você pode criar componentes reutilizáveis e organizados, sempre garantindo clareza no recebimento e uso de `props`.
+
+```
+Agora você pode usar este modelo genérico em seus futuros projetos. 🚀
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
