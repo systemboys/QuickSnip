@@ -178,10 +178,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - **Boas Práticas**
      - Boas Práticas de Colaboração em Projetos Git
 16. **Recebendo e Usando Propriedades (`props`) em Componentes React**
-   - [Modelo Genérico para Receber e Usar Props em Componentes React](#modelo-gen%C3%A9rico-para-receber-e-usar-props-em-componentes-react "Modelo Genérico para Receber e Usar Props em Componentes React")
-     - [Exemplo para Componentes Funcionais](#exemplo-para-componentes-funcionais "Exemplo para Componentes Funcionais")
-     - [Exemplo para Componentes de Classe](#exemplo-para-componentes-de-classe "Exemplo para Componentes de Classe")
-     - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-com-proptypes-e-typescript "Boas Práticas com PropTypes e TypeScript")
+   - [Modelo Genérico para Receber e Usar Props em Componentes React](#recebendo-e-usando-propriedades-props-em-componentes-react "Modelo Genérico para Receber e Usar Props em Componentes React")
+     - [Exemplo para Componentes Funcionais](#componente-funcional "Exemplo para Componentes Funcionais")
+     - [Exemplo para Componentes de Classe](#componente-de-classe "Exemplo para Componentes de Classe")
+     - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-tipagem-e-valida%C3%A7%C3%A3o "Boas Práticas com PropTypes e TypeScript")
 
 ---
 
