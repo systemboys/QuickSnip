@@ -10,7 +10,7 @@
 >
 > **Aprendizado**
 >
-> > Documentar e organizar o que você aprende é uma das melhores formas de consolidar conhecimento e se preparar para desafios futuros.
+> > Documentar e organizar o que você aprende é uma das melhores formas de consolidar conhecimento e se preparar para desafios futuros. :fire:
 
 Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
