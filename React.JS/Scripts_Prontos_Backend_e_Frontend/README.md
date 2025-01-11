@@ -51,7 +51,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
      - Reutilização de componentes e lógica no frontend
      - Organização de `rotas` e `controllers` no backend
-       - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
+       - [`Refatoração` de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
          - [`Exemplo Genérico` de Organização de `Rotas` e `Controllers`](#exemplo-gen%C3%A9rico-de-organiza%C3%A7%C3%A3o-de-rotas-e-controllers "Exemplo Genérico de Organização de Rotas e Controllers")
        - [Como mover a lógica de rotas para controllers para melhor organização](#como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
        - [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
