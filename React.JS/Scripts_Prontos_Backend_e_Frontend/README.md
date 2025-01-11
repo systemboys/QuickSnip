@@ -2463,7 +2463,7 @@ export async function deleteAdmin(req: Request, res: Response) {
 }
 ```
 
-> A mesma lógica se aplica a outros “módulos” de rotas, cada qual em seu próprio arquivo controller (ex: `companySystem.controller.ts`, etc.).
+> ​:information_source:​ A mesma lógica se aplica a outros “módulos” de rotas, cada qual em seu próprio arquivo controller (ex: `companySystem.controller.ts`, etc.).
 
 ### 2. Ajustar o Arquivo de Rotas
 
