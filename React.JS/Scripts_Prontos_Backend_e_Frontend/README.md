@@ -52,6 +52,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Reutilização de componentes e lógica no frontend
      - Organização de rotas e `controllers` no backend
        - [Refatoração de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
+         - [Exemplo Genérico de Organização de Rotas e Controllers](# "Exemplo Genérico de Organização de Rotas e Controllers")
        - [Como mover a lógica de rotas para controllers para melhor organização](#como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
        - [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
        - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
@@ -2404,6 +2405,128 @@ export default router;
 
 ### Conclusão
 Você pode começar com rotas simples e mover a lógica para controllers quando o projeto crescer ou quando sentir que é necessário. Isso não vai causar nenhum problema para o seu projeto e, na verdade, vai melhorar a organização do código a longo prazo.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Exemplo Genérico de Organização de Rotas e Controllers
+
+Este guia ilustra como organizar rotas em uma aplicação **Node.js** separando a lógica de negócios em **controllers**. A estrutura sugerida facilita a manutenção e padroniza o desenvolvimento de aplicações com **Express** e **Prisma**.
+
+### Estrutura de Pastas
+
+```
+/api
+  └── /src
+        ├── prisma.ts
+        ├── routes.ts
+        ├── server.ts
+        ├── ...
+        └── /controllers
+            ├── admins.controller.ts
+            └── companySystem.controller.ts
+            // ... demais arquivos de controller
+```
+
+### 1. Criar Controllers
+
+Crie arquivos de controller na pasta `/controllers`. Cada arquivo representará um conjunto de rotas relacionadas. Por exemplo, no arquivo `/api/src/controllers/admins.controller.ts`:
+
+```ts
+import { Request, Response } from "express";
+import prisma from "../prisma";
+
+// Listar todos os administradores
+export async function getAdmins(req: Request, res: Response) {
+    // Lógica de sua rota
+}
+
+// Adicionar administrador
+export async function addAdmins(req: Request, res: Response) {
+    // Lógica de sua rota
+}
+
+// Atualizar administrador
+export async function updateAdmin(req: Request, res: Response) {
+    // Lógica de sua rota
+}
+
+// Deletar administrador
+export async function deleteAdmin(req: Request, res: Response) {
+    // Lógica de sua rota
+}
+```
+
+> A mesma lógica se aplica a outros “módulos” de rotas, cada qual em seu próprio arquivo controller (ex: `companySystem.controller.ts`, etc.).
+
+### 2. Ajustar o Arquivo de Rotas
+
+No arquivo `/api/src/routes.ts`, basta importar e vincular as funções do controller:
+
+```ts
+import express from "express";
+export const routes = express.Router();
+
+// -------------------Controllers-------------------
+// Import controllers
+import { getAdmins, addAdmins, updateAdmin, deleteAdmin } from "./controllers/admins.controller";
+import { getCompanySystem } from "./controllers/companySystem.controller";
+// ... demais arquivos importações de outros controlleres
+
+// Controller de "admins"
+routes.get("/admins/:companyId", getAdmins); // Listar
+routes.post("/addAdmins/:companyId", addAdmins); // Adicionar
+routes.put("/updateAdmin/:companyId/:id", updateAdmin); // Atualizar
+routes.delete("/deleteAdmin/:companyId/:id", deleteAdmin); // Deletar
+
+// Controller de "companySystem"
+routes.get("/companySystem/:companyId", getCompanySystem); // Listar
+// ... demais arquivos de controllers
+// ------------------/Controllers-------------------
+```
+
+Dessa forma, cada rota referencia uma função específica do seu controller, mantendo o arquivo de rotas limpo e fácil de gerenciar.
+
+### 3. Adicionar (Opcional) Middlewares
+
+Crie uma pasta `/api/src/middleware` para funções que serão executadas antes dos controllers (exemplo: autenticação, logger, etc.):
+
+```ts
+// /api/src/middleware/auth.middleware.ts
+import { Request, Response, NextFunction } from "express";
+
+export function authMiddleware(req: Request, res: Response, next: NextFunction) {
+  // Lógica de autenticação
+  // Se autorizado: next()
+  // Se não autorizado: return res.status(401).json({ error: "Acesso negado" });
+  return next();
+}
+```
+
+Em seguida, utilize o middleware em `routes.ts` ou `server.ts`:
+
+```ts
+// ...
+import { authMiddleware } from "./middleware/auth.middleware";
+
+// Aplica o middleware a todas as rotas:
+routes.use(authMiddleware);
+```
+
+### Resumo Geral
+
+1. **Criar pastas**: `/controllers` e, opcionalmente, `/middleware`.
+2. **Mover lógica de cada rota** para funções em **controllers**.
+3. **Importar** essas funções no arquivo de rotas (`routes.ts`) e utilizá-las como callbacks.
+4. (Opcional) **Adicionar middlewares** para pré-processar requisições (ex.: autenticação).
+
+Este modelo genérico pode ser adaptado para qualquer aplicação com **Node.js**, **Express** e **Prisma**, garantindo boa **organização** de código e **manutenção** mais simples ao longo do tempo.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
