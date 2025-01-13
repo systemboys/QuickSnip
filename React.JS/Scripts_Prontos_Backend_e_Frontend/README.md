@@ -7135,7 +7135,38 @@ console.log(dataExemplo2);
 // Saída: "Dia 01/01/2026 às 13:00:00" (27 horas a mais)
 ```
 
+---
+
+> ( i ) Dica!
+
 Assim, você tem um modelo genérico para formatar data e hora, com a opção de adicionar um número variável de horas.
+
+Uma prática bastante comum é criar uma pasta **"utils"** ou **"helpers"** dentro de `src` para guardar funções e scripts genéricos em `.js` que não pertencem diretamente a um componente específico. Esses nomes deixam claro que o diretório contém recursos utilitários/reutilizáveis. 
+
+Por exemplo:
+```bash
+/src
+  ├── assets
+  ├── components
+  ├── contexts
+  ├── css
+  ├── DataTables
+  ├── server
+  ├── utils  ← novo diretório sugerido
+  │    └── formatDate.js
+  ├── App.jsx
+  ├── AppRoutes.jsx
+  ├── Desktop.jsx
+  ├── global.css
+  ├── Home.jsx
+  ├── Icon.jsx
+  ├── index.js
+  ├── main.jsx
+  ├── Taskbar.jsx
+  └── Window.jsx
+```
+
+Dessa forma, **`formatDate.js`** (e quaisquer outras funções auxiliares) ficariam num local mais organizado e significativo do ponto de vista da arquitetura do projeto.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
