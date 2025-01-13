@@ -7111,7 +7111,7 @@ function formatDate(dateStr, timeStr, hours = 0) {
     const formattedTime = format(finalDate, 'HH:mm:ss');
 
     // 7. Retorna a string formatada
-    return `Dia ${formattedDate} às ${formattedTime}`;
+    return `${formattedDate} às ${formattedTime}`;
   } catch (error) {
     // Em caso de erro no parse, retorne algo seguro
     return '';
