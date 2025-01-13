@@ -159,6 +159,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Como `Rolar` a Barra de Rotação `para o Topo` de uma Página ao Carregá-la com JavaScript](#como-rolar-a-barra-de-rota%C3%A7%C3%A3o-para-o-topo-de-uma-p%C3%A1gina-ao-carreg%C3%A1-la-com-javascript "Como Rolar a Barra de Rotação para o Topo de uma Página ao Carregá-la com JavaScript")
    - [Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura](#removendo-tags-html-em-reactjs-uma-abordagem-simples-e-segura "Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura")
    - [Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante](#removendo-tags-html-com-reactjs-uma-abordagem-simples-e-elegante "Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante")
+   - [Função de Formatação de Data e Hora com Ajuste de Horas](# "Função de Formatação de Data e Hora com Ajuste de Horas")
 13. **Incorporando Serviços Externos em Aplicações React**
    - **Google Maps**
      - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
@@ -7053,6 +7054,88 @@ console.log(textWithoutHtml);
 A função `removeHtmlTags` recebe um texto que contém tags HTML e usa a expressão regular `<[^>]+>` para encontrar todas as tags e, em seguida, usa o método `replace` para substituir essas tags por uma string vazia, efetivamente removendo-as.
 
 Lembre-se de que essa abordagem remove todas as tags HTML, incluindo qualquer conteúdo que possa estar entre as tags. Certifique-se de que isso seja o que você deseja para o seu caso específico.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Função de Formatação de Data e Hora com Ajuste de Horas
+
+Claro! Segue um modelo genérico que você pode guardar como referência. Ele recebe três parâmetros: data (`dateStr`), hora (`timeStr`) e horas a serem adicionadas (`hours`). Caso não receba `hours`, ele utiliza **0** como valor padrão.
+
+```jsx
+// formatDate.js
+
+import { format, parseISO, addHours } from 'date-fns';
+
+/**
+ * Formata data e hora, e adiciona um número específico de horas à data/hora informadas.
+ * 
+ * @param {string} dateStr - String com a data em formato ISO (ex.: "2025-12-31").
+ * @param {string} timeStr - String com a hora em formato ISO (ex.: "2025-12-31T10:00:00").
+ * @param {number} [hours=0] - Quantidade de horas que você deseja adicionar à data/hora.
+ * @returns {string} Retorna a data/hora final formatada no padrão "Dia dd/MM/yyyy às HH:mm:ss".
+ */
+function formatDate(dateStr, timeStr, hours = 0) {
+  // 1. Se não houver dados suficientes, retorna uma string vazia (ou algum fallback)
+  if (!dateStr || !timeStr) {
+    return '';
+  }
+
+  try {
+    // 2. Faz o parse das strings para objeto Date
+    const parsedDate = parseISO(dateStr);
+    const parsedTime = parseISO(timeStr);
+
+    // 3. Verifica se são datas válidas
+    if (isNaN(parsedDate) || isNaN(parsedTime)) {
+      return '';
+    }
+
+    // 4. Combina data e hora em um único objeto Date
+    const dateWithTime = new Date(parsedDate);
+    dateWithTime.setHours(parsedTime.getHours());
+    dateWithTime.setMinutes(parsedTime.getMinutes());
+    dateWithTime.setSeconds(parsedTime.getSeconds());
+
+    // 5. Adiciona as horas definidas (default = 0)
+    const finalDate = addHours(dateWithTime, hours);
+
+    // 6. Formata data e hora
+    const formattedDate = format(finalDate, 'dd/MM/yyyy');
+    const formattedTime = format(finalDate, 'HH:mm:ss');
+
+    // 7. Retorna a string formatada
+    return `Dia ${formattedDate} às ${formattedTime}`;
+  } catch (error) {
+    // Em caso de erro no parse, retorne algo seguro
+    return '';
+  }
+}
+
+export default formatDate;
+```
+
+### Exemplo de uso
+
+```js
+import formatDate from './formatDate';
+
+const dataExemplo1 = formatDate('2025-12-31', '2025-12-31T10:00:00');
+console.log(dataExemplo1);
+// Saída: "Dia 31/12/2025 às 10:00:00" (caso não seja passado o parâmetro hours, soma-se 0)
+
+const dataExemplo2 = formatDate('2025-12-31', '2025-12-31T10:00:00', 27);
+console.log(dataExemplo2);
+// Saída: "Dia 01/01/2026 às 13:00:00" (27 horas a mais)
+```
+
+Assim, você tem um modelo genérico para formatar data e hora, com a opção de adicionar um número variável de horas.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
