@@ -159,7 +159,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Como `Rolar` a Barra de Rotação `para o Topo` de uma Página ao Carregá-la com JavaScript](#como-rolar-a-barra-de-rota%C3%A7%C3%A3o-para-o-topo-de-uma-p%C3%A1gina-ao-carreg%C3%A1-la-com-javascript "Como Rolar a Barra de Rotação para o Topo de uma Página ao Carregá-la com JavaScript")
    - [Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura](#removendo-tags-html-em-reactjs-uma-abordagem-simples-e-segura "Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura")
    - [Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante](#removendo-tags-html-com-reactjs-uma-abordagem-simples-e-elegante "Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante")
-   - [Função de Formatação de Data e Hora com Ajuste de Horas](# "Função de Formatação de Data e Hora com Ajuste de Horas")
+   - [Função de Formatação de Data e Hora com Ajuste de Horas](#fun%C3%A7%C3%A3o-de-formata%C3%A7%C3%A3o-de-data-e-hora-com-ajuste-de-horas "Função de Formatação de Data e Hora com Ajuste de Horas")
 13. **Incorporando Serviços Externos em Aplicações React**
    - **Google Maps**
      - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
