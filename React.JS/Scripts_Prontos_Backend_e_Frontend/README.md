@@ -37,7 +37,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
-     - [Utilizando o Operador Spread para Inserção Condicional de Propriedades](# "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
+     - [Utilizando o Operador Spread para Inserção Condicional de Propriedades](#utilizando-o-operador-spread-para-inser%C3%A7%C3%A3o-condicional-de-propriedades "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
    - **Exclusão de Registro (Delete)**
      - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
