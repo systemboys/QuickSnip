@@ -37,6 +37,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
      - Atualização dos registros no backend via API
      - Validação de dados antes da atualização
+     - [Utilizando o Operador Spread para Inserção Condicional de Propriedades](# "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
    - **Exclusão de Registro (Delete)**
      - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
      - Exclusão de registros via API e atualização da lista no frontend
@@ -1388,6 +1389,95 @@ export function GenericForm({ id, apiUrl }) {
     );
 }
 ```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Utilizando o Operador Spread para Inserção Condicional de Propriedades
+
+O operador *spread* (reticências: `...`) pode ser usado para “espalhar” as propriedades de um objeto ou os elementos de um array dentro de um novo objeto ou array. Ele é útil, por exemplo, para criar cópias ou mesclar dados, sem modificar o original. 
+
+### Exemplo com objetos
+
+```js
+const pessoa = {
+  nome: 'João',
+  idade: 25,
+};
+
+// Aqui, usamos spread para copiar todas as propriedades de `pessoa`
+// e adicionar `cidade` no novo objeto:
+const novaPessoa = {
+  ...pessoa,
+  cidade: 'São Paulo',
+};
+
+console.log(novaPessoa);
+// {
+//   nome: 'João',
+//   idade: 25,
+//   cidade: 'São Paulo',
+// }
+```
+
+### Exemplo com arrays
+
+```js
+const numeros1 = [1, 2, 3];
+const numeros2 = [4, 5, 6];
+
+// Aqui, usamos spread para juntar os elementos de duas listas em uma só
+const numerosCombinados = [...numeros1, ...numeros2];
+
+console.log(numerosCombinados);
+// [1, 2, 3, 4, 5, 6]
+```
+
+### Exemplo de uso condicional
+
+```js
+function criarUsuario(dados) {
+  const { nome, idade, senha } = dados;
+
+  // O operador spread pode ser usado de forma condicional
+  // (da mesma forma discutida anteriormente com password).
+  // Se 'senha' estiver presente, ela é adicionada ao objeto.
+  return {
+    nome,
+    idade,
+    ...(senha && { senha }),
+  };
+}
+
+console.log(criarUsuario({ nome: 'Ana', idade: 30 }));
+// { nome: 'Ana', idade: 30 }
+
+console.log(criarUsuario({ nome: 'Ana', idade: 30, senha: '1234' }));
+// { nome: 'Ana', idade: 30, senha: '1234' }
+```
+
+Em todos esses exemplos, o operador *spread* nos permite “espalhar” ou copiar os valores de objetos/arrays existentes para novos, facilitando a manipulação e composição de dados.
+
+> Exemplo utilizado para editar usuários, quando o formulário for o de editar, a senha poderá não ser informada e manterá a senha atual.
+
+Em resumo, aquele trecho:
+
+```ts
+...(password && { password: hashedPassword }),
+```
+
+serve para **incluir condicionalmente** a propriedade `password` no objeto `data`. A expressão `(password && { password: hashedPassword })` funciona assim:
+
+- Se `password` for **falsy** (por exemplo, `null`, `undefined` ou `''`), a expressão resulta em `false`. Como não dá para “espalhar” (`...`) algo que não é um objeto (no caso `false`), nenhuma propriedade é adicionada ao objeto `data`.
+- Se `password` for **truthy** (por exemplo, uma string não vazia), a expressão resulta em `{ password: hashedPassword }`. Então o operador de espalhamento (`...`) adiciona a chave `password` com o valor `hashedPassword` ao objeto `data`.
+
+Ou seja, você só adiciona a propriedade `password` ao objeto final se de fato houver uma nova senha definida. Se não houver, a propriedade simplesmente não é incluída.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
