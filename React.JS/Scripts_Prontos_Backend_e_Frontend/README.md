@@ -185,6 +185,11 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Exemplo para Componentes Funcionais](#componente-funcional "Exemplo para Componentes Funcionais")
      - [Exemplo para Componentes de Classe](#componente-de-classe "Exemplo para Componentes de Classe")
      - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-tipagem-e-valida%C3%A7%C3%A3o "Boas Práticas com PropTypes e TypeScript")
+17. **Modelos e Automatizações com Prisma**
+   - [Modelo Genérico de Uso de ENUM no Prisma ORM](#modelo-gen%C3%A9rico-de-uso-de-enum-no-prisma-orm "Modelo Genérico de Uso de ENUM no Prisma ORM")
+   - [Integração de ENUM Prisma com TypeScript no Backend e Frontend](#integra%C3%A7%C3%A3o-de-enum-prisma-com-typescript-no-backend-e-frontend "Integração de ENUM Prisma com TypeScript no Backend e Frontend")
+   - [Geração Automática de Arquivo enums.ts e enums.json com Script Node](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-arquivo-enumsts-e-enumsjson-com-script-node "Geração Automática de Arquivo enums.ts e enums.json com Script Node")
+   - [Consumo de enums.ts e enums.json no Frontend (React, Vue, etc.)](#consumo-de-enumsts-e-enumsjson-no-frontend-react-vue-etc "Consumo de enums.ts e enums.json no Frontend (React, Vue, etc.)")
 
 ---
 
@@ -7609,3 +7614,418 @@ Agora você pode usar este modelo genérico em seus futuros projetos. 🚀
 
 ---
 
+## Uso de ENUMs no Prisma ORM
+
+Enums são úteis para definir um conjunto fixo de valores possíveis para um campo no banco de dados. No Prisma, os `enum` são definidos fora dos `model` e referenciados nos campos desejados.
+
+### Exemplo genérico de enum com modelo Prisma
+
+```prisma
+// Definição do ENUM
+enum Status {
+  ACTIVE
+  INACTIVE
+  PENDING
+}
+
+// Modelo utilizando o ENUM
+model User {
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(255)
+  email    String  @db.VarChar(255)
+  status   Status
+}
+```
+
+### Boas práticas
+
+- Use `enum` quando os valores possíveis forem limitados e bem definidos.
+- Enums facilitam a validação, garantindo que apenas valores válidos sejam inseridos no banco.
+- No frontend, é possível usar os valores do enum para preencher selects ou filtros com segurança e consistência.
+
+### Observações
+
+- Após criar ou alterar um `enum`, sempre rode `npx prisma generate` e `npx prisma migrate dev` (ou `deploy`, se for produção) para aplicar as mudanças.
+- Enums são especialmente úteis para campos como `status`, `tipo`, `categoria`, `sexo`, entre outros.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Integração de ENUM do Prisma com TypeScript
+
+Ao definir um `enum` no Prisma, ele é automaticamente refletido no client TypeScript após executar `npx prisma generate`.
+
+### Backend – Usando enum com segurança
+
+Depois de gerar o client, o enum estará disponível como um tipo no Prisma Client:
+
+```ts
+import { Prisma, PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+async function createUser() {
+  const user = await prisma.user.create({
+    data: {
+      name: 'João',
+      email: 'joao@email.com',
+      status: Prisma.Status.ACTIVE, // uso seguro do enum
+    },
+  })
+}
+```
+
+Você também pode tipar parâmetros ou argumentos com o enum:
+
+```ts
+function isUserActive(status: Prisma.Status): boolean {
+  return status === Prisma.Status.ACTIVE
+}
+```
+
+### Frontend – Compartilhando enums com o client
+
+Se você quiser usar o mesmo enum no frontend (ex: React), o Prisma **não expõe enums diretamente para o frontend**. Mas há duas boas abordagens:
+
+#### 1. Criar um objeto/export manual
+
+```ts
+// shared/enums.ts
+export const UserStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  PENDING: 'PENDING',
+} as const
+
+export type UserStatus = keyof typeof UserStatus
+```
+
+#### 2. Gerar dinamicamente com script (avançado)
+
+Você pode criar um script para extrair os enums do Prisma e gerar arquivos para uso no frontend, garantindo consistência automática. (Se quiser esse script, posso gerar um exemplo.)
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Geração automática de enums Prisma para uso no frontend
+
+### Objetivo
+
+Extrair os enums definidos no schema do Prisma e gerar um arquivo TypeScript com eles para uso no frontend, mantendo consistência entre backend e frontend.
+
+### Estrutura recomendada
+
+```bash
+.
+├── prisma/
+│   └── schema.prisma
+├── scripts/
+│   └── generate-enums.ts
+├── shared/
+│   └── enums.ts  ← será gerado automaticamente
+├── backend/
+├── frontend/
+```
+
+---
+
+### 1. Script para gerar enums – `/scripts/generate-enums.ts`
+
+```ts
+import fs from 'fs'
+import path from 'path'
+import { getDMMF } from '@prisma/sdk'
+
+async function generateEnums() {
+  const schemaPath = path.resolve(__dirname, '../prisma/schema.prisma')
+  const dmmf = await getDMMF({ datamodel: fs.readFileSync(schemaPath, 'utf-8') })
+
+  const enums = dmmf.datamodel.enums
+  const outputLines: string[] = []
+
+  outputLines.push('// ESTE ARQUIVO É GERADO AUTOMATICAMENTE. NÃO EDITE MANUALMENTE.')
+  outputLines.push('')
+  
+  enums.forEach((e) => {
+    outputLines.push(`export const ${e.name} = {`)
+    e.values.forEach((v) => {
+      outputLines.push(`  ${v.name}: '${v.name}',`)
+    })
+    outputLines.push(`} as const\n`)
+    outputLines.push(`export type ${e.name} = keyof typeof ${e.name}\n`)
+  })
+
+  const outputPath = path.resolve(__dirname, '../shared/enums.ts')
+  fs.writeFileSync(outputPath, outputLines.join('\n'), 'utf-8')
+  console.log('✅ Arquivo enums.ts gerado com sucesso!')
+}
+
+generateEnums().catch((err) => {
+  console.error('Erro ao gerar enums:', err)
+  process.exit(1)
+})
+```
+
+---
+
+### 2. Adicione script no `package.json`
+
+```json
+{
+  "scripts": {
+    "generate:enums": "ts-node scripts/generate-enums.ts"
+  }
+}
+```
+
+> Certifique-se de ter o `ts-node` instalado:  
+> `npm install --save-dev ts-node @types/node @prisma/sdk`
+
+---
+
+### 3. Resultado esperado – `/shared/enums.ts`
+
+```ts
+// ESTE ARQUIVO É GERADO AUTOMATICAMENTE. NÃO EDITE MANUALMENTE.
+
+export const Status = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  PENDING: 'PENDING',
+} as const
+
+export type Status = keyof typeof Status
+```
+
+---
+
+### Dica
+
+Sempre que alterar seus enums no `schema.prisma`, execute:
+
+```bash
+npm run generate:enums
+```
+
+Ou automatize após `prisma generate` com:
+
+```json
+"scripts": {
+  "postprisma:generate": "npm run generate:enums"
+}
+```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Versão Avançada do Script de Geração de Enums
+
+Vamos ampliar o script para torná-lo **mais flexível**, incluindo:
+
+1. **Suporte a schemas localizados em subpastas**, usando `--schema` como argumento.
+2. **Geração opcional de enums em JSON**, útil para frontend em outras stacks (ex: Vue, mobile, etc.).
+
+### `/scripts/generate-enums.ts`
+
+```ts
+import fs from 'fs'
+import path from 'path'
+import { getDMMF } from '@prisma/sdk'
+
+const args = process.argv.slice(2)
+const schemaFlagIndex = args.indexOf('--schema')
+const schemaPath = schemaFlagIndex !== -1 && args[schemaFlagIndex + 1]
+  ? path.resolve(args[schemaFlagIndex + 1])
+  : path.resolve(__dirname, '../prisma/schema.prisma')
+
+const outputDir = path.resolve(__dirname, '../shared')
+const tsOutput = path.join(outputDir, 'enums.ts')
+const jsonOutput = path.join(outputDir, 'enums.json')
+
+async function generateEnums() {
+  const datamodel = fs.readFileSync(schemaPath, 'utf-8')
+  const dmmf = await getDMMF({ datamodel })
+  const enums = dmmf.datamodel.enums
+
+  const tsLines: string[] = []
+  const jsonObject: Record<string, string[]> = {}
+
+  tsLines.push('// ESTE ARQUIVO É GERADO AUTOMATICAMENTE. NÃO EDITE MANUALMENTE.')
+  tsLines.push('')
+
+  enums.forEach((e) => {
+    tsLines.push(`export const ${e.name} = {`)
+    const values = e.values.map((v) => `'${v.name}'`)
+    e.values.forEach((v) => {
+      tsLines.push(`  ${v.name}: '${v.name}',`)
+    })
+    tsLines.push(`} as const\n`)
+    tsLines.push(`export type ${e.name} = keyof typeof ${e.name}\n`)
+    jsonObject[e.name] = e.values.map((v) => v.name)
+  })
+
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir)
+  }
+
+  fs.writeFileSync(tsOutput, tsLines.join('\n'), 'utf-8')
+  fs.writeFileSync(jsonOutput, JSON.stringify(jsonObject, null, 2), 'utf-8')
+
+  console.log('✅ Arquivos enums.ts e enums.json gerados com sucesso!')
+}
+
+generateEnums().catch((err) => {
+  console.error('Erro ao gerar enums:', err)
+  process.exit(1)
+})
+```
+
+---
+
+### Uso do script
+
+#### Usando schema padrão:
+
+```bash
+npx ts-node scripts/generate-enums.ts
+```
+
+#### Usando schema em subpasta:
+
+```bash
+npx ts-node scripts/generate-enums.ts --schema ./apps/api/prisma/schema.prisma
+```
+
+---
+
+### Resultado
+
+#### `/shared/enums.ts` – Para uso TypeScript
+#### `/shared/enums.json` – Para consumo genérico (frontend não-TypeScript, mobile, etc.)
+
+```json
+{
+  "Status": ["ACTIVE", "INACTIVE", "PENDING"]
+}
+```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Como consumir enums do Prisma no frontend
+
+Aqui está como usar os enums gerados no frontend, tanto com o `.ts` (para projetos React com TypeScript), quanto com o `.json` (para React, Vue, mobile ou outras stacks).
+
+### 1. Usando o arquivo `enums.ts` (React + TypeScript)
+
+#### Exemplo: select com enum `Status`
+
+```tsx
+// frontend/components/StatusSelect.tsx
+import React from 'react'
+import { Status } from '../../shared/enums' // ajuste o caminho conforme sua estrutura
+
+type Props = {
+  value: keyof typeof Status
+  onChange: (value: keyof typeof Status) => void
+}
+
+const StatusSelect: React.FC<Props> = ({ value, onChange }) => {
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value as keyof typeof Status)}>
+      {Object.entries(Status).map(([key, label]) => (
+        <option key={key} value={label}>
+          {label}
+        </option>
+      ))}
+    </select>
+  )
+}
+
+export default StatusSelect
+```
+
+---
+
+### 2. Usando o arquivo `enums.json` (React, Vue, mobile, etc.)
+
+#### React com JavaScript ou TypeScript
+
+```tsx
+// frontend/components/StatusSelect.tsx
+import React from 'react'
+import enums from '../../shared/enums.json' // ajuste o caminho conforme sua estrutura
+
+const StatusSelect = ({ value, onChange }) => {
+  const statuses = enums.Status
+
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value)}>
+      {statuses.map((status) => (
+        <option key={status} value={status}>
+          {status}
+        </option>
+      ))}
+    </select>
+  )
+}
+
+export default StatusSelect
+```
+
+#### Vue 3 com Composition API
+
+```vue
+<!-- components/StatusSelect.vue -->
+<template>
+  <select v-model="modelValue" @change="$emit('update:modelValue', modelValue)">
+    <option v-for="status in statuses" :key="status" :value="status">
+      {{ status }}
+    </option>
+  </select>
+</template>
+
+<script setup>
+import enums from '../../shared/enums.json'
+
+defineProps({
+  modelValue: String,
+})
+defineEmits(['update:modelValue'])
+
+const statuses = enums.Status
+</script>
+```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
