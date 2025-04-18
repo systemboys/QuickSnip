@@ -186,10 +186,11 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Exemplo para Componentes de Classe](#componente-de-classe "Exemplo para Componentes de Classe")
      - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-tipagem-e-valida%C3%A7%C3%A3o "Boas Práticas com PropTypes e TypeScript")
 17. **Modelos e Automatizações com Prisma**
-   - [Modelo Genérico de Uso de ENUM no Prisma ORM](#modelo-gen%C3%A9rico-de-uso-de-enum-no-prisma-orm "Modelo Genérico de Uso de ENUM no Prisma ORM")
-   - [Integração de ENUM Prisma com TypeScript no Backend e Frontend](#integra%C3%A7%C3%A3o-de-enum-prisma-com-typescript-no-backend-e-frontend "Integração de ENUM Prisma com TypeScript no Backend e Frontend")
-   - [Geração Automática de Arquivo enums.ts e enums.json com Script Node](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-arquivo-enumsts-e-enumsjson-com-script-node "Geração Automática de Arquivo enums.ts e enums.json com Script Node")
-   - [Consumo de enums.ts e enums.json no Frontend (React, Vue, etc.)](#consumo-de-enumsts-e-enumsjson-no-frontend-react-vue-etc "Consumo de enums.ts e enums.json no Frontend (React, Vue, etc.)")
+   - [Uso de ENUMs no Prisma ORM](#uso-de-enums-no-prisma-orm "Uso de ENUMs no Prisma ORM")
+   - [Integração de ENUM do Prisma com TypeScript](#integra%C3%A7%C3%A3o-de-enum-do-prisma-com-typescript "Integração de ENUM do Prisma com TypeScript")
+   - [Geração automática de enums Prisma para uso no frontend](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-enums-prisma-para-uso-no-frontend "Geração automática de enums Prisma para uso no frontend")
+   - [Versão Avançada do Script de Geração de Enums](#vers%C3%A3o-avan%C3%A7ada-do-script-de-gera%C3%A7%C3%A3o-de-enums "Versão Avançada do Script de Geração de Enums")
+   - [Como consumir enums do Prisma no frontend](#como-consumir-enums-do-prisma-no-frontend "Como consumir enums do Prisma no frontend")
 
 ---
 
