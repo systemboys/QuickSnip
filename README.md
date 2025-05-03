@@ -20,6 +20,7 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 [![JavaScript </>](./images/JavaScript.png)](./React.JS/README.md#quicksnip "JavaScript </>")
 <!-- [![Docker](./images/Docker.png)](./Docker/README.md#quicksnip "Docker") -->
+[![JavaScript </>](./images/Excel.png)](./Excel/README.md#quicksnip "Dicas de Excel")
 
 
 <!-- Botões de navegação -->
