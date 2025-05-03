@@ -83,6 +83,13 @@ Você tem:
 
 Esse é um **modelo genérico** e reaproveitável dessa abordagem para  **Planilhas**. Essa estrutura resolve **soma condicional dinâmica com filtros customizáveis (como "Todos")**, baseada em data.
 
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
 ---
 
 ### 🔢 **Modelo Genérico da Fórmula `SOMARPRODUTO` para Soma Condicional com Critério de Texto**
@@ -169,6 +176,13 @@ Aqui estão **variações úteis da fórmula `SOMARPRODUTO`** para guardar no se
 
 Esses modelos cobrem os principais usos para controle financeiro, pagamentos, recebíveis, entre outros.
 
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
 ---
 
 ## 🧩 Formatação de CPF no Excel Online
@@ -203,6 +217,13 @@ Formatar automaticamente CPFs digitados como número puro (ex: `00432853810`) pa
 
 - A célula com o CPF precisa conter **exatamente 11 dígitos numéricos**.
 - A fórmula trata células vazias exibindo um traço (`-`), útil para identificar registros pendentes.
+
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
 
 ---
 
