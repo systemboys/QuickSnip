@@ -1,11 +1,11 @@
 > ### QuickSnip
 
-# Título da sessão
+# Dicas para Excel
 
 ---
 
 <!-- Botões de navegação -->
-[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 <!-- /Botões de navegação -->
 
 Descrição da sessão.
@@ -25,7 +25,7 @@ Descrição da sessão.
 Detalhes do conteúdo da sessão.
 
 <!-- Botões de navegação -->
-[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -81,7 +81,7 @@ Você tem:
 Esse é um **modelo genérico** e reaproveitável dessa abordagem para  **Planilhas**. Essa estrutura resolve **soma condicional dinâmica com filtros customizáveis (como "Todos")**, baseada em data.
 
 <!-- Botões de navegação -->
-[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -173,7 +173,7 @@ Aqui estão **variações úteis da fórmula `SOMARPRODUTO`** para guardar no se
 Esses modelos cobrem os principais usos para controle financeiro, pagamentos, recebíveis, entre outros.
 
 <!-- Botões de navegação -->
-[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -214,7 +214,7 @@ Formatar automaticamente CPFs digitados como número puro (ex: `00432853810`) pa
 - A fórmula trata células vazias exibindo um traço (`-`), útil para identificar registros pendentes.
 
 <!-- Botões de navegação -->
-[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -253,7 +253,7 @@ E deseja replicá-la automaticamente para muitas linhas abaixo (por exemplo, at�
 - No Excel Online, esse é o método mais rápido e funcional sem VBA ou tabelas dinâmicas.
 
 <!-- Botões de navegação -->
-[![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
