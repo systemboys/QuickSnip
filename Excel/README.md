@@ -6,7 +6,6 @@
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 <!-- /Botões de navegação -->
 
 Descrição da sessão.
@@ -27,7 +26,6 @@ Detalhes do conteúdo da sessão.
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -84,7 +82,6 @@ Esse é um **modelo genérico** e reaproveitável dessa abordagem para  **Planil
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -177,7 +174,6 @@ Esses modelos cobrem os principais usos para controle financeiro, pagamentos, re
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -219,7 +215,6 @@ Formatar automaticamente CPFs digitados como número puro (ex: `00432853810`) pa
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
@@ -259,7 +254,6 @@ E deseja replicá-la automaticamente para muitas linhas abaixo (por exemplo, at�
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
