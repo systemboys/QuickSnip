@@ -16,7 +16,6 @@ Descrição da sessão.
 1. **Tabelas para custos financeiros**
    - [Soma com Filtros por Ano e Mês com opção "Todos"](#-soma-com-filtros-por-ano-e-mês-com-opção-todos)
    - [Modelo Genérico da Fórmula SOMARPRODUTO para Critério de Texto](#-modelo-genérico-da-fórmula-somarproduto-para-soma-condicional-com-critério-de-texto)
-   - [Variações da Fórmula SOMARPRODUTO](#-variações-úteis-da-fórmula-somarproduto)
 
 2. **Tratamento de Dados no Excel**
    - [Formatação de CPF no Excel Online](#-formatação-de-cpf-no-excel-online)
