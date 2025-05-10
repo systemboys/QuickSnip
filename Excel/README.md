@@ -8,7 +8,7 @@
 [![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
 <!-- /Botões de navegação -->
 
-Descrição da sessão.
+Dicas de Excel para casos comuns de utlilidade.
 
 ## 📚 Conteúdo
 
