@@ -19,7 +19,7 @@ Descrição da sessão.
 2. **Tratamento de Dados no Excel**
    - [Formatação de CPF no Excel Online](#-formata%C3%A7%C3%A3o-de-cpf-no-excel-online)
    - [Aplicar Fórmula em Coluna Inteira no Excel Online](#-aplicar-f%C3%B3rmula-em-coluna-inteira-no-excel-online)
-   - [Fórmula Genérica SOMASE com Critério de Texto](#-f%C3%B3rmula-gen%C3%A9rica-somase-com-crit%C3%A9rio-de-texto)
+   - [Fórmula Genérica SOMASE com Critério de Texto](#-f%C3%B3rmula-gen%C3%A9rica-excel-somase-para-filtrar-e-somar-por-crit%C3%A9rio)
 
 ---
 
