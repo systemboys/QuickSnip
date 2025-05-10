@@ -19,6 +19,7 @@ Descrição da sessão.
 2. **Tratamento de Dados no Excel**
    - [Formatação de CPF no Excel Online](#-formata%C3%A7%C3%A3o-de-cpf-no-excel-online)
    - [Aplicar Fórmula em Coluna Inteira no Excel Online](#-aplicar-f%C3%B3rmula-em-coluna-inteira-no-excel-online)
+   - [Fórmula Genérica SOMASE com Critério de Texto](#-f%C3%B3rmula-gen%C3%A9rica-somase-com-crit%C3%A9rio-de-texto)
 
 ---
 
@@ -251,6 +252,50 @@ E deseja replicá-la automaticamente para muitas linhas abaixo (por exemplo, at�
 
 - Isso funciona com fórmulas relativas (ex: `=C3*D3`) e absolutas (ex: `=$C$3*$D$3`).
 - No Excel Online, esse é o método mais rápido e funcional sem VBA ou tabelas dinâmicas.
+
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+Show de bola, bora guardar um exemplo genérico, bem padrãozão, direto pro seu **Codex**:
+
+---
+
+### ✅ Fórmula genérica Excel: SOMASE para filtrar e somar por critério
+
+**Objetivo:** Somar valores de uma coluna com base em um critério presente em outra.
+
+```excel
+=SOMASE(intervalo_critério; critério; intervalo_soma)
+```
+
+#### 📌 Exemplo prático:
+
+```excel
+=SOMASE(C2:C100; "Nome do Cliente"; A2:A100)
+```
+
+* `C2:C100` → Coluna onde estão os nomes ou critérios.
+* `"Nome do Cliente"` → Valor que você quer filtrar (pode ser célula também: `E1`).
+* `A2:A100` → Coluna com os valores a serem somados.
+
+---
+
+### 💡 Dica corporativa:
+
+Se quiser deixar dinâmico, use referência a célula com o critério:
+
+```excel
+=SOMASE(C2:C100; E1; A2:A100)
+```
+
+Assim, só troca o nome na célula `E1` e vê o resultado mudar.
+
+Quer que eu formate isso como um snippet pronto pra colar num Notion ou GitHub Gist?
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
