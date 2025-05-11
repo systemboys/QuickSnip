@@ -20,6 +20,7 @@ Dicas de Excel para casos comuns de utlilidade.
    - [Formatação de CPF no Excel Online](#-formata%C3%A7%C3%A3o-de-cpf-no-excel-online)
    - [Aplicar Fórmula em Coluna Inteira no Excel Online](#-aplicar-f%C3%B3rmula-em-coluna-inteira-no-excel-online)
    - [Fórmula Genérica SOMASE com Critério de Texto](#-f%C3%B3rmula-gen%C3%A9rica-excel-somase-para-filtrar-e-somar-por-crit%C3%A9rio)
+   - [Formatação Condicional com Base em Texto em Outra Coluna](#-formata%C3%A7%C3%A3o-condicional-com-base-em-texto-em-outra-coluna)
 
 ---
 
@@ -296,6 +297,88 @@ Se quiser deixar dinâmico, use referência a célula com o critério:
 Assim, só troca o nome na célula `E1` e vê o resultado mudar.
 
 Quer que eu formate isso como um snippet pronto pra colar num Notion ou GitHub Gist?
+
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 📘 Formatação Condicional com Base em Texto em Outra Coluna
+
+Este guia ensina a aplicar **cores em várias colunas de uma linha**, dependendo do conteúdo de uma célula específica (ex: status). A lógica se baseia em **fórmulas personalizadas**, que funcionam no **Excel Desktop**, mas uma parte pode ser aplicada manualmente no **Excel Online**.
+
+---
+
+### ✅ Exemplo 1: Aplicar até a linha 10
+
+**Objetivo**: Colorir as colunas `A` até `E` com base no valor da coluna `E`.
+
+#### 🔧 Intervalo a ser selecionado:
+
+```
+A3:E10
+```
+
+#### 🧮 Fórmulas de formatação:
+
+* **Status "A pagar" (vermelho claro):**
+
+  ```excel
+  =$E3="A pagar"
+  ```
+
+* **Status "Paga" (verde claro):**
+
+  ```excel
+  =$E3="Paga"
+  ```
+
+#### 🎨 Ações:
+
+* Se o valor na célula `E` da linha for `"A pagar"` → aplicar preenchimento vermelho claro na linha inteira de `A` até `E`.
+* Se o valor for `"Paga"` → aplicar preenchimento verde claro.
+
+---
+
+### ✅ Exemplo 2: Aplicar até a última linha da planilha (linha 1048576)
+
+**Objetivo**: Aplicar a mesma lógica, mas para toda a coluna, independentemente da quantidade de dados futuros.
+
+#### 🔧 Intervalo a ser selecionado:
+
+```
+A3:E1048576
+```
+
+> 💡 Dica: Você pode digitar diretamente esse intervalo na caixa “Aplica-se a” na janela de Formatação Condicional.
+
+#### 🧮 Fórmulas de formatação:
+
+* **Para "A pagar":**
+
+  ```excel
+  =$E3="A pagar"
+  ```
+
+* **Para "Paga":**
+
+  ```excel
+  =$E3="Paga"
+  ```
+
+#### 🔄 Resultado:
+
+Cada nova linha inserida com status definido em `E` será automaticamente formatada conforme a regra.
+
+---
+
+### ⚠️ Importante
+
+* Essas fórmulas funcionam corretamente **somente no Excel Desktop**, pois exigem a criação de regras com **fórmulas personalizadas**.
+* Após aplicar no Desktop, as regras continuam funcionando normalmente ao abrir a planilha no **Excel Online**.
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
