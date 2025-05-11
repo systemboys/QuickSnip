@@ -21,6 +21,7 @@ Dicas de Excel para casos comuns de utlilidade.
    - [Aplicar Fórmula em Coluna Inteira no Excel Online](#-aplicar-f%C3%B3rmula-em-coluna-inteira-no-excel-online)
    - [Fórmula Genérica SOMASE com Critério de Texto](#-f%C3%B3rmula-gen%C3%A9rica-excel-somase-para-filtrar-e-somar-por-crit%C3%A9rio)
    - [Formatação Condicional com Base em Texto em Outra Coluna](#-formata%C3%A7%C3%A3o-condicional-com-base-em-texto-em-outra-coluna)
+   - [Preencher Informações Automaticamente com PROCX no Excel](#-preencher-informa%C3%A7%C3%B5es-automaticamente-com-procx-no-excel)
 
 ---
 
@@ -310,8 +311,6 @@ Quer que eu formate isso como um snippet pronto pra colar num Notion ou GitHub G
 
 Este guia ensina a aplicar **cores em várias colunas de uma linha**, dependendo do conteúdo de uma célula específica (ex: status). A lógica se baseia em **fórmulas personalizadas**, que funcionam no **Excel Desktop**, mas uma parte pode ser aplicada manualmente no **Excel Online**.
 
----
-
 ### ✅ Exemplo 1: Aplicar até a linha 10
 
 **Objetivo**: Colorir as colunas `A` até `E` com base no valor da coluna `E`.
@@ -340,8 +339,6 @@ A3:E10
 
 * Se o valor na célula `E` da linha for `"A pagar"` → aplicar preenchimento vermelho claro na linha inteira de `A` até `E`.
 * Se o valor for `"Paga"` → aplicar preenchimento verde claro.
-
----
 
 ### ✅ Exemplo 2: Aplicar até a última linha da planilha (linha 1048576)
 
@@ -373,12 +370,67 @@ A3:E1048576
 
 Cada nova linha inserida com status definido em `E` será automaticamente formatada conforme a regra.
 
----
-
 ### ⚠️ Importante
 
 * Essas fórmulas funcionam corretamente **somente no Excel Desktop**, pois exigem a criação de regras com **fórmulas personalizadas**.
 * Após aplicar no Desktop, as regras continuam funcionando normalmente ao abrir a planilha no **Excel Online**.
+
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
+[![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../images/control/11280_control_up_icon.png)](#-conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🔗 Preencher Informações Automaticamente com PROCX no Excel
+
+Este modelo permite que você preencha automaticamente um campo (ex: contato, CPF, cargo) ao selecionar um valor relacionado (ex: nome de cliente, funcionário etc.), buscando os dados de outra aba ou intervalo de referência.
+
+### ✅ Estrutura da Planilha
+
+#### Planilha `Base` (ex: “Devedores”):
+
+| A (Nome)      | B (Contato)    |
+| ------------- | -------------- |
+| João da Silva | (99)99999-9999 |
+| Maria Souza   | (62)98888-8888 |
+
+#### Planilha `Destino` (ex: “Registros”):
+
+| C (Nome)           | D (Contato)         |
+| ------------------ | ------------------- |
+| *(lista suspensa)* | *(preenchido auto)* |
+
+### 🧮 Fórmula para preenchimento automático com tratamento
+
+```excel
+=SE(C2="";"-";PROCX(C2;Base!A:A;Base!B:B;"-"))
+```
+
+### 🔍 O que essa fórmula faz:
+
+* **`SE(C2="";"-";...)`**
+  → Se a célula onde o nome é selecionado estiver vazia, retorna `"-"`.
+
+* **`PROCX(C2;Base!A:A;Base!B:B;"-")`**
+  → Procura o valor em `C2` na coluna `A` da planilha `Base`, e retorna o valor correspondente da coluna `B`.
+  → Se não encontrar, retorna também `"-"`.
+
+
+### 📌 Aplicações comuns:
+
+* Buscar **telefone**, **e-mail** ou **cargo** com base no nome.
+* Preencher **endereços** com base em **códigos postais**.
+* Trazer **descrições** com base em **códigos de produto**.
+* Uso em cadastros, controles de empréstimos, fichas de atendimento, etc.
+
+### 🧠 Dicas:
+
+* Use listas suspensas para padronizar os valores buscados.
+* Evite espaços extras nos dados da planilha `Base`, que podem atrapalhar a busca.
+* Essa fórmula funciona no **Excel Online** e **Excel Desktop**.
+
 
 <!-- Botões de navegação -->
 [![Início](../images/control/11273_control_stop_icon.png)](../README.md#quicksnip "Início")
