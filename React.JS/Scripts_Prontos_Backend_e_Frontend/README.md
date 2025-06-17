@@ -357,12 +357,195 @@ app.get('/lotes', async (req, res) => {
 
 ---
 
+## 🎯 Parte 1: Inicialização do Frontend com React.js (em `./LotManager/frontend/`)
+
+### 1. Criar o projeto com Vite + TypeScript
+
+```bash
+cd LotManager/frontend
+npm create vite@latest . -- --template react-ts
+```
+
+Ou, se quiser nomear fora da pasta atual:
+
+```bash
+npm create vite@latest frontend -- --template react-ts
+```
+
+Siga as instruções e depois instale as dependências:
+
+```bash
+cd frontend
+npm install
+```
+
+### 2. Rodar o projeto
+
+```bash
+npm run dev
+```
+
+Acesse `http://localhost:5173` para ver a aplicação rodando.
+
+---
+
+## 🎨 Organização inicial de diretórios (frontend)
+
+Estrutura sugerida:
+
+```
+frontend/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── services/     ← para consumo de API com axios
+│   ├── hooks/
+│   ├── routes/
+│   ├── App.tsx
+│   └── main.tsx
+├── index.html
+└── vite.config.ts
+```
+
+### 3. Instalar Axios para integração com backend
+
+```bash
+npm install axios
+```
+
+Criar um serviço em `src/services/api.ts`:
+
+```ts
+import axios from 'axios';
+
+export const api = axios.create({
+  baseURL: 'http://localhost:3000', // backend
+});
+```
+
+---
+
+## 🔧 Parte 2: Modularização do Backend (Node.js + TS + Prisma)
+
+### Organização recomendada
+
+```
+backend/
+├── src/
+│   ├── controllers/
+│   │   └── lot.controller.ts
+│   ├── routes/
+│   │   └── lot.routes.ts
+│   ├── middlewares/
+│   │   └── error.middleware.ts
+│   ├── prisma/
+│   │   └── client.ts
+│   ├── index.ts
+│   └── app.ts
+├── prisma/
+│   └── schema.prisma
+├── .env
+├── tsconfig.json
+└── package.json
+```
+
+---
+
+### `src/prisma/client.ts`
+
+```ts
+import { PrismaClient } from '@prisma/client';
+export const prisma = new PrismaClient();
+```
+
+---
+
+### `src/controllers/lot.controller.ts`
+
+```ts
+import { Request, Response } from 'express';
+import { prisma } from '../prisma/client';
+
+export const getAllLots = async (req: Request, res: Response) => {
+  const lots = await prisma.lot.findMany();
+  res.json(lots);
+};
+```
+
+---
+
+### `src/routes/lot.routes.ts`
+
+```ts
+import { Router } from 'express';
+import { getAllLots } from '../controllers/lot.controller';
+
+const router = Router();
+
+router.get('/', getAllLots);
+
+export default router;
+```
+
+---
+
+### `src/middlewares/error.middleware.ts`
+
+```ts
+import { Request, Response, NextFunction } from 'express';
+
+export function errorHandler(err: any, req: Request, res: Response, next: NextFunction) {
+  console.error(err);
+  res.status(500).json({ error: 'Erro interno do servidor' });
+}
+```
+
+---
+
+### `src/app.ts`
+
+```ts
+import express from 'express';
+import lotRoutes from './routes/lot.routes';
+import { errorHandler } from './middlewares/error.middleware';
+
+const app = express();
+
+app.use(express.json());
+
+app.use('/lotes', lotRoutes);
+
+app.use(errorHandler);
+
+export default app;
+```
+
+---
+
+### `src/index.ts`
+
+```ts
+import app from './app';
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+```
+
+Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vite + React + TypeScript, prontos para evoluir com sua aplicação LotManager.
+
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
+
+---
 
 ## Gravando dados do formulário na tabela usando o ORM Prisma
 
