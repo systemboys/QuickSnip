@@ -12,6 +12,11 @@
 Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
 
 ## Conteúdo
+0. **Iniciando projetos**
+   - **NodeJS**
+     - [Guia de Inicialização de Backend Node.js com TypeScript e Prisma](# "Guia de Inicialização de Backend Node.js com TypeScript e Prisma")
+   - **Com o Vite**
+     - [Iniciando um projeto com Vite](# "Iniciando um projeto com Vite")
 1. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
