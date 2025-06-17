@@ -210,6 +210,160 @@ Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para div
 
 ---
 
+Perfeito, Marcos! Aqui está o conteúdo formatado para seu **Codex**, com título, instruções passo a passo e blocos de código organizados para reutilização futura:
+
+---
+
+## 🚀 Guia de Inicialização de Backend Node.js com TypeScript e Prisma
+
+Este guia ensina como estruturar um projeto backend moderno utilizando **Node.js**, **TypeScript**, **Express** e **Prisma ORM**, pronto para ser integrado a um frontend em React ou outros serviços.
+
+### 🧱 Estrutura Inicial de Diretórios
+
+```
+./LotManager/
+├── backend/
+│   └── src/
+└── frontend/
+```
+
+### 1. Inicializar o Projeto Node.js
+
+No terminal, acesse o diretório do backend e inicialize com `npm`:
+
+```bash
+cd LotManager/backend
+npm init -y
+```
+
+### 2. Instalar e Configurar TypeScript
+
+```bash
+npm install typescript ts-node-dev @types/node --save-dev
+npx tsc --init
+```
+
+Edite o `tsconfig.json` com:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
+```
+
+Crie o diretório de origem:
+
+```bash
+mkdir src
+touch src/index.ts
+```
+
+### 3. Instalar e Configurar o Express
+
+```bash
+npm install express
+npm install @types/express --save-dev
+```
+
+No `package.json`, adicione o script de desenvolvimento:
+
+```json
+"scripts": {
+  "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+}
+```
+
+Exemplo básico de `src/index.ts`:
+
+```ts
+import express from 'express';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Backend LotManager está rodando 🚀');
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+```
+
+### 4. Instalar e Configurar o Prisma
+
+```bash
+npm install prisma --save-dev
+npm install @prisma/client
+npx prisma init
+```
+
+No `.env`, configure a URL do banco (exemplo com SQLite):
+
+```env
+DATABASE_URL="file:./dev.db"
+```
+
+Exemplo de modelo no `prisma/schema.prisma`:
+
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lot {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
+```
+
+Rodar migração e gerar client:
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Usar o Prisma Client
+
+No `src/index.ts`:
+
+```ts
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+app.get('/lotes', async (req, res) => {
+  const lotes = await prisma.lot.findMany();
+  res.json(lotes);
+});
+```
+
+---
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
 ## Gravando dados do formulário na tabela usando o ORM Prisma
 
 Para fazer o formulário enviar os dados para a rota `/addAdmins` a fim de gravar as informações na tabela "admins", você precisa fazer alguns ajustes na função de envio de dados. Aqui estão os passos detalhados para garantir que tudo funcione corretamente:
