@@ -358,6 +358,10 @@ app.get('/lotes', async (req, res) => {
 });
 ```
 
+<!-- Botões de navegação -->
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
 ---
 
 ## 🎯 Parte 1: Inicialização do Frontend com React.js (em `./LotManager/frontend/`)
@@ -389,6 +393,10 @@ npm run dev
 ```
 
 Acesse `http://localhost:5173` para ver a aplicação rodando.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
 
 ---
 
@@ -427,6 +435,10 @@ export const api = axios.create({
   baseURL: 'http://localhost:3000', // backend
 });
 ```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
 
 ---
 
