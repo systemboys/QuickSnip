@@ -12,12 +12,15 @@
 Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
 
 ## Conteúdo
-0. **Iniciando projetos**
+1. **Iniciando projetos**
    - **NodeJS**
      - [Guia de Inicialização de Backend Node.js com TypeScript e Prisma](#-guia-de-inicializa%C3%A7%C3%A3o-de-backend-nodejs-com-typescript-e-prisma "Guia de Inicialização de Backend Node.js com TypeScript e Prisma")
+       - [Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)](#-parte-1-inicializa%C3%A7%C3%A3o-do-frontend-com-reactjs-em-lotmanagerfrontend "Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)")
+       - [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
+       - [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
    - **Com o Vite**
      - [Iniciando um projeto com Vite](# "Iniciando um projeto com Vite")
-1. **Exemplos CRUD com React e Prisma**
+2. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
      - Envio de dados para o backend via API (fetch ou Axios)
@@ -73,29 +76,29 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
          - [Exclusão de um item (delete)](#exclus%C3%A3o-de-um-item-delete "Exclusão de um item (delete)")
        - [4. Considerações Importantes](#4-considera%C3%A7%C3%B5es-importantes "4. Considerações Importantes")
        - [5. Extensão para Outros Parâmetros](#5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
-2. **Paginação de Listas com React e Prisma**
+3. **Paginação de Listas com React e Prisma**
    - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
      - [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
      - [Componente de Paginação: `index.jsx`](#arquivo-indexjsx "Componente de Paginação: `index.jsx`")
    - [Outro exemplo genérico com botões ilimitados com Reticências (...)](#outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
      - [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
      - [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
-3. **Notificações no Frontend com React**
+4. **Notificações no Frontend com React**
    - [Notificação de `Conexão` de `Internet`](#notifica%C3%A7%C3%A3o-de-conex%C3%A3o-de-internet "Notificação de Conexão de Internet")
    - [Modificação para substituir o `alert()` por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
    - [Exemplo de Reutilização de Notificações com `Diferentes Tipos`](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
    - [Usar as notificações com `CSS Modules`](#usar-as-notifica%C3%A7%C3%B5es-com-css-modules "Usar as notificações com 'CSS Modules'")
-4. **Trabalhando Fenestra, API de janelas para react/redux**
+5. **Trabalhando Fenestra, API de janelas para react/redux**
    - **Corrigindo problemas**
      - Formulário simples de cadastro com validação de campos
    - **Manipulação de Estilos e Classes em Componentes Modais**
      - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
    - [Usando Imagens PNG como Ícones em Componentes React](#usando-imagens-png-como-%C3%ADcones-em-componentes-react "Usando Imagens PNG como Ícones em Componentes React")
      - [Uso de URLs Externas para Imagens em Componentes React](#uso-de-urls-externas-para-imagens-em-componentes-react "Uso de URLs Externas para Imagens em Componentes React")
-5. **Testes e Simulações de Interface**
+6. **Testes e Simulações de Interface**
    - **Preenchimento Automático de Formulários com JavaScript Nativo**
      - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
-6. **Configuração e Segurança em Projetos React**
+7. **Configuração e Segurança em Projetos React**
    - **Uso de Variáveis de Ambiente com Arquivo .env no React**
      - [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
      - [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
@@ -108,7 +111,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
        - [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
        - [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
-7. **Manipulação de Arrays em JavaScript**
+8. **Manipulação de Arrays em JavaScript**
    - [Obter dados de um `Array` com o `map()`](#obter-dados-de-um-array-com-map "Obter dados de um Array com map()")
    - [Executar Array dentro do retorno de um componente](#executar-array-dentro-do-retorno-de-um-componente "Executar Array dentro do retorno de um componente")
    - [Mapeamento direto no map()](#mapeamento-direto-no-map "Mapeamento direto no map()")
@@ -120,9 +123,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
       - [Array map()](#array-map "Array map()")
       - [Array filter()](#array-filter "Array filter()")
       - [Array reduce()](#array-reduce "Array reduce()")
-8. **Resolução de Problemas e Manutenção do Projeto**
+9. **Resolução de Problemas e Manutenção do Projeto**
    - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
-9. **Estrutura e Implementação de Componentes**
+10. **Estrutura e Implementação de Componentes**
    - **Ícones e Componentes Visuais**
      - [Implementação de Ícones Font-Awesome em Componentes React](#como-implementar-%C3%ADcones-font-awesome-em-componentes-react "Implementação de Ícones Font-Awesome em Componentes React")
    - **Abas com Props para Componentes**
@@ -131,7 +134,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
    - [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
    - [Navegação Dinâmica com React Router para Redirecionamento](#navega%C3%A7%C3%A3o-din%C3%A2mica-com-react-router-redirecionando-para-componentes-em-uma-spa "Navegação Dinâmica com React Router para Redirecionamento")
-10. **Envio de Emails e Comunicação Backend**
+11. **Envio de Emails e Comunicação Backend**
    - **Envio de Emails com Nodemailer**
      - [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios "Estrutura de Diretórios para Projeto de Envio de Emails")
      - [Configuração do Servidor com Express e Nodemailer](#configura%C3%A7%C3%A3o-do-backend "Configuração do Servidor com Express e Nodemailer")
@@ -139,7 +142,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - [Uso de Arquivo `.env` para Configurações Sensíveis](#4-configura%C3%A7%C3%A3o-do-env "Uso de Arquivo .env para Configurações Sensíveis")
      - [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
      - [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
-11. **Manipulação de Objetos no DOM com JavaScript**
+12. **Manipulação de Objetos no DOM com JavaScript**
    - [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
    - [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
    - [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
@@ -150,7 +153,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
    - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
    - [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
-12. **Funções Utilitárias e Automatizações**
+13. **Funções Utilitárias e Automatizações**
    - [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
      - [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
      - [Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa](#modulariza%C3%A7%C3%A3o-de-fun%C3%A7%C3%B5es-de-preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-em-react-com-importa%C3%A7%C3%A3o-externa "Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa")
@@ -166,14 +169,14 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura](#removendo-tags-html-em-reactjs-uma-abordagem-simples-e-segura "Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura")
    - [Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante](#removendo-tags-html-com-reactjs-uma-abordagem-simples-e-elegante "Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante")
    - [Função de Formatação de Data e Hora com Ajuste de Horas](#fun%C3%A7%C3%A3o-de-formata%C3%A7%C3%A3o-de-data-e-hora-com-ajuste-de-horas "Função de Formatação de Data e Hora com Ajuste de Horas")
-13. **Incorporando Serviços Externos em Aplicações React**
+14. **Incorporando Serviços Externos em Aplicações React**
    - **Google Maps**
      - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
-14. **CSS e Layouts em React**
+15. **CSS e Layouts em React**
    - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
      - [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
      - [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
-15. **Meu Fluxo de Trabalho e Boas Práticas**
+16. **Meu Fluxo de Trabalho e Boas Práticas**
    - **Organização Pessoal e Produtividade**
      - Como organizo meus ambientes de trabalho e softwares abertos
      - [Organização de Terminais: Fluxo de Trabalho Produtivo](#organiza%C3%A7%C3%A3o-de-terminais-fluxo-de-trabalho-produtivo "Organização de Terminais: Fluxo de Trabalho Produtivo")
@@ -185,12 +188,12 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - Ferramentas para Automação de Testes
    - **Boas Práticas**
      - Boas Práticas de Colaboração em Projetos Git
-16. **Recebendo e Usando Propriedades (`props`) em Componentes React**
+17. **Recebendo e Usando Propriedades (`props`) em Componentes React**
    - [Modelo Genérico para Receber e Usar Props em Componentes React](#recebendo-e-usando-propriedades-props-em-componentes-react "Modelo Genérico para Receber e Usar Props em Componentes React")
      - [Exemplo para Componentes Funcionais](#componente-funcional "Exemplo para Componentes Funcionais")
      - [Exemplo para Componentes de Classe](#componente-de-classe "Exemplo para Componentes de Classe")
      - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-tipagem-e-valida%C3%A7%C3%A3o "Boas Práticas com PropTypes e TypeScript")
-17. **Modelos e Automatizações com Prisma**
+18. **Modelos e Automatizações com Prisma**
    - [Uso de ENUMs no Prisma ORM](#uso-de-enums-no-prisma-orm "Uso de ENUMs no Prisma ORM")
    - [Integração de ENUM do Prisma com TypeScript](#integra%C3%A7%C3%A3o-de-enum-do-prisma-com-typescript "Integração de ENUM do Prisma com TypeScript")
    - [Geração automática de enums Prisma para uso no frontend](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-enums-prisma-para-uso-no-frontend "Geração automática de enums Prisma para uso no frontend")
