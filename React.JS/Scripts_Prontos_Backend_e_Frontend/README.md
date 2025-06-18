@@ -562,14 +562,74 @@ Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vit
 
 ---
 
+## Bootstrap e Vite
 
+### O guia oficial sobre como incluir e incluir o CSS e o JavaScript do Bootstrap em seu projeto usando o Vite.
+
+![img](https://getbootstrap.com/docs/5.3/assets/img/guides/bootstrap-vite.png)
+
+### O que é o Vite?
+
+[Vite](https://vite.dev/) é uma moderna ferramenta de  construção frontend projetada para velocidade e simplicidade. Ele  fornece uma experiência de desenvolvimento eficiente e simplificada,  especialmente para frameworks JavaScript modernos.
+
+### Configuração
+
+Estamos construindo um projeto Vite com o Bootstrap a partir do zero, então há alguns pré-requisitos e degraus iniciais antes que possamos  realmente começar. Este guia exige que você tenha o Node.js instalado e  alguma familiaridade com o terminal.
+
+1. **Crie uma pasta de projeto e configure o npm.** Nós vamos criar o  `my-project`pasta e inicialize npm com o  `-y`argumento para evitar que nos faça todas as perguntas interativas.
+
+    ```sh
+    mkdir my-project && cd my-project
+    npm init -y
+    ```
+
+2. **Instale o Vite.** Ao contrário do nosso guia Webpack, há apenas uma única dependência de ferramenta de compilação aqui. Nós usamos  `--save-dev`para sinalizar que esta dependência é apenas para uso em desenvolvimento e não para produção.
+
+    ```sh
+    npm i --save-dev vite
+    ```
+
+3. **Instalar o Bootstrap.** Agora podemos instalar o  Bootstrap. Também instalaremos o Popper, pois nossos dropdowns, popovers e dicas de ferramentas dependem dele para seu posicionamento. Se você  não planeja usar esses componentes, você pode omitir Popper aqui.
+
+    ```sh
+    npm i --save bootstrap @popperjs/core
+    ```
+
+4. **Instale a dependência adicional.** Além de Vite e Bootstrap, precisamos de outra dependência (Sass) para importar e agrupar corretamente o CSS do Bootstrap.
+
+    ```sh
+    npm i --save-dev sass
+    ```
+
+Agora que temos todas as dependências necessárias instaladas e  configuradas, podemos começar a trabalhar criando os arquivos do projeto e importando o Bootstrap.
+
+### Estrutura do projeto
+
+Nós já criamos o  `my-project`pasta e npm inicializado. Agora também vamos criar o nosso  `src`arquivo de pasta, estilo e JavaScript para completar a estrutura do projeto. Execute o seguinte a partir de `my-project`, ou criar manualmente a pasta e estrutura de arquivos mostrados abaixo.
+
+```sh
+mkdir {src,src/js,src/scss}
+touch src/index.html src/js/main.js src/scss/styles.scss vite.config.js
+```
+
+Quando terminar, seu projeto completo deve ser assim:
+
+```text
+my-project/
+├── src/
+│   ├── js/
+│   │   └── main.js
+│   └── scss/
+│   |   └── styles.scss
+|   └── index.html
+├── package-lock.json
 ├── package.json
 └── vite.config.js
 ```
 
 Neste ponto, tudo está no lugar certo, mas Vite não vai funcionar porque não preenchemos o nosso lugar.  `vite.config.js`Ainda assim.
 
-## Configure o Vite
+### Configure o Vite
 
 Com dependências instaladas e nossa pasta de projeto pronta para  começarmos a codificar, agora podemos configurar o Vite e executar nosso projeto localmente.
 
@@ -647,7 +707,7 @@ Com dependências instaladas e nossa pasta de projeto pronta para  começarmos a
 
 Na seção seguinte e final para este guia, vamos importar todos os CSS e JavaScript do Bootstrap.
 
-## Importação de Bootstrap [ ](https://getbootstrap.com/docs/5.3/getting-started/vite/#import-bootstrap)
+### Importação de Bootstrap [ ](https://getbootstrap.com/docs/5.3/getting-started/vite/#import-bootstrap)
 
 1. **Importar o CSS do Bootstrap.** Adicione o seguinte ao seguinte  `src/scss/styles.scss`para importar toda a fonte da Bootstrap, Sass.
 
