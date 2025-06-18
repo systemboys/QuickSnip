@@ -19,7 +19,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
        - [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
    - **Com o Vite**
-     - [Iniciando um projeto com Vite](# "Iniciando um projeto com Bootstrap e Vite")
+     - [Iniciando um projeto com Bootstrap e Vite](#bootstrap-e-vite "Iniciando um projeto com Bootstrap e Vite")
 2. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
