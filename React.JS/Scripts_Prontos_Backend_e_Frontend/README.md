@@ -566,7 +566,7 @@ Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vit
 
 ### O guia oficial sobre como incluir e incluir o CSS e o JavaScript do Bootstrap em seu projeto usando o Vite.
 
-![img](https://getbootstrap.com/docs/5.3/assets/img/guides/bootstrap-vite.png)
+![img](./images/bootstrap-vite.png)
 
 ### O que é o Vite?
 
@@ -741,7 +741,7 @@ Na seção seguinte e final para este guia, vamos importar todos os CSS e JavaSc
 
 3. **E você está feito! Com** a fonte do Bootstrap Sass e JS totalmente carregada, seu servidor de desenvolvimento local deve agora ser assim:
 
-![Servidor Vite dev em execução com Bootstrap](https://getbootstrap.com/docs/5.3/assets/img/guides/vite-dev-server-bootstrap.png)
+![Servidor Vite dev em execução com Bootstrap](./images/vite-dev-server-bootstrap.png)
 
 Agora você pode começar a adicionar qualquer componente Bootstrap que você deseja usar. Certifique-se [de verificar o projeto completo do exemplo Vite](https://github.com/twbs/examples/tree/main/vite) sobre como incluir Sass personalizado adicional e otimizar sua  compilação importando apenas as partes do CSS e JS do Bootstrap que você precisa.
 
