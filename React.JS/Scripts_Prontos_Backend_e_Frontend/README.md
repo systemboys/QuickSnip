@@ -564,7 +564,7 @@ Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vit
 
 ## 🧪 Iniciar projeto React com Vite (JavaScript Puro)
 
-Aqui está um modelo de instrução formatado para o **Codex**, explicando como iniciar um projeto frontend com **Vite + React** utilizando **JavaScript puro (sem TypeScript)**. Você pode adaptá-lo conforme seus padrões futuros.
+Aqui está um modelo de instrução, explicando como iniciar um projeto frontend com **Vite + React** utilizando **JavaScript puro (sem TypeScript)**. Você pode adaptá-lo conforme seus padrões futuros.
 
 ### 🎯 Objetivo
 
