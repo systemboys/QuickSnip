@@ -19,7 +19,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
        - [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
    - **Com o Vite**
-     - [Iniciando um projeto com Vite](# "Iniciando um projeto com Vite")
+     - [Iniciando um projeto com Vite](# "Iniciando um projeto com Bootstrap e Vite")
 2. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
@@ -552,6 +552,138 @@ app.listen(PORT, () => {
 ```
 
 Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vite + React + TypeScript, prontos para evoluir com sua aplicação LotManager.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+
+├── package.json
+└── vite.config.js
+```
+
+Neste ponto, tudo está no lugar certo, mas Vite não vai funcionar porque não preenchemos o nosso lugar.  `vite.config.js`Ainda assim.
+
+## Configure o Vite
+
+Com dependências instaladas e nossa pasta de projeto pronta para  começarmos a codificar, agora podemos configurar o Vite e executar nosso projeto localmente.
+
+1. **Aberto  `vite.config.js`em seu editor.**  Como está em branco, precisaremos adicionar alguma configuração de  boilerplate a ele para que possamos iniciar nosso servidor. Esta parte  da configuração diz ao Vite onde procurar o JavaScript do nosso projeto e como o servidor de desenvolvimento deve se comportar (puxando a partir  do  `src`pasta com hot reload).
+
+    ```js
+    import { resolve } from 'path'
+    
+    export default {
+      root: resolve(__dirname, 'src'),
+      build: {
+        outDir: '../dist'
+      },
+      server: {
+        port: 8080
+      },
+      // Optional: Silence Sass deprecation warnings. See note below.
+      css: {
+         preprocessorOptions: {
+            scss: {
+              silenceDeprecations: [
+                'import',
+                'mixed-decls',
+                'color-functions',
+                'global-builtin',
+              ],
+            },
+         },
+      },
+    }
+    ```
+
+    **Nota:** Os avisos de descontinuação do Sass são  mostrados ao compilar arquivos de origem Sass com as versões mais  recentes do Dart Sass. Isso não impede a compilação ou o uso do  Bootstrap. Estamos [trabalhando em uma correção de longo prazo](https://github.com/twbs/bootstrap/issues/40962), mas, enquanto isso, esses avisos de depreciação podem ser ignorados.
+
+2. **Em seguida, preenchemos `src/index.html`- A . (í a questão: es. , , , íntepeo. . E. . es. sobre a questão . (em, proprio, e os comandos e. . sobre a questão , , .** Esta é a página HTML que o Vite carregará no navegador para utilizar o  CSS e o JS empacotados que adicionaremos a ele em etapas posteriores.
+
+    ```html
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap w/ Vite</title>
+        <script type="module" src="./js/main.js"></script>
+      </head>
+      <body>
+        <div class="container py-4 px-3 mx-auto">
+          <h1>Hello, Bootstrap and Vite!</h1>
+          <button class="btn btn-primary">Primary button</button>
+        </div>
+      </body>
+    </html>
+    ```
+
+    Estamos incluindo um pouco de estilo Bootstrap aqui com o  `div class="container"`E a  `<button>`para que possamos ver quando o CSS do Bootstrap é carregado pelo Vite.
+
+3. **Agora precisamos de um script npm para executar o Vite.** Aberto  `package.json`E adicione o  `start`script mostrado abaixo (você já deve ter o script de teste). Vamos usar este  script para iniciar o nosso servidor Vite dev local.
+
+   ```json
+   {
+     // ...
+     "scripts": {
+       "start": "vite",
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     // ...
+   }
+   ```
+
+4. **E, finalmente, podemos começar a Vite.** A partir do  `my-project`pasta em seu terminal, execute o script npm recém-adicionado:
+
+    ```sh
+    npm start
+    ```
+
+Na seção seguinte e final para este guia, vamos importar todos os CSS e JavaScript do Bootstrap.
+
+## Importação de Bootstrap [ ](https://getbootstrap.com/docs/5.3/getting-started/vite/#import-bootstrap)
+
+1. **Importar o CSS do Bootstrap.** Adicione o seguinte ao seguinte  `src/scss/styles.scss`para importar toda a fonte da Bootstrap, Sass.
+
+    ```scss
+    // Import all of Bootstrap’s CSS
+    @import "bootstrap/scss/bootstrap";
+    ```
+
+	*Você também pode importar nossas folhas de estilo individualmente, se quiser. [Leia nossos documentos de importação Sass](https://getbootstrap.com/docs/5.3/customize/sass#importing) para obter detalhes.*
+
+2. **Em seguida, carregamos o CSS e importamos o JavaScript do Bootstrap.** Adicione o seguinte ao seguinte  `src/js/main.js`para carregar o CSS e importar todos os JS do Bootstrap. Popper será importado automaticamente através de Bootstrap.
+
+    ```js
+    // Import our custom CSS
+    import '../scss/styles.scss'
+    
+    // Import all of Bootstrap’s JS
+    import * as bootstrap from 'bootstrap'
+    ```
+
+    Você também pode importar plugins JavaScript individualmente, conforme necessário, para manter o tamanho do pacote baixo:
+
+    ```js
+    import Alert from 'bootstrap/js/dist/alert';
+    
+    // or, specify which plugins you need:
+    import { Tooltip, Toast, Popover } from 'bootstrap';
+    ```
+
+	*[Leia nossos documentos JavaScript](https://getbootstrap.com/docs/5.3/getting-started/javascript/) para obter mais informações sobre como usar os plugins do Bootstrap.*
+
+3. **E você está feito! Com** a fonte do Bootstrap Sass e JS totalmente carregada, seu servidor de desenvolvimento local deve agora ser assim:
+
+![Servidor Vite dev em execução com Bootstrap](https://getbootstrap.com/docs/5.3/assets/img/guides/vite-dev-server-bootstrap.png)
+
+Agora você pode começar a adicionar qualquer componente Bootstrap que você deseja usar. Certifique-se [de verificar o projeto completo do exemplo Vite](https://github.com/twbs/examples/tree/main/vite) sobre como incluir Sass personalizado adicional e otimizar sua  compilação importando apenas as partes do CSS e JS do Bootstrap que você precisa.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
