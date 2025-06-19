@@ -20,7 +20,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
    - **Com o Vite**
      - [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
-       - [Instalar e Importar Bootstrap em Projeto Vite + React](# "Instalar e Importar Bootstrap em Projeto Vite + React")
+       - [Instalar e Importar Bootstrap em Projeto Vite + React](#instalar-e-importar-bootstrap-em-projeto-vite--react "Instalar e Importar Bootstrap em Projeto Vite + React")
 2. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
@@ -645,10 +645,6 @@ npm run dev
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
-
----
-
-Perfeito, Marcos. Aqui está um **modelo genérico e complementar** para adicionar **Bootstrap (via React-Bootstrap)** em um projeto **Vite já criado com React + JavaScript**.
 
 ---
 
