@@ -20,6 +20,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
        - [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
    - **Com o Vite**
      - [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
+       - [Instalar e Importar Bootstrap em Projeto Vite + React](# "Instalar e Importar Bootstrap em Projeto Vite + React")
 2. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
@@ -637,6 +638,73 @@ npm run dev
 
 * Esse setup é indicado para projetos onde não se deseja usar TypeScript inicialmente.
 * Pode-se futuramente migrar para TypeScript com `npm install --save-dev typescript @types/react @types/react-dom`.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+Perfeito, Marcos. Aqui está um **modelo genérico e complementar** para adicionar **Bootstrap (via React-Bootstrap)** em um projeto **Vite já criado com React + JavaScript**.
+
+---
+
+## Instalar e Importar Bootstrap em Projeto Vite + React
+
+> 📌 **Cenário**: Projeto Vite com React + JavaScript **já criado**
+> 🎯 Objetivo: Instalar o Bootstrap (via React-Bootstrap) e importar corretamente o CSS
+
+### 1. Instalar Bootstrap e React-Bootstrap
+
+Execute no terminal na raiz do projeto:
+
+```bash
+npm install bootstrap react-bootstrap
+```
+
+> Se for usar componentes que exigem posicionamento dinâmico (como `Dropdown`, `Popover`, `Tooltip`), também instale o Popper.js:
+
+```bash
+npm install @popperjs/core
+```
+
+### 2. Importar o CSS do Bootstrap
+
+No arquivo `src/main.jsx`, adicione a seguinte linha **antes de renderizar o React**:
+
+```jsx
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+### 3. Usar Componentes Bootstrap no JSX
+
+Agora você pode importar componentes direto do `react-bootstrap` e usá-los normalmente.
+
+**Exemplo básico (`src/App.jsx`):**
+
+```jsx
+import Button from 'react-bootstrap/Button';
+
+function App() {
+  return (
+    <div className="container py-4">
+      <h1>Integração React-Bootstrap com Vite</h1>
+      <Button variant="primary">Clique aqui</Button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### 4. Pronto para uso
+
+* Nenhuma configuração extra no `vite.config.js` é necessária.
+* O Vite lida com os módulos e CSS do Bootstrap automaticamente.
+* O React-Bootstrap cuida da lógica e estilos dos componentes para você.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
