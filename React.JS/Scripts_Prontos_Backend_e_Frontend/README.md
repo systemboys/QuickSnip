@@ -177,7 +177,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
      - [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
      - [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
-   - [Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)](# "Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)")
+   - [Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)](#-diretivas-de-media-queries-para-responsividade-desktop-tablet-e-smartphone "Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)")
 16. **Meu Fluxo de Trabalho e Boas Práticas**
    - **Organização Pessoal e Produtividade**
      - Como organizo meus ambientes de trabalho e softwares abertos
