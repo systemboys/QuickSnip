@@ -177,6 +177,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
      - [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
      - [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
+   - [Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)](# "Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)")
 16. **Meu Fluxo de Trabalho e Boas Práticas**
    - **Organização Pessoal e Produtividade**
      - Como organizo meus ambientes de trabalho e softwares abertos
@@ -7933,6 +7934,51 @@ Se quiser ajustar o espaçamento ou cores:
 - Altere `background-color` e `border` para personalizar o estilo visual dos quadros.
 
 Pronto! 🚀 Este é um código simples e eficaz que cumpre com os requisitos descritos.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 📱 Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)
+
+Esta instrução define as regras básicas para criar um layout responsivo utilizando `@media queries` no CSS, separando os estilos por tipo de dispositivo com base nas larguras da tela.
+
+![Media Queries](./images/Media_Queries_para_Responsividade.png)
+
+### ✅ Objetivo
+
+Garantir que a aplicação web se adapte corretamente a diferentes tamanhos de tela, melhorando a experiência do usuário em **desktops**, **tablets** e **smartphones**.
+
+---
+
+### 🎯 Media Queries Padrão
+
+```css
+/* 💻 Estilos para Desktop (1024px ou mais) */
+@media screen and (min-width: 1024px) {
+  /* Estilos específicos para telas grandes */
+}
+
+/* 📱 Estilos para Tablet (entre 768px e 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Estilos específicos para tablets */
+}
+
+/* 📞 Estilos para Smartphone (até 767px) */
+@media screen and (max-width: 767px) {
+  /* Estilos específicos para smartphones */
+}
+```
+
+### 📝 Observações
+
+* A ordem das media queries pode influenciar o resultado se houver conflitos de estilo. Recomenda-se seguir do menor para o maior (mobile-first) ou o inverso (desktop-first), conforme a estratégia adotada.
+* Combine com boas práticas de layout flexível (Flexbox, Grid) para uma responsividade mais eficiente.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
