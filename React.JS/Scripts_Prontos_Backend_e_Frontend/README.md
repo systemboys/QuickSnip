@@ -4439,6 +4439,11 @@ Por este, que utiliza as classes do CSS Module:
 <div className={`${styles.notification} ${styles[notification.type]}`}>
 ```
 
+Se houver apenas uma classe, substitua da seguinte forma:
+```jsx
+<div className={styles.notification}>
+```
+
 Aqui, usamos `styles.notification` para a classe base e `styles[notification.type]` para adicionar a classe específica (`success`, `warning`, ou `error`), de acordo com o tipo de notificação.
 
 ---
