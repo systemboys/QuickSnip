@@ -100,7 +100,7 @@
      - 🚀 Otimização de performance com memo e useCallback
      - 🧪 Testes com React Testing Library
      - ♿ Acessibilidade em componentes React
-     - [📦 Verificando a versão do React e React-DOM com npm list](#verificando-a-versão-do-react-e-react-dom-em-projetos-com-frontend-isolado "Verificando a versão do React e React-DOM com npm list")
+     - [📦 Verificando a versão do React e React-DOM com npm list](#-verificando-a-vers%C3%A3o-do-react-e-react-dom-em-projetos-com-frontend-isolado "Verificando a versão do React e React-DOM com npm list")
 
 
 ---
