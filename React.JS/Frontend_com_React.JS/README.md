@@ -9,52 +9,6 @@
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 <!-- /Botões de navegação -->
 
-<!-- ## Conteúdo
-1. **React.JS**
-   - **Estrutura Básica**
-     - Criação de componentes funcionais
-     - JSX e renderização condicional
-     - Props e estado (state)
-   - **Hooks**
-     - useState para gerenciamento de estado
-       - [Explicação detalhada sobre `useState` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-usestate-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useState` com exemplos práticos")
-       - [Estados complexos (objetos e arrays) com `useState`](#exemplo-1-contador-simples "Estados complexos (objetos e arrays) com `useState`")
-       - [Boas práticas e erros comuns ao usar `useState`](#atualizando-estado-com-fun%C3%A7%C3%B5es-de-atualiza%C3%A7%C3%A3o "Boas práticas e erros comuns ao usar `useState`")
-     - useEffect para efeitos colaterais
-       - [Explicação detalhada sobre `useEffect` com exemplos práticos](#explica%C3%A7%C3%A3o-detalhada-sobre-useeffect-com-exemplos-pr%C3%A1ticos "Explicação detalhada sobre `useEffect` com exemplos práticos")
-       - [Limpeza de efeitos e uso de dependências](#3-limpeza-de-efeitos "Limpeza de efeitos e uso de dependências")
-       - [Erros comuns e boas práticas com `useEffect`](#erros-comuns-com-useeffect "Erros comuns e boas práticas com `useEffect`")
-     - useContext para contexto global
-       - [Explicação detalhada sobre `useContext` com exemplos práticos](#o-usecontext-para-contexto-global "Explicação detalhada sobre `useContext` com exemplos práticos")
-       - [Compartilhando dados globais com `useContext`](#exemplo-avan%C3%A7ado-compartilhando-tema-global "Compartilhando dados globais com `useContext`")
-       - [Quando usar `useContext` e evitar prop drilling](#quando-usar-usecontext "Quando usar `useContext` e evitar prop drilling")
-   - **Componentes Avançados**
-     - Componentes controlados e não controlados
-     - Refs com useRef
-     - Lazy loading e Suspense
-   - **Roteamento**
-     - Configuração básica com React Router
-     - Roteamento dinâmico
-     - Redirecionamento e links
-   - **Gerenciamento de Estado**
-     - useReducer para estados complexos
-     - Context API
-     - Integração com Redux
-   - **Estilos**
-     - CSS-in-JS com styled-components
-     - Animações com Framer Motion
-     - Tailwind CSS com React
-     - [Guia Completo de Flexbox CSS](#flexbox-css-guia-completo-elementos-e-exemplos "Guia Completo de Flexbox CSS")
-       - [O que é o Flexbox](#o-que-%C3%A9-o-flexbox "O que é o Flexbox")
-       - [Importante!](#importante "Importante!")
-       - [Juliana Amoasei](#juliana-amoasei "Juliana Amoasei")
-     - Modelo de CSS Responsivo
-       - [Modelo de CSS Responsivo com Media Queries](#modelo-de-css-responsivo-com-media-queries "Modelo de CSS Responsivo com Media Queries")
-   - **Boas Práticas**
-     - Otimização de performance com memo e useCallback
-     - Testes com React Testing Library
-     - Acessibilidade em componentes React -->
-
 ## Conteúdo
 1. **⚛️ React.JS**
    - **📁 Estrutura Básica**
