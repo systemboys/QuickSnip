@@ -23,62 +23,71 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ⚙️ [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
    - 🎨 [Instalar e Importar Bootstrap em Projeto Vite + React](#instalar-e-importar-bootstrap-em-projeto-vite--react "Instalar e Importar Bootstrap em Projeto Vite + React")
 
-2. **Exemplos CRUD com React e Prisma**
-   - **Formulário de Cadastro (Create)**
-     - Formulário simples de cadastro com validação de campos
-     - Envio de dados para o backend via API (fetch ou Axios)
-     - Armazenamento de dados no banco usando Prisma
-     - [`Gravando` dados do formulário na tabela usando o `ORM Prisma`](#gravando-dados-do-formul%C3%A1rio-na-tabela-usando-o-orm-prisma "Gravando dados do formulário na tabela usando o ORM Prisma")
-   - **Validação de Formulários**
-     - [Validação Simples de Campos com Mensagens de Erro](#exemplo-de-formul%C3%A1rio-com-valida%C3%A7%C3%A3o-e-intercepta%C3%A7%C3%A3o-de-submit "Validação Simples de Campos com Mensagens de Erro")
-   - **Listagem de Itens com DataTable (Read)**
-     - Integração com biblioteca DataTable (React Table, Material UI, etc.)
-     - Consulta de dados no backend (Prisma findMany)
-     - [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
-     - Paginação e filtros de dados
-     - [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
-   - **Consulta de Registro Único (Single)**
-     - [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
-     - [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
-     - [Rota para Obter o ID do Último Registro Criado](#rota-para-obter-o-id-do-%C3%BAltimo-registro-criado "Rota para Obter o ID do Último Registro Criado")
-   - **Edição de Registro (Update)**
-     - [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
-     - [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
-     - [`Editar` dados de um registro `no formulário`](#editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
-     - [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
-     - Atualização dos registros no backend via API
-     - Validação de dados antes da atualização
-     - [Utilizando o Operador Spread para Inserção Condicional de Propriedades](#utilizando-o-operador-spread-para-inser%C3%A7%C3%A3o-condicional-de-propriedades "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
-   - **Exclusão de Registro (Delete)**
-     - [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
-     - Exclusão de registros via API e atualização da lista no frontend
-     - [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
-     - [Rota Genérica de Exclusão via ID e Integração com Frontend React](#rota-gen%C3%A9rica-de-exclus%C3%A3o-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
-     - Tratamento de erros e feedback ao usuário
-   - **Integração Completa de Frontend e Backend**
-     - Exemplo completo de um `CRUD` (Create, Read, Update, Delete)
-       - [Rota de Criação de Registro (`Create`) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
-       - [Rota de Leitura de Registros (`Read`) com Prisma e Requisição no Frontend](#rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
-       - [Rota de Atualização de Registro (`Update`) com Prisma e Requisição no Frontend](#rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
-       - [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
-     - Reutilização de componentes e lógica no frontend
-     - Organização de `rotas` e `controllers` no backend
-       - [`Refatoração` de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
-         - [`Exemplo Genérico` de Organização de `Rotas` e `Controllers`](#exemplo-gen%C3%A9rico-de-organiza%C3%A7%C3%A3o-de-rotas-e-controllers "Exemplo Genérico de Organização de Rotas e Controllers")
-       - [Como mover a lógica de rotas para controllers para melhor organização](#como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
-       - [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
-       - [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
-         - [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
-     - [Função Genérica para Consultas e Operações CRUD com Prisma](#fun%C3%A7%C3%A3o-gen%C3%A9rica-para-consultas-e-opera%C3%A7%C3%B5es-crud-com-prisma "Função Genérica para Consultas e Operações CRUD com Prisma")
-       - [1. Estrutura Básica da Função CRUD Genérica](#1-estrutura-b%C3%A1sica-da-fun%C3%A7%C3%A3o-crud-gen%C3%A9rica "1. Estrutura Básica da Função CRUD Genérica")
-       - [2. Como Funciona](#2-como-funciona "2. Como Funciona")
-       - [3. Exemplo de Uso](#3-exemplo-de-uso "3. Exemplo de Uso")
-         - [Busca de um item específico (findUnique)](#busca-de-um-item-espec%C3%ADfico-findunique "Busca de um item específico (findUnique)")
-         - [Criação de um novo item (create)](#cria%C3%A7%C3%A3o-de-um-novo-item-create "Criação de um novo item (create)")
-         - [Atualização de um item (update)](#atualiza%C3%A7%C3%A3o-de-um-item-update "Atualização de um item (update)")
-         - [Exclusão de um item (delete)](#exclus%C3%A3o-de-um-item-delete "Exclusão de um item (delete)")
-       - [4. Considerações Importantes](#4-considera%C3%A7%C3%B5es-importantes "4. Considerações Importantes")
-       - [5. Extensão para Outros Parâmetros](#5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
+## 🔄 2. **Exemplos CRUD com React e Prisma**
+   ### 📝 **Formulário de Cadastro (Create)**
+   - 🧾 Formulário simples de cadastro com validação de campos
+   - 📤 Envio de dados para o backend via API (fetch ou Axios)
+   - 🗃️ Armazenamento de dados no banco usando Prisma
+   - 💾 [`Gravando` dados do formulário na tabela usando o `ORM Prisma`](#gravando-dados-do-formul%C3%A1rio-na-tabela-usando-o-orm-prisma "Gravando dados do formulário na tabela usando o ORM Prisma")
+
+   ### ✅ **Validação de Formulários**
+   - 🚫 [Validação Simples de Campos com Mensagens de Erro](#exemplo-de-formul%C3%A1rio-com-valida%C3%A7%C3%A3o-e-intercepta%C3%A7%C3%A3o-de-submit "Validação Simples de Campos com Mensagens de Erro")
+
+   ### 📊 **Listagem de Itens com DataTable (Read)**
+   - 🧩 Integração com biblioteca DataTable (React Table, Material UI, etc.)
+   - 🔍 Consulta de dados no backend (Prisma findMany)
+   - ⏳ [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
+   - 📑 Paginação e filtros de dados
+   - 🧮 [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
+
+   ### 🔎 **Consulta de Registro Único (Single)**
+   - 🆔 [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
+   - 🧾 [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
+   - 🔢 [Rota para Obter o ID do Último Registro Criado](#rota-para-obter-o-id-do-%C3%BAltimo-registro-criado "Rota para Obter o ID do Último Registro Criado")
+
+   ### 🛠️ **Edição de Registro (Update)**
+   - ✏️ [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
+   - 🧷 [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
+   - 🛠️ [`Editar` dados de um registro `no formulário`](#editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
+   - 🧰 [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
+   - 📲 Atualização dos registros no backend via API
+   - 🧪 Validação de dados antes da atualização
+   - 📌 [Utilizando o Operador Spread para Inserção Condicional de Propriedades](#utilizando-o-operador-spread-para-inser%C3%A7%C3%A3o-condicional-de-propriedades "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
+
+   ### 🗑️ **Exclusão de Registro (Delete)**
+   - ❗ [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
+   - 🔄 Exclusão de registros via API e atualização da lista no frontend
+   - 🧹 [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
+   - 🚮 [Rota Genérica de Exclusão via ID e Integração com Frontend React](#rota-gen%C3%A9rica-de-exclus%C3%A3o-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
+   - 🛡️ Tratamento de erros e feedback ao usuário
+
+   ### 🔗 **Integração Completa de Frontend e Backend**
+   - 🧩 Exemplo completo de um `CRUD` (Create, Read, Update, Delete)
+     - 🆕 [Rota de Criação de Registro (`Create`) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
+     - 📖 [Rota de Leitura de Registros (`Read`) com Prisma e Requisição no Frontend](#rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
+     - 🛠️ [Rota de Atualização de Registro (`Update`) com Prisma e Requisição no Frontend](#rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
+     - 🗑️ [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
+
+   - ♻️ Reutilização de componentes e lógica no frontend
+   - 🧭 Organização de `rotas` e `controllers` no backend
+     - 🧱 [`Refatoração` de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
+       - 🗂️ [`Exemplo Genérico` de Organização de `Rotas` e `Controllers`](#exemplo-gen%C3%A9rico-de-organiza%C3%A7%C3%A3o-de-rotas-e-controllers "Exemplo Genérico de Organização de Rotas e Controllers")
+     - 🧠 [Como mover a lógica de rotas para controllers para melhor organização](#como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
+     - 🛠️ [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
+     - 🧭 [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
+       - 🌐 [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
+
+   - 🔁 [Função Genérica para Consultas e Operações CRUD com Prisma](#fun%C3%A7%C3%A3o-gen%C3%A9rica-para-consultas-e-opera%C3%A7%C3%B5es-crud-com-prisma "Função Genérica para Consultas e Operações CRUD com Prisma")
+     - 🔧 [1. Estrutura Básica da Função CRUD Genérica](#1-estrutura-b%C3%A1sica-da-fun%C3%A7%C3%A3o-crud-gen%C3%A9rica "1. Estrutura Básica da Função CRUD Genérica")
+     - 📊 [2. Como Funciona](#2-como-funciona "2. Como Funciona")
+     - 🧪 [3. Exemplo de Uso](#3-exemplo-de-uso "3. Exemplo de Uso")
+       - 🔍 [Busca de um item específico (findUnique)](#busca-de-um-item-espec%C3%ADfico-findunique "Busca de um item específico (findUnique)")
+       - 🆕 [Criação de um novo item (create)](#cria%C3%A7%C3%A3o-de-um-novo-item-create "Criação de um novo item (create)")
+       - ♻️ [Atualização de um item (update)](#atualiza%C3%A7%C3%A3o-de-um-item-update "Atualização de um item (update)")
+       - 🗑️ [Exclusão de um item (delete)](#exclus%C3%A3o-de-um-item-delete "Exclusão de um item (delete)")
+     - 📌 [4. Considerações Importantes](#4-considera%C3%A7%C3%B5es-importantes "4. Considerações Importantes")
+     - ➕ [5. Extensão para Outros Parâmetros](#5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
+
 3. **Paginação de Listas com React e Prisma**
    - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
      - [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
