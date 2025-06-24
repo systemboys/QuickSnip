@@ -201,6 +201,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Geração automática de enums Prisma para uso no frontend](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-enums-prisma-para-uso-no-frontend "Geração automática de enums Prisma para uso no frontend")
    - [Versão Avançada do Script de Geração de Enums](#vers%C3%A3o-avan%C3%A7ada-do-script-de-gera%C3%A7%C3%A3o-de-enums "Versão Avançada do Script de Geração de Enums")
    - [Como consumir enums do Prisma no frontend](#como-consumir-enums-do-prisma-no-frontend "Como consumir enums do Prisma no frontend")
+19. **CSS**
+   - [Utilizando CSS Modules no React](# "Utilizando CSS Modules no React")
 
 ---
 
@@ -8578,6 +8580,55 @@ defineEmits(['update:modelValue'])
 const statuses = enums.Status
 </script>
 ```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+### Utilizando CSS Modules no React
+
+O arquivo de estilo deverá ter o seguinte nome:
+
+```
+NomeDoComponente.module.css
+```
+
+Importação da folha de estilo:
+
+```js
+import styles from './NomeDoComponente.module.css';
+```
+
+Incrementação da(s) classe(s) no elemento HTML:
+
+```jsx
+<div className={styles.nomeDaClasse}></div>
+```
+
+Para múltiplas classes dinâmicas (exemplo: baseado em uma `prop` ou `estado`):
+
+```jsx
+<div className={`${styles.base} ${styles[variavelDinamica]}`}></div>
+```
+
+Na impressão de elementos, as classes aparecerão da seguinte forma:
+
+```html
+<div class="_base_xyz12_1 _success_abc34_2"></div>
+```
+
+### Observações:
+
+* **`styles.base`** é a classe padrão definida no seu módulo.
+* **`styles[variavelDinamica]`** permite alternar estilos com base em valores dinâmicos (`'success'`, `'error'`, `'warning'`, etc).
+* O Webpack irá compilar essas classes com nomes únicos para evitar conflitos globais.
+
+Essa é a estrutura básica para aplicação de CSS Modules em qualquer componente React. Com isso, você evita vazamento de estilo e mantém um escopo encapsulado e previsível.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
