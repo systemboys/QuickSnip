@@ -12,15 +12,17 @@
 Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e backend, utilizando React.JS no frontend e Prisma no backend.
 
 ## Conteúdo
-1. **Iniciando projetos**
-   - **NodeJS**
-     - [Guia de Inicialização de Backend Node.js com TypeScript e Prisma](#-guia-de-inicializa%C3%A7%C3%A3o-de-backend-nodejs-com-typescript-e-prisma "Guia de Inicialização de Backend Node.js com TypeScript e Prisma")
-       - [Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)](#-parte-1-inicializa%C3%A7%C3%A3o-do-frontend-com-reactjs-em-lotmanagerfrontend "Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)")
-       - [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
-       - [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
-   - **Com o Vite**
-     - [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
-     - [Instalar e Importar Bootstrap em Projeto Vite + React](#instalar-e-importar-bootstrap-em-projeto-vite--react "Instalar e Importar Bootstrap em Projeto Vite + React")
+## 📁 1. **Iniciando projetos**
+   ### 🟩 **NodeJS**
+   - 📘 [Guia de Inicialização de Backend Node.js com TypeScript e Prisma](#-guia-de-inicializa%C3%A7%C3%A3o-de-backend-nodejs-com-typescript-e-prisma "Guia de Inicialização de Backend Node.js com TypeScript e Prisma")
+     - ⚛️ [Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)](#-parte-1-inicializa%C3%A7%C3%A3o-do-frontend-com-reactjs-em-lotmanagerfrontend "Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)")
+     - 🗂️ [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
+     - 🧩 [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
+
+   ### ⚡ **Com o Vite**
+   - ⚙️ [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
+   - 🎨 [Instalar e Importar Bootstrap em Projeto Vite + React](#instalar-e-importar-bootstrap-em-projeto-vite--react "Instalar e Importar Bootstrap em Projeto Vite + React")
+
 2. **Exemplos CRUD com React e Prisma**
    - **Formulário de Cadastro (Create)**
      - Formulário simples de cadastro com validação de campos
@@ -201,8 +203,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - [Geração automática de enums Prisma para uso no frontend](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-enums-prisma-para-uso-no-frontend "Geração automática de enums Prisma para uso no frontend")
    - [Versão Avançada do Script de Geração de Enums](#vers%C3%A3o-avan%C3%A7ada-do-script-de-gera%C3%A7%C3%A3o-de-enums "Versão Avançada do Script de Geração de Enums")
    - [Como consumir enums do Prisma no frontend](#como-consumir-enums-do-prisma-no-frontend "Como consumir enums do Prisma no frontend")
-19. **CSS**
-   - [Utilizando CSS Modules no React](# "Utilizando CSS Modules no React")
+19. **🎨 Estilização no React com CSS**
+   - [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
 
 ---
 
