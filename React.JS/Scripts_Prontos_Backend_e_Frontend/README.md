@@ -88,13 +88,14 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - 📌 [4. Considerações Importantes](#4-considera%C3%A7%C3%B5es-importantes "4. Considerações Importantes")
      - ➕ [5. Extensão para Outros Parâmetros](#5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
 
-3. **Paginação de Listas com React e Prisma**
-   - [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
-     - [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
-     - [Componente de Paginação: `index.jsx`](#arquivo-indexjsx "Componente de Paginação: `index.jsx`")
-   - [Outro exemplo genérico com botões ilimitados com Reticências (...)](#outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
-     - [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
-     - [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
+## 📄 3. **Paginação de Listas com React e Prisma**
+   - 📦 [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
+     - 📁 [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
+     - ⚛️ [Componente de Paginação: `index.jsx`](#arquivo-indexjsx "Componente de Paginação: `index.jsx`")
+   - ➕ [Outro exemplo genérico com botões ilimitados com Reticências (...)](#outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
+     - ⚙️ [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
+     - 🧮 [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
+
 4. **Notificações no Frontend com React**
    - [Notificação de `Conexão` de `Internet`](#notifica%C3%A7%C3%A3o-de-conex%C3%A3o-de-internet "Notificação de Conexão de Internet")
    - [Modificação para substituir o `alert()` por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
