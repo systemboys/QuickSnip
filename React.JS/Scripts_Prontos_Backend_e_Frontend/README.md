@@ -184,55 +184,66 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ➕ [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
    - 📝 [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
 
-13. **Funções Utilitárias e Automatizações**
-   - [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
-     - [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
-     - [Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa](#modulariza%C3%A7%C3%A3o-de-fun%C3%A7%C3%B5es-de-preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-em-react-com-importa%C3%A7%C3%A3o-externa "Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa")
-   - [Exemplo de Adição de Evento de Clique em JavaScript](#exemplo-de-adi%C3%A7%C3%A3o-de-evento-de-clique-em-javascript "Exemplo de Adição de Evento de Clique em JavaScript")
-   - [Passar uma propriedade de um elemento para uma arrow function](#passar-uma-propriedade-de-um-elemento-para-uma-arrow-function "Passar uma propriedade de um elemento para uma arrow function")
-   - [PopUp com uma determinada URL passada via parâmetro](#popup-com-uma-determinada-url-passada-via-par%C3%A2metro "Popup com uma determinada URL passada via parâmetro")
-   - [PopUp passando além de uma URL, dimensões e centralizada](#popup-passando-al%C3%A9m-de-uma-url-dimens%C3%B5es-e-centralizada "PopUp passando além de uma URL, dimensões e centralizada")
-   - [Contar número de caracteres de uma string](#contar-n%C3%BAmero-de-caracteres-de-uma-string "Contar número de caracteres de uma string")
-   - [Capitalizar nomes (ótimo para cadastro de pessoas)](#capitalizar-nomes-%C3%B3timo-para-cadastro-de-pessoas "Capitalizar nomes (ótimo para cadastro de pessoas)")
-   - [Capitalizar a primeira palavra de um parágrafo com exceções em ReactJS](#capitalizar-a-primeira-palavra-de-um-par%C3%A1grafo-com-exce%C3%A7%C3%B5es-em-reactjs "Capitalizar a primeira palavra de um parágrafo com exceções em ReactJS")
-   - [Transformando meses de 01 a 12 em Janeiro a Dezembro](#transformando-meses-de-01-a-12-em-janeiro-a-dezembro "Transformando meses de 01 a 12 em Janeiro a Dezembro")
-   - [Como `Rolar` a Barra de Rotação `para o Topo` de uma Página ao Carregá-la com JavaScript](#como-rolar-a-barra-de-rota%C3%A7%C3%A3o-para-o-topo-de-uma-p%C3%A1gina-ao-carreg%C3%A1-la-com-javascript "Como Rolar a Barra de Rotação para o Topo de uma Página ao Carregá-la com JavaScript")
-   - [Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura](#removendo-tags-html-em-reactjs-uma-abordagem-simples-e-segura "Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura")
-   - [Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante](#removendo-tags-html-com-reactjs-uma-abordagem-simples-e-elegante "Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante")
-   - [Função de Formatação de Data e Hora com Ajuste de Horas](#fun%C3%A7%C3%A3o-de-formata%C3%A7%C3%A3o-de-data-e-hora-com-ajuste-de-horas "Função de Formatação de Data e Hora com Ajuste de Horas")
-14. **Incorporando Serviços Externos em Aplicações React**
-   - **Google Maps**
-     - [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
-15. **CSS e Layouts em React**
-   - [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
-     - [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
-     - [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
-   - [Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)](#-diretivas-de-media-queries-para-responsividade-desktop-tablet-e-smartphone "Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)")
-16. **Meu Fluxo de Trabalho e Boas Práticas**
-   - **Organização Pessoal e Produtividade**
-     - Como organizo meus ambientes de trabalho e softwares abertos
-     - [Organização de Terminais: Fluxo de Trabalho Produtivo](#organiza%C3%A7%C3%A3o-de-terminais-fluxo-de-trabalho-produtivo "Organização de Terminais: Fluxo de Trabalho Produtivo")
-   - **Estilo de Programação**
-     - Regras pessoais para manter o código limpo
-   - **Processo de Desenvolvimento**
-     - Exemplo de Planejamento de Funcionalidades
-   - **Testes e Melhoria Contínua**
-     - Ferramentas para Automação de Testes
-   - **Boas Práticas**
-     - Boas Práticas de Colaboração em Projetos Git
-17. **Recebendo e Usando Propriedades (`props`) em Componentes React**
-   - [Modelo Genérico para Receber e Usar Props em Componentes React](#recebendo-e-usando-propriedades-props-em-componentes-react "Modelo Genérico para Receber e Usar Props em Componentes React")
-     - [Exemplo para Componentes Funcionais](#componente-funcional "Exemplo para Componentes Funcionais")
-     - [Exemplo para Componentes de Classe](#componente-de-classe "Exemplo para Componentes de Classe")
-     - [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-tipagem-e-valida%C3%A7%C3%A3o "Boas Práticas com PropTypes e TypeScript")
-18. **Modelos e Automatizações com Prisma**
-   - [Uso de ENUMs no Prisma ORM](#uso-de-enums-no-prisma-orm "Uso de ENUMs no Prisma ORM")
-   - [Integração de ENUM do Prisma com TypeScript](#integra%C3%A7%C3%A3o-de-enum-do-prisma-com-typescript "Integração de ENUM do Prisma com TypeScript")
-   - [Geração automática de enums Prisma para uso no frontend](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-enums-prisma-para-uso-no-frontend "Geração automática de enums Prisma para uso no frontend")
-   - [Versão Avançada do Script de Geração de Enums](#vers%C3%A3o-avan%C3%A7ada-do-script-de-gera%C3%A7%C3%A3o-de-enums "Versão Avançada do Script de Geração de Enums")
-   - [Como consumir enums do Prisma no frontend](#como-consumir-enums-do-prisma-no-frontend "Como consumir enums do Prisma no frontend")
-19. **🎨 Estilização no React com CSS**
-   - [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
+## 🧰 13. **Funções Utilitárias e Automatizações**
+   - 🔧 [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
+     - 🤖 [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
+     - 🧩 [Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa](#modulariza%C3%A7%C3%A3o-de-fun%C3%A7%C3%B5es-de-preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-em-react-com-importa%C3%A7%C3%A3o-externa "Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa")
+
+   - 🖱️ [Exemplo de Adição de Evento de Clique em JavaScript](#exemplo-de-adi%C3%A7%C3%A3o-de-evento-de-clique-em-javascript "Exemplo de Adição de Evento de Clique em JavaScript")
+   - 📤 [Passar uma propriedade de um elemento para uma arrow function](#passar-uma-propriedade-de-um-elemento-para-uma-arrow-function "Passar uma propriedade de um elemento para uma arrow function")
+   - 🪟 [PopUp com uma determinada URL passada via parâmetro](#popup-com-uma-determinada-url-passa... "Popup com uma determinada URL passada via parâmetro")
+   - 📐 [PopUp passando além de uma URL, dimensões e centralizada](#popup-passando-al%C3%A9m-de-uma-url-dimens%C3%B5es-e-centralizada "PopUp passando além de uma URL, dimensões e centralizada")
+   - 🔢 [Contar número de caracteres de uma string](#contar-n%C3%BAmero-de-caracteres-de-uma-string "Contar número de caracteres de uma string")
+   - 🆎 [Capitalizar nomes (ótimo para cadastro de pessoas)](#capitalizar-nomes-%C3%B3timo-para-cadastro-de-pessoas "Capitalizar nomes (ótimo para cadastro de pessoas)")
+   - 📝 [Capitalizar a primeira palavra de um parágrafo com exceções em ReactJS](#capitalizar-a-primeira-palavra-de-um-par%C3%A1grafo-com-exce%C3%A7%C3%B5es-em-reactjs "Capitalizar a primeira palavra de um parágrafo com exceções em ReactJS")
+   - 📅 [Transformando meses de 01 a 12 em Janeiro a Dezembro](#transformando-meses-de-01-a-12-em-janeiro-a-dezembro "Transformando meses de 01 a 12 em Janeiro a Dezembro")
+   - ⬆️ [Como `Rolar` a Barra de Rotação `para o Topo` de uma Página ao Carregá-la com JavaScript](#como-rolar-a-barra-de-rota%C3%A7%C3%A3o-para-o-topo-de-uma-p%C3%A1gina-ao-carreg%C3%A1-la-com-javascript "Como Rolar a Barra de Rotação para o Topo de uma Página ao Carregá-la com JavaScript")
+   - 🧼 [Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura](#removendo-tags-html-em-reactjs-uma-abordagem-simples-e-segura "Removendo Tags HTML em ReactJS: Uma Abordagem Simples e Segura")
+   - ✂️ [Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante](#removendo-tags-html-com-reactjs-uma-abordagem-simples-e-elegante "Removendo Tags HTML com ReactJS: Uma Abordagem Simples e Elegante")
+   - ⏰ [Função de Formatação de Data e Hora com Ajuste de Horas](#fun%C3%A7%C3%A3o-de-formata%C3%A7%C3%A3o-de-data-e-hora-com-ajuste-de-horas "Função de Formatação de Data e Hora com Ajuste de Horas")
+
+## 🌐 14. **Incorporando Serviços Externos em Aplicações React**
+   ### 🗺️ **Google Maps**
+   - 📍 [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
+
+## 🎨 15. **CSS e Layouts em React**
+   - 🧱 [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
+     - 📌 [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
+     - 📏 [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
+   - 📱 [Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)](#-diretivas-de-media-queries-para-responsividade-desktop-tablet-e-smartphone "Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)")
+
+## 🧠 16. **Meu Fluxo de Trabalho e Boas Práticas**
+   ### 🗂️ **Organização Pessoal e Produtividade**
+   - 🧘 Como organizo meus ambientes de trabalho e softwares abertos
+   - 🖥️ [Organização de Terminais: Fluxo de Trabalho Produtivo](#organiza%C3%A7%C3%A3o-de-terminais-fluxo-de-trabalho-produtivo "Organização de Terminais: Fluxo de Trabalho Produtivo")
+
+   ### ✍️ **Estilo de Programação**
+   - 🧼 Regras pessoais para manter o código limpo
+
+   ### 🛠️ **Processo de Desenvolvimento**
+   - 🧭 Exemplo de Planejamento de Funcionalidades
+
+   ### 🔁 **Testes e Melhoria Contínua**
+   - ⚙️ Ferramentas para Automação de Testes
+
+   ### 🤝 **Boas Práticas**
+   - 🌱 Boas Práticas de Colaboração em Projetos Git
+
+## 🧬 17. **Recebendo e Usando Propriedades (`props`) em Componentes React**
+   - 🧩 [Modelo Genérico para Receber e Usar Props em Componentes React](#recebendo-e-usando-propriedades-props-em-componentes-react "Modelo Genérico para Receber e Usar Props em Componentes React")
+     - ⚛️ [Exemplo para Componentes Funcionais](#componente-funcional "Exemplo para Componentes Funcionais")
+     - 🏗️ [Exemplo para Componentes de Classe](#componente-de-classe "Exemplo para Componentes de Classe")
+     - 📐 [Boas Práticas com PropTypes e TypeScript](#boas-pr%C3%A1ticas-tipagem-e-valida%C3%A7%C3%A3o "Boas Práticas com PropTypes e TypeScript")
+
+## 🧾 18. **Modelos e Automatizações com Prisma**
+   - 🔣 [Uso de ENUMs no Prisma ORM](#uso-de-enums-no-prisma-orm "Uso de ENUMs no Prisma ORM")
+   - 🔗 [Integração de ENUM do Prisma com TypeScript](#integra%C3%A7%C3%A3o-de-enum-do-prisma-com-typescript "Integração de ENUM do Prisma com TypeScript")
+   - 🔄 [Geração automática de enums Prisma para uso no frontend](#gera%C3%A7%C3%A3o-autom%C3%A1tica-de-enums-prisma-para-uso-no-frontend "Geração automática de enums Prisma para uso no frontend")
+   - ⚙️ [Versão Avançada do Script de Geração de Enums](#vers%C3%A3o-avan%C3%A7ada-do-script-de-gera%C3%A7%C3%A3o-de-enums "Versão Avançada do Script de Geração de Enums")
+   - 🧩 [Como consumir enums do Prisma no frontend](#como-consumir-enums-do-prisma-no-frontend "Como consumir enums do Prisma no frontend")
+
+## 🎨 19. **Estilização no React com CSS**
+   - 🧩 [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
 
 ---
 
