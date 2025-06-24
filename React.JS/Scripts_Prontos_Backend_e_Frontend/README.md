@@ -96,76 +96,94 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - ⚙️ [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
      - 🧮 [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
 
-4. **Notificações no Frontend com React**
-   - [Notificação de `Conexão` de `Internet`](#notifica%C3%A7%C3%A3o-de-conex%C3%A3o-de-internet "Notificação de Conexão de Internet")
-   - [Modificação para substituir o `alert()` por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
-   - [Exemplo de Reutilização de Notificações com `Diferentes Tipos`](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
-   - [Usar as notificações com `CSS Modules`](#usar-as-notifica%C3%A7%C3%B5es-com-css-modules "Usar as notificações com 'CSS Modules'")
-5. **Trabalhando Fenestra, API de janelas para react/redux**
-   - **Corrigindo problemas**
-     - Formulário simples de cadastro com validação de campos
-   - **Manipulação de Estilos e Classes em Componentes Modais**
-     - [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
-   - [Usando Imagens PNG como Ícones em Componentes React](#usando-imagens-png-como-%C3%ADcones-em-componentes-react "Usando Imagens PNG como Ícones em Componentes React")
-     - [Uso de URLs Externas para Imagens em Componentes React](#uso-de-urls-externas-para-imagens-em-componentes-react "Uso de URLs Externas para Imagens em Componentes React")
-6. **Testes e Simulações de Interface**
-   - **Preenchimento Automático de Formulários com JavaScript Nativo**
-     - [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
-7. **Configuração e Segurança em Projetos React**
-   - **Uso de Variáveis de Ambiente com Arquivo .env no React**
-     - [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
-     - [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
-     - [Adicionando `.env` ao `.gitignore` para evitar exposição](#3-adicionando-o-arquivo-ao-gitignore "Adicionando o Arquivo ao .gitignore")
-     - [Configuração para diferentes ambientes (desenvolvimento, produção, testes)](#4-vari%C3%A1veis-diferentes-para-ambientes-diferentes "Variáveis Diferentes para Ambientes Diferentes")
-     - [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
-     - [Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React](#gerenciamento-de-urls-de-api-por-ambiente-com-vari%C3%A1veis-de-ambiente-no-react "Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React")
-   - **Uso de Dados do `localStorage` em Componentes React**
-     - **[Acessando `companyId` do `localStorage` para Requisições API](#guia-como-acessar-dados-do-localstorage-para-requisi%C3%A7%C3%B5es-api-em-componentes-react "Acessando `companyId` do `localStorage` para Requisições API")**
-       - [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
-       - [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
-       - [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
-8. **Manipulação de Arrays em JavaScript**
-   - [Obter dados de um `Array` com o `map()`](#obter-dados-de-um-array-com-map "Obter dados de um Array com map()")
-   - [Executar Array dentro do retorno de um componente](#executar-array-dentro-do-retorno-de-um-componente "Executar Array dentro do retorno de um componente")
-   - [Mapeamento direto no map()](#mapeamento-direto-no-map "Mapeamento direto no map()")
-   - [Pequenos macetes de Array](#pequenos-macetes-de-array "Pequenos macetes de Array")
-      - [Filtrar itens mistos de um array](#filtrar-itens-mistos-de-um-array "Filtrar itens mistos de um array")
-      - [Filtrar os números ímpares de um array](#filtrar-os-n%C3%BAmeros-%C3%ADmpares-de-um-array "Filtrar os números ímpares de um array")
-      - [Retornar o index da idade maior que 30 anos](#retornar-o-index-da-idade-maior-que-30-anos "Retornar o index da idade maior que 30 anos")
-   - [Array `map()`, `filter()` e `reduce()`](#array-map-filter-e-reduce "Array map(), filter() e reduce()")
-      - [Array map()](#array-map "Array map()")
-      - [Array filter()](#array-filter "Array filter()")
-      - [Array reduce()](#array-reduce "Array reduce()")
-9. **Resolução de Problemas e Manutenção do Projeto**
-   - [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
-10. **Estrutura e Implementação de Componentes**
-   - **Ícones e Componentes Visuais**
-     - [Implementação de Ícones Font-Awesome em Componentes React](#como-implementar-%C3%ADcones-font-awesome-em-componentes-react "Implementação de Ícones Font-Awesome em Componentes React")
-   - **Abas com Props para Componentes**
-     - [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
-     - [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
-     - [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
-   - [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
-   - [Navegação Dinâmica com React Router para Redirecionamento](#navega%C3%A7%C3%A3o-din%C3%A2mica-com-react-router-redirecionando-para-componentes-em-uma-spa "Navegação Dinâmica com React Router para Redirecionamento")
-11. **Envio de Emails e Comunicação Backend**
-   - **Envio de Emails com Nodemailer**
-     - [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios "Estrutura de Diretórios para Projeto de Envio de Emails")
-     - [Configuração do Servidor com Express e Nodemailer](#configura%C3%A7%C3%A3o-do-backend "Configuração do Servidor com Express e Nodemailer")
-     - [Criação da Rota para Envio de Email com Nodemailer](#3-criar-rota-para-envio-de-email "Criação da Rota para Envio de Email com Nodemailer")
-     - [Uso de Arquivo `.env` para Configurações Sensíveis](#4-configura%C3%A7%C3%A3o-do-env "Uso de Arquivo .env para Configurações Sensíveis")
-     - [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
-     - [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
-12. **Manipulação de Objetos no DOM com JavaScript**
-   - [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
-   - [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
-   - [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
-     > **Substituição de conteúdo**
-     > - [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
-     > - [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
-     > - [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
-   - [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
-   - [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
-   - [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
+## 🔔 4. **Notificações no Frontend com React**
+   - 🌐 [Notificação de `Conexão` de `Internet`](#notifica%C3%A7%C3%A3o-de-conex%C3%A3o-de-internet "Notificação de Conexão de Internet")
+   - ✨ [Modificação para substituir o `alert()` por uma mensagem estilizada](#modifica%C3%A7%C3%A3o-para-substituir-o-alert-por-uma-mensagem-estilizada "Modificação para substituir o alert() por uma mensagem estilizada")
+   - 🔁 [Exemplo de Reutilização de Notificações com `Diferentes Tipos`](#exemplo-de-reutiliza%C3%A7%C3%A3o-de-notifica%C3%A7%C3%B5es-com-diferentes-tipos "Exemplo de Reutilização de Notificações com Diferentes Tipos")
+   - 🎨 [Usar as notificações com `CSS Modules`](#usar-as-notifica%C3%A7%C3%B5es-com-css-modules "Usar as notificações com 'CSS Modules'")
+
+## 🪟 5. **Trabalhando Fenestra, API de janelas para react/redux**
+   ### 🛠️ **Corrigindo problemas**
+   - 📝 Formulário simples de cadastro com validação de campos
+
+   ### 🎛️ **Manipulação de Estilos e Classes em Componentes Modais**
+   - 🧩 [Adicionando Classe na Div Mãe](#adicionando-classe-na-div-m%C3%A3e "Adicionando Classe na Div Mãe")
+
+   ### 🖼️ [Usando Imagens PNG como Ícones em Componentes React](#usando-imagens-png-como-%C3%ADcones-em-componentes-react "Usando Imagens PNG como Ícones em Componentes React")
+   - 🌍 [Uso de URLs Externas para Imagens em Componentes React](#uso-de-urls-externas-para-imagens-em-componentes-react "Uso de URLs Externas para Imagens em Componentes React")
+
+## 🧪 6. **Testes e Simulações de Interface**
+   ### ⚙️ **Preenchimento Automático de Formulários com JavaScript Nativo**
+   - 💻 [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
+
+## 🔐 7. **Configuração e Segurança em Projetos React**
+   ### ⚙️ **Uso de Variáveis de Ambiente com Arquivo .env no React**
+   - 🧾 [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
+   - 💡 [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
+   - 🚫 [Adicionando `.env` ao `.gitignore` para evitar exposição](#3-adicionando-o-arquivo-ao-gitignore "Adicionando o Arquivo ao .gitignore")
+   - 🔀 [Configuração para diferentes ambientes (desenvolvimento, produção, testes)](#4-vari%C3%A1veis-diferentes-para-ambientes-diferentes "Variáveis Diferentes para Ambientes Diferentes")
+   - ⚠️ [Considerações de segurança e limites (ex.: não incluir dados sensíveis no frontend)](#5-limita%C3%A7%C3%B5es-e-avisos "Limitações e Avisos")
+   - 🌐 [Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React](#gerenciamento-de-urls-de-api-por-ambiente-com-vari%C3%A1veis-de-ambiente-no-react "Gerenciamento de URLs de API por Ambiente com Variáveis de Ambiente no React")
+
+   ### 🗄️ **Uso de Dados do `localStorage` em Componentes React**
+   - 📥 **[Acessando `companyId` do `localStorage` para Requisições API](#guia-como-acessar-dados-do-localstorage-para-requisi%C3%A7%C3%B5es-api-em-componentes-react "Acessando `companyId` do `localStorage` para Requisições API")**
+     - 🔍 [Instruções para acessar dados como `companyId` do `localStorage` em componentes React](#passo-a-passo-1 "Instruções para acessar dados como `companyId` do `localStorage` em componentes React")
+     - 🧰 [Exemplo genérico para reutilização em múltiplos componentes](#exemplo-gen%C3%A9rico "Exemplo genérico para reutilização em múltiplos componentes")
+     - 🛡️ [Considerações de segurança e verificação de dados antes do uso](#reutiliza%C3%A7%C3%A3o-em-outros-componentes "Considerações de segurança e verificação de dados antes do uso")
+
+## 🧮 8. **Manipulação de Arrays em JavaScript**
+   - 🔄 [Obter dados de um `Array` com o `map()`](#obter-dados-de-um-array-com-map "Obter dados de um Array com map()")
+   - 🧬 [Executar Array dentro do retorno de um componente](#executar-array-dentro-do-retorno-de-um-componente "Executar Array dentro do retorno de um componente")
+   - ⚡ [Mapeamento direto no map()](#mapeamento-direto-no-map "Mapeamento direto no map()")
+
+   ### 🧠 [Pequenos macetes de Array](#pequenos-macetes-de-array "Pequenos macetes de Array")
+   - 🧹 [Filtrar itens mistos de um array](#filtrar-itens-mistos-de-um-array "Filtrar itens mistos de um array")
+   - 🔢 [Filtrar os números ímpares de um array](#filtrar-os-n%C3%BAmeros-%C3%ADmpares-de-um-array "Filtrar os números ímpares de um array")
+   - 🕵️ [Retornar o index da idade maior que 30 anos](#retornar-o-index-da-idade-maior-que-30-anos "Retornar o index da idade maior que 30 anos")
+
+   ### 🧰 [Array `map()`, `filter()` e `reduce()`](#array-map-filter-e-reduce "Array map(), filter() e reduce()")
+   - 🔁 [Array map()](#array-map "Array map()")
+   - 🚫 [Array filter()](#array-filter "Array filter()")
+   - 📉 [Array reduce()](#array-reduce "Array reduce()")
+
+## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
+   - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
+
+## 🧱 10. **Estrutura e Implementação de Componentes**
+   ### 🎨 **Ícones e Componentes Visuais**
+   - ⭐ [Implementação de Ícones Font-Awesome em Componentes React](#como-implementar-%C3%ADcones-font-awesome-em-componentes-react "Implementação de Ícones Font-Awesome em Componentes React")
+
+   ### 🧭 **Abas com Props para Componentes**
+     - 📡 [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
+     - 🗂️ [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
+     - 🔗 [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
+
+   - 📏 [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
+   - 🧭 [Navegação Dinâmica com React Router para Redirecionamento](#navega%C3%A7%C3%A3o-din%C3%A2mica-com-react-router-redirecionando-para-componentes-em-uma-spa "Navegação Dinâmica com React Router para Redirecionamento")
+
+## ✉️ 11. **Envio de Emails e Comunicação Backend**
+   ### 📤 **Envio de Emails com Nodemailer**
+   - 🗂️ [Estrutura de Diretórios para Projeto de Envio de Emails](#estrutura-de-diret%C3%B3rios "Estrutura de Diretórios para Projeto de Envio de Emails")
+   - ⚙️ [Configuração do Servidor com Express e Nodemailer](#configura%C3%A7%C3%A3o-do-backend "Configuração do Servidor com Express e Nodemailer")
+   - 🚀 [Criação da Rota para Envio de Email com Nodemailer](#3-criar-rota-para-envio-de-email "Criação da Rota para Envio de Email com Nodemailer")
+   - 🔐 [Uso de Arquivo `.env` para Configurações Sensíveis](#4-configura%C3%A7%C3%A3o-do-env "Uso de Arquivo .env para Configurações Sensíveis")
+   - 🔗 [Integração com o Frontend (React)](#configura%C3%A7%C3%A3o-do-frontend "Integração com o Frontend (React)")
+   - ▶️ [Instruções para Executar o Projeto](#executar-o-projeto "Instruções para Executar o Projeto")
+
+## 🧩 12. **Manipulação de Objetos no DOM com JavaScript**
+   - ❌ [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
+   - 🔼 [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
+   - 🔽 [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
+
+     > 🔁 **Substituição de conteúdo**
+     > - 🔄 [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
+     > - ⚛️ [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
+     > - 🧪 [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
+
+   - 🧷 [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
+   - ➕ [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
+   - 📝 [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
+
 13. **Funções Utilitárias e Automatizações**
    - [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
      - [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
