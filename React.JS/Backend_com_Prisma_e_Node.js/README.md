@@ -10,55 +10,67 @@
 <!-- /Botões de navegação -->
 
 ## Conteúdo
-1. **ORM Prisma**
-   - **Instalação e Configuração**
-     - Configuração inicial do Prisma
-     - Definição do schema.prisma
-     - Integração com bancos de dados (PostgreSQL, MySQL, etc.)
-   - **Modelagem de Dados**
-     - Definição de modelos no Prisma
-     - Relacionamentos (1:1, 1:N, N:M)
-     - Campos opcionais e padrões
-   - **Consultas**
-     - Consultas básicas (findUnique, findMany)
-     - Filtragem, paginação e ordenação
-     - Relações aninhadas
-   - **Mutations**
-     - Criação de registros (create)
-     - Atualização de registros (update)
-     - Exclusão de registros (delete)
-   - **Migrations**
-     - Gerar migrations a partir do schema
-     - Aplicar migrations no banco de dados
-     - Desfazer migrations
-     - [Sincronizar Modelo do Banco de Dados](#sincronizar-modelo-do-banco-de-dados "Sincronizar Modelo do Banco de Dados")
-     - [Gerar Tipos e Classes a Partir do Schema](#gerar-tipos-e-classes-a-partir-do-schema "Gerar Tipos e Classes a Partir do Schema")
-   - **Manutenção de Dependências**
-     - [Atualizar Dependências do Prisma](#1-atualizar-depend%C3%AAncias-do-prisma "Comandos para Atualizar e Corrigir Dependências do Prisma")
-     - [Corrigir Vulnerabilidades de Segurança](#2-corrigir-vulnerabilidades-com-npm-audit-fix "Comandos para Atualizar e Corrigir Dependências do Prisma")
-2. **Gerenciamento de Banco de Dados**
-   - **Estrutura de Tabelas**
-     - [Adicionar Colunas em Tabelas Existentes](#adicionar-uma-nova-coluna-como-chave-estrangeira "Adicionar Colunas em Tabelas Existentes")
-     - [Transformar Colunas em Chaves Estrangeiras](#transformar-uma-coluna-existente-em-uma-chave-estrangeira "Transformar Colunas em Chaves Estrangeiras")
-     - [Verificar Consistência de Dados](#verificar-consist%C3%AAncia-dos-dados-antes-de-criar-uma-fk "Verificar Consistência de Dados para Chaves Estrangeiras")
-     - [Remover Chaves Estrangeiras](#remover-uma-chave-estrangeira "Remover Chaves Estrangeiras")
-     - [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")
-     - [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
-   - **Linguagem SQL**
-     - [Introdução ao SQL](#sql---linguagem-de-consulta-estruturada "Introdução ao SQL")
-     - [DDL (Data Definition Language)](#1-ddl-data-definition-language---linguagem-de-defini%C3%A7%C3%A3o-de-dados "DDL (Data Definition Language)")
-     - [DML (Data Manipulation Language)](#2-dml-data-manipulation-language---linguagem-de-manipula%C3%A7%C3%A3o-de-dados "DML (Data Manipulation Language)")
-     - [DQL (Data Query Language)](#3-dql-data-query-language---linguagem-de-consulta-de-dados "DQL (Data Query Language)")
-     - [DCL (Data Control Language)](#4-dcl-data-control-language---linguagem-de-controle-de-dados "DCL (Data Control Language)")
-     - [DTL (Data Transaction Language)](#5-dtl-data-transaction-language---linguagem-de-transa%C3%A7%C3%A3o-de-dados "DTL (Data Transaction Language)")
-3. **Testes e Depuração de APIs**
-   - **Testando Endpoints com Insomnia**
-     - [Executando um CRUD no Insomnia](#como-executar-um-crud-no-insomnia "Executando um CRUD no Insomnia")
-     - [Configuração de Variáveis de Ambiente no Insomnia](#configura%C3%A7%C3%A3o-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
-4. **Resolução de Erros Comuns no Desenvolvimento**
-   - [Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)](#erro-eaddrinuse---porta-j%C3%A1-est%C3%A1-em-uso-no-linux-debian "Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)")
-     - [Como identificar e encerrar processos do Node.js](#passo-a-passo-para-resolver "Como identificar e encerrar processos do Node.js")
-     - [Corrigindo problemas de dependências no Node.js](#automatizar-no-desenvolvimento "Corrigindo problemas de dependências no Node.js")
+## 🧠 1. **ORM Prisma**
+   ### ⚙️ **Instalação e Configuração**
+   - 🛠️ Configuração inicial do Prisma  
+   - 📄 Definição do schema.prisma  
+   - 🔗 Integração com bancos de dados (PostgreSQL, MySQL, etc.)
+
+   ### 🧱 **Modelagem de Dados**
+   - 🧬 Definição de modelos no Prisma  
+   - 🔄 Relacionamentos (1:1, 1:N, N:M)  
+   - 📎 Campos opcionais e padrões  
+
+   ### 🔍 **Consultas**
+   - 🔎 Consultas básicas (findUnique, findMany)  
+   - 🧮 Filtragem, paginação e ordenação  
+   - 🧬 Relações aninhadas  
+
+   ### ✍️ **Mutations**
+   - 🆕 Criação de registros (create)  
+   - ✏️ Atualização de registros (update)  
+   - 🗑️ Exclusão de registros (delete)  
+
+   ### 🧱 **Migrations**
+   - 📜 Gerar migrations a partir do schema  
+   - ⚙️ Aplicar migrations no banco de dados  
+   - ↩️ Desfazer migrations  
+   - 🔄 [Sincronizar Modelo do Banco de Dados](#sincronizar-modelo-do-banco-de-dados "Sincronizar Modelo do Banco de Dados")  
+   - 🧬 [Gerar Tipos e Classes a Partir do Schema](#gerar-tipos-e-classes-a-partir-do-schema "Gerar Tipos e Classes a Partir do Schema")
+
+   ### 🔧 **Manutenção de Dependências**
+   - 📦 [Atualizar Dependências do Prisma](#1-atualizar-depend%C3%AAncias-do-prisma "Comandos para Atualizar e Corrigir Dependências do Prisma")  
+   - 🛡️ [Corrigir Vulnerabilidades de Segurança](#2-corrigir-vulnerabilidades-com-npm-audit-fix "Comandos para Atualizar e Corrigir Dependências do Prisma")
+
+
+## 🗄️ 2. **Gerenciamento de Banco de Dados**
+   ### 🧩 **Estrutura de Tabelas**
+   - ➕ [Adicionar Colunas em Tabelas Existentes](#adicionar-uma-nova-coluna-como-chave-estrangeira "Adicionar Colunas em Tabelas Existentes")  
+   - 🔗 [Transformar Colunas em Chaves Estrangeiras](#transformar-uma-coluna-existente-em-uma-chave-estrangeira "Transformar Colunas em Chaves Estrangeiras")  
+   - 🔍 [Verificar Consistência de Dados](#verificar-consist%C3%AAncia-dos-dados-antes-de-criar-uma-fk "Verificar Consistência de Dados para Chaves Estrangeiras")  
+   - ❌ [Remover Chaves Estrangeiras](#remover-uma-chave-estrangeira "Remover Chaves Estrangeiras")  
+   - ✏️ [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")  
+   - ✅ [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
+
+   ### 🧾 **Linguagem SQL**
+   - 📘 [Introdução ao SQL](#sql---linguagem-de-consulta-estruturada "Introdução ao SQL")  
+   - 🏗️ [DDL (Data Definition Language)](#1-ddl-data-definition-language---linguagem-de-defini%C3%A7%C3%A3o-de-dados "DDL (Data Definition Language)")  
+   - ✍️ [DML (Data Manipulation Language)](#2-dml-data-manipulation-language---linguagem-de-manipula%C3%A7%C3%A3o-de-dados "DML (Data Manipulation Language)")  
+   - 🔍 [DQL (Data Query Language)](#3-dql-data-query-language---linguagem-de-consulta-de-dados "DQL (Data Query Language)")  
+   - 🔐 [DCL (Data Control Language)](#4-dcl-data-control-language---linguagem-de-controle-de-dados "DCL (Data Control Language)")  
+   - 💾 [DTL (Data Transaction Language)](#5-dtl-data-transaction-language---linguagem-de-transa%C3%A7%C3%A3o-de-dados "DTL (Data Transaction Language)")
+
+
+## 🔬 3. **Testes e Depuração de APIs**
+   ### 🧪 **Testando Endpoints com Insomnia**
+   - 🔁 [Executando um CRUD no Insomnia](#como-executar-um-crud-no-insomnia "Executando um CRUD no Insomnia")  
+   - ⚙️ [Configuração de Variáveis de Ambiente no Insomnia](#configura%C3%A7%C3%A3o-de-ambiente-no-insomnia "Configuração de Variáveis de Ambiente no Insomnia")
+
+
+## 🐞 4. **Resolução de Erros Comuns no Desenvolvimento**
+   - 🚫 [Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)](#erro-eaddrinuse---porta-j%C3%A1-est%C3%A1-em-uso-no-linux-debian "Erro: EADDRINUSE - Porta já está em uso no Linux (Debian)")
+     - 🧩 [Como identificar e encerrar processos do Node.js](#passo-a-passo-para-resolver "Como identificar e encerrar processos do Node.js")  
+     - 🔄 [Corrigindo problemas de dependências no Node.js](#automatizar-no-desenvolvimento "Corrigindo problemas de dependências no Node.js")
 
 ---
 
