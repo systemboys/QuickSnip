@@ -147,7 +147,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 📉 [Array reduce()](#array-reduce "Array reduce()")
 
    ### 🧠 [Pequenos macetes de Array](#pequenos-macetes-de-array "Pequenos macetes de Array")
-   - 🧪 [Gerar múltiplos elementos com `Array.from()` para prototipação de componentes](#gerar-multiplos-elementos-com-arrayfrom-para-prototipacao-de-componentes "Gerar múltiplos elementos com Array.from() para prototipação de componentes")
+   - 🧪 [Gerar múltiplos elementos com `Array.from()` para prototipação de componentes](#gera%C3%A7%C3%A3o-r%C3%A1pida-de-elementos-com-arrayfrom-para-testes-em-frontend "Gerar múltiplos elementos com Array.from() para prototipação de componentes")
 
 
 ## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
