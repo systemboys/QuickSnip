@@ -146,6 +146,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🚫 [Array filter()](#array-filter "Array filter()")
    - 📉 [Array reduce()](#array-reduce "Array reduce()")
 
+   ### 🧠 [Pequenos macetes de Array](#pequenos-macetes-de-array "Pequenos macetes de Array")
+   - 🧪 [Gerar múltiplos elementos com `Array.from()` para prototipação de componentes](#gerar-multiplos-elementos-com-arrayfrom-para-prototipacao-de-componentes "Gerar múltiplos elementos com Array.from() para prototipação de componentes")
+
+
 ## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
 
@@ -5779,6 +5783,56 @@ console.log(total); // Retornando "39.2".
 <!-- /Botões de navegação -->
 
 ---
+
+## Geração Rápida de Elementos com `Array.from` para Testes em Frontend
+
+### Descrição
+
+Durante o desenvolvimento de interfaces, especialmente ao montar protótipos ou testar layout de componentes repetitivos (como cards, placeholders, colunas ou listas), é comum precisar repetir a mesma estrutura várias vezes.
+
+Para evitar repetição manual de JSX, pode-se usar `Array.from({ length: N })` combinado com `.map()` para gerar rapidamente `N` componentes.
+
+### Vantagens
+
+* Código mais limpo e reutilizável
+* Ideal para testes ou placeholders durante o desenvolvimento
+* Evita cópias e colagens desnecessárias
+
+### Exemplo Genérico
+
+```jsx
+import React from 'react';
+
+const ExampleComponent = () => {
+  return (
+    <div className="container">
+      {Array.from({ length: 4 }).map((_, index) => (
+        <div key={index} className="card">
+          <img
+            src="https://via.placeholder.com/150"
+            alt={`Placeholder ${index + 1}`}
+          />
+          <h3>Card #{index + 1}</h3>
+          <p>Descrição de exemplo para o card número {index + 1}.</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ExampleComponent;
+```
+
+### Dica
+
+Você pode substituir o número `4` pela quantidade desejada e alterar o conteúdo interno do `.map()` conforme o componente que estiver utilizando (`<Card />`, `<Col />`, `<ListItem />`, etc).
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
 
 ## Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS
 
