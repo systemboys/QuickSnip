@@ -1123,7 +1123,7 @@ Para formatar os dados retornados pela consulta em um array com a estrutura dese
 Importações necessárias:
 
 ```jsx
-// Importações necessárias
+// Importações necessárias.
 import { Api } from '../../server/api';  // Importar a API.
 import { useState, useEffect } from 'react';
 ```
