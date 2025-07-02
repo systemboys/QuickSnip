@@ -18,6 +18,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - ⚛️ [Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)](#-parte-1-inicializa%C3%A7%C3%A3o-do-frontend-com-reactjs-em-lotmanagerfrontend "Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)")
      - 🗂️ [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
      - 🧩 [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
+   - 🔧 [Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)](#-projeto-fullstack--nodejs--express--prisma--reactjs-conexão-mysql-hostgator "Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)")
 
    ### ⚡ **Com o Vite**
    - ⚙️ [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
@@ -621,6 +622,242 @@ app.listen(PORT, () => {
 ```
 
 Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vite + React + TypeScript, prontos para evoluir com sua aplicação LotManager.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)
+
+### 📂 **Projeto Backend + Frontend (Node.js, Express, Prisma, React.js) – Passo a Passo**
+
+#### 📝 **Pré-requisitos**
+
+- Node.js instalado
+- VS Code (ou IDE de sua preferência)
+- Banco de dados MySQL configurado (ex: HostGator)
+
+------
+
+### 🔧 **Backend – Node.js + Express + Prisma**
+
+✅ **1. Criar pasta e inicializar projeto Node.js**
+
+```bash
+mkdir backend
+cd backend
+npm init -y
+```
+
+------
+
+✅ **2. Instalar dependências**
+
+```bash
+npm install express prisma @prisma/client
+```
+
+------
+
+✅ **3. Inicializar Prisma**
+
+```bash
+npx prisma init
+```
+
+Isso cria:
+
+- Pasta `prisma/`
+- Arquivo `schema.prisma`
+- Arquivo `.env`
+
+------
+
+✅ **4. Configurar `.env` com dados do banco MySQL**
+
+Exemplo:
+
+```
+DATABASE_URL="mysql://usuario:senha@host:3306/database"
+```
+
+------
+
+✅ **5. Configurar `schema.prisma` mapeando tabela existente**
+
+Exemplo para tabela `test_table`:
+
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model TestTable {
+  id               Int      @id @default(autoincrement()) @map("id")
+  itemDescription  String?  @map("item_description")
+  registrationDate DateTime? @map("registration_date")
+  registrationTime String?  @map("registration_time")
+  companyId        Int?     @map("company_id")
+
+  @@map("test_table")
+}
+```
+
+------
+
+✅ **6. Rodar introspecção do banco para importar tabelas**
+
+```bash
+npx prisma db pull
+```
+
+------
+
+✅ **7. Gerar Prisma Client**
+
+```bash
+npx prisma generate
+```
+
+------
+
+✅ **8. Instale o CORS no seu backend.**
+
+```bash
+npm install cors
+```
+
+✅ **9. Criar `index.js` com o servidor Express**
+
+Crie `index.js` na raiz do backend:
+
+```js
+import cors from 'cors';
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
+
+const app = express();
+const prisma = new PrismaClient();
+
+app.use(cors());
+
+app.get('/', async (req, res) => {
+  try {
+    const result = await prisma.testTable.findMany();
+    res.json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar dados.' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Servidor rodando em http://localhost:3000');
+});
+```
+
+------
+
+✅ **10. Ajustar `package.json` para ES Modules**
+
+Adicione:
+
+```json
+"type": "module",
+```
+
+Logo após `"version": "1.0.0",`.
+
+------
+
+✅ **11. Rodar o servidor**
+
+```bash
+node index.js
+```
+
+- Acesse http://localhost:3000
+- Verifique os dados retornados em JSON.
+
+------
+
+### 🎨 **Frontend – React.js**
+
+✅ **12. Criar projeto React.js**
+
+No terminal (fora da pasta backend):
+
+```bash
+npx create-react-app frontend
+```
+
+------
+
+✅ **13. Rodar projeto React.js**
+
+```bash
+cd frontend
+npm start
+```
+
+------
+
+✅ **14. Consumir API backend no React**
+
+Exemplo de uso com `fetch`:
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000')
+      .then(res => res.json())
+      .then(data => setItems(data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div>
+      <h1>Itens do Banco de Dados</h1>
+      <ul>
+        {items.map(item => (
+          <li key={item.id}>{item.itemDescription}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+```
+
+------
+
+### 🚀 **Resumo do fluxo**
+
+1. **Backend**: Node.js + Express + Prisma conectado ao MySQL HostGator
+2. **Frontend**: React.js consumindo API REST local
+
+------
+
+### 💾 **Sugestão de título no Codex**
+
+```
+🔧 Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
