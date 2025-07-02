@@ -1120,6 +1120,16 @@ Aqui está uma forma genérica para que você possa utilizá-la em outros compon
 
 Para formatar os dados retornados pela consulta em um array com a estrutura desejada em JSON, siga os passos abaixo:
 
+Importações necessárias:
+
+```jsx
+// Impoertações necessárias
+import { Api } from '../../server/api';
+import { useState, useEffect } from 'react';
+```
+
+Chamada da API:
+
 ```jsx
 // Realizar a chamada à API para buscar dados e formatá-los conforme o necessário.
 const [dataList, setDataList] = useState([]);
