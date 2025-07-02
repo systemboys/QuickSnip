@@ -360,11 +360,31 @@ npm install @prisma/client
 npx prisma init
 ```
 
-No `.env`, configure a URL do banco (exemplo com SQLite):
+( ! ) No `.env`, configure a URL do banco (exemplo com SQLite):
 
 ```env
 DATABASE_URL="file:./dev.db"
 ```
+
+Modelo para banco de dados `MySQL`:
+
+```tex
+DATABASE_URL="mysql://usuario:senha@endereco_do_host:3306/banco_de_dados"
+             "──┬──://───┬───:──┬──@──────────┬─────:────/──────┬───────"
+                └────────┼──────┼─────────────┼─────────────────┼─► Tipo do banco de dados
+                         └──────┼─────────────┼─────────────────┼─► Nome do usuário do banco
+                                └─────────────┼─────────────────┼─► Senha do usuário do banco
+                                              └─────────────────┼─► Endereço do host:porta
+                                                                └─► Nome do banco de dados
+```
+
+| Parâmetro               | Descrição                 |
+| ----------------------- | ------------------------- |
+| `mysql`                 | Tipo do banco de dados    |
+| `usuario`               | Nome do usuário do banco  |
+| `senha`                 | Senha do usuário do banco |
+| `endereco_do_host:3306` | Endereço do host:porta    |
+| `banco_de_dados`        | Nome do banco de dados    |
 
 Exemplo de modelo no `prisma/schema.prisma`:
 
