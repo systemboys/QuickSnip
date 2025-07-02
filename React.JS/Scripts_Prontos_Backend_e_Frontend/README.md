@@ -1124,7 +1124,7 @@ Importações necessárias:
 
 ```jsx
 // Importações necessárias
-import { Api } from '../../server/api';  // Importar a API
+import { Api } from '../../server/api';  // Importar a API.
 import { useState, useEffect } from 'react';
 ```
 
