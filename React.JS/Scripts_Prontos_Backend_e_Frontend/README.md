@@ -18,7 +18,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - ⚛️ [Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)](#-parte-1-inicializa%C3%A7%C3%A3o-do-frontend-com-reactjs-em-lotmanagerfrontend "Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)")
      - 🗂️ [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
      - 🧩 [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
-   - 🔧 [Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)](#-projeto-fullstack--nodejs--express--prisma--reactjs-conexão-mysql-hostgator "Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)")
+   - 🔧 [Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)](#projeto-fullstack--nodejs--express--prisma--reactjs-conex%C3%A3o-mysql-hostgator "Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)")
 
    ### ⚡ **Com o Vite**
    - ⚙️ [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
