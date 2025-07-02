@@ -368,7 +368,7 @@ DATABASE_URL="file:./dev.db"
 
 Modelo para banco de dados `MySQL`:
 
-```tex
+```bash
 DATABASE_URL="mysql://usuario:senha@endereco_do_host:3306/banco_de_dados"
              "──┬──://───┬───:──┬──@──────────┬─────:────/──────┬───────"
                 └────────┼──────┼─────────────┼─────────────────┼─► Tipo do banco de dados
