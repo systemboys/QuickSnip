@@ -16,9 +16,9 @@ Estrutura com o conteúdo de **Frontend** englobado dentro de **React.JS**:
 
 ### 🏆 Badges
 
-![Profile Views](https://komarev.com/ghpvc/?username=systemboys&label=Profile%20views&color=0e75b6&style=flat)
-![GitHub User's stars](https://img.shields.io/github/stars/systemboys?affiliations=OWNER%2CCOLLABORATOR&style=flat-square)
-![Repos Badge](https://badgen.net/github/repos/systemboys)
+[![Profile Views](https://komarev.com/ghpvc/?username=systemboys&label=Profile%20views&color=0e75b6&style=flat)](https://github.com/systemboys/QuickSnip/tree/main)
+[![GitHub User's stars](https://img.shields.io/github/stars/systemboys?affiliations=OWNER%2CCOLLABORATOR&style=flat-square)](https://github.com/systemboys/QuickSnip/tree/main)
+[![Repos Badge](https://badgen.net/github/repos/systemboys)](https://github.com/systemboys/QuickSnip/tree/main)
 
 ### Menu de Snippets QuickSnip
 
