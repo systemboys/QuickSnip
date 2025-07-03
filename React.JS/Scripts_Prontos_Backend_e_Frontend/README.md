@@ -8357,9 +8357,10 @@ Garantir que a aplicação web se adapte corretamente a diferentes tamanhos de t
 
 Para manter a produtividade e organização no desenvolvimento do projeto, utilizo uma estrutura de **três terminais separados**, cada um com uma responsabilidade específica. Essa divisão facilita a execução de tarefas simultâneas e evita confusões ao rodar o sistema. A organização é a seguinte:
 
-| Terminais no VSCode                                          | Informações                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+|                     Terminais no VSCode                      | Informações                                                  |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
 | ![Terminais](../Backend_com_Prisma_e_Node.js/images/Terminals.png) | A imagem ilustra como organizo e utilizo os terminais de forma separada em projetos que envolvem Backend e Frontend, com o objetivo de manter a estrutura organizada e otimizar a produtividade no desenvolvimento. |
+| ![Terminais 2](/home/marcos/Documentos/Projects/QuickSnip/React.JS/Backend_com_Prisma_e_Node.js/images/Terminals_2.png) | Quando há a necessidade de trabalhar com mais de um projeto, posso organizá-los colocando cores além dos ícones, cores diferentes para cada projeto, assim, de forma que não me perca no que estou desenvolvendo. |
 
 > ( i ) Marcos Auélio Rocha da Silva (Engenheiro de Software).
 >
