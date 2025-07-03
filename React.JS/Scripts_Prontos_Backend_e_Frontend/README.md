@@ -6287,8 +6287,8 @@ docker-compose up -d
 ### 💡 **Dicas finais**
 
 ✅ Ajuste os caminhos conforme o framework utilizado (React, Next.js, Vite).
- ✅ Em ambientes de produção, utilize variáveis de ambiente para conexões e configurações sensíveis.
- ✅ Mantenha seu `default.conf` dentro do contexto de build para evitar erros de caminho.
+✅ Em ambientes de produção, utilize variáveis de ambiente para conexões e configurações sensíveis.
+✅ Mantenha seu `default.conf` dentro do contexto de build para evitar erros de caminho.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
