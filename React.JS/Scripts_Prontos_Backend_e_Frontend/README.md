@@ -6166,9 +6166,11 @@ MyProject/
 ├── frontend/
 │   ├── Dockerfile
 │   └── nginx/
-│       └── default.conf  // newFile: [nginx/default.conf]
+│       └── default.conf
 └── docker-compose.yml
 ```
+
+> ( i ) Para efeito de copiar e colar, `newFile: [nginx/default.conf]` para criar o arquivo `default.conf` já com o diretório `nginx`!
 
 ------
 
