@@ -153,6 +153,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
+   - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
@@ -6142,6 +6143,157 @@ Esse procedimento pode corrigir problemas de CORS e outros conflitos, eliminando
 <!-- /Botões de navegação -->
 
 ---
+
+## 🚀 **Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)**
+
+### 🎯 **Objetivo**
+
+Estruturar projetos com containers separados para:
+
+- **Frontend (Nginx servindo build React ou Vite)**
+- **Backend (Node.js com Prisma)**
+
+Utilizando `docker-compose` e Nginx como proxy estático do frontend.
+
+------
+
+### 📁 **Estrutura de diretórios**
+
+```bash
+MyProject/
+├── backend/
+│   └── Dockerfile
+├── frontend/
+│   ├── Dockerfile
+│   └── nginx/
+│       └── default.conf  // newFile: [nginx/default.conf]
+└── docker-compose.yml
+```
+
+------
+
+### ⚙️ **Conteúdo do `docker-compose.yml`**
+
+```yaml
+version: '3.3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - gti
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 3333:3333
+    networks:
+      - gti
+
+networks:
+  gti:
+    driver: bridge
+```
+
+------
+
+### 🐳 **Conteúdo do `Dockerfile` do backend**
+
+```dockerfile
+FROM node:18
+WORKDIR /app
+
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3333
+
+CMD ["npm", "run", "dev"]
+```
+
+------
+
+### 🐳 **Conteúdo do `Dockerfile` do frontend**
+
+```dockerfile
+# Stage 1: build do Vite
+FROM node:18 as builder
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: nginx para servir o build
+FROM nginx
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+```
+
+------
+
+> ⚠️ **Observação importante para o `Dockerfile` do frontend**
+>
+> Este modelo utiliza `--from=builder`, portanto **exige um estágio anterior de build**. Se não houver multistage no próprio Dockerfile, ou se o build for gerado localmente, use:
+>
+> ```dockerfile
+> COPY ./build /usr/share/nginx/html
+> ```
+>
+> ou ajuste para o caminho correto do build (`build` para React CRA ou `dist` para Vite).
+
+------
+
+### 📄 **Conteúdo do `default.conf` (Nginx)**
+
+```nginx
+server {
+    listen 80;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
+
+------
+
+### 🚀 **Instruções de uso**
+
+1. Certifique-se que **seu build frontend está gerado** (localmente ou via multistage build).
+2. Rode:
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
+1. Acesse via navegador usando o IP ou domínio configurado para o container frontend (porta 80).
+
+------
+
+### 💡 **Dicas finais**
+
+✅ Ajuste os caminhos conforme o framework utilizado (React, Next.js, Vite).
+ ✅ Em ambientes de produção, utilize variáveis de ambiente para conexões e configurações sensíveis.
+ ✅ Mantenha seu `default.conf` dentro do contexto de build para evitar erros de caminho.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
 
 ## Como implementar Ícones Font-Awesome em componentes React
 
