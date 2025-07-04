@@ -119,7 +119,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🔐 7. **Configuração e Segurança em Projetos React**
    ### 🛡️ **Cloudflare e Domínios**
-   - 🛡️ [Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)](#procedimentos-apontar-dominio-para-aws-e-ativar-ssl-cloudflare-flexible "Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)")
+   - 🛡️ [Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)](#%EF%B8%8F-procedimentos-para-apontar-dom%C3%ADnio-para-aws-e-ativar-ssl-na-cloudflare-modo-flexible "Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)")
 
    ### ⚙️ **Uso de Variáveis de Ambiente com Arquivo .env no React**
    - 🧾 [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
