@@ -118,6 +118,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 💻 [Preencher diferentes tipos de campos usando o console do navegador](#preencher-diferentes-tipos-de-campos-usando-o-console-do-navegador "Preencher diferentes tipos de campos usando o console do navegador")
 
 ## 🔐 7. **Configuração e Segurança em Projetos React**
+   ### 🛡️ **Cloudflare e Domínios**
+   - 🛡️ [Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)](#procedimentos-apontar-dominio-para-aws-e-ativar-ssl-cloudflare-flexible "Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)")
+
    ### ⚙️ **Uso de Variáveis de Ambiente com Arquivo .env no React**
    - 🧾 [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
    - 💡 [Acessando variáveis de ambiente no código usando `process.env`](#2-utiliza%C3%A7%C3%A3o-no-c%C3%B3digo "Utilização no Código")
@@ -5376,6 +5379,92 @@ Esse código simula a ação do usuário preenchendo os campos e disparando os e
 Você pode simplesmente copiar e colar esse código no console do navegador enquanto estiver na página com o formulário, e o JavaScript preencherá os campos automaticamente.
 
 Caso tenha mais campos ou queira ajustes, é só me avisar!
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🛡️ **Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)**
+
+### ✅ **Resumo geral**
+
+Este procedimento orienta como configurar um domínio comprado (ex.: Registro.BR) para apontar para uma instância na AWS EC2, utilizando a **Cloudflare como gerenciadora de DNS** e habilitando **SSL Flexible** para acesso seguro sem necessidade de certificado no backend.
+
+## 🔢 **Passo a passo detalhado**
+
+### 1. **Adicionar domínio na Cloudflare**
+
+- Acesse sua conta [Cloudflare](https://dash.cloudflare.com/).
+- Clique em **“+ Adicionar um domínio”**.
+- Digite o domínio (ex.: `systemboys.com.br`) e clique em **Continuar**.
+- Selecione o plano **Free (gratuito)**.
+
+### 2. **Verificar nameservers fornecidos**
+
+- Após adicionar, a Cloudflare mostrará dois **nameservers (NS)**.
+- Exemplo:
+  - fred.ns.cloudflare.com
+  - lorna.ns.cloudflare.com
+
+### 3. **Alterar nameservers no registrador**
+
+- Acesse o painel do seu registrador (ex.: Registro.BR).
+- Localize o domínio e vá na opção **DNS ou Nameservers**.
+- Substitua os NS atuais pelos fornecidos pela Cloudflare.
+- Salve e confirme.
+
+### 4. **Aguardar propagação**
+
+- Propagação pode levar **5 min até 24h**.
+- No painel da Cloudflare, aguarde o status mudar para **Ativo**.
+
+### 5. **Criar registro do subdomínio**
+
+- Na Cloudflare, vá em **DNS > Registros**.
+- Clique em **“Adicionar registro”**.
+- Configure:
+  - **Tipo:** A
+  - **Nome:** subdomínio desejado (ex.: `sfb`)
+  - **Endereço IPv4:** IP público da instância AWS (ex.: `54.196.229.103`)
+  - **Status do proxy:** Ativado (nuvem laranja)
+
+### 6. **Testar acesso HTTP**
+
+- Abra o navegador e acesse:
+
+  ```
+  http://sfb.seudominio.com.br
+  ```
+
+- Confirme que abre corretamente antes de configurar o SSL.
+
+### 7. **Configurar SSL Flexible na Cloudflare**
+
+- Vá em **SSL/TLS > Visão Geral**.
+- Clique em **“Configurar”** ou **“Selecionar modo de criptografia”**.
+- Escolha **Flexible**.
+  - O navegador acessará via **HTTPS até a Cloudflare**.
+  - A Cloudflare se comunicará com o servidor via **HTTP**.
+
+### 8. **Testar acesso HTTPS**
+
+- Acesse:
+
+  ```
+  https://sfb.seudominio.com.br
+  ```
+
+- Confirme que aparece o cadeado de **Conexão segura**.
+
+## 💡 **Notas finais**
+
+- O modo **Flexible** não criptografa tráfego entre Cloudflare e servidor; use **Full (Strict)** em produção com certificado válido instalado no backend.
+- Para máxima segurança, configure **Let’s Encrypt** ou **Cloudflare Origin Certificate** em seu servidor e altere o modo SSL na Cloudflare posteriormente.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
