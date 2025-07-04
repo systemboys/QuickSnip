@@ -120,6 +120,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ## 🔐 7. **Configuração e Segurança em Projetos React**
    ### 🛡️ **Cloudflare e Domínios**
    - 🛡️ [Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)](#%EF%B8%8F-procedimentos-para-apontar-dom%C3%ADnio-para-aws-e-ativar-ssl-na-cloudflare-modo-flexible "Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)")
+     - 🔀 [Configuração para forçar redirecionamento automático de http para https](#configuração-para-forçar-redirecionamento-automático-de-http-para-https)
 
    ### ⚙️ **Uso de Variáveis de Ambiente com Arquivo .env no React**
    - 🧾 [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
@@ -5465,6 +5466,50 @@ Este procedimento orienta como configurar um domínio comprado (ex.: Registro.BR
 
 - O modo **Flexible** não criptografa tráfego entre Cloudflare e servidor; use **Full (Strict)** em produção com certificado válido instalado no backend.
 - Para máxima segurança, configure **Let’s Encrypt** ou **Cloudflare Origin Certificate** em seu servidor e altere o modo SSL na Cloudflare posteriormente.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🔀 Configuração para forçar redirecionamento automático de http para https
+
+### 🎯 Objetivo
+Garantir que todas as requisições ao seu domínio sejam redirecionadas automaticamente para `https://`, mesmo que o usuário digite ou acesse via `http://`.
+
+### 🔧 Procedimento (Cloudflare)
+
+1. **Acesse a Cloudflare**  
+   Entre na sua conta [Cloudflare](https://dash.cloudflare.com) e selecione o domínio desejado.
+
+2. **Vá para SSL/TLS → Certificados de borda**  
+   No menu lateral, clique em:
+
+
+3. **Role até a seção: "Sempre usar HTTPS"**  
+- Localize a opção **"Sempre usar HTTPS" (Always use HTTPS)**.
+- Ative essa opção clicando no botão de alternância.
+
+✅ **O que isso faz?**  
+Garante que qualquer solicitação feita com `http://` seja automaticamente redirecionada para `https://`.
+
+4. **Confirme se o modo SSL/TLS está habilitado**  
+- Ainda em **SSL/TLS → Visão geral**, confirme que o modo esteja configurado como **Flexible** ou **Full (caso seu servidor tenha certificado SSL)**.
+- Para aplicações **sem configuração de SSL no backend (como Node.js puro sem HTTPS)**, use **Flexible**.
+- Para aplicações **com SSL configurado no servidor (Nginx, Apache ou Node.js com HTTPS)**, use **Full**.
+
+### ⚠️ Observações importantes
+
+- Esse redirecionamento é feito **automaticamente pela Cloudflare**, sem necessidade de código adicional no frontend ou backend.
+- No entanto, se desejar **forçar HTTPS no backend** (ex.: Express.js), implemente redirecionamento apenas se o modo SSL/TLS for **Full** para evitar loop de redirecionamento.
+- Recomenda-se testar o redirecionamento em **ambientes locais e externos** após ativar.
+
+✅ **Resultado esperado**
+- Qualquer acesso via `http://suaaplicacao.com.br` ou subdomínios como `http://sfb.suaaplicacao.com.br` será imediatamente redirecionado para `https://...` garantindo maior segurança, confiabilidade e confiança visual (cadeado seguro) aos usuários.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
