@@ -154,7 +154,6 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    ### 🧠 [Pequenos macetes de Array](#pequenos-macetes-de-array "Pequenos macetes de Array")
    - 🧪 [Gerar múltiplos elementos com `Array.from()` para prototipação de componentes](#gera%C3%A7%C3%A3o-r%C3%A1pida-de-elementos-com-arrayfrom-para-testes-em-frontend "Gerar múltiplos elementos com Array.from() para prototipação de componentes")
 
-
 ## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
@@ -254,6 +253,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🎨 19. **Estilização no React com CSS**
    - 🧩 [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
+
+## 🖥️ 20. **Configuração de Ambiente e Ferramentas de Desenvolvimento**
+   ### 🔧 **VSCode**
+   - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-codex-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
 
 ---
 
@@ -9280,6 +9283,124 @@ Na impressão de elementos, as classes aparecerão da seguinte forma:
 * O Webpack irá compilar essas classes com nomes únicos para evitar conflitos globais.
 
 Essa é a estrutura básica para aplicação de CSS Modules em qualquer componente React. Com isso, você evita vazamento de estilo e mantém um escopo encapsulado e previsível.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+# 📄 **Configuração do SFTP no VSCode (Debian Linux)**
+
+### 🎯 **Objetivo**
+
+Conectar o VSCode via SFTP a servidores AWS EC2 ou outros, utilizando arquivo PEM para autenticação SSH.
+
+---
+
+## 📝 **1. Pré-requisitos**
+
+✅ VSCode instalado
+✅ Chave PEM (.pem) gerada e com permissão correta
+✅ Servidor EC2 ou outro acessível na porta 22 (ou definida)
+
+---
+
+## 🔧 **2. Instalando o VSCode (caso necessário)**
+
+```bash
+sudo apt update
+sudo apt install wget gpg
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt update
+sudo apt install code
+```
+
+---
+
+## 💻 **3. Instalando a extensão SFTP**
+
+1. Abra o VSCode.
+2. Vá em **Extensions (Ctrl+Shift+X)**.
+3. Pesquise por: `SFTP` (by liximomo).
+4. Clique em **Install**.
+
+---
+
+## 🔑 **4. Configurando o `sftp.json`**
+
+1. Na raiz do projeto, crie uma pasta `.vscode` se não existir:
+
+   ```bash
+   mkdir -p .vscode
+   ```
+
+2. Dentro dela, crie o arquivo `sftp.json`.
+
+3. Exemplo de configuração corporativa com PEM:
+
+```json
+{
+  "name": "SiS Float Base - AWS",
+  "host": "54.196.229.103",
+  "protocol": "sftp",
+  "port": 22,
+  "username": "admin",
+  "remotePath": "/",
+  "uploadOnSave": false,
+  "useTempFile": false,
+  "openSsh": false,
+  "privateKeyPath": "/home/SEU_USUARIO/CAMINHO/ARQUIVO.pem"
+}
+```
+
+⚠️ **Importante:**
+
+* **`privateKeyPath`** aponta para o caminho absoluto do arquivo `.pem`.
+* Exemplo real:
+
+  ```json
+  "privateKeyPath": "/home/marcos/Documentos/AWS/GTi SiS/gti-sis.pem"
+  ```
+
+---
+
+## 🔐 **5. Ajustando permissão do PEM**
+
+Para evitar erros de permissão SSH:
+
+```bash
+chmod 400 /home/marcos/Documentos/AWS/GTi\ SiS/gti-sis.pem
+```
+
+---
+
+## 🚀 **6. Utilizando**
+
+✅ Abra o **SFTP Explorer** no VSCode (ícone no sidebar)
+✅ Clique no projeto configurado
+✅ Navegue pelos arquivos remotos
+✅ Faça upload/download clicando com botão direito em cada arquivo ou pasta
+
+---
+
+## 🛡️ **7. Notas de segurança corporativa**
+
+* **Nunca versionar o PEM** (adicione no `.gitignore`).
+* **Use chaves rotativas** para evitar exposição prolongada de credenciais.
+* **Valide grupos de segurança** para limitar IPs externos à porta 22.
+* **Prefira Remote-SSH** para edição direta se não precisar de sync de arquivos.
+
+---
+
+### ✅ **Conclusão**
+
+Essa configuração via **SFTP + PEM** integra de forma simples o VSCode a servidores AWS, mantendo **práticas seguras de chave privada** e garantindo agilidade em deploys manuais, manutenção ou acessos emergenciais.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
