@@ -255,7 +255,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🧩 [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
 
 ## 🖥️ 20. **Configuração de Ambiente e Ferramentas de Desenvolvimento**
-   ### 🔧 **VSCode**
+   #### 🔧 **VSCode**
    - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-codex-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
 
 ---
