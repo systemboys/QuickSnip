@@ -256,7 +256,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🖥️ 20. **Configuração de Ambiente e Ferramentas de Desenvolvimento**
    #### 🔧 **VSCode**
-   - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-codex-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
+   - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
 
 ---
 
@@ -9399,6 +9399,8 @@ chmod 400 /home/marcos/Documentos/AWS/GTi\ SiS/gti-sis.pem
 ---
 
 ### ✅ **Conclusão**
+
+![SFTP no VSCode](./images/SFTP_SiS_Float_Base.png)
 
 Essa configuração via **SFTP + PEM** integra de forma simples o VSCode a servidores AWS, mantendo **práticas seguras de chave privada** e garantindo agilidade em deploys manuais, manutenção ou acessos emergenciais.
 
