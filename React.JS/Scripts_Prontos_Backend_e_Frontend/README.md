@@ -157,6 +157,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
+   - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configuração-de-proxy-reverso-nginx--vite_api_url-para-produção-aws)
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
@@ -6433,6 +6434,81 @@ docker-compose up -d
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
+
+---
+
+## 🔀 **Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS**
+
+### 🎯 **Objetivo**
+
+Configurar o servidor Nginx e o arquivo `.env.production` do frontend para:
+
+✅ Permitir que o frontend (React + Vite) e o backend (Node.js API) rodem juntos em um servidor real (ex.: instância AWS EC2 com Linux).
+✅ As requisições do frontend para a API sejam realizadas via proxy reverso do Nginx, utilizando o caminho `/api`.
+
+### ⚙️ **Passo 1 – Editar o arquivo Nginx default.conf**
+
+**Local:** frontend/nginx/default.conf
+
+Conteúdo:
+
+```conf
+server{
+    listen 80;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api/ {
+        proxy_pass http://54.196.229.103:3333/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+✅ **Explicação do bloco /api/:**
+Redireciona qualquer requisição feita para `/api` no frontend para o backend rodando no IP público `54.196.229.103` na porta `3333`.
+
+### ⚙️ **Passo 2 – Configurar o arquivo .env.production**
+
+**Local:** frontend/.env.production
+
+Conteúdo:
+
+```env
+VITE_API_URL=/api
+```
+
+✅ **Explicação:**
+Define que as requisições do frontend sejam relativas ao caminho `/api`, que será interceptado e redirecionado pelo Nginx para o backend.
+
+### 💡 **Resultado final**
+
+* Usuários acessam normalmente o frontend pelo domínio configurado no Nginx (ex.: [http://sfb.systemboys.com.br](http://sfb.systemboys.com.br)).
+* Todas as requisições à API feitas pelo frontend (axios, fetch, etc.) para `VITE_API_URL=/api` serão proxy-pass para o backend Node.js rodando na porta 3333, sem problemas de CORS ou Mixed Content.
+
+### 🛠️ **Notas adicionais**
+
+✔️ O backend deve estar configurado para ouvir em `0.0.0.0`, não apenas em localhost, para aceitar conexões externas e do Nginx.
+✔️ Caso utilize HTTPS, será necessário configurar certificados SSL no Nginx e atualizar o proxy\_pass para https\:// se a API rodar com SSL.
+
+📌 **Use este procedimento em deploys de produção que utilizem Nginx como proxy reverso para backend Node.js com frontend Vite/React, garantindo organização, segurança e praticidade.**
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
 
 ## Como implementar Ícones Font-Awesome em componentes React
 
