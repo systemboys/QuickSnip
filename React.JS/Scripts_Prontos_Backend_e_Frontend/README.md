@@ -120,7 +120,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ## 🔐 7. **Configuração e Segurança em Projetos React**
    ### 🛡️ **Cloudflare e Domínios**
    - 🛡️ [Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)](#%EF%B8%8F-procedimentos-para-apontar-dom%C3%ADnio-para-aws-e-ativar-ssl-na-cloudflare-modo-flexible "Procedimentos para apontar domínio para AWS e ativar SSL na Cloudflare (modo Flexible)")
-     - 🔀 [Configuração para forçar redirecionamento automático de http para https](#-configura%C3%A7%C3%A3o-para-for%C3%A7ar-redirecionamento-autom%C3%A1tico-de-http-para-https)
+     - 🔀 [Configuração para forçar redirecionamento automático de http para https](#-configura%C3%A7%C3%A3o-para-for%C3%A7ar-redirecionamento-autom%C3%A1tico-de-http-para-https "Configuração para forçar redirecionamento automático de http para https")
 
    ### ⚙️ **Uso de Variáveis de Ambiente com Arquivo .env no React**
    - 🧾 [Estrutura e convenções do arquivo `.env` com `REACT_APP_`](#1-estrutura-e-conven%C3%A7%C3%B5es "Estrutura e Convenções")
@@ -157,7 +157,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ## 🛠️ 9. **Resolução de Problemas e Manutenção do Projeto**
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
-   - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configuração-de-proxy-reverso-nginx--vite_api_url-para-produção-aws)
+   - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configura%C3%A7%C3%A3o-de-proxy-reverso-nginx--vite_api_url-para-produ%C3%A7%C3%A3o-aws "Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS")
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
