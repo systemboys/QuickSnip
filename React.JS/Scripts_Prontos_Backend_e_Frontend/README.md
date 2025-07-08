@@ -3315,15 +3315,48 @@ Para mover a lógica para um **controller**, você só precisa criar arquivos de
 ```ts
 // user.controller.ts
 import { Request, Response } from 'express';
+import prisma from "../prisma";
 
-export const getUsers = (req: Request, res: Response) => {
-    // Lógica de obtenção de usuários
+// Listar todos os administradores
+export async function getAdmins(req: Request, res: Response) {
+    // Busca e retorna a lista de administradores
+    // ... <Escreva o código de sua rota aqui/> ...
     res.send('List of users from controller');
 };
 
-export const createUser = (req: Request, res: Response) => {
-    // Lógica de criação de usuário
+// Adicionar administrador
+export async function addAdmins(req: Request, res: Response) {
+    // Cria um novo administrador no banco de dados
+    // ... <Escreva o código de sua rota aqui/> ...
     res.send('User created from controller');
+};
+
+// Atualizar administrador
+export async function updateAdmin(req: Request, res: Response) {
+    // Atualiza os dados de um administrador existente
+    // ... <Escreva o código de sua rota aqui/> ...
+    res.send('User updated from controller');
+};
+
+// Deletar administrador
+export async function deleteAdmin(req: Request, res: Response) {
+    // Remove um administrador pelo ID
+    // ... <Escreva o código de sua rota aqui/> ...
+    res.send('User deleted from controller');
+};
+
+// Selecionar um único administrador
+export async function singleAdmin(req: Request, res: Response) {
+    // Busca e retorna os dados de um administrador específico
+    // ... <Escreva o código de sua rota aqui/> ...
+    res.send('Single user fetched from controller');
+};
+
+// Atualizar background_id do administrador
+export async function companySystemUpdateBackgroundId(req: Request, res: Response) {
+    // Atualiza o background_id de um administrador pelo ID
+    // ... <Escreva o código de sua rota aqui/> ...
+    res.send('Admin background_id updated from controller');
 };
 ```
 
