@@ -3269,41 +3269,21 @@ Sim, é totalmente possível adicionar **controllers** no seu projeto futurament
 Atualmente, você provavelmente está definindo suas rotas diretamente no arquivo de rotas, algo como:
 
 ```ts
-import express from "express";
-export const routes = express.Router();
+import { Router } from 'express';
 
-// Importação dos controllers de Administradores
-import {
-    getAdmins,
-    addAdmins,
-    updateAdmin,
-    deleteAdmin,
-    singleAdmin,
-    companySystemUpdateBackgroundId
-} from "./controllers/admins.controller";
+const router = Router();
 
-/* Insira outras importações.
-import {
-    getYourRoute,
-    addYourRoute,
-    updateYourRoute,
-    deleteYourRoute,
-    singleYourRoute,
-    ...
-} from "./controllers/yourRoute.controller";
-*/
+router.get('/users', (req, res) => {
+    // Lógica diretamente aqui
+    res.send('List of users');
+});
 
-// Rotas relacionadas a Administradores
-routes.get("/getAdmins/:companyId", getAdmins); // Listar todos os administradores.
-routes.post("/addAdmins/:companyId", addAdmins); // Criar um novo administrador.
-routes.put("/updateAdmin/:companyId/:id", updateAdmin); // Atualizar administrador existente.
-routes.delete("/deleteAdmin/:companyId/:id", deleteAdmin); // Remover administrador.
-routes.get("/singleAdmin/:companyId/:id", singleAdmin); // Obter dados de um administrador específico.
-routes.put("/adminUpdateBackgroundId/:adminId/:adminBackgroundId", companySystemUpdateBackgroundId); // Atualizar o background_id do administrador.
+router.post('/users', (req, res) => {
+    // Lógica diretamente aqui
+    res.send('User created');
+});
 
-/* Insira outras rotas.
-routes.get("/yourRoute/:id", getYourRoute); // Listar todos os "????".
-*/
+export default router;
 ```
 
 ### Como adicionar **controllers** mais tarde
@@ -3315,48 +3295,15 @@ Para mover a lógica para um **controller**, você só precisa criar arquivos de
 ```ts
 // user.controller.ts
 import { Request, Response } from 'express';
-import prisma from "../prisma";
 
-// Listar todos os administradores
-export async function getAdmins(req: Request, res: Response) {
-    // Busca e retorna a lista de administradores
-    // ... <Escreva o código de sua rota aqui/> ...
+export const getUsers = (req: Request, res: Response) => {
+    // Lógica de obtenção de usuários
     res.send('List of users from controller');
 };
 
-// Adicionar administrador
-export async function addAdmins(req: Request, res: Response) {
-    // Cria um novo administrador no banco de dados
-    // ... <Escreva o código de sua rota aqui/> ...
+export const createUser = (req: Request, res: Response) => {
+    // Lógica de criação de usuário
     res.send('User created from controller');
-};
-
-// Atualizar administrador
-export async function updateAdmin(req: Request, res: Response) {
-    // Atualiza os dados de um administrador existente
-    // ... <Escreva o código de sua rota aqui/> ...
-    res.send('User updated from controller');
-};
-
-// Deletar administrador
-export async function deleteAdmin(req: Request, res: Response) {
-    // Remove um administrador pelo ID
-    // ... <Escreva o código de sua rota aqui/> ...
-    res.send('User deleted from controller');
-};
-
-// Selecionar um único administrador
-export async function singleAdmin(req: Request, res: Response) {
-    // Busca e retorna os dados de um administrador específico
-    // ... <Escreva o código de sua rota aqui/> ...
-    res.send('Single user fetched from controller');
-};
-
-// Atualizar background_id do administrador
-export async function companySystemUpdateBackgroundId(req: Request, res: Response) {
-    // Atualiza o background_id de um administrador pelo ID
-    // ... <Escreva o código de sua rota aqui/> ...
-    res.send('Admin background_id updated from controller');
 };
 ```
 
