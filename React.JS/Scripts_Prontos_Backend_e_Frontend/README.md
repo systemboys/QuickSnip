@@ -3269,21 +3269,41 @@ Sim, é totalmente possível adicionar **controllers** no seu projeto futurament
 Atualmente, você provavelmente está definindo suas rotas diretamente no arquivo de rotas, algo como:
 
 ```ts
-import { Router } from 'express';
+import express from "express";
+export const routes = express.Router();
 
-const router = Router();
+// Importação dos controllers de Administradores
+import {
+    getAdmins,
+    addAdmins,
+    updateAdmin,
+    deleteAdmin,
+    singleAdmin,
+    companySystemUpdateBackgroundId
+} from "./controllers/admins.controller";
 
-router.get('/users', (req, res) => {
-    // Lógica diretamente aqui
-    res.send('List of users');
-});
+/* Insira outras importações.
+import {
+    getYourRoute,
+    addYourRoute,
+    updateYourRoute,
+    deleteYourRoute,
+    singleYourRoute,
+    ...
+} from "./controllers/yourRoute.controller";
+*/
 
-router.post('/users', (req, res) => {
-    // Lógica diretamente aqui
-    res.send('User created');
-});
+// Rotas relacionadas a Administradores
+routes.get("/getAdmins/:companyId", getAdmins); // Listar todos os administradores.
+routes.post("/addAdmins/:companyId", addAdmins); // Criar um novo administrador.
+routes.put("/updateAdmin/:companyId/:id", updateAdmin); // Atualizar administrador existente.
+routes.delete("/deleteAdmin/:companyId/:id", deleteAdmin); // Remover administrador.
+routes.get("/singleAdmin/:companyId/:id", singleAdmin); // Obter dados de um administrador específico.
+routes.put("/adminUpdateBackgroundId/:adminId/:adminBackgroundId", companySystemUpdateBackgroundId); // Atualizar o background_id do administrador.
 
-export default router;
+/* Insira outras rotas.
+routes.get("/yourRoute/:id", getYourRoute); // Listar todos os "????".
+*/
 ```
 
 ### Como adicionar **controllers** mais tarde
