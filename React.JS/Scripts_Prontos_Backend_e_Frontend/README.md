@@ -3324,41 +3324,33 @@ export const singleUser = async (req: Request, res: Response) => {
 Agora, você pode importar os métodos do controller e vinculá-los às rotas:
 
 ```ts
-// ========================
+// ======================
 // IMPORTAÇÕES DE MÓDULOS
-// ========================
+// ======================
 import express from "express";
 export const routes = express.Router();
 
-// ================================
-// IMPORTAÇÃO DE CONTROLLERS (USER)
-// ================================
+// =========================
+// IMPORTAÇÃO DE CONTROLLERS
+// =========================
+// .:: Importar controllers de Usuários ::.
 import {
   getUsers,
   addUsers,
   updateUser,
   deleteUser,
   singleUser
-} from './controllers/user.controller'; // Controller de Admins
+} from './controllers/user.controller'; // Controller de Usuários.
 
-// ========================
+// =======================
 // DEFINIÇÃO DAS ROTAS API
-// ========================
-
-// Rota para listar todos os administradores de uma empresa
-routes.get("/getUsers/:companyId", getUsers);
-
-// Rota para adicionar novos administradores em uma empresa
-routes.post("/addUsers/:companyId", addUsers);
-
-// Rota para atualizar informações de um administrador específico
-routes.put("/updateUser/:companyId/:id", updateUser);
-
-// Rota para deletar um administrador específico
-routes.delete("/deleteUser/:companyId/:id", deleteUser);
-
-// Rota para buscar detalhes de um único administrador específico
-routes.get("/singleUser/:companyId/:id", singleUser);
+// =======================
+// .:: Rotas para Usuários ::.
+routes.get("/getUsers/:companyId", getUsers); // Rota para listar todos os administradores de uma empresa.
+routes.post("/addUsers/:companyId", addUsers); // Rota para adicionar novos administradores em uma empresa.
+routes.put("/updateUser/:companyId/:id", updateUser); // Rota para atualizar informações de um administrador específico.
+routes.delete("/deleteUser/:companyId/:id", deleteUser); // Rota para deletar um administrador específico.
+routes.get("/singleUser/:companyId/:id", singleUser); // Rota para buscar detalhes de um único administrador específico.
 ```
 
 ### Vantagens de usar **controllers**:
