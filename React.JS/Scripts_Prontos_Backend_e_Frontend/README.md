@@ -3297,15 +3297,26 @@ Para mover a lógica para um **controller**, você só precisa criar arquivos de
 import { Request, Response } from 'express';
 import prisma from "../prisma";
 
-export const getUsers = (req: Request, res: Response) => {
-    // Lógica de obtenção de usuários
-    res.send('List of users from controller');
+export const getUsers = async (req: Request, res: Response) => {
+    // TODO: Implement logic to get all users
 };
 
-export const createUser = (req: Request, res: Response) => {
-    // Lógica de criação de usuário
-    res.send('User created from controller');
+export const addUsers = async (req: Request, res: Response) => {
+    // TODO: Implement logic to add new user(s)
 };
+
+export const updateUser = async (req: Request, res: Response) => {
+    // TODO: Implement logic to update a user by ID
+};
+
+export const deleteUser = async (req: Request, res: Response) => {
+    // TODO: Implement logic to delete a user by ID
+};
+
+export const singleUser = async (req: Request, res: Response) => {
+    // TODO: Implement logic to get a single user by ID
+};
+
 ```
 
 #### 2. Atualizar o arquivo de rotas (`routes.ts`):
@@ -3323,11 +3334,11 @@ export const routes = express.Router();
 // IMPORTAÇÃO DE CONTROLLERS (USER)
 // ================================
 import {
-  getAdmins,
-  addAdmins,
-  updateAdmin,
-  deleteAdmin,
-  singleAdmin
+  getUsers,
+  addUsers,
+  updateUser,
+  deleteUser,
+  singleUser
 } from './controllers/user.controller'; // Controller de Admins
 
 // ========================
@@ -3335,19 +3346,19 @@ import {
 // ========================
 
 // Rota para listar todos os administradores de uma empresa
-routes.get("/getAdmins/:companyId", getAdmins);
+routes.get("/getUsers/:companyId", getUsers);
 
 // Rota para adicionar novos administradores em uma empresa
-routes.post("/addAdmins/:companyId", addAdmins);
+routes.post("/addUsers/:companyId", addUsers);
 
 // Rota para atualizar informações de um administrador específico
-routes.put("/updateAdmin/:companyId/:id", updateAdmin);
+routes.put("/updateUser/:companyId/:id", updateUser);
 
 // Rota para deletar um administrador específico
-routes.delete("/deleteAdmin/:companyId/:id", deleteAdmin);
+routes.delete("/deleteUser/:companyId/:id", deleteUser);
 
 // Rota para buscar detalhes de um único administrador específico
-routes.get("/singleAdmin/:companyId/:id", singleAdmin);
+routes.get("/singleUser/:companyId/:id", singleUser);
 ```
 
 ### Vantagens de usar **controllers**:
