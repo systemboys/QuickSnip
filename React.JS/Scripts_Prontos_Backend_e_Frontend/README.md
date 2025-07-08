@@ -9325,6 +9325,12 @@ const statuses = enums.Status
 O arquivo de estilo deverá ter o seguinte nome:
 
 ```
+styles.module.css
+```
+
+Ou se quiser, pode nomear com o nome do seu arquivo de componente com a incrementação de `*.module.css`.
+
+```
 NomeDoComponente.module.css
 ```
 
