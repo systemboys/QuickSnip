@@ -3295,6 +3295,7 @@ Para mover a lógica para um **controller**, você só precisa criar arquivos de
 ```ts
 // user.controller.ts
 import { Request, Response } from 'express';
+import prisma from "../prisma";
 
 export const getUsers = (req: Request, res: Response) => {
     // Lógica de obtenção de usuários
@@ -3312,17 +3313,41 @@ export const createUser = (req: Request, res: Response) => {
 Agora, você pode importar os métodos do controller e vinculá-los às rotas:
 
 ```ts
-// routes.ts
-import { Router } from 'express';
-import { getUsers, createUser } from './controllers/user.controller'; // Importar o controller
+// ========================
+// IMPORTAÇÕES DE MÓDULOS
+// ========================
+import express from "express";
+export const routes = express.Router();
 
-const router = Router();
+// ================================
+// IMPORTAÇÃO DE CONTROLLERS (USER)
+// ================================
+import {
+  getAdmins,
+  addAdmins,
+  updateAdmin,
+  deleteAdmin,
+  singleAdmin
+} from './controllers/user.controller'; // Controller de Admins
 
-// Usar o controller nas rotas
-router.get('/users', getUsers);
-router.post('/users', createUser);
+// ========================
+// DEFINIÇÃO DAS ROTAS API
+// ========================
 
-export default router;
+// Rota para listar todos os administradores de uma empresa
+routes.get("/getAdmins/:companyId", getAdmins);
+
+// Rota para adicionar novos administradores em uma empresa
+routes.post("/addAdmins/:companyId", addAdmins);
+
+// Rota para atualizar informações de um administrador específico
+routes.put("/updateAdmin/:companyId/:id", updateAdmin);
+
+// Rota para deletar um administrador específico
+routes.delete("/deleteAdmin/:companyId/:id", deleteAdmin);
+
+// Rota para buscar detalhes de um único administrador específico
+routes.get("/singleAdmin/:companyId/:id", singleAdmin);
 ```
 
 ### Vantagens de usar **controllers**:
