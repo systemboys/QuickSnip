@@ -221,6 +221,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - 📌 [Implementação de Quadros no Canto Inferior Direito](#estrutura-do-componente-react "Implementação de Quadros no Canto Inferior Direito")
      - 📏 [Estilização de Componentes com Altura Flexível](#estilos-css-floatingboxescss "Estilização de Componentes com Altura Flexível")
    - 📱 [Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)](#-diretivas-de-media-queries-para-responsividade-desktop-tablet-e-smartphone "Diretivas de Media Queries para Responsividade (Desktop, Tablet e Smartphone)")
+   - 🎨 [Mudar o Tema CSS Dinamicamente em Projetos React + Vite](#-mudar-o-tema-css-dinamicamente-em-projetos-react--vite "Mudar o Tema CSS Dinamicamente em Projetos React + Vite")
 
 ## 🧠 16. **Meu Fluxo de Trabalho e Boas Práticas**
    ### 🗂️ **Organização Pessoal e Produtividade**
@@ -8738,6 +8739,85 @@ Garantir que a aplicação web se adapte corretamente a diferentes tamanhos de t
 
 * A ordem das media queries pode influenciar o resultado se houver conflitos de estilo. Recomenda-se seguir do menor para o maior (mobile-first) ou o inverso (desktop-first), conforme a estratégia adotada.
 * Combine com boas práticas de layout flexível (Flexbox, Grid) para uma responsividade mais eficiente.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🎨 Mudar o Tema CSS Dinamicamente em Projetos React + Vite
+
+### 📑 Descrição
+
+Este procedimento permite **trocar dinamicamente o tema CSS** de um projeto React + Vite através de um botão ou ao carregar o componente, sem recarregar a página. Útil para sistemas com opção de temas claros, escuros ou personalizados.
+
+### ⚙️ **Passo a Passo**
+
+#### 1. **Crie a função de aplicação do tema**
+
+Coloque esta função no seu componente ou em um arquivo utilitário:
+
+```jsx
+// Função para aplicar o tema ao clicar no botão
+const applyTheme = (cssFile) => {
+    // Remove tema atual se existir
+    const existingLink = document.getElementById("theme-css");
+    if (existingLink) {
+        existingLink.href = cssFile; // troca direto o href para evitar criar múltiplos links
+    } else {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = cssFile;
+        link.id = "theme-css"; // ID para futuras substituições
+        document.head.appendChild(link);
+    }
+};
+```
+
+#### 2. **Botão para aplicar tema**
+
+No JSX do seu componente, adicione um botão para chamar a função com o caminho do CSS desejado:
+
+```jsx
+<Button onClick={() => applyTheme(`/assets/css/themes/theme3.css`)}>
+    Aplicar
+</Button>
+```
+
+#### 3. **Comente as importações diretas dos arquivos de tema**
+
+Para evitar conflitos, **comente a importação direta** do CSS no seu componente principal:
+
+```jsx
+// Folhas de estilos personalizadas
+// import './assets/css/themes/theme2.css'; // Opcional
+```
+
+#### 4. **Aplicar tema ao carregar o componente**
+
+Use o `useEffect` para carregar um tema padrão quando o componente for montado:
+
+```jsx
+useEffect(() => {
+    applyTheme('/assets/css/themes/theme2.css');
+}, []);
+```
+
+### 📝 **Resumo**
+
+✅ Crie a função `applyTheme`
+✅ Use botão para trocar o tema chamando `applyTheme('/assets/css/themes/tema.css')`
+✅ Comente as importações diretas de CSS do tema no JSX principal
+✅ Carregue um tema padrão no `useEffect`
+
+### 💡 **Sugestão de Organização**
+
+* Coloque seus arquivos CSS de temas em `./frontend/src/assets/css/themes/`
+* Mantenha o nome do ID (`theme-css`) padronizado para futuros upgrades no sistema de temas.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
