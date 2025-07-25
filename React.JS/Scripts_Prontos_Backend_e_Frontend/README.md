@@ -77,6 +77,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - 🛠️ [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
      - 🧭 [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
        - 🌐 [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
+     - 💡 [Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.](# "Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.")
+       - 🔍 [Criar Consulta para uma Tabela (Listagem de Registros)](# "Criar Consulta para uma Tabela (Listagem de Registros)")
 
    - 🔁 [Função Genérica para Consultas e Operações CRUD com Prisma](#fun%C3%A7%C3%A3o-gen%C3%A9rica-para-consultas-e-opera%C3%A7%C3%B5es-crud-com-prisma "Função Genérica para Consultas e Operações CRUD com Prisma")
      - 🔧 [1. Estrutura Básica da Função CRUD Genérica](#1-estrutura-b%C3%A1sica-da-fun%C3%A7%C3%A3o-crud-gen%C3%A9rica "1. Estrutura Básica da Função CRUD Genérica")
@@ -3862,6 +3864,88 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
    - Renderize os dados conforme necessário no componente.
 
 Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáveis e adaptáveis para diferentes entidades e relações no seu sistema.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+> ### Abaixo está uma **instrução genérica** no padrão utilizado nos projetos com Node.js + Express + Prisma no backend, e React no frontend. Pode usá-la como um guia padrão para criar rotas de consulta:
+
+## 🔍 Criar Consulta para uma Tabela (Listagem de Registros)
+
+### Objetivo:
+
+Instrução genérica para implementar uma rota de consulta (listagem) de dados de uma tabela utilizando Node.js (Express + Prisma) e React.js no frontend.
+
+### ✅ Passos para Criar uma Consulta de Listagem
+
+1. ### 🛠️ Criar a Rota no Backend
+
+   No arquivo `routes.ts` (geralmente em `/backend/src/routes.ts`), importe o controller desejado e defina a rota:
+
+   ```ts
+   import { listarUsuarios } from './controllers/usuarios.controller';
+   routes.get('/usuarios', listarUsuarios);
+   ```
+
+2. ### 📂 Criar ou Atualizar o Controller
+
+   No controller da tabela (`/backend/src/controllers/usuarios.controller.ts`), adicione a função:
+
+   ```ts
+   import { Request, Response } from 'express';
+   import { prisma } from '../lib/prisma';
+
+   export const listarUsuarios = async (req: Request, res: Response) => {
+       try {
+           const usuarios = await prisma.usuario.findMany();
+           return res.json(usuarios);
+       } catch (error) {
+           return res.status(500).json({ error: 'Erro ao listar usuários' });
+       }
+   };
+   ```
+
+3. ### 🔌 Testar o Endpoint com Insomnia/Postman
+
+   * Método: `GET`
+   * URL: `http://localhost:3333/usuarios`
+   * Verifique se os dados retornam corretamente.
+
+4. ### ⚛️ Fazer a Requisição no Componente React
+
+   No componente desejado (ex: `UserList.jsx`), use `useEffect` + `fetch` ou `axios`:
+
+   ```jsx
+   useEffect(() => {
+       fetch('http://localhost:3333/usuarios')
+           .then(res => res.json())
+           .then(data => setUsuarios(data));
+   }, []);
+   ```
+
+5. ### 🧪 Exibir os Dados no Componente
+
+   Renderize os dados da requisição em uma tabela, lista ou outro componente visual:
+
+   ```jsx
+   {usuarios.map(usuario => (
+       <li key={usuario.id}>{usuario.nome}</li>
+   ))}
+   ```
+
+### 💡 Dica:
+
+Para cada nova tabela, basta repetir este padrão alterando:
+
+* o nome da rota (`/usuarios`)
+* o controller (`listarUsuarios`)
+* a tabela Prisma (`prisma.usuario.findMany()`)
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
