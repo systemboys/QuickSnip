@@ -3968,12 +3968,112 @@ export const deletarRegistro = async (req: Request, res: Response) => {
 
 #### 🔹 Listar registros
 
-```js
+Importe no arquivo fora do componente:
+```jsx
+import { useEffect, useState } from 'react';
+```
+
+E dentro do componente:
+```jsx
+const [dados, setDados] = useState([]);
+
 useEffect(() => {
   fetch('http://localhost:3333/exemplo')
     .then(res => res.json())
     .then(data => setDados(data));
 }, []);
+
+return (
+  <div>
+    <h2>Lista de Usuários</h2>
+    <ul>
+      {dados.map(usuario => (
+        <li key={usuario.id}>
+          <strong>Nome:</strong> {usuario.nome} <br />
+          <strong>Email:</strong> {usuario.email}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+```
+
+#### 🔎 1. Buscar um único registro pela rota com ID
+
+Perfeito, Marcos! Se você quiser exibir **apenas um registro específico** (como a Leila), você pode:
+
+1. **Buscar esse registro direto pelo ID via backend** (ex: `/exemplo/2`), ou
+2. **Filtrar do array existente** (se você já buscou todos com `/exemplo`).
+
+Vou te mostrar **ambas as abordagens** abaixo.
+
+---
+
+### 🔎 1. Buscar um único registro pela rota com ID
+
+Se sua API estiver preparada para isso (ex: `GET /exemplo/:id`):
+
+Importe no arquivo fora do componente:
+```jsx
+import { useEffect, useState } from 'react';
+```
+
+E dentro do componente:
+```jsx
+const [usuario, setUsuario] = useState(null);
+
+useEffect(() => {
+  fetch('http://localhost:3333/exemplo/2') // ID da Leila
+    .then(res => res.json())
+    .then(data => setUsuario(data));
+}, []);
+
+if (!usuario) return <p>Carregando...</p>;
+
+return (
+  <div>
+    <h2>Detalhes da Usuária</h2>
+    <p><strong>Nome:</strong> {usuario.nome}</p>
+    <p><strong>Email:</strong> {usuario.email}</p>
+  </div>
+);
+```
+
+---
+
+### 🧹 2. Filtrar localmente a partir de um array já carregado
+
+Se você já fez `fetch` de todos os usuários e quer **filtrar apenas a Leila** no frontend:
+
+Importe no arquivo fora do componente:
+```jsx
+import { useEffect, useState } from 'react';
+```
+
+E dentro do componente:
+```jsx
+const [dados, setDados] = useState([]);
+const [leila, setLeila] = useState(null);
+
+useEffect(() => {
+  fetch('http://localhost:3333/exemplo')
+    .then(res => res.json())
+    .then(data => {
+      setDados(data);
+      const usuarioLeila = data.find(u => u.nome === 'Leila');
+      setLeila(usuarioLeila);
+    });
+}, []);
+
+if (!leila) return <p>Usuária não encontrada.</p>;
+
+return (
+  <div>
+    <h2>Usuária Encontrada</h2>
+    <p><strong>Nome:</strong> {leila.nome}</p>
+    <p><strong>Email:</strong> {leila.email}</p>
+  </div>
+);
 ```
 
 #### 🔹 Criar novo
