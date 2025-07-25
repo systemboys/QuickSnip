@@ -78,7 +78,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - 🧭 [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
        - 🌐 [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
      - 💡 [Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.](#abaixo-est%C3%A1-uma-instru%C3%A7%C3%A3o-gen%C3%A9rica-no-padr%C3%A3o-utilizado-nos-projetos-com-nodejs--express--prisma-no-backend-e-react-no-frontend-pode-us%C3%A1-la-como-um-guia-padr%C3%A3o-para-criar-rotas-de-consulta "Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.")
-       - 🔍 [Criar Consulta para uma Tabela (Listagem de Registros)](#-criar-consulta-para-uma-tabela-listagem-de-registros "Criar Consulta para uma Tabela (Listagem de Registros)")
+       - 🧩 [Instruções Genéricas para Criar um CRUD (Node.js + Express + Prisma + React)](# "Instruções Genéricas para Criar um CRUD (Node.js + Express + Prisma + React)")
 
    - 🔁 [Função Genérica para Consultas e Operações CRUD com Prisma](#fun%C3%A7%C3%A3o-gen%C3%A9rica-para-consultas-e-opera%C3%A7%C3%B5es-crud-com-prisma "Função Genérica para Consultas e Operações CRUD com Prisma")
      - 🔧 [1. Estrutura Básica da Função CRUD Genérica](#1-estrutura-b%C3%A1sica-da-fun%C3%A7%C3%A3o-crud-gen%C3%A9rica "1. Estrutura Básica da Função CRUD Genérica")
@@ -3874,78 +3874,139 @@ Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáv
 
 ---
 
-> ### Abaixo está uma **instrução genérica** no padrão utilizado nos projetos com Node.js + Express + Prisma no backend, e React no frontend. Pode usá-la como um guia padrão para criar rotas de consulta:
+> #### Instrução genérica de um CRUD (Create, Read, Update, Delete), com um padrão utilizado em projetos com Node.js + Express + Prisma no backend e React no frontend.
 
-## 🔍 Criar Consulta para uma Tabela (Listagem de Registros)
+## 🧩 Instruções Genéricas para Criar um CRUD (Node.js + Express + Prisma + React)
 
-### Objetivo:
+### 🔧 **1. Criar as Rotas no Backend (`routes.ts`)**
 
-Instrução genérica para implementar uma rota de consulta (listagem) de dados de uma tabela utilizando Node.js (Express + Prisma) e React.js no frontend.
+```ts
+// Importar controllers
+import {
+  listarRegistros,
+  buscarRegistroPorId,
+  criarRegistro,
+  atualizarRegistro,
+  deletarRegistro
+} from './controllers/exemplo.controller';
 
-### ✅ Passos para Criar uma Consulta de Listagem
+routes.get('/exemplo', listarRegistros);
+routes.get('/exemplo/:id', buscarRegistroPorId);
+routes.post('/exemplo', criarRegistro);
+routes.put('/exemplo/:id', atualizarRegistro);
+routes.delete('/exemplo/:id', deletarRegistro);
+```
 
-1. ### 🛠️ Criar a Rota no Backend
+### 🧠 **2. Criar Controller (`/controllers/exemplo.controller.ts`)**
 
-   No arquivo `routes.ts` (geralmente em `/backend/src/routes.ts`), importe o controller desejado e defina a rota:
+```ts
+import { Request, Response } from 'express';
+import { prisma } from '../lib/prisma';
 
-   ```ts
-   import { listarUsuarios } from './controllers/usuarios.controller';
-   routes.get('/usuarios', listarUsuarios);
-   ```
+// Listar todos
+export const listarRegistros = async (req: Request, res: Response) => {
+  const data = await prisma.exemplo.findMany();
+  return res.json(data);
+};
 
-2. ### 📂 Criar ou Atualizar o Controller
+// Buscar por ID
+export const buscarRegistroPorId = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const data = await prisma.exemplo.findUnique({ where: { id: Number(id) } });
+  return res.json(data);
+};
 
-   No controller da tabela (`/backend/src/controllers/usuarios.controller.ts`), adicione a função:
+// Criar novo
+export const criarRegistro = async (req: Request, res: Response) => {
+  const { campo1, campo2 } = req.body;
+  const novo = await prisma.exemplo.create({ data: { campo1, campo2 } });
+  return res.status(201).json(novo);
+};
 
-   ```ts
-   import { Request, Response } from 'express';
-   import { prisma } from '../lib/prisma';
+// Atualizar
+export const atualizarRegistro = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { campo1, campo2 } = req.body;
+  const atualizado = await prisma.exemplo.update({
+    where: { id: Number(id) },
+    data: { campo1, campo2 }
+  });
+  return res.json(atualizado);
+};
 
-   export const listarUsuarios = async (req: Request, res: Response) => {
-       try {
-           const usuarios = await prisma.usuario.findMany();
-           return res.json(usuarios);
-       } catch (error) {
-           return res.status(500).json({ error: 'Erro ao listar usuários' });
-       }
-   };
-   ```
+// Deletar
+export const deletarRegistro = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await prisma.exemplo.delete({ where: { id: Number(id) } });
+  return res.status(204).send();
+};
+```
 
-3. ### 🔌 Testar o Endpoint com Insomnia/Postman
+### 🧪 **3. Testar Endpoints com Insomnia/Postman**
 
-   * Método: `GET`
-   * URL: `http://localhost:3333/usuarios`
-   * Verifique se os dados retornam corretamente.
+* **GET** `/exemplo` → lista todos
+* **GET** `/exemplo/1` → retorna por ID
+* **POST** `/exemplo` → cria novo registro
 
-4. ### ⚛️ Fazer a Requisição no Componente React
+  ```json
+  {
+    "campo1": "valor",
+    "campo2": "valor"
+  }
+  ```
+* **PUT** `/exemplo/1` → atualiza registro existente
 
-   No componente desejado (ex: `UserList.jsx`), use `useEffect` + `fetch` ou `axios`:
+  ```json
+  {
+    "campo1": "novo valor",
+    "campo2": "novo valor"
+  }
+  ```
+* **DELETE** `/exemplo/1` → remove registro
 
-   ```jsx
-   useEffect(() => {
-       fetch('http://localhost:3333/usuarios')
-           .then(res => res.json())
-           .then(data => setUsuarios(data));
-   }, []);
-   ```
+### ⚛️ **4. Requisições no Frontend (React)**
 
-5. ### 🧪 Exibir os Dados no Componente
+#### 🔹 Listar registros
 
-   Renderize os dados da requisição em uma tabela, lista ou outro componente visual:
+```js
+useEffect(() => {
+  fetch('http://localhost:3333/exemplo')
+    .then(res => res.json())
+    .then(data => setDados(data));
+}, []);
+```
 
-   ```jsx
-   {usuarios.map(usuario => (
-       <li key={usuario.id}>{usuario.nome}</li>
-   ))}
-   ```
+#### 🔹 Criar novo
 
-### 💡 Dica:
+```js
+fetch('http://localhost:3333/exemplo', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ campo1: 'valor', campo2: 'valor' })
+})
+  .then(res => res.json())
+  .then(data => console.log('Criado:', data));
+```
 
-Para cada nova tabela, basta repetir este padrão alterando:
+#### 🔹 Atualizar
 
-* o nome da rota (`/usuarios`)
-* o controller (`listarUsuarios`)
-* a tabela Prisma (`prisma.usuario.findMany()`)
+```js
+fetch(`http://localhost:3333/exemplo/${id}`, {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ campo1: 'novo', campo2: 'novo' })
+})
+  .then(res => res.json())
+  .then(data => console.log('Atualizado:', data));
+```
+
+#### 🔹 Deletar
+
+```js
+fetch(`http://localhost:3333/exemplo/${id}`, {
+  method: 'DELETE'
+}).then(() => console.log('Deletado'));
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
