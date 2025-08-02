@@ -19,3 +19,6 @@ Esta seção apresenta a integração entre backend e frontend utilizando Node.j
 [![Início](../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 <!-- /Botões de navegação -->
 
+---
+
+💬 [Filosofia pessoal de desenvolvimento](./Personal_development_philosophy.md "Filosofia pessoal de desenvolvimento")
