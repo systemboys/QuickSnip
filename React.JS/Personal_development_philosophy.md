@@ -1,3 +1,7 @@
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](./README.md#quicksnip "Início")
+<!-- /Botões de navegação -->
+
 ## 🧩 Resposta pronta para discussões sobre troca de stack
 
 ### 💬 Quando me perguntam por que não mudo para Laravel, Tailwind ou outra stack:
@@ -25,3 +29,7 @@
 - 📌 **Estabilidade é mais importante que modismo**
 - 📌 **Dominar a ferramenta vale mais do que apenas conhecê-la superficialmente**
 - 📌 **Produtividade vem com familiaridade**
+
+<!-- Botões de navegação -->
+[![Início](../images/control/11273_control_stop_icon.png)](./README.md#quicksnip "Início")
+<!-- /Botões de navegação -->
