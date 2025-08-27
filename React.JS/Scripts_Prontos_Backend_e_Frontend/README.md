@@ -257,6 +257,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🎨 19. **Estilização no React com CSS**
    - 🧩 [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
+   - 🎨 [Modelo de Utilização de Variáveis CSS com :root e var()](#modelo-de-utiliza%C3%A7%C3%A3o-de-vari%C3%A1veis-css-com-root-e-var "Modelo de Utilização de Variáveis CSS com :root e var()")
 
 ## 🖥️ 20. **Configuração de Ambiente e Ferramentas de Desenvolvimento**
    #### 🔧 **VSCode**
@@ -9718,6 +9719,69 @@ Na impressão de elementos, as classes aparecerão da seguinte forma:
 * O Webpack irá compilar essas classes com nomes únicos para evitar conflitos globais.
 
 Essa é a estrutura básica para aplicação de CSS Modules em qualquer componente React. Com isso, você evita vazamento de estilo e mantém um escopo encapsulado e previsível.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## Modelo de Utilização de Variáveis CSS com `:root` e `var(--...)`
+
+### 📌 Descrição
+
+Variáveis CSS são declaradas dentro de seletores utilizando a sintaxe `--nome-da-variavel`. Quando declaradas no seletor `:root`, tornam-se acessíveis globalmente em todo o documento. O uso dessas variáveis melhora a consistência visual e facilita a manutenção de temas e estilos em aplicações frontend.
+
+### 🛠️ Como Declarar
+
+As variáveis são geralmente definidas dentro do seletor `:root`, que representa o elemento `<html>`:
+
+```css
+:root {
+  --cor-primaria: #3498db;
+  --cor-secundaria: #2ecc71;
+  --fonte-padrao: 'Segoe UI', sans-serif;
+  --espacamento-padrao: 16px;
+}
+```
+
+### 🎨 Como Utilizar
+
+Para usar as variáveis, aplica-se a função `var(--nome-da-variavel)`:
+
+```css
+body {
+  font-family: var(--fonte-padrao);
+  background-color: var(--cor-primaria);
+  margin: var(--espacamento-padrao);
+}
+
+button {
+  background-color: var(--cor-secundaria);
+  color: white;
+  padding: calc(var(--espacamento-padrao) / 2);
+}
+```
+
+### ✅ Benefícios
+
+* Fácil manutenção e centralização de estilos.
+* Suporte à criação de temas dinâmicos (ex: modo claro/escuro).
+* Evita duplicação de valores em diferentes partes do CSS.
+
+### 💡 Dica Extra
+
+Você pode sobrescrever variáveis em escopos menores, como em classes, para criar temas ou variações localizadas:
+
+```css
+.tema-escuro {
+  --cor-primaria: #1e1e1e;
+  --cor-secundaria: #3e3e3e;
+}
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
