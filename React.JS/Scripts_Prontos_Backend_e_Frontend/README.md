@@ -257,7 +257,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🎨 19. **Estilização no React com CSS**
    - 🧩 [Utilizando CSS Modules no React](#utilizando-css-modules-no-react "Utilizando CSS Modules no React")
-   - 🎨 [Modelo de Utilização de Variáveis CSS com :root e var()](#modelo-de-utiliza%C3%A7%C3%A3o-de-vari%C3%A1veis-css-com-root-e-var "Modelo de Utilização de Variáveis CSS com :root e var()")
+   - 🎨 [Modelo de Utilização de Variáveis CSS com :root e var()](#modelo-de-utiliza%C3%A7%C3%A3o-de-vari%C3%A1veis-css-com-root-e-var-- "Modelo de Utilização de Variáveis CSS com :root e var()")
 
 ## 🖥️ 20. **Configuração de Ambiente e Ferramentas de Desenvolvimento**
    #### 🔧 **VSCode**
