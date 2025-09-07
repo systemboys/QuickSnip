@@ -164,11 +164,12 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
    - ⭐ [Implementação de Ícones Font-Awesome em Componentes React](#como-implementar-%C3%ADcones-font-awesome-em-componentes-react "Implementação de Ícones Font-Awesome em Componentes React")
+   - ⚡ [Guia Prático de Loading Overlay em React](# "Guia Prático de Loading Overlay em React")
 
    ### 🧭 **Abas com Props para Componentes**
-     - 📡 [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
-     - 🗂️ [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
-     - 🔗 [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
+   - 📡 [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
+   - 🗂️ [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
+   - 🔗 [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
 
    - 📏 [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
    - 🧭 [Navegação Dinâmica com React Router para Redirecionamento](#navega%C3%A7%C3%A3o-din%C3%A2mica-com-react-router-redirecionando-para-componentes-em-uma-spa "Navegação Dinâmica com React Router para Redirecionamento")
@@ -6978,6 +6979,140 @@ Para visualizar e escolher os ícones do **Font-Awesome**, você pode acessar o 
   - **"Font Awesome github brand icon"**
 
 Com essas informações, será fácil navegar pelo site e selecionar os ícones que você deseja utilizar no projeto! 🚀
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## ⚡ Guia Prático de Loading Overlay em React
+
+Este guia ensina a implementar um **Loading Overlay** em suas execuções de ações no React.
+Ele é útil para bloquear a tela, evitar múltiplos cliques e informar ao usuário que algo está sendo processado.
+
+### 🔧 Instalação da biblioteca
+
+```bash
+npm install react-loading-indicators
+```
+
+### ⚙️ Criando o estado de controle
+
+No seu componente:
+
+```jsx
+const [isLoading, setIsLoading] = useState(false);
+```
+
+### ▶️ Iniciando e parando o loading
+
+Na execução de uma ação:
+
+```jsx
+// Iniciar loading
+setIsLoading(true);
+
+// ... execução da sua lógica ...
+
+// Finalizar loading
+setIsLoading(false);
+```
+
+### 📝 Desativando campos durante o loading
+
+```jsx
+<input
+  type="text"
+  name="username"
+  placeholder="Usuário"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+  disabled={isLoading}
+/>
+```
+
+### 🎭 Exibindo o Loading Overlay
+
+No final do JSX do componente:
+
+```jsx
+{isLoading && (
+  <>
+    <style>{`
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `}</style>
+
+    <div className={styles.loadingOverlay}>
+      <div className={styles.loadingContent}>
+        <div 
+          style={{
+            width: '60px',
+            height: '60px',
+            border: '6px solid rgba(255, 255, 255, 0.3)',
+            borderTop: '6px solid #ff9900',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            display: 'inline-block'
+          }}
+        ></div>
+        <p style={{ color: 'white', marginTop: '20px', fontSize: '16px', fontWeight: '500' }}>
+          Processando...
+        </p>
+      </div>
+    </div>
+  </>
+)}
+```
+
+### 🎨 Estilos no CSS
+
+Arquivo `style.module.css` ou `style.css`:
+
+```css
+/* Animação do spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Overlay */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+```
+
+### 📚 Referência
+
+Documentação oficial: [react-loading-indicators](https://react-loading-indicators.netlify.app/)
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
