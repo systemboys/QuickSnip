@@ -161,6 +161,11 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
    - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configura%C3%A7%C3%A3o-de-proxy-reverso-nginx--vite_api_url-para-produ%C3%A7%C3%A3o-aws "Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS")
    - 🔙 [Clonar repositório em commit específico (rollback rápido com Git)](#-clonar-reposit%C3%B3rio-em-commit-espec%C3%ADfico-rollback-r%C3%A1pido-com-git "Clonar repositório em commit específico (rollback rápido com Git)")
+   > Limpeza de disco no Linux
+      - 🧹 [Script de Limpeza de Disco no Servidor Linux](# "Script de Limpeza de Disco no Servidor Linux")
+      - 🧹 [Script de Limpeza de Disco (Versão Leve)](# "Script de Limpeza de Disco (Versão Leve)")
+      - 🧹 [Limpeza Manual de Disco no Linux (Comandos diretos)](# "Limpeza Manual de Disco no Linux (Comandos diretos)")
+      - ⚡ [Limpeza Rápida de Disco no Linux](# "Limpeza Rápida de Disco no Linux")
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
@@ -6834,6 +6839,422 @@ git checkout 5140f8a9e86df725ad40fc556c6ad723b943bea1
 ```
 
 <!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🧹 Script de Limpeza de Disco no Servidor Linux
+
+Este script tem como objetivo liberar espaço em disco em servidores Linux (Debian/Ubuntu) de forma rápida e automática. Ele remove caches, logs antigos, pacotes órfãos, arquivos temporários e também faz a limpeza do Docker e Snap, quando instalados.
+
+Nome sugerido para o arquivo `freedisk-now.sh`.
+
+### Conteúdo do script
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+banner() { echo -e "\n\e[1;36m==> $*\e[0m"; }
+
+require_root() {
+  if [[ "$(id -u)" -ne 0 ]]; then
+    echo "Este script precisa ser executado como root (use sudo)."
+    exit 1
+  fi
+}
+
+human_df() {
+  df -hT | awk 'NR==1 || $2 ~ /(ext|xfs|btrfs)/ {print}'
+}
+
+safe_rm() {
+  local p="$1"
+  [[ -z "$p" || "$p" == "/" ]] && return 0
+  if [[ -e "$p" || -L "$p" ]]; then
+    rm -rf --one-file-system -- "$p"
+  fi
+}
+
+require_root
+
+banner "Espaço ANTES da limpeza"
+human_df
+
+banner "Parando serviços que geram cache temporário (opcional)"
+systemctl stop apt-daily.service apt-daily-upgrade.service 2>/dev/null || true
+systemctl stop man-db.timer 2>/dev/null || true
+
+banner "Limpando cache do APT"
+apt-get clean -y || true
+safe_rm /var/lib/apt/lists/*
+mkdir -p /var/lib/apt/lists/partial
+
+banner "Removendo pacotes órfãos e configurações antigas"
+apt-get autoremove --purge -y || true
+apt-get autoclean -y || true
+
+banner "Compactando /var/log e truncando logs grandes"
+journalctl --vacuum-size=200M 2>/dev/null || true
+find /var/log -type f -name "*.log" -exec sh -c '> "{}"' \; 2>/dev/null || true
+find /var/log -type f -name "*.gz" -delete 2>/dev/null || true
+find /var/log -type f -name "*.[0-9]" -delete 2>/dev/null || true
+
+banner "Limpando /tmp e /var/tmp"
+safe_rm /tmp/*
+safe_rm /var/tmp/*
+
+banner "Removendo coredumps e crashes"
+safe_rm /var/crash/*
+safe_rm /var/lib/systemd/coredump/*
+
+banner "Limpando caches de usuário (root e /home/*)"
+for d in /root /home/*; do
+  [[ -d "$d" ]] || continue
+  safe_rm "$d/.cache/*"
+  safe_rm "$d/.local/share/Trash/files/*"
+  safe_rm "$d/.npm/_cacache" || true
+  safe_rm "$d/.cache/pip" || true
+done
+
+banner "Limpando cache do npm (global), se existir"
+if command -v npm >/dev/null 2>&1; then
+  npm cache clean --force || true
+fi
+
+banner "Limpando cache do pip (global), se existir"
+if command -v pip >/dev/null 2>&1; then
+  pip cache purge || true
+fi
+if command -v pip3 >/dev/null 2>&1; then
+  pip3 cache purge || true
+fi
+
+banner "Limpando Docker (imagens/containers/volumes não usados)"
+if command -v docker >/dev/null 2>&1; then
+  docker system prune -a --volumes -f || true
+  docker builder prune -a -f || true
+fi
+
+banner "Limpando Snap (se presente) – somente caches"
+if command -v snap >/dev/null 2>&1; then
+  snap set system refresh.retain=2 || true
+  snap list --all | awk '/disabled/{print $1, $3}' | while read snapname revision; do
+    snap remove "$snapname" --revision="$revision" || true
+  done
+fi
+
+banner "Recriando diretórios essenciais com permissões corretas"
+mkdir -p /tmp /var/tmp
+chmod 1777 /tmp /var/tmp
+
+banner "Reiniciando serviços parados (se necessário)"
+systemctl start apt-daily.service 2>/dev/null || true
+systemctl start apt-daily-upgrade.service 2>/dev/null || true
+
+banner "Espaço DEPOIS da limpeza"
+human_df
+
+echo -e "\n✅ Limpeza concluída."
+```
+
+### Como usar
+
+1. Criar o arquivo
+   nano freedisk-now\.sh
+
+2. Colar o conteúdo acima.
+
+3. Dar permissão de execução
+   chmod +x freedisk-now\.sh
+
+4. Executar como root
+   sudo ./freedisk-now\.sh
+
+### Observações
+
+* Este script é seguro, mas **remove tudo que não é essencial** (caches, pacotes não usados, logs antigos, imagens/containers/volumes do Docker não utilizados).
+* Recomendado rodar apenas quando realmente houver necessidade de liberar espaço.
+* Não remove dados de aplicações em uso.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🧹 Script de Limpeza de Disco (Versão Leve)
+
+Este script faz apenas a limpeza básica de pacotes, logs, caches e diretórios temporários. É indicado para servidores simples ou instâncias pequenas na nuvem que não utilizam Docker ou Snap.
+
+Nome sugerido para o arquivo `freedisk-light.sh`.
+
+### Conteúdo do script
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+banner() { echo -e "\n\e[1;36m==> $*\e[0m"; }
+
+require_root() {
+  if [[ "$(id -u)" -ne 0 ]]; then
+    echo "Este script precisa ser executado como root (use sudo)."
+    exit 1
+  fi
+}
+
+human_df() {
+  df -hT | awk 'NR==1 || $2 ~ /(ext|xfs|btrfs)/ {print}'
+}
+
+safe_rm() {
+  local p="$1"
+  [[ -z "$p" || "$p" == "/" ]] && return 0
+  if [[ -e "$p" || -L "$p" ]]; then
+    rm -rf --one-file-system -- "$p"
+  fi
+}
+
+require_root
+
+banner "Espaço ANTES da limpeza"
+human_df
+
+banner "Limpando cache do APT"
+apt-get clean -y || true
+safe_rm /var/lib/apt/lists/*
+mkdir -p /var/lib/apt/lists/partial
+
+banner "Removendo pacotes órfãos e configurações antigas"
+apt-get autoremove --purge -y || true
+apt-get autoclean -y || true
+
+banner "Compactando /var/log e truncando logs grandes"
+journalctl --vacuum-size=100M 2>/dev/null || true
+find /var/log -type f -name "*.log" -exec sh -c '> "{}"' \; 2>/dev/null || true
+find /var/log -type f -name "*.gz" -delete 2>/dev/null || true
+find /var/log -type f -name "*.[0-9]" -delete 2>/dev/null || true
+
+banner "Limpando /tmp e /var/tmp"
+safe_rm /tmp/*
+safe_rm /var/tmp/*
+
+banner "Limpando caches de usuário"
+for d in /root /home/*; do
+  [[ -d "$d" ]] || continue
+  safe_rm "$d/.cache/*"
+  safe_rm "$d/.local/share/Trash/files/*"
+  safe_rm "$d/.npm/_cacache" || true
+  safe_rm "$d/.cache/pip" || true
+done
+
+banner "Espaço DEPOIS da limpeza"
+human_df
+
+echo -e "\n✅ Limpeza concluída (versão leve)."
+```
+
+### Como usar
+
+1. Criar o arquivo
+   nano freedisk-light.sh
+
+2. Colar o conteúdo acima.
+
+3. Dar permissão de execução
+   chmod +x freedisk-light.sh
+
+4. Executar como root
+   sudo ./freedisk-light.sh
+
+### Observações
+
+* Essa versão não mexe em Docker nem Snap.
+* Indicada para máquinas pequenas na AWS, Linode, DigitalOcean, etc.
+* Faz apenas a limpeza segura e básica do sistema.
+
+!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🧹 Limpeza Manual de Disco no Linux (Comandos diretos)
+
+### 1) Verificar espaço em disco
+
+```bash
+df -h
+```
+
+### 2) Verificar quais pastas ocupam mais espaço
+
+```bash
+sudo du -xhd1 / | sort -h | tail -n 20
+sudo du -xhd1 /var | sort -h | tail -n 20
+sudo du -xhd1 /home | sort -h | tail -n 20
+```
+
+### 3) Limpar cache do APT
+
+```bash
+sudo apt-get clean
+sudo rm -rf /var/lib/apt/lists/*
+sudo mkdir -p /var/lib/apt/lists/partial
+```
+
+### 4) Remover pacotes órfãos e configurações antigas
+
+```bash
+sudo apt-get autoremove --purge -y
+sudo apt-get autoclean -y
+```
+
+### 5) Reduzir espaço de logs
+
+```bash
+sudo journalctl --vacuum-size=200M
+sudo find /var/log -type f -name "*.log" -exec sh -c '> "{}"' \;
+sudo find /var/log -type f -name "*.gz" -delete
+sudo find /var/log -type f -name "*.[0-9]" -delete
+```
+
+### 6) Limpar diretórios temporários
+
+```bash
+sudo rm -rf /tmp/*
+sudo rm -rf /var/tmp/*
+```
+
+### 7) Remover arquivos de crash e coredumps
+
+```bash
+sudo rm -rf /var/crash/*
+sudo rm -rf /var/lib/systemd/coredump/*
+```
+
+### 8) Limpar caches de usuário
+
+```bash
+sudo rm -rf ~/.cache/*
+sudo rm -rf ~/.local/share/Trash/files/*
+sudo rm -rf ~/.npm/_cacache || true
+sudo rm -rf ~/.cache/pip || true
+```
+
+Para todos os usuários do sistema:
+
+```bash
+for d in /home/*; do
+  sudo rm -rf "$d/.cache/*"
+  sudo rm -rf "$d/.local/share/Trash/files/*"
+  sudo rm -rf "$d/.npm/_cacache" || true
+  sudo rm -rf "$d/.cache/pip" || true
+done
+```
+
+### 9) Limpar cache do npm (se tiver Node instalado)
+
+```bash
+npm cache clean --force
+```
+
+### 10) Limpar cache do pip (se tiver Python/pip)
+
+```bash
+pip cache purge
+pip3 cache purge
+```
+
+### 11) Limpar Docker (se usar Docker)
+
+```bash
+sudo docker system prune -a --volumes -f
+sudo docker builder prune -a -f
+```
+
+### 12) Limpar Snap (se usar Snap)
+
+```bash
+sudo snap set system refresh.retain=2
+snap list --all | awk '/disabled/{print $1, $3}' | while read snapname revision; do
+  sudo snap remove "$snapname" --revision="$revision"
+done
+```
+
+### 13) Recriar diretórios temporários com permissões corretas
+
+```bash
+sudo mkdir -p /tmp /var/tmp
+sudo chmod 1777 /tmp /var/tmp
+```
+
+### 14) Ver espaço depois da limpeza
+
+```bash
+df -h
+```
+
+!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## ⚡ Limpeza Rápida de Disco no Linux
+
+### 1) Limpar cache do APT e pacotes órfãos
+
+```bash
+sudo apt-get clean && sudo apt-get autoremove --purge -y && sudo apt-get autoclean -y
+```
+
+### 2) Reduzir tamanho dos logs do sistema
+
+```bash
+sudo journalctl --vacuum-size=100M
+sudo find /var/log -type f -name "*.log" -exec sh -c '> "{}"' \;
+```
+
+### 3) Apagar arquivos temporários
+
+```bash
+sudo rm -rf /tmp/* /var/tmp/*
+```
+
+### 4) Limpar caches de usuário
+
+```bash
+sudo rm -rf ~/.cache/* ~/.local/share/Trash/files/*
+```
+
+### 5) Se usar Docker, remover dados não usados
+
+```bash
+sudo docker system prune -a --volumes -f
+```
+
+### 6) Conferir espaço depois da limpeza
+
+```bash
+df -h
+```
+
+!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
