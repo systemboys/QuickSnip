@@ -265,10 +265,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
 ## ⚡ 21. **Testes de Performance e Benchmark (CLI)**
    - 🚀 [wrk — Teste de carga em servidores HTTP](#-teste-de-carga-com-wrk "wrk — Teste de carga em servidores HTTP")
-   - 📦 (futuro) `hey` — HTTP load generator
-   - 🛡️ (futuro) `siege` — stress test & regressão
-   - 🧪 (futuro) `ab` — ApacheBench
-
+   - 📦 [hey — HTTP load generator](#-hey--http-load-generator "hey — HTTP load generator")
+   - 🛡️ [siege — stress test & regressão](#%EF%B8%8F-siege--stress-test--regress%C3%A3o "siege — stress test & regressão")
+   - 🧪 [ab — ApacheBench](#-ab--apachebench "ab — ApacheBench")
 
 ---
 
@@ -280,12 +279,6 @@ Este item "Scripts Prontos: Backend e Frontend" contém scripts prontos para div
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
 [![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
 <!-- /Botões de navegação -->
-
----
-
-Perfeito, Marcos! Aqui está o conteúdo formatado para seu **Codex**, com título, instruções passo a passo e blocos de código organizados para reutilização futura:
-
----
 
 ## 🚀 Guia de Inicialização de Backend Node.js com TypeScript e Prisma
 
