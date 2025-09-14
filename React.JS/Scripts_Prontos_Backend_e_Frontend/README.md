@@ -10114,3 +10114,95 @@ Após rodar o comando, o `wrk` exibirá estatísticas como:
 <!-- /Botões de navegação -->
 
 ---
+
+## 📦 `hey` — HTTP Load Generator
+
+📥 **Instalação**:
+
+```bash
+sudo apt update
+sudo apt install golang-go -y
+go install github.com/rakyll/hey@latest
+```
+
+> O binário ficará em `~/go/bin/hey`. Adicione ao `PATH` se necessário.
+
+▶️ **Exemplo de uso**:
+
+```bash
+hey -n 1000 -c 50 https://seu.dominio.com.br/
+```
+
+🔍 **Parâmetros**
+
+* `-n 1000` → Número total de requisições (1000)
+* `-c 50` → Número de conexões concorrentes (50)
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🛡️ `siege` — Stress Test & Regressão
+
+📥 **Instalação**:
+
+```bash
+sudo apt update
+sudo apt install siege -y
+```
+
+▶️ **Exemplo de uso**:
+
+```bash
+siege -c50 -t30S https://seu.dominio.com.br/
+```
+
+🔍 **Parâmetros**
+
+* `-c50` → Usuários simultâneos (50 concorrentes)
+* `-t30S` → Tempo de teste (30 segundos)
+* `-b` → Modo **benchmark** (sem pausas entre requisições)
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🧪 `ab` — ApacheBench
+
+📥 **Instalação** (vem no pacote `apache2-utils`):
+
+```bash
+sudo apt update
+sudo apt install apache2-utils -y
+```
+
+▶️ **Exemplo de uso**:
+
+```bash
+ab -n 1000 -c 100 https://seu.dominio.com.br/
+```
+
+🔍 **Parâmetros**
+
+* `-n 1000` → Número total de requisições (1000)
+* `-c 100` → Número de conexões simultâneas (100 usuários concorrentes)
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
