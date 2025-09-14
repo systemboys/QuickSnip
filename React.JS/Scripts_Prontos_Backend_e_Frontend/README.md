@@ -7080,7 +7080,7 @@ echo -e "\n✅ Limpeza concluída (versão leve)."
 * Indicada para máquinas pequenas na AWS, Linode, DigitalOcean, etc.
 * Faz apenas a limpeza segura e básica do sistema.
 
-!-- Botões de navegação -->
+<!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
@@ -7205,7 +7205,7 @@ sudo chmod 1777 /tmp /var/tmp
 df -h
 ```
 
-!-- Botões de navegação -->
+<!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
