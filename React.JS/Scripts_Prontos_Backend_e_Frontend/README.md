@@ -161,13 +161,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
    - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configura%C3%A7%C3%A3o-de-proxy-reverso-nginx--vite_api_url-para-produ%C3%A7%C3%A3o-aws "Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS")
    - 🔙 [Clonar repositório em commit específico (rollback rápido com Git)](#-clonar-reposit%C3%B3rio-em-commit-espec%C3%ADfico-rollback-r%C3%A1pido-com-git "Clonar repositório em commit específico (rollback rápido com Git)")
-   
-   > Limpeza de disco no Linux
-   
-      - 🧹 [Script de Limpeza de Disco no Servidor Linux](# "Script de Limpeza de Disco no Servidor Linux")
-      - 🧹 [Script de Limpeza de Disco (Versão Leve)](# "Script de Limpeza de Disco (Versão Leve)")
-      - 🧹 [Limpeza Manual de Disco no Linux (Comandos diretos)](# "Limpeza Manual de Disco no Linux (Comandos diretos)")
-      - ⚡ [Limpeza Rápida de Disco no Linux](# "Limpeza Rápida de Disco no Linux")
+   - 🧹 [Script de Limpeza de Disco no Servidor Linux](# "Script de Limpeza de Disco no Servidor Linux")
+   - 🧹 [Script de Limpeza de Disco (Versão Leve)](# "Script de Limpeza de Disco (Versão Leve)")
+   - 🧹 [Limpeza Manual de Disco no Linux (Comandos diretos)](# "Limpeza Manual de Disco no Linux (Comandos diretos)")
+   - ⚡ [Limpeza Rápida de Disco no Linux](# "Limpeza Rápida de Disco no Linux")
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
