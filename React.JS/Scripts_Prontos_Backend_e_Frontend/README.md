@@ -160,7 +160,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
    - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configura%C3%A7%C3%A3o-de-proxy-reverso-nginx--vite_api_url-para-produ%C3%A7%C3%A3o-aws "Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS")
-   - 🔙 [Clonar repositório em commit específico (rollback rápido com Git)](# "Clonar repositório em commit específico (rollback rápido com Git)")
+   - 🔙 [Clonar repositório em commit específico (rollback rápido com Git)](#-clonar-reposit%C3%B3rio-em-commit-espec%C3%ADfico-rollback-r%C3%A1pido-com-git "Clonar repositório em commit específico (rollback rápido com Git)")
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
