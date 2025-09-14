@@ -264,7 +264,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    #### 🔧 **VSCode**
    - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
 ## ⚡ 21. **Testes de Performance e Benchmark (CLI)**
-   - 🚀 [wrk — Teste de carga em servidores HTTP](#-wrk--teste-de-carga-em-servidores-http)
+   - 🚀 [wrk — Teste de carga em servidores HTTP](#-teste-de-carga-com-wrk "wrk — Teste de carga em servidores HTTP")
    - 📦 (futuro) `hey` — HTTP load generator
    - 🛡️ (futuro) `siege` — stress test & regressão
    - 🧪 (futuro) `ab` — ApacheBench
