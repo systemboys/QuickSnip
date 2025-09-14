@@ -263,6 +263,12 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 ## 🖥️ 20. **Configuração de Ambiente e Ferramentas de Desenvolvimento**
    #### 🔧 **VSCode**
    - 📄 [Configuração do SFTP no VSCode (Debian Linux)](#-configura%C3%A7%C3%A3o-do-sftp-no-vscode-debian-linux "Configuração do SFTP no VSCode (Debian Linux)")
+## ⚡ 21. **Testes de Performance e Benchmark (CLI)**
+   - 🚀 [wrk — Teste de carga em servidores HTTP](#-wrk--teste-de-carga-em-servidores-http)
+   - 📦 (futuro) `hey` — HTTP load generator
+   - 🛡️ (futuro) `siege` — stress test & regressão
+   - 🧪 (futuro) `ab` — ApacheBench
+
 
 ---
 
@@ -10037,6 +10043,68 @@ chmod 400 /home/marcos/Documentos/AWS/GTi\ SiS/gti-sis.pem
 ![SFTP no VSCode](./images/SFTP_SiS_Float_Base.png)
 
 Essa configuração via **SFTP + PEM** integra de forma simples o VSCode a servidores AWS, mantendo **práticas seguras de chave privada** e garantindo agilidade em deploys manuais, manutenção ou acessos emergenciais.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## ⚡ Teste de Carga com `wrk`
+
+O **`wrk`** é uma ferramenta moderna de benchmark HTTP capaz de gerar grande carga em servidores web, muito utilizada para medir desempenho e capacidade de resposta.
+
+### 📥 Instalação no Linux (Debian/Ubuntu)
+
+```bash
+sudo apt update
+sudo apt install wrk -y
+```
+
+> 🔎 Caso não esteja disponível no repositório, compile manualmente:
+
+```bash
+sudo apt update
+sudo apt install build-essential libssl-dev git -y
+git clone https://github.com/wg/wrk.git
+cd wrk
+make
+sudo cp wrk /usr/local/bin
+```
+
+### ▶️ Exemplo de Uso
+
+```bash
+wrk -t4 -c100 -d30s https://seu.dominio.com.br/
+```
+
+### 🔍 Explicação do Comando
+
+* **`-t4`** → Threads
+  Número de **threads** que o `wrk` usará para gerar requisições.
+  (Neste caso, **4 threads** rodando em paralelo.)
+
+* **`-c100`** → Conexões
+  Número de **conexões simultâneas** abertas contra o servidor.
+  (Aqui, serão **100 conexões concorrentes**.)
+
+* **`-d30s`** → Duração
+  Tempo total do teste.
+  (Será executado por **30 segundos**.)
+
+* **`https://seu.dominio.com.br/`** → Alvo
+  URL da aplicação/servidor que será testado.
+
+### 📊 Resultado esperado
+
+Após rodar o comando, o `wrk` exibirá estatísticas como:
+
+* **Requests/sec** → número de requisições por segundo.
+* **Latency** → tempo médio de resposta do servidor.
+* **Throughput** → quantidade de dados transferidos.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
