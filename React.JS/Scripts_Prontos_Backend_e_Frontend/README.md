@@ -160,6 +160,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ♻️ [Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS](#reinstalar-depend%C3%AAncias-para-resolver-problemas-de-configura%C3%A7%C3%A3o-ou-conflitos-de-cors "Reinstalar Dependências para Resolver Problemas de Configuração ou Conflitos de CORS")
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
    - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configura%C3%A7%C3%A3o-de-proxy-reverso-nginx--vite_api_url-para-produ%C3%A7%C3%A3o-aws "Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS")
+   - 🔙 [Clonar repositório em commit específico (rollback rápido com Git)](# "Clonar repositório em commit específico (rollback rápido com Git)")
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
@@ -6775,6 +6776,62 @@ Define que as requisições do frontend sejam relativas ao caminho `/api`, que s
 ✔️ Caso utilize HTTPS, será necessário configurar certificados SSL no Nginx e atualizar o proxy\_pass para https\:// se a API rodar com SSL.
 
 📌 **Use este procedimento em deploys de produção que utilizem Nginx como proxy reverso para backend Node.js com frontend Vite/React, garantindo organização, segurança e praticidade.**
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🔙 Clonar repositório em commit específico (rollback rápido com Git)
+
+Em alguns casos é necessário clonar um projeto do Git e voltar para um commit anterior que estava funcional.
+
+Segue instruções de como fazer isso direto no servidor Linux via terminal.
+
+Você não precisa baixar o repositório inteiro e depois se perder nos commits. Pode já clonar e posicionar direto no commit que você quer. Veja dois caminhos:
+
+### 🔹 1. Clonar normalmente e depois resetar para o commit desejado
+
+```bash
+# Clone o repositório normalmente
+git clone https://github.com/systemboys/SeuRepo.git
+
+# Entre na pasta do repositório
+cd SeuRepo
+
+# Volte para o commit específico
+git checkout 5140f8a9e86df725ad40fc556c6ad723b943bea1
+```
+
+👉 Nesse caso, o repositório ficará em **"detached HEAD"**, ou seja, não está em nenhuma branch.
+Se quiser criar uma branch a partir desse commit para continuar mexendo:
+
+```bash
+git checkout -b fix-versao-anterior
+```
+
+### 🔹 2. Clonar já direto num commit específico
+
+```bash
+git clone https://github.com/systemboys/SeuRepo.git
+cd SeuRepo
+git reset --hard 5140f8a9e86df725ad40fc556c6ad723b943bea1
+```
+
+Isso vai garantir que o código está **exatamente no estado daquele commit**.
+
+### 🔹 3. Se precisar só baixar aquele snapshot sem histórico (mais leve)
+
+```bash
+git clone --depth 1 https://github.com/systemboys/SeuRepo.git
+cd SeuRepo
+git fetch --depth 1 origin 5140f8a9e86df725ad40fc556c6ad723b943bea1
+git checkout 5140f8a9e86df725ad40fc556c6ad723b943bea1
+```
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
