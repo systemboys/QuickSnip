@@ -7516,6 +7516,7 @@ setIsLoading(false);
 No final do JSX do componente:
 
 ```jsx
+{/* ---Loading Overlay--- */}
 {isLoading && (
   <>
     <style>{`
@@ -7545,6 +7546,7 @@ No final do JSX do componente:
     </div>
   </>
 )}
+{/* ---/Loading Overlay--- */}
 ```
 
 ### 🎨 Estilos no CSS
