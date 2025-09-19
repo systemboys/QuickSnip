@@ -50,7 +50,7 @@
    - 🔍 [Verificar Consistência de Dados](#verificar-consist%C3%AAncia-dos-dados-antes-de-criar-uma-fk "Verificar Consistência de Dados para Chaves Estrangeiras")  
    - ❌ [Remover Chaves Estrangeiras](#remover-uma-chave-estrangeira "Remover Chaves Estrangeiras")  
    - ✏️ [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")  
-   - 🗄️ [Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)](#boas-práticas-de-relacionamentos-beekeeper-studio--mysql "Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)")  
+   - 🗄️ [Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)](#%EF%B8%8F-boas-pr%C3%A1ticas-de-relacionamentos-beekeeper-studio--mysql "Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)")  
    - ✅ [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
 
    ### 🧾 **Linguagem SQL**
