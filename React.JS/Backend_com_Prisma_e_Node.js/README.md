@@ -50,6 +50,7 @@
    - 🔍 [Verificar Consistência de Dados](#verificar-consist%C3%AAncia-dos-dados-antes-de-criar-uma-fk "Verificar Consistência de Dados para Chaves Estrangeiras")  
    - ❌ [Remover Chaves Estrangeiras](#remover-uma-chave-estrangeira "Remover Chaves Estrangeiras")  
    - ✏️ [Renomear Chaves Estrangeiras](#renomear-uma-chave-estrangeira "Renomear Chaves Estrangeiras")  
+   - 🗄️ [Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)](#boas-práticas-de-relacionamentos-beekeeper-studio--mysql "Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)")  
    - ✅ [Resumo das Boas Práticas](#resumo-das-boas-pr%C3%A1ticas "Resumo das Boas Práticas para Chaves Estrangeiras")
 
    ### 🧾 **Linguagem SQL**
@@ -251,6 +252,75 @@ ADD CONSTRAINT fk_novo_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(i
 1. Sempre **verifique os dados existentes** antes de adicionar uma FK para evitar erros de consistência.
 2. Nomeie as FKs com prefixos descritivos, como `fk_<tabela_coluna>`, para facilitar a identificação no futuro.
 3. Mantenha backups regulares do banco de dados antes de executar comandos que alterem a estrutura.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🗄️ Boas Práticas de Relacionamentos (Beekeeper Studio / MySQL)
+
+### Tabela Estados
+
+![Estados do Brasil](./images/Beekeeper_Studio/city ​_table.png)
+
+![Estrutura da tabela de Estados do Brasil](./images/Beekeeper_Studio/state_table_structure.png)
+
+### Tabela de cidades do Brasil
+
+![Cidades do Brasil](./images/Beekeeper_Studio/city ​_table.png)
+
+![Estrutura da tabela de cidades do Brasil](./images/Beekeeper_Studio/city_table_structure.png)
+
+### 🔑 Nomeação de Constraints e Índices
+
+* **Primary Key** → `pk_<tabela>`
+* **Foreign Key** → `fk_<tabela_filha>_<coluna_fk>`
+* **Unique** → `uq_<tabela>_<coluna>` (ou mais colunas)
+* **Índice (não-único)** → `ix_<tabela>_<coluna>`
+
+👉 Evite nomes automáticos como `cities_states_1`. Use nomes descritivos para facilitar manutenção e debugging.
+
+![Indexes](./images/Beekeeper_Studio/indexes.png)
+
+### ⚙️ Configuração de Relacionamentos
+
+* Sempre crie um **índice** para a coluna FK (ex.: `ix_cities_state_id`).
+* **On Update** → prefira **CASCADE** (propaga mudanças do `id` da PK para a FK).
+* **On Delete** → prefira **RESTRICT/NO ACTION** (impede excluir se houver dependentes).
+
+  * Só use **CASCADE** se realmente quiser que filhos sejam apagados junto.
+  * **SET NULL** pode ser útil em casos opcionais.
+
+### ✅ Passos no Beekeeper Studio
+
+1. Vá em **Relations** na tabela filha.
+2. Clique no **“+”** para criar nova relação.
+3. Defina:
+
+   * **Column (FK)**: coluna da tabela filha (`state_id`).
+   * **FK Table**: tabela pai (`states`).
+   * **FK Column**: chave primária da tabela pai (`id`).
+   * **On Update**: `CASCADE`.
+   * **On Delete**: `RESTRICT` ou `NO ACTION`.
+4. Renomeie a constraint para o padrão definido (ex.: `fk_cities_state_id`).
+5. Salve e verifique se o índice foi criado.
+
+![Relacionar uma tabela com outra](./images/Beekeeper_Studio/add_table_relation.png)
+
+### 📝 Dicas Extras
+
+* Garanta que os **tipos** das colunas sejam compatíveis (`INT UNSIGNED` ↔ `INT UNSIGNED`).
+* Teste integridade com `SELECT` usando **LEFT JOIN** para verificar se há registros órfãos.
+* Sempre que possível, normalize nomes de colunas:
+
+  * FK → `state_id`
+  * PK → `id`
+* Prefira `utf8mb4_unicode_ci` para suportar caracteres acentuados.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
