@@ -266,13 +266,13 @@ ADD CONSTRAINT fk_novo_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(i
 
 ### Tabela Estados
 
-![Estados do Brasil](./images/Beekeeper_Studio/city ​_table.png)
+![Estados do Brasil](./images/Beekeeper_Studio/city_table.png)
 
 ![Estrutura da tabela de Estados do Brasil](./images/Beekeeper_Studio/state_table_structure.png)
 
 ### Tabela de cidades do Brasil
 
-![Cidades do Brasil](./images/Beekeeper_Studio/city ​_table.png)
+![Cidades do Brasil](./images/Beekeeper_Studio/city_table.png)
 
 ![Estrutura da tabela de cidades do Brasil](./images/Beekeeper_Studio/city_table_structure.png)
 
