@@ -7554,16 +7554,15 @@ No final do JSX do componente:
 Arquivo `style.module.css` ou `style.css`:
 
 ```css
+/* --- Loading Overlay: início dos estilos de loading e overlay --- */
 /* Animação do spinner */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 .loading-spinner {
   animation: spin 1s linear infinite;
 }
-
 /* Overlay */
 .loadingOverlay {
   position: fixed;
@@ -7578,7 +7577,6 @@ Arquivo `style.module.css` ou `style.css`:
   z-index: 9999;
   backdrop-filter: blur(2px);
 }
-
 .loadingContent {
   display: flex;
   flex-direction: column;
@@ -7586,6 +7584,7 @@ Arquivo `style.module.css` ou `style.css`:
   justify-content: center;
   text-align: center;
 }
+/* --- /Loading Overlay: final dos estilos de loading e overlay --- */
 ```
 
 ### 📚 Referência
