@@ -7474,6 +7474,12 @@ npm install react-loading-indicators
 
 ### ⚙️ Criando o estado de controle
 
+Fora do componente:
+
+```jsx
+import { useState } from 'react';
+```
+
 No seu componente:
 
 ```jsx
