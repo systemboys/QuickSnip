@@ -7552,7 +7552,7 @@ No final do JSX do componente:
 {/* ---/Loading Overlay--- */}
 ```
 
-### 🎨 Estilos no CSS
+### 🎨 Estilos do Loading Overlay no CSS
 
 Arquivo `style.module.css` ou `style.css`:
 
@@ -7657,6 +7657,11 @@ useEffect(() => {
     return () => clearTimeout(timer);
 }, []);
 ```
+
+Coloque os trechos seguintes:
+
+- [🎭 Exibindo o Loading Overlay](#-exibindo-o-loading-overlay "Exibindo o Loading Overlay")
+- [🎨 Estilos do Loading Overlay no CSS](#-estilos-do-loading-overlay-no-css "Estilos do Loading Overlay no CSS")
 
 ### 📚 Referência
 
