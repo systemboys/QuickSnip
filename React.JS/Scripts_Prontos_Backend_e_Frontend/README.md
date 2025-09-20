@@ -7477,6 +7477,7 @@ npm install react-loading-indicators
 No seu componente:
 
 ```jsx
+// Loading
 const [isLoading, setIsLoading] = useState(false);
 ```
 
