@@ -168,8 +168,8 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🧱 10. **Estrutura e Implementação de Componentes**
    ### 🎨 **Ícones e Componentes Visuais**
-   - ⭐ [Implementação de Ícones Font-Awesome em Componentes React](#como-implementar-%C3%ADcones-font-awesome-em-componentes-react "Implementação de Ícones Font-Awesome em Componentes React")
-   - ⚡ [Guia Prático de Loading Overlay em React](#-guia-pr%C3%A1tico-de-loading-overlay-em-react "Guia Prático de Loading Overlay em React")
+   - ⭐ [Implementação de `Ícones Font-Awesome` em Componentes React](#como-implementar-%C3%ADcones-font-awesome-em-componentes-react "Implementação de Ícones Font-Awesome em Componentes React")
+   - ⚡ [Guia Prático de `Loading Overlay` em React](#-guia-pr%C3%A1tico-de-loading-overlay-em-react "Guia Prático de Loading Overlay em React")
 
    ### 🧭 **Abas com Props para Componentes**
    - 📡 [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
@@ -7456,7 +7456,7 @@ Com essas informações, será fácil navegar pelo site e selecionar os ícones 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-10-estrutura-e-implementa%C3%A7%C3%A3o-de-componentes "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -7591,7 +7591,7 @@ Documentação oficial: [react-loading-indicators](https://react-loading-indicat
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-10-estrutura-e-implementa%C3%A7%C3%A3o-de-componentes "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
