@@ -218,7 +218,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
 
 ## 🌐 14. **Incorporando Serviços Externos em Aplicações React**
    ### 🗺️ **Google Maps**
-   - 📍 [Componente React para Exibição de Localização com Google Maps](#componente-react-para-exibi%C3%A7%C3%A3o-de-localiza%C3%A7%C3%A3o-com-google-maps "Componente React para Exibição de Localização com Google Maps")
+   - 🌍 [Guia de Inclusão de Mapas com Google Maps (iframe)](# "Guia de Inclusão de Mapas com Google Maps (iframe)")
 
 ## 🎨 15. **CSS e Layouts em React**
    - 🧱 [Componentes Fixos e Posicionados no Layout com CSS](#componentes-fixos-e-posicionados-no-layout-com-css "Componentes Fixos e Posicionados no Layout com CSS")
@@ -9479,17 +9479,18 @@ Dessa forma, **`formatDate.js`** (e quaisquer outras funções auxiliares) ficar
 
 ---
 
-## Componente React para Exibição de Localização com Google Maps
+## 🌍 Guia de Inclusão de Mapas com Google Maps (iframe)
 
-Este exemplo demonstra como incorporar um mapa do Google Maps em um componente React utilizando um `iframe`. A latitude e a longitude da localização desejada são passadas dinamicamente na URL.
+Este guia descreve como incluir um **mapa interativo do Google Maps** em um componente React, utilizando `iframe` com estilos personalizados.
 
-### Código
+---
+
+### 1. Definir latitude e longitude
+
+No início do componente, defina as coordenadas da localização:
 
 ```jsx
-// Importação de estilos, se necessário
-import styles from './YourStyles.module.css';
-
-// Coordenadas da localização da empresa
+// Maps
 const companyLatitude = "-5.078706";
 const companyLongitude = "-42.800151";
 
@@ -9502,36 +9503,56 @@ const CompanyLocation = (
     className={styles.iframe}
   ></iframe>
 );
-
-export default CompanyLocation;
+// /Maps
 ```
 
-### Explicação
+---
 
-1. **Coordenadas da localização**: Substitua `companyLatitude` e `companyLongitude` pelas coordenadas da localização que você deseja exibir no mapa.
-2. **Parâmetros da URL**:
-   - `hl=pt`: Define o idioma como português.
-   - `z=15`: Define o nível de zoom no mapa.
-   - `output=embed`: Gera a URL no formato de incorporação.
-3. **Estilização**: Use a classe CSS `iframe` para ajustar a aparência do mapa, conforme definido no arquivo de estilos.
-4. **Propriedades do `iframe`**:
-   - `allowFullScreen`: Permite que o mapa seja exibido em tela cheia.
-   - `loading="lazy"`: Melhora o desempenho ao carregar o mapa apenas quando necessário.
-   - `referrerPolicy`: Configura a política de referenciadores para melhorar a segurança.
+### 2. Inserir o mapa no layout
 
-### Observação
+Posicione o mapa dentro do JSX do componente:
 
-- Certifique-se de incluir os estilos personalizados no arquivo `YourStyles.module.css` (ou similar). Exemplo de estilo básico para o iframe:
+```jsx
+<div className={styles.mapBox}>{ CompanyLocation }</div>
+```
+
+---
+
+### 3. Estilizar o mapa via CSS
+
+No arquivo de estilos (CSS ou módulo CSS), configure variáveis e classe para o `iframe`:
 
 ```css
+:root {
+  /* Maps */
+  --ctd-margin: 0;
+  --ctd-padding: 0;
+  --ctd-iframe-height: 180px !important;
+  --ctd-box-shadow1: -1px 1px #bcbcbc;
+  --ctd-box-shadow2: -2px 2px #bcbcbc;
+  --ctd-box-shadow3: -3px 3px 4px rgba(0,0,0,.4) !important;
+  --ctd-transform-x: -3px;
+  --ctd-empty-space-height: 0;
+}
+
+/* Maps */
 .iframe {
   width: 100%;
-  height: 400px;
-  border: none;
+  height: var(--ctd-iframe-height);
+  margin: var(--ctd-margin);
+  padding: var(--ctd-padding);
+  box-shadow:
+    var(--ctd-box-shadow1),
+    var(--ctd-box-shadow2),
+    var(--ctd-box-shadow3);
+  -webkit-transform: translateX(var(--ctd-transform-x));
+  transform: translateX(var(--ctd-transform-x));
 }
 ```
 
-Agora você pode reutilizar este componente para exibir localizações com o Google Maps em seus projetos React.
+---
+
+✅ **Dica:** Basta alterar os valores de `companyLatitude` e `companyLongitude` para reutilizar este padrão em outros componentes.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
