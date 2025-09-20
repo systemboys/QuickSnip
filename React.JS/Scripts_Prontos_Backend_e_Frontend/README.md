@@ -191,12 +191,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ❌ [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
    - 🔼 [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
    - 🔽 [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
-
       🔁 **Substituição de conteúdo**
       - 🔄 [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
       - ⚛️ [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
       - 🧪 [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
-
    - 🧷 [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
    - ➕ [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
    - 📝 [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
@@ -205,7 +203,6 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🔧 [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
      - 🤖 [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
      - 🧩 [Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa](#modulariza%C3%A7%C3%A3o-de-fun%C3%A7%C3%B5es-de-preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-em-react-com-importa%C3%A7%C3%A3o-externa "Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa")
-
    - 🖱️ [Exemplo de Adição de Evento de Clique em JavaScript](#exemplo-de-adi%C3%A7%C3%A3o-de-evento-de-clique-em-javascript "Exemplo de Adição de Evento de Clique em JavaScript")
    - 📤 [Passar uma propriedade de um elemento para uma arrow function](#passar-uma-propriedade-de-um-elemento-para-uma-arrow-function "Passar uma propriedade de um elemento para uma arrow function")
    - 🪟 [PopUp com uma determinada URL passada via parâmetro](#popup-com-uma-determinada-url-passa... "Popup com uma determinada URL passada via parâmetro")
