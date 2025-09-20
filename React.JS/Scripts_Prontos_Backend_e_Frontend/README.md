@@ -7620,7 +7620,7 @@ Arquivo `style.module.css` ou `style.css`:
   text-align: center;
   box-shadow: -1px 1px 4px rgba(0,0,0,.4);
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 20px 10px 0 10px;
+  padding: 20px 20px 0 20px;
   border-radius: 10px;
 }
 /* --- /Loading Overlay: final dos estilos de loading e overlay --- */
