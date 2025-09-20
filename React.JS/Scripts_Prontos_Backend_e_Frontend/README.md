@@ -7632,6 +7632,32 @@ Arquivo `style.module.css` ou `style.css`:
 /* --- /Loading Overlay: final dos estilos de loading e overlay --- */
 ```
 
+### ▶️ Apenas para o carregamento do componente, exemplo, apenas carregara página
+
+Fora do componente:
+
+```jsx
+import { useState, useEffect } from 'react';
+```
+
+No componente:
+
+```jsx
+// Loading
+const [isLoading, setIsLoading] = useState(false);
+
+// Simula carregamento ao montar o componente
+useEffect(() => {
+    setIsLoading(true);
+    // Simulação de carregamento (ex: fetch, inicialização, etc)
+    const timer = setTimeout(() => {
+        setIsLoading(false);
+    }, 800); // 800ms só para exemplo, ajuste conforme necessário
+
+    return () => clearTimeout(timer);
+}, []);
+```
+
 ### 📚 Referência
 
 Documentação oficial: [react-loading-indicators](https://react-loading-indicators.netlify.app/)
