@@ -7632,7 +7632,7 @@ Arquivo `style.module.css` ou `style.css`:
 /* --- /Loading Overlay: final dos estilos de loading e overlay --- */
 ```
 
-### ▶️ Apenas para o carregamento do componente, exemplo, apenas carregara página
+### ▶️ Simular carregamento ao montar o componente
 
 Fora do componente:
 
