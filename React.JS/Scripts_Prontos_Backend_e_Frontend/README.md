@@ -7456,7 +7456,7 @@ Com essas informações, será fácil navegar pelo site e selecionar os ícones 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#-10-estrutura-e-implementa%C3%A7%C3%A3o-de-componentes "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-%C3%ADcones-e-componentes-visuais "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -7591,7 +7591,7 @@ Documentação oficial: [react-loading-indicators](https://react-loading-indicat
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#-10-estrutura-e-implementa%C3%A7%C3%A3o-de-componentes "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-%C3%ADcones-e-componentes-visuais "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
