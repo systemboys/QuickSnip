@@ -7550,6 +7550,8 @@ No final do JSX do componente:
 
 Arquivo `style.module.css` ou `style.css`:
 
+> Tela escura:
+
 ```css
 /* --- Loading Overlay: início dos estilos de loading e overlay --- */
 /* Animação do spinner */
@@ -7580,6 +7582,46 @@ Arquivo `style.module.css` ou `style.css`:
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+/* --- /Loading Overlay: final dos estilos de loading e overlay --- */
+```
+
+> Tela clara:
+
+```css
+/* --- Loading Overlay: início dos estilos de loading e overlay --- */
+/* Animação do spinner */
+@keyframes _spin_1ge12_1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loading-spinner {
+  animation: _spin_1ge12_1 1s linear infinite;
+}
+/* Overlay */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: -1px 1px 4px rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 10px 0 10px;
+  border-radius: 10px;
 }
 /* --- /Loading Overlay: final dos estilos de loading e overlay --- */
 ```
