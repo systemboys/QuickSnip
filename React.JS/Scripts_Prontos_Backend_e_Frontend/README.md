@@ -175,7 +175,6 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 📡 [Componente de Ping React com Histórico de Respostas](#componente-de-ping-react-com-hist%C3%B3rico-de-respostas "Componente de Ping React com Histórico de Respostas")
    - 🗂️ [Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única](#implementa%C3%A7%C3%A3o-de-abas-com-props-para-componentes "Implementação de Componente com Abas no React-Bootstrap e Props para Identificação Única")
    - 🔗 [Passagem de Props e Uso de Hooks em Componentes Filhos de Abas](#componentes-filhos---exemplo-com-systemsettings_backgroundcategory "Passagem de Props e Uso de Hooks em Componentes Filhos de Abas")
-
    - 📏 [Renderização Condicional de Elementos com Base na Largura da Tela em React.js](#renderiza%C3%A7%C3%A3o-condicional-de-elementos-com-base-na-largura-da-tela-em-reactjs "Renderização Condicional de Elementos com Base na Largura da Tela em React.js")
    - 🧭 [Navegação Dinâmica com React Router para Redirecionamento](#navega%C3%A7%C3%A3o-din%C3%A2mica-com-react-router-redirecionando-para-componentes-em-uma-spa "Navegação Dinâmica com React Router para Redirecionamento")
 
