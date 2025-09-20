@@ -9490,7 +9490,7 @@ Este guia descreve como incluir um **mapa interativo do Google Maps** em um comp
 No início do componente, defina as coordenadas da localização:
 
 ```jsx
-// Maps
+// ---Maps---
 const companyLatitude = "-5.078706";
 const companyLongitude = "-42.800151";
 
@@ -9503,7 +9503,7 @@ const CompanyLocation = (
     className={styles.iframe}
   ></iframe>
 );
-// /Maps
+// ---/Maps---
 ```
 
 ---
