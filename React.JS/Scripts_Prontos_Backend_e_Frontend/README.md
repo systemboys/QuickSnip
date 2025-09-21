@@ -191,12 +191,10 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ❌ [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
    - 🔼 [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
    - 🔽 [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
-
       > 🔁 **Substituição de conteúdo**
       - 🔄 [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
       - ⚛️ [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#%EF%B8%8F-substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
       - 🧪 [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
-
    - 🧷 [Adicionar um Novo Elemento como Filho de Outro](#adicionar-um-novo-elemento-como-filho-de-outro "Adicionar um Novo Elemento como Filho de Outro")
    - ➕ [Adicionar uma Linha Depois de Outra Linha em uma Tabela](#exemplo-de-uso-para-estruturas-de-tabela "Adicionar uma Linha Depois de Outra Linha em uma Tabela")
    - 📝 [Manipulação Dinâmica do Título da Página com JavaScript](#manipula%C3%A7%C3%A3o-din%C3%A2mica-do-t%C3%ADtulo-da-p%C3%A1gina-com-javascript "Manipulação Dinâmica do Título da Página com JavaScript")
@@ -8147,7 +8145,7 @@ Aqui estão exemplos genéricos de manipulações no DOM usando JavaScript. Este
 
 ---
 
-### Remover um Elemento Específico pelo ID
+### ❌ Remover um Elemento Específico pelo ID
 
 ```javascript
 // Seleciona o elemento pelo ID
@@ -8162,7 +8160,7 @@ if (element) {
 
 ---
 
-### Adicionar um Elemento Antes de Outro no DOM
+### 🔼 Adicionar um Elemento Antes de Outro no DOM
 
 ```javascript
 // Seleciona o elemento de referência
@@ -8183,7 +8181,7 @@ if (referenceElement) {
 
 ---
 
-### Adicionar um Elemento Depois de Outro no DOM
+### 🔽 Adicionar um Elemento Depois de Outro no DOM
 
 ```javascript
 // Seleciona o elemento de referência
@@ -8204,7 +8202,7 @@ if (referenceElement) {
 
 ---
 
-### Substituir um Elemento por Outro no DOM
+### 🔄 Substituir um Elemento por Outro no DOM
 
 ```javascript
 // Seleciona o elemento que será substituído
@@ -8319,7 +8317,7 @@ Com isso, o componente `<ReactComponent>` será renderizado no lugar do elemento
 
 ---
 
-### Exemplo Genérico para Substituir Elemento do DOM por Componente React
+### 🧪 Exemplo Genérico para Substituir Elemento do DOM por Componente React
 
 Este exemplo demonstra como substituir um elemento do DOM existente por um componente React, garantindo que a manipulação do DOM seja integrada ao ciclo de vida do React.
 
@@ -8389,7 +8387,7 @@ replaceElementWithReactComponent('elemento-alvo', ExampleComponent, { propValue:
 - **Consistência com React**: Use essa abordagem apenas quando necessário manipular diretamente o DOM; priorize soluções React sempre que possível.
 - **Desmontar Componentes**: Se o elemento que será substituído já tiver um componente React, considere desmontá-lo antes de substituir o DOM. Use `ReactDOM.unmountComponentAtNode` para evitar vazamentos de memória.
 
-### Adicionar um Novo Elemento como Filho de Outro
+### 🧷 Adicionar um Novo Elemento como Filho de Outro
 
 ```javascript
 // Seleciona o elemento pai
@@ -8410,7 +8408,7 @@ if (parentElement) {
 
 ---
 
-### Exemplo de Uso para Estruturas de Tabela
+### ➕ Exemplo de Uso para Estruturas de Tabela
 
 Para uso em tabelas, você pode adaptar qualquer exemplo acima. Por exemplo:
 
@@ -8546,16 +8544,9 @@ Se precisar de mais ajustes ou tiver dúvidas, é só perguntar! 😊
 
 Esses exemplos são altamente reutilizáveis e podem ser adaptados para diferentes cenários. Se precisar de mais adaptações ou esclarecimentos, é só pedir! 😊
 
-<!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#-12-manipula%C3%A7%C3%A3o-de-objetos-no-dom-com-javascript "Conteúdo")
-<!-- /Botões de navegação -->
-
 ---
 
-## Manipulação Dinâmica do Título da Página com JavaScript
+## 📝 Manipulação Dinâmica do Título da Página com JavaScript
 
 Aqui está um pequeno script JavaScript que altera dinamicamente o conteúdo da tag `<title>` de uma página:
 
