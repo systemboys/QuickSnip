@@ -18,7 +18,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - ⚛️ [Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)](#-parte-1-inicializa%C3%A7%C3%A3o-do-frontend-com-reactjs-em-lotmanagerfrontend "Parte 1: Inicialização do Frontend com React.js (em ./LotManager/frontend/)")
      - 🗂️ [Organização inicial de diretórios (frontend)](#-organiza%C3%A7%C3%A3o-inicial-de-diret%C3%B3rios-frontend "Organização inicial de diretórios (frontend)")
      - 🧩 [Parte 2: Modularização do Backend (Node.js + TS + Prisma)](#-parte-2-modulariza%C3%A7%C3%A3o-do-backend-nodejs--ts--prisma "Parte 2: Modularização do Backend (Node.js + TS + Prisma)")
-   - 🔧 [Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)](#projeto-fullstack--nodejs--express--prisma--reactjs-conex%C3%A3o-mysql-hostgator "Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)")
+   - 🔧 [Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)](#-projeto-fullstack--nodejs--express--prisma--reactjs-conex%C3%A3o-mysql-hostgator "Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)")
 
    ### ⚡ **Com o Vite**
    - ⚙️ [Iniciar projeto React com Vite (JavaScript Puro)](#-iniciar-projeto-react-com-vite-javascript-puro "Iniciar projeto React com Vite (JavaScript Puro)")
@@ -191,7 +191,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ❌ [Remover um Elemento Específico pelo ID](#-remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
    - 🔼 [Adicionar um Elemento Antes de Outro no DOM](#-adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
    - 🔽 [Adicionar um Elemento Depois de Outro no DOM](#-adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
-      - 🔁 **Substituição de conteúdo**
+   - 🔁 **Substituição de conteúdo**
       - 🔄 [Substituir um Elemento por Outro no DOM](#-substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
       - ⚛️ [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#%EF%B8%8F-substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
       - 🧪 [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#-exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
@@ -641,12 +641,12 @@ Pronto! Agora você tem o backend modularizado e o frontend inicializado com Vit
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)
+## 🔧 Projeto Fullstack – Node.js + Express + Prisma + React.js (Conexão MySQL HostGator)
 
 ### 📂 **Projeto Backend + Frontend (Node.js, Express, Prisma, React.js) – Passo a Passo**
 
@@ -877,7 +877,7 @@ export default App;
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -962,7 +962,7 @@ npm run dev
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -1025,7 +1025,7 @@ export default App;
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
