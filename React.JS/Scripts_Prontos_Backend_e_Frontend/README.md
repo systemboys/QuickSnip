@@ -191,7 +191,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - ❌ [Remover um Elemento Específico pelo ID](#remover-um-elemento-espec%C3%ADfico-pelo-id "Remover um Elemento Específico pelo ID")
    - 🔼 [Adicionar um Elemento Antes de Outro no DOM](#adicionar-um-elemento-antes-de-outro-no-dom "Adicionar um Elemento Antes de Outro no DOM")
    - 🔽 [Adicionar um Elemento Depois de Outro no DOM](#adicionar-um-elemento-depois-de-outro-no-dom "Adicionar um Elemento Depois de Outro no DOM")
-      🔁 **Substituição de conteúdo**
+      > 🔁 **Substituição de conteúdo**
       - 🔄 [Substituir um Elemento por Outro no DOM](#substituir-um-elemento-por-outro-no-dom "Substituir um Elemento por Outro no DOM")
       - ⚛️ [`Substituir` um `Elemento` do DOM por um elemento com `Componente React`](#%EF%B8%8F-substituir-um-elemento-do-dom-por-um-elemento-com-componente-react "Substituir um Elemento do DOM por um elemento com Componente React")
       - 🧪 [Exemplo Genérico para Substituir Elemento do DOM por Componente React](#exemplo-gen%C3%A9rico-para-substituir-elemento-do-dom-por-componente-react "Exemplo Genérico para Substituir Elemento do DOM por Componente React")
@@ -8405,15 +8405,6 @@ if (parentElement) {
     console.error('Elemento pai não encontrado!');
 }
 ```
-
----
-
-<!-- Botões de navegação -->
-[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
-[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
-[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#-12-manipula%C3%A7%C3%A3o-de-objetos-no-dom-com-javascript "Conteúdo")
-<!-- /Botões de navegação -->
 
 ---
 
