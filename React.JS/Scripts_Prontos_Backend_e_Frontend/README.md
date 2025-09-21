@@ -443,7 +443,7 @@ app.get('/lotes', async (req, res) => {
 ```
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -479,7 +479,7 @@ npm run dev
 Acesse `http://localhost:5173` para ver a aplicação rodando.
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
@@ -521,7 +521,7 @@ export const api = axios.create({
 ```
 
 <!-- Botões de navegação -->
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-1-iniciando-projetos "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
