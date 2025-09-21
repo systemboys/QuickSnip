@@ -8223,7 +8223,7 @@ if (oldElement) {
 
 ---
 
-### Substituir um Elemento do DOM por um elemento com Componente React
+### ⚛️ Substituir um Elemento do DOM por um elemento com Componente React
 
 Para substituir o elemento por um componente React `<ReactComponent />`, você deve renderizá-lo dentro do elemento alvo usando `ReactDOM.createRoot`. Veja os códigos a seguir:
 
