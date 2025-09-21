@@ -8412,7 +8412,7 @@ if (parentElement) {
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-12-manipula%C3%A7%C3%A3o-de-objetos-no-dom-com-javascript "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
