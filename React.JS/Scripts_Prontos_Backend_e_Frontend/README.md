@@ -92,12 +92,12 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
      - ➕ [5. Extensão para Outros Parâmetros](#-5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
 
 ## 📄 3. **Paginação de Listas com React e Prisma**
-   - 📦 [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
-     - 📁 [Arquivo de Rota: `routes.ts`](#arquivo-routests "Arquivo de Rota: `routes.ts`")
-     - ⚛️ [Componente de Paginação: `index.jsx`](#arquivo-indexjsx "Componente de Paginação: `index.jsx`")
-   - ➕ [Outro exemplo genérico com botões ilimitados com Reticências (...)](#outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
-     - ⚙️ [Passo 1: Criar a Função de Geração de Páginas](#passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
-     - 🧮 [Passo 2: Implementar a Exibição de Botões de Paginação](#passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
+   - 📦 [Componente de Paginação Genérico para Listas](#-componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
+     - 📁 [Arquivo de Rota: `routes.ts`](#-arquivo-routests "Arquivo de Rota: `routes.ts`")
+     - ⚛️ [Componente de Paginação: `index.jsx`](#%EF%B8%8F-arquivo-indexjsx "Componente de Paginação: `index.jsx`")
+   - ➕ [Outro exemplo genérico com botões ilimitados com Reticências (...)](#-outro-exemplo-gen%C3%A9rico-com-bot%C3%B5es-ilimitados-com-retic%C3%AAncias- "Outro exemplo genérico com botões ilimitados com Reticências (...)")
+     - ⚙️ [Passo 1: Criar a Função de Geração de Páginas](#%EF%B8%8F-passo-1-criar-a-fun%C3%A7%C3%A3o-de-gera%C3%A7%C3%A3o-de-p%C3%A1ginas "Passo 1: Criar a Função de Geração de Páginas")
+     - 🧮 [Passo 2: Implementar a Exibição de Botões de Paginação](#-passo-2-implementar-a-exibi%C3%A7%C3%A3o-de-bot%C3%B5es-de-pagina%C3%A7%C3%A3o "Passo 2: Implementar a Exibição de Botões de Paginação")
 
 ## 🔔 4. **Notificações no Frontend com React**
    - 🌐 [Notificação de `Conexão` de `Internet`](#notifica%C3%A7%C3%A3o-de-conex%C3%A3o-de-internet "Notificação de Conexão de Internet")
@@ -4250,11 +4250,11 @@ Essa estrutura dá flexibilidade para um CRUD genérico usando Prisma e TypeScri
 
 ---
 
-## Componente de Paginação Genérico para Listas
+## 📦 Componente de Paginação Genérico para Listas
 
 Esse componente genérico permite a paginação de listas grandes no frontend sem a necessidade de carregar todos os dados de uma vez. Ele funciona com chamadas ao servidor para carregar apenas os itens necessários para a página atual, reduzindo o uso de memória e melhorando o desempenho. Esse exemplo utiliza uma lista simples de itens, renderizados como parágrafos (`<p>...</p>`).
 
-#### Arquivo: `routes.ts`
+#### 📁 Arquivo: `routes.ts`
 ```typescript
 // Rota para buscar itens com paginação
 routes.get('/items/:companyId', async (req, res) => {
@@ -4295,7 +4295,7 @@ Essa rota implementa a paginação no servidor usando Prisma. Ela recebe o `comp
 - **Aplica paginação** usando `skip` e `take` para definir o intervalo de itens a serem retornados.
 - **Retorna a página de itens** e o número total de páginas (`totalPages`), permitindo que o frontend saiba quantas páginas existem para navegação.
 
-#### Arquivo: `index.jsx`
+#### ⚛️ Arquivo: `index.jsx`
 ```javascript
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -4418,12 +4418,12 @@ INSERT INTO test_table (item_description, registration_date, registration_time, 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-3-pagina%C3%A7%C3%A3o-de-listas-com-react-e-prisma "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Outro exemplo genérico com botões ilimitados com Reticências (...)
+## ➕ Outro exemplo genérico com botões ilimitados com Reticências (...)
 
 Para implementar uma paginação customizada no estilo da imagem, podemos criar uma lógica que gera os botões de página com "..." quando há muitas páginas. Essa abordagem melhora a experiência do usuário ao permitir a navegação direta para as primeiras e últimas páginas, além de exibir a página atual e algumas páginas ao redor.
 
@@ -4438,7 +4438,7 @@ Abaixo está uma modificação no código de paginação, que adiciona essa lóg
 
 ### ( i ) A rota é a da diga anterior, [clique aqui](#arquivo-routests "clique aqui").
 
-### Passo 1: Criar a Função de Geração de Páginas
+### ⚙️ Passo 1: Criar a Função de Geração de Páginas
 
 Essa função gera os números de página, adicionando "..." quando necessário, para manter o design mais compacto.
 
@@ -4480,7 +4480,7 @@ function generatePageNumbers(currentPage, totalPages) {
 }
 ```
 
-### Passo 2: Implementar a Exibição de Botões de Paginação
+### 🧮 Passo 2: Implementar a Exibição de Botões de Paginação
 
 No componente principal, modifique o bloco de paginação para usar a função `generatePageNumbers` e renderizar os botões conforme o layout desejado.
 
@@ -4615,7 +4615,7 @@ Esse layout otimiza a navegação para listas extensas, mantendo a interface sim
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-3-pagina%C3%A7%C3%A3o-de-listas-com-react-e-prisma "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
