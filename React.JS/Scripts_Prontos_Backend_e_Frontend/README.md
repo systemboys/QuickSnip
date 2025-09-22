@@ -66,30 +66,30 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🧩 Exemplo completo de um `CRUD` (Create, Read, Update, Delete)
      - 🆕 [Rota de Criação de Registro (`Create`) com Prisma e Requisição no Frontend](#-rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
      - 📖 [Rota de Leitura de Registros (`Read`) com Prisma e Requisição no Frontend](#-rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
-     - 🛠️ [Rota de Atualização de Registro (`Update`) com Prisma e Requisição no Frontend](#-rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
-     - 🗑️ [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#-rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
+     - 🛠️ [Rota de Atualização de Registro (`Update`) com Prisma e Requisição no Frontend](#%EF%B8%8F-rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
+     - 🗑️ [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#%EF%B8%8F-rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
 
    - ♻️ Reutilização de componentes e lógica no frontend
    - 🧭 Organização de `rotas` e `controllers` no backend
-     - 🧱 [`Refatoração` de rotas e uso de controllers](#refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
-       - 🗂️ [`Exemplo Genérico` de Organização de `Rotas` e `Controllers`](#exemplo-gen%C3%A9rico-de-organiza%C3%A7%C3%A3o-de-rotas-e-controllers "Exemplo Genérico de Organização de Rotas e Controllers")
-     - 🧠 [Como mover a lógica de rotas para controllers para melhor organização](#como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
-     - 🛠️ [Vantagens da modularização e manutenibilidade do código](#vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
-     - 🧭 [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
-       - 🌐 [Requisição da Rota no Componente React](#instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
-     - 💡 [Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.](#instru%C3%A7%C3%A3o-gen%C3%A9rica-de-um-crud-create-read-update-delete-com-um-padr%C3%A3o-utilizado-em-projetos-com-nodejs--express--prisma-no-backend-e-react-no-frontend "Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.")
+     - 🧱 [`Refatoração` de rotas e uso de controllers](#-refatora%C3%A7%C3%A3o-de-rotas-e-uso-de-controllers "Refatoração de rotas e uso de controllers")
+       - 🗂️ [`Exemplo Genérico` de Organização de `Rotas` e `Controllers`](#%EF%B8%8F-exemplo-gen%C3%A9rico-de-organiza%C3%A7%C3%A3o-de-rotas-e-controllers "Exemplo Genérico de Organização de Rotas e Controllers")
+     - 🧠 [Como mover a lógica de rotas para controllers para melhor organização](#-como-mover-a-l%C3%B3gica-de-rotas-para-controllers-para-melhor-organiza%C3%A7%C3%A3o "Como mover a lógica de rotas para controllers para melhor organização")
+     - 🛠️ [Vantagens da modularização e manutenibilidade do código](#%EF%B8%8F-vantagens-da-modulariza%C3%A7%C3%A3o-e-manutenibilidade-do-c%C3%B3digo "Vantagens da modularização e manutenibilidade do código")
+     - 🧭 [Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma](#-rota-com-par%C3%A2metro-din%C3%A2mico-e-filtragem-por-chave-estrangeira-no-prisma "Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma")
+       - 🌐 [Requisição da Rota no Componente React](#-instru%C3%A7%C3%B5es-para-requisi%C3%A7%C3%A3o-da-rota-no-frontend-react "Requisição da Rota no Componente React")
+     - 💡 [Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.](#-instru%C3%A7%C3%A3o-gen%C3%A9rica-de-um-crud-create-read-update-delete-com-um-padr%C3%A3o-utilizado-em-projetos-com-nodejs--express--prisma-no-backend-e-react-no-frontend "Guia de instrução genérica padrão nos projetos com Node.js + Express + Prisma no backend, e React no frontend.")
        - 🧩 [Instruções Genéricas para Criar um CRUD (Node.js + Express + Prisma + React)](#-instru%C3%A7%C3%B5es-gen%C3%A9ricas-para-criar-um-crud-nodejs--express--prisma--react "Instruções Genéricas para Criar um CRUD (Node.js + Express + Prisma + React)")
 
-   - 🔁 [Função Genérica para Consultas e Operações CRUD com Prisma](#fun%C3%A7%C3%A3o-gen%C3%A9rica-para-consultas-e-opera%C3%A7%C3%B5es-crud-com-prisma "Função Genérica para Consultas e Operações CRUD com Prisma")
-     - 🔧 [1. Estrutura Básica da Função CRUD Genérica](#1-estrutura-b%C3%A1sica-da-fun%C3%A7%C3%A3o-crud-gen%C3%A9rica "1. Estrutura Básica da Função CRUD Genérica")
-     - 📊 [2. Como Funciona](#2-como-funciona "2. Como Funciona")
-     - 🧪 [3. Exemplo de Uso](#3-exemplo-de-uso "3. Exemplo de Uso")
-       - 🔍 [Busca de um item específico (findUnique)](#busca-de-um-item-espec%C3%ADfico-findunique "Busca de um item específico (findUnique)")
-       - 🆕 [Criação de um novo item (create)](#cria%C3%A7%C3%A3o-de-um-novo-item-create "Criação de um novo item (create)")
-       - ♻️ [Atualização de um item (update)](#atualiza%C3%A7%C3%A3o-de-um-item-update "Atualização de um item (update)")
-       - 🗑️ [Exclusão de um item (delete)](#exclus%C3%A3o-de-um-item-delete "Exclusão de um item (delete)")
-     - 📌 [4. Considerações Importantes](#4-considera%C3%A7%C3%B5es-importantes "4. Considerações Importantes")
-     - ➕ [5. Extensão para Outros Parâmetros](#5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
+   - 🔁 [Função Genérica para Consultas e Operações CRUD com Prisma](#-fun%C3%A7%C3%A3o-gen%C3%A9rica-para-consultas-e-opera%C3%A7%C3%B5es-crud-com-prisma "Função Genérica para Consultas e Operações CRUD com Prisma")
+     - 🔧 [1. Estrutura Básica da Função CRUD Genérica](#-1-estrutura-b%C3%A1sica-da-fun%C3%A7%C3%A3o-crud-gen%C3%A9rica "1. Estrutura Básica da Função CRUD Genérica")
+     - 📊 [2. Como Funciona](#-2-como-funciona "2. Como Funciona")
+     - 🧪 [3. Exemplo de Uso](#-3-exemplo-de-uso "3. Exemplo de Uso")
+       - 🔍 [Busca de um item específico (findUnique)](#-busca-de-um-item-espec%C3%ADfico-findunique "Busca de um item específico (findUnique)")
+       - 🆕 [Criação de um novo item (create)](#-cria%C3%A7%C3%A3o-de-um-novo-item-create "Criação de um novo item (create)")
+       - ♻️ [Atualização de um item (update)](#%EF%B8%8F-atualiza%C3%A7%C3%A3o-de-um-item-update "Atualização de um item (update)")
+       - 🗑️ [Exclusão de um item (delete)](#%EF%B8%8F-exclus%C3%A3o-de-um-item-delete "Exclusão de um item (delete)")
+     - 📌 [4. Considerações Importantes](#-4-considera%C3%A7%C3%B5es-importantes "4. Considerações Importantes")
+     - ➕ [5. Extensão para Outros Parâmetros](#-5-extens%C3%A3o-para-outros-par%C3%A2metros "5. Extensão para Outros Parâmetros")
 
 ## 📄 3. **Paginação de Listas com React e Prisma**
    - 📦 [Componente de Paginação Genérico para Listas](#componente-de-pagina%C3%A7%C3%A3o-gen%C3%A9rico-para-listas "Componente de Paginação Genérico para Listas")
@@ -3267,7 +3267,7 @@ export default DeleteEntityButton;
 
 ---
 
-## Refatoração de rotas e uso de controllers
+## 🧱 Refatoração de rotas e uso de controllers
 
 Sim, é totalmente possível adicionar **controllers** no seu projeto futuramente, mesmo que você já tenha definido as rotas diretamente em um arquivo de rotas, como o `routes.ts`. Adicionar controllers ajuda a manter o código mais organizado e modularizado, especialmente à medida que o sistema cresce em complexidade.
 
@@ -3370,12 +3370,12 @@ Você pode começar com rotas simples e mover a lógica para controllers quando 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Exemplo Genérico de Organização de Rotas e Controllers
+## 🗂️ Exemplo Genérico de Organização de Rotas e Controllers
 
 Este guia ilustra como organizar rotas em uma aplicação **Node.js** separando a lógica de negócios em **controllers**. A estrutura sugerida facilita a manutenção e padroniza o desenvolvimento de aplicações com **Express** e **Prisma**.
 
@@ -3492,12 +3492,12 @@ Este modelo genérico pode ser adaptado para qualquer aplicação com **Node.js*
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Como mover a lógica de rotas para controllers para melhor organização
+## 🧠 Como mover a lógica de rotas para controllers para melhor organização
 
 Organizar as rotas em controllers ajuda a manter o código do backend mais modular e fácil de manter. Veja exemplos genéricos de controllers para cada parte do CRUD (Create, Read, Update, Delete) e uma estrutura para as rotas no Express que pode ser facilmente adaptada.
 
@@ -3704,12 +3704,12 @@ Esse modelo genérico ajuda a manter a organização do backend e facilita a reu
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Vantagens da modularização e manutenibilidade do código
+## 🛠️ Vantagens da modularização e manutenibilidade do código
 
 A modularização e a manutenibilidade são princípios essenciais para manter um código organizado, fácil de entender e de modificar. Aqui estão algumas das principais vantagens de modularizar e manter o código com boas práticas:
 
@@ -3758,12 +3758,12 @@ Essas vantagens tornam a modularização uma prática essencial para qualquer pr
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma
+## 🧭 Rota com Parâmetro Dinâmico e Filtragem por Chave Estrangeira no Prisma
 
 Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma rota que receba um parâmetro dinâmico e filtre registros com base em uma chave estrangeira. Também incluo a forma de fazer a requisição no frontend para utilizar essa rota. 
 
@@ -3802,7 +3802,7 @@ Aqui está um exemplo genérico, com instruções detalhadas para adicionar uma 
    - `foreign_key_field`: o nome da chave estrangeira no banco de dados (ex.: `company_id`).
    - `id`: o campo de ordenação pode ser `id` ou qualquer outra coluna desejada.
 
-2. #### **Instruções para Requisição da Rota no Frontend (React)**
+2. #### 🌐 **Instruções para Requisição da Rota no Frontend (React)**
 
    Para fazer a requisição no componente do frontend, você pode utilizar `fetch` ou uma biblioteca como `axios`. Aqui está um exemplo usando `fetch`:
 
@@ -3871,12 +3871,12 @@ Esse padrão ajuda a estruturar rotas e componentes de forma a serem reutilizáv
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-> #### Instrução genérica de um CRUD (Create, Read, Update, Delete), com um padrão utilizado em projetos com Node.js + Express + Prisma no backend e React no frontend.
+> #### 💡 Instrução genérica de um CRUD (Create, Read, Update, Delete), com um padrão utilizado em projetos com Node.js + Express + Prisma no backend e React no frontend.
 
 ## 🧩 Instruções Genéricas para Criar um CRUD (Node.js + Express + Prisma + React)
 
@@ -4114,12 +4114,12 @@ fetch(`http://localhost:3333/exemplo/${id}`, {
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Função Genérica para Consultas e Operações CRUD com Prisma
+## 🔁 Função Genérica para Consultas e Operações CRUD com Prisma
 
 ### Implementando um CRUD Genérico com TypeScript e Prisma para Consultas Dinâmicas
 
@@ -4127,7 +4127,7 @@ Funções genéricas que realizam consultas ao banco de dados de forma dinâmica
 
 Vou explicar o conceito de uma função genérica de CRUD usando **TypeScript** e **Prisma ORM**, onde você pode passar os parâmetros como nome da tabela (ou modelo do Prisma), tipo de operação (CRUD), filtros e outros parâmetros adicionais. Vou incluir um exemplo básico abaixo para ilustrar como isso pode ser feito.
 
-### 1. Estrutura Básica da Função CRUD Genérica
+### 🔧 1. Estrutura Básica da Função CRUD Genérica
 
 Você pode criar um arquivo como `databaseService.ts` onde vai definir essa função. O objetivo é que ela receba os parâmetros, identifique o tipo de operação e faça a chamada adequada ao Prisma. Vou incluir um exemplo da estrutura:
 
@@ -4164,7 +4164,7 @@ async function genericCrud<T>({ model, action, data, where, select, include }: C
 export default genericCrud;
 ```
 
-### 2. Como Funciona
+### 📊 2. Como Funciona
 
 A função `genericCrud` é uma função genérica que recebe um objeto `CrudParams` com as seguintes propriedades:
 
@@ -4177,11 +4177,11 @@ A função `genericCrud` é uma função genérica que recebe um objeto `CrudPar
 
 A função então utiliza o modelo e a ação passados para chamar a operação Prisma correspondente.
 
-### 3. Exemplo de Uso
+### 🧪 3. Exemplo de Uso
 
 Para utilizar a função, você pode chamá-la passando os parâmetros específicos de cada operação. Por exemplo:
 
-#### Busca de um item específico (`findUnique`)
+#### 🔍 Busca de um item específico (`findUnique`)
 
 ```typescript
 const user = await genericCrud({
@@ -4191,7 +4191,7 @@ const user = await genericCrud({
 });
 ```
 
-#### Criação de um novo item (`create`)
+#### 🆕 Criação de um novo item (`create`)
 
 ```typescript
 const newUser = await genericCrud({
@@ -4204,7 +4204,7 @@ const newUser = await genericCrud({
 });
 ```
 
-#### Atualização de um item (`update`)
+#### ♻️ Atualização de um item (`update`)
 
 ```typescript
 const updatedUser = await genericCrud({
@@ -4217,7 +4217,7 @@ const updatedUser = await genericCrud({
 });
 ```
 
-#### Exclusão de um item (`delete`)
+#### 🗑️ Exclusão de um item (`delete`)
 
 ```typescript
 const deletedUser = await genericCrud({
@@ -4227,7 +4227,7 @@ const deletedUser = await genericCrud({
 });
 ```
 
-### 4. Considerações Importantes
+### 📌 4. Considerações Importantes
 
 1. **Segurança**: Um CRUD genérico assim é flexível, mas também pode ser arriscado se o acesso for exposto sem controle. Verifique sempre a autenticação e a autorização antes de permitir que qualquer usuário faça operações diretamente na base de dados.
   
@@ -4235,7 +4235,7 @@ const deletedUser = await genericCrud({
 
 3. **Tipos Genéricos**: A função usa `<T>` para indicar que o tipo de retorno é genérico, então ela pode retornar qualquer tipo de dado baseado no modelo usado. Isso facilita no TypeScript, pois o retorno sempre será tipado.
 
-### 5. Extensão para Outros Parâmetros
+### ➕ 5. Extensão para Outros Parâmetros
 
 Caso você queira incluir outros tipos de comportamento, como passar o tipo de retorno e condições adicionais, considere expandir o `CrudParams` para incluir essas opções, sempre com validações para manter o código seguro.
 
@@ -4245,7 +4245,7 @@ Essa estrutura dá flexibilidade para um CRUD genérico usando Prisma e TypeScri
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
