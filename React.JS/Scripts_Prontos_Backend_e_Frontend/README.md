@@ -49,25 +49,25 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    ### 🛠️ **Edição de Registro (Update)**
    - ✏️ [Edição de registros com formulário polimorfo](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
    - 🧷 [Edição de itens com dados predefinidos no formulário](#-exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
-   - 🛠️ [`Editar` dados de um registro `no formulário`](#-editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
-   - 🧰 [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
+   - 🛠️ [`Editar` dados de um registro `no formulário`](#%EF%B8%8F-editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
+   - 🧰 [Modelo Genérico para Formulários com Modo de Edição e Registro](#-modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
    - 📲 Atualização dos registros no backend via API
    - 🧪 Validação de dados antes da atualização
-   - 📌 [Utilizando o Operador Spread para Inserção Condicional de Propriedades](#utilizando-o-operador-spread-para-inser%C3%A7%C3%A3o-condicional-de-propriedades "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
+   - 📌 [Utilizando o Operador Spread para Inserção Condicional de Propriedades](#-utilizando-o-operador-spread-para-inser%C3%A7%C3%A3o-condicional-de-propriedades "Utilizando o Operador Spread para Inserção Condicional de Propriedades")
 
    ### 🗑️ **Exclusão de Registro (Delete)**
-   - ❗ [Botão de exclusão com confirmação](#bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
+   - ❗ [Botão de exclusão com confirmação](#-bot%C3%A3o-de-exclus%C3%A3o-com-confirma%C3%A7%C3%A3o "Botão de exclusão com confirmação")
    - 🔄 Exclusão de registros via API e atualização da lista no frontend
-   - 🧹 [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
-   - 🚮 [Rota Genérica de Exclusão via ID e Integração com Frontend React](#rota-gen%C3%A9rica-de-exclus%C3%A3o-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
+   - 🧹 [Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem](#-exemplo-gen%C3%A9rico-de-rota-delete-com-par%C3%A2metros-din%C3%A2micos-e-filtragem "Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem")
+   - 🚮 [Rota Genérica de Exclusão via ID e Integração com Frontend React](#-rota-gen%C3%A9rica-de-exclus%C3%A3o-via-id-e-integra%C3%A7%C3%A3o-com-frontend-react "Rota Genérica de Exclusão via ID e Integração com Frontend React")
    - 🛡️ Tratamento de erros e feedback ao usuário
 
    ### 🔗 **Integração Completa de Frontend e Backend**
    - 🧩 Exemplo completo de um `CRUD` (Create, Read, Update, Delete)
-     - 🆕 [Rota de Criação de Registro (`Create`) com Prisma e Requisição no Frontend](#rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
-     - 📖 [Rota de Leitura de Registros (`Read`) com Prisma e Requisição no Frontend](#rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
-     - 🛠️ [Rota de Atualização de Registro (`Update`) com Prisma e Requisição no Frontend](#rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
-     - 🗑️ [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
+     - 🆕 [Rota de Criação de Registro (`Create`) com Prisma e Requisição no Frontend](#-rota-de-cria%C3%A7%C3%A3o-de-registro-create-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend")
+     - 📖 [Rota de Leitura de Registros (`Read`) com Prisma e Requisição no Frontend](#-rota-de-leitura-de-registros-read-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend")
+     - 🛠️ [Rota de Atualização de Registro (`Update`) com Prisma e Requisição no Frontend](#-rota-de-atualiza%C3%A7%C3%A3o-de-registro-update-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend")
+     - 🗑️ [Rota de Exclusão de Registro (`Delete`) com Prisma e Requisição no Frontend](#-rota-de-exclus%C3%A3o-de-registro-delete-com-prisma-e-requisi%C3%A7%C3%A3o-no-frontend "Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend")
 
    - ♻️ Reutilização de componentes e lógica no frontend
    - 🧭 Organização de `rotas` e `controllers` no backend
@@ -2114,7 +2114,7 @@ E no JSX dos campos:
 
 ---
 
-## Modelo Genérico para Formulários com Modo de Edição e Registro
+## 🧰 Modelo Genérico para Formulários com Modo de Edição e Registro
 
 Este exemplo ilustra como implementar um formulário genérico em React, suportando os modos de registro e edição. O modelo utiliza `useState` para gerenciar os valores dos campos e `useEffect` para inicializar os valores no modo de edição.
 
@@ -2235,12 +2235,12 @@ export function GenericForm({ id, apiUrl }) {
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registro-update "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Utilizando o Operador Spread para Inserção Condicional de Propriedades
+## 📌 Utilizando o Operador Spread para Inserção Condicional de Propriedades
 
 O operador *spread* (reticências: `...`) pode ser usado para “espalhar” as propriedades de um objeto ou os elementos de um array dentro de um novo objeto ou array. Ele é útil, por exemplo, para criar cópias ou mesclar dados, sem modificar o original. 
 
@@ -2324,12 +2324,12 @@ Ou seja, você só adiciona a propriedade `password` ao objeto final se de fato 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registro-update "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Botão de exclusão com confirmação
+## ❗ Botão de exclusão com confirmação
 
 ### Simplificando o formulário para enviar o ID de um item, formulário que confirma a remoção de item
 
@@ -2468,12 +2468,12 @@ Dessa forma, o `id` será passado corretamente para o componente `DeleteUser` e 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-exclus%C3%A3o-de-registro-delete "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem
+## 🧹 Exemplo Genérico de Rota DELETE com Parâmetros Dinâmicos e Filtragem
 
 Este exemplo mostra como criar uma rota DELETE que recebe múltiplos parâmetros dinâmicos. Esse padrão é útil para excluir registros com base em uma relação entre duas entidades (por exemplo, um administrador associado a uma empresa).
 
@@ -2577,12 +2577,12 @@ Essa estrutura pode ser reutilizada e adaptada facilmente para outras operaçõe
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-exclus%C3%A3o-de-registro-delete "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota Genérica de Exclusão via ID e Integração com Frontend React
+## 🚮 Rota Genérica de Exclusão via ID e Integração com Frontend React
 
 Aqui está uma versão genérica das instruções para que você possa usá-las em diferentes contextos e componentes ao configurar rotas de exclusão por ID com integração no frontend em React.
 
@@ -2707,12 +2707,12 @@ Esse guia genérico permite que você configure e reutilize a lógica de exclus�
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-exclus%C3%A3o-de-registro-delete "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend
+## 🆕 Rota de Criação de Registro (Create) com Prisma e Requisição no Frontend
 
 ### Rota Backend: Criação de Registro (Create)
 
@@ -2844,12 +2844,12 @@ export default CreateEntityForm;
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend
+## 📖 Rota de Leitura de Registros (Read) com Prisma e Requisição no Frontend
 
 ### Rota Backend: Listagem de Registros (Read)
 
@@ -2989,12 +2989,12 @@ Essa abordagem permite que a rota seja dinâmica e atenda a diferentes IDs forne
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend
+## 🛠️ Rota de Atualização de Registro (Update) com Prisma e Requisição no Frontend
 
 ### Rota Backend: Atualização de Registro (Update)
 
@@ -3151,12 +3151,12 @@ export default UpdateEntityForm;
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend
+## 🗑️ Rota de Exclusão de Registro (Delete) com Prisma e Requisição no Frontend
 
 ### Rota Backend: Exclusão de Registro (Delete)
 
@@ -3262,7 +3262,7 @@ export default DeleteEntityButton;
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-integra%C3%A7%C3%A3o-completa-de-frontend-e-backend "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
