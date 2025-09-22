@@ -47,9 +47,9 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🔢 [Rota para Obter o ID do Último Registro Criado](#-rota-para-obter-o-id-do-%C3%BAltimo-registro-criado "Rota para Obter o ID do Último Registro Criado")
 
    ### 🛠️ **Edição de Registro (Update)**
-   - ✏️ [Edição de registros com formulário polimorfo](#-edicao-de-registros-com-formula1rio-polimorfo "Edição de registros com formulário polimorfo")
-   - 🧷 [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
-   - 🛠️ [`Editar` dados de um registro `no formulário`](#editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
+   - ✏️ [Edição de registros com formulário polimorfo](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
+   - 🧷 [Edição de itens com dados predefinidos no formulário](#-exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
+   - 🛠️ [`Editar` dados de um registro `no formulário`](#-editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
    - 🧰 [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
    - 📲 Atualização dos registros no backend via API
    - 🧪 Validação de dados antes da atualização
@@ -1902,12 +1902,12 @@ Com essa alteração, o valor do campo será sempre refletido corretamente no es
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#-2-exemplos-crud-com-react-e-prisma "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registro-update "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Exemplo Genérico: Sincronizando Valores do Formulário com Dados da API
+## 🧷 Exemplo Genérico: Sincronizando Valores do Formulário com Dados da API
 
 Este exemplo demonstra como criar um formulário React onde os valores iniciais vêm de uma API e podem ser atualizados dinamicamente pelos usuários. Ele resolve problemas comuns ao lidar com `defaultValue` substituindo-o por `value` vinculado ao estado.
 
@@ -2045,12 +2045,12 @@ Exemplo referência para lidar com formulários dinâmicos em React!
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registro-update "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Editar dados de um registro no formulário
+## 🛠️ Editar dados de um registro no formulário
 
 ### Implementação Ajustada
 
@@ -2109,7 +2109,7 @@ E no JSX dos campos:
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#%EF%B8%8F-edi%C3%A7%C3%A3o-de-registro-update "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
