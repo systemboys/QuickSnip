@@ -29,25 +29,25 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🧾 Formulário simples de cadastro com validação de campos
    - 📤 Envio de dados para o backend via API (fetch ou Axios)
    - 🗃️ Armazenamento de dados no banco usando Prisma
-   - 💾 [`Gravando` dados do formulário na tabela usando o `ORM Prisma`](#gravando-dados-do-formul%C3%A1rio-na-tabela-usando-o-orm-prisma "Gravando dados do formulário na tabela usando o ORM Prisma")
+   - 💾 [`Gravando` dados do formulário na tabela usando o `ORM Prisma`](#-gravando-dados-do-formul%C3%A1rio-na-tabela-usando-o-orm-prisma "Gravando dados do formulário na tabela usando o ORM Prisma")
 
    ### ✅ **Validação de Formulários**
-   - 🚫 [Validação Simples de Campos com Mensagens de Erro](#exemplo-de-formul%C3%A1rio-com-valida%C3%A7%C3%A3o-e-intercepta%C3%A7%C3%A3o-de-submit "Validação Simples de Campos com Mensagens de Erro")
+   - 🚫 [Validação Simples de Campos com Mensagens de Erro](#-exemplo-de-formul%C3%A1rio-com-valida%C3%A7%C3%A3o-e-intercepta%C3%A7%C3%A3o-de-submit "Validação Simples de Campos com Mensagens de Erro")
 
    ### 📊 **Listagem de Itens com DataTable (Read)**
    - 🧩 Integração com biblioteca DataTable (React Table, Material UI, etc.)
    - 🔍 Consulta de dados no backend (Prisma findMany)
-   - ⏳ [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
+   - ⏳ [Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS](#-implementa%C3%A7%C3%A3o-de-indicador-de-carregamento-centralizado-para-datatable-com-react-e-css "Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS")
    - 📑 Paginação e filtros de dados
-   - 🧮 [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
+   - 🧮 [Formatação de Dados da API em um Array no Formato Específico (`JSON`)](#-formata%C3%A7%C3%A3o-de-dados-da-api-em-um-array-no-formato-espec%C3%ADfico-json "Formatação de Dados da API em um Array no Formato Específico (JSON)")
 
    ### 🔎 **Consulta de Registro Único (Single)**
-   - 🆔 [Rota Genérica para Consulta de Registro Único por ID](#rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
-   - 🧾 [Exemplo de Componente React para Exibir Detalhes de um Registro](#exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
-   - 🔢 [Rota para Obter o ID do Último Registro Criado](#rota-para-obter-o-id-do-%C3%BAltimo-registro-criado "Rota para Obter o ID do Último Registro Criado")
+   - 🆔 [Rota Genérica para Consulta de Registro Único por ID](#-rota-gen%C3%A9rica-para-consulta-de-registro-%C3%BAnico-por-id "Rota Genérica para Consulta de Registro Único por ID")
+   - 🧾 [Exemplo de Componente React para Exibir Detalhes de um Registro](#-exemplo-gen%C3%A9rico-de-requisi%C3%A7%C3%A3o-no-frontend "Exemplo de Componente React para Exibir Detalhes de um Registro")
+   - 🔢 [Rota para Obter o ID do Último Registro Criado](#-rota-para-obter-o-id-do-%C3%BAltimo-registro-criado "Rota para Obter o ID do Último Registro Criado")
 
    ### 🛠️ **Edição de Registro (Update)**
-   - ✏️ [Edição de registros com formulário polimorfo](#edi%C3%A7%C3%A3o-de-registros-com-formul%C3%A1rio-polimorfo "Edição de registros com formulário polimorfo")
+   - ✏️ [Edição de registros com formulário polimorfo](#-edicao-de-registros-com-formula1rio-polimorfo "Edição de registros com formulário polimorfo")
    - 🧷 [Edição de itens com dados predefinidos no formulário](#exemplo-gen%C3%A9rico-sincronizando-valores-do-formul%C3%A1rio-com-dados-da-api "Edição de itens com dados predefinidos no formulário")
    - 🛠️ [`Editar` dados de um registro `no formulário`](#editar-dados-de-um-registro-no-formul%C3%A1rio "Editar dados de um registro no formulário")
    - 🧰 [Modelo Genérico para Formulários com Modo de Edição e Registro](#modelo-gen%C3%A9rico-para-formul%C3%A1rios-com-modo-de-edi%C3%A7%C3%A3o-e-registro "Modelo Genérico para Formulários com Modo de Edição e Registro")
@@ -1030,7 +1030,7 @@ export default App;
 
 ---
 
-## Gravando dados do formulário na tabela usando o ORM Prisma
+## 💾 Gravando dados do formulário na tabela usando o ORM Prisma
 
 Para fazer o formulário enviar os dados para a rota `/addAdmins` a fim de gravar as informações na tabela "admins", você precisa fazer alguns ajustes na função de envio de dados. Aqui estão os passos detalhados para garantir que tudo funcione corretamente:
 
@@ -1138,12 +1138,12 @@ Agora, o seu formulário enviará corretamente as informações para a rota `/ad
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-formul%C3%A1rio-de-cadastro-create "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Exemplo de Formulário com Validação e Interceptação de Submit
+## 🚫 Exemplo de Formulário com Validação e Interceptação de Submit
 
 Abaixo está o exemplo atualizado, incluindo validação dos campos para garantir que o usuário não envie o formulário com campos vazios.
 
@@ -1284,12 +1284,12 @@ Um formulário funcional e validado, que impede o envio de campos vazios e exibe
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-valida%C3%A7%C3%A3o-de-formul%C3%A1rios "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS
+## ⏳ Implementação de Indicador de Carregamento Centralizado para DataTable com React e CSS
 
 Passos com as modificações necessárias, para inplementação de indicador de carregamento.
 
@@ -1360,12 +1360,12 @@ Essas são as únicas modificações necessárias!
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-listagem-de-itens-com-datatable-read "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Formatação de Dados da API em um Array no Formato Específico (JSON)
+## 🧮 Formatação de Dados da API em um Array no Formato Específico (JSON)
 
 Aqui está uma forma genérica para que você possa utilizá-la em outros componentes, com adaptações necessárias.
 
@@ -1472,12 +1472,12 @@ Você pode adaptar essa estrutura para qualquer componente que precise buscar, f
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-listagem-de-itens-com-datatable-read "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota Genérica para Consulta de Registro Único por ID
+## 🆔 Rota Genérica para Consulta de Registro Único por ID
 
 Para criar uma rota genérica que busque um registro específico pelo `ID`, vou apresentar um exemplo que você pode reutilizar em diferentes componentes. Esta rota irá fazer uma consulta `GET` baseada no `ID` do registro e retornará os dados desse registro em formato JSON. A lógica do frontend em React também é genérica, para que você possa adaptá-la a qualquer componente "single" que precise exibir detalhes de um item específico.
 
@@ -1517,7 +1517,7 @@ routes.get('/getEntity/:id', async (req, res) => {
 
 No frontend, você pode fazer uma requisição `GET` para essa rota passando o `ID` do registro que deseja obter.
 
-### **Exemplo Genérico de Requisição no Frontend**
+### 🧾 **Exemplo Genérico de Requisição no Frontend**
 
 Abaixo, uma função genérica que realiza a requisição e busca os dados do registro pelo `ID`:
 
@@ -1593,12 +1593,12 @@ Essa abordagem permite que você reutilize essa estrutura genérica para buscar 
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-consulta-de-registro-%C3%BAnico-single "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Rota para Obter o ID do Último Registro Criado
+## 🔢 Rota para Obter o ID do Último Registro Criado
 
 Para retornar apenas o ID do último registro, você pode usar o Prisma para buscar um único registro ordenado de forma decrescente pela data de criação (`createdAt`). Aqui está a rota ajustada:
 
@@ -1680,12 +1680,12 @@ Adapte o código de acordo com seu ambiente (ex.: inclusão de headers, autentic
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-consulta-de-registro-%C3%BAnico-single "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
 
-## Edição de registros com formulário polimorfo
+## ✏️ Edição de registros com formulário polimorfo
 
 Para fazer com que o campo "UserGridFullName" do formulário se torne polimorfo, ou seja, ele seja preenchido com o valor já existente quando estiver no modo de edição, e fique vazio no modo de registro, você pode fazer uma pequena alteração no valor inicial do campo. Isso pode ser feito verificando o valor da variável `polymorphic`. Se for igual a `2`, você define o valor do campo como `{admin.full_name}`, caso contrário, deixa o valor como uma string vazia. Veja como você pode modificar o código:
 
@@ -1902,7 +1902,7 @@ Com essa alteração, o valor do campo será sempre refletido corretamente no es
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-2-exemplos-crud-com-react-e-prisma "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
