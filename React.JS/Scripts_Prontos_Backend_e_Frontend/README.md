@@ -203,6 +203,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🔧 [Função simples](#fun%C3%A7%C3%A3o-simples "Função simples")
      - 🤖 [Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox](#preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-com-react-manipula%C3%A7%C3%A3o-de-campos-de-texto-select-radiobutton-e-checkbox "Preenchimento Automático de Formulários com React: Manipulação de Campos de Texto, Select, Radiobutton e Checkbox")
      - 🧩 [Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa](#modulariza%C3%A7%C3%A3o-de-fun%C3%A7%C3%B5es-de-preenchimento-autom%C3%A1tico-de-formul%C3%A1rios-em-react-com-importa%C3%A7%C3%A3o-externa "Modularização de Funções de Preenchimento Automático de Formulários em React com Importação Externa")
+   - 🎭 [Utilizando Máscaras Genéricas em Formulários](#-utilizando-m%C3%A1scaras-gen%C3%A9ricas-em-formul%C3%A1rios "Utilizando Máscaras Genéricas em Formulários")
    - 🖱️ [Exemplo de Adição de Evento de Clique em JavaScript](#exemplo-de-adi%C3%A7%C3%A3o-de-evento-de-clique-em-javascript "Exemplo de Adição de Evento de Clique em JavaScript")
    - 📤 [Passar uma propriedade de um elemento para uma arrow function](#passar-uma-propriedade-de-um-elemento-para-uma-arrow-function "Passar uma propriedade de um elemento para uma arrow function")
    - 🪟 [PopUp com uma determinada URL passada via parâmetro](#popup-com-uma-determinada-url-passa... "Popup com uma determinada URL passada via parâmetro")
@@ -8934,6 +8935,107 @@ export default FormularioAutoPreencher;
 ### Vantagens dessa abordagem:
 - **Reutilizável**: A função de preenchimento automático está separada e pode ser facilmente reutilizada em outros componentes ou módulos.
 - **Organização**: Deixa o código mais organizado, separando a lógica de preenchimento da interface do componente.
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🎭 Utilizando Máscaras Genéricas em Formulários
+
+O objetivo é ter um arquivo **único** (`/utils/masks.js`) para aplicação e remoção de máscaras, onde a regra é passada como parâmetro (ex.: `"000.000.000-00"` para CPF, `"(00)00000-0000"` para telefone, `"00.000-000"` para CEP).
+
+### 📂 Arquivo `/utils/masks.js`
+
+```javascript
+// Função genérica para aplicar máscara
+export const applyMask = (value, pattern) => {
+  if (!value) return "";
+  const numbers = value.replace(/\D/g, "");
+  let result = "";
+  let numIndex = 0;
+
+  for (let i = 0; i < pattern.length && numIndex < numbers.length; i++) {
+    if (pattern[i] === "0") {
+      result += numbers[numIndex];
+      numIndex++;
+    } else {
+      result += pattern[i];
+    }
+  }
+
+  return result;
+};
+
+// Função genérica para remover máscara
+export const removeMask = (value) => {
+  if (!value) return "";
+  return value.replace(/\D/g, "");
+};
+```
+
+### 📌 Exemplos de Uso em Componentes
+
+#### CPF
+
+```jsx
+import { applyMask, removeMask } from "../utils/masks";
+
+// Aplicação
+setCpfForm(applyMask(data?.cpf, "000.000.000-00"));
+
+// Remoção (antes de salvar no backend)
+cpf: removeMask(cpfForm),
+
+// No formulário
+<Form.Control 
+  type="text" 
+  value={cpfForm}
+  onChange={(e) => setCpfForm(applyMask(e.target.value, "000.000.000-00"))}
+  size="sm"
+  placeholder="000.000.000-00"
+/>
+```
+
+#### Telefone
+
+```jsx
+setTelephoneForm(applyMask(data?.telephone, "(00)00000-0000"));
+
+telephone: removeMask(telephoneForm),
+
+<Form.Control 
+  type="text" 
+  value={telephoneForm}
+  onChange={(e) => setTelephoneForm(applyMask(e.target.value, "(00)00000-0000"))}
+  size="sm"
+  placeholder="(00)00000-0000"
+/>
+```
+
+#### CNPJ
+
+```jsx
+setCnpjForm(applyMask(data?.cnpj, "00.000.000/0000-00"));
+
+cnpj: removeMask(cnpjForm),
+
+<Form.Control 
+  type="text" 
+  value={cnpjForm}
+  onChange={(e) => setCnpjForm(applyMask(e.target.value, "00.000.000/0000-00"))}
+  size="sm"
+  placeholder="00.000.000/0000-00"
+/>
+```
+
+### ✅ Vantagens
+
+- Arquivo único para todas as máscaras.
+- Basta informar o **padrão desejado** no momento da aplicação.
+- Fácil de manter e reutilizar em diferentes componentes.
+- Evita duplicação de funções específicas.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
