@@ -232,6 +232,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    ### 🗂️ **Organização Pessoal e Produtividade**
    - 🧘 Como organizo meus ambientes de trabalho e softwares abertos
    - 🖥️ [Organização de Terminais: Fluxo de Trabalho Produtivo](#organiza%C3%A7%C3%A3o-de-terminais-fluxo-de-trabalho-produtivo "Organização de Terminais: Fluxo de Trabalho Produtivo")
+   - 🧭 [Template – Criação de Quadros no Trello para Novos Projetos](#-template--cria%C3%A7%C3%A3o-de-quadros-no-trello-para-novos-projetos "Template – Criação de Quadros no Trello para Novos Projetos")
 
    ### ✍️ **Estilo de Programação**
    - 🧼 Regras pessoais para manter o código limpo
@@ -9918,6 +9919,153 @@ Para manter a produtividade e organização no desenvolvimento do projeto, utili
 ---
 
 Essa prática simples ajuda a manter o foco e organiza melhor as tarefas enquanto o projeto está em desenvolvimento. 🚀
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🧭 **Template – Criação de Quadros no Trello para Novos Projetos**
+
+### 📘 **Objetivo**
+
+Estabelecer um modelo padrão de configuração no **Trello** para gerenciar projetos de software, produtos SaaS ou iniciativas internas, utilizando a metodologia ágil **Scrum/Kanban**, com etapas bem definidas, etiquetas de prioridade e designação de responsáveis.
+
+## 🧩 **1. Criação do Quadro**
+
+1. Acesse o Trello e clique em **“Criar → Quadro”**.
+
+2. Nomeie o quadro seguindo o formato:
+
+   ```bash
+   NomeDoProjeto | Tipo ou Segmento
+   ```
+
+   Exemplo:
+
+   * `EcoTrack | Projeto de Software`
+   * `Breeze Store | SaaS`
+   * `LotManager | Gestão Rural`
+
+3. Escolha a área de trabalho (ex: *Madagascar*).
+
+4. Clique em **Criar**.
+
+### 🗂️ **2. Estrutura de Listas (Colunas do Quadro)**
+
+Crie as listas principais (na ordem abaixo):
+
+1. **📝 Backlog** – Onde todas as ideias e tarefas são inicialmente registradas.
+2. **✅ A Fazer (To Do)** – Tarefas selecionadas para a próxima Sprint.
+3. **🔧 Em Progresso (Doing)** – Tarefas que estão sendo executadas.
+4. **🔍 Em Revisão (Review)** – Itens concluídos que aguardam revisão.
+5. **🏁 Concluído (Done)** – Entregas finalizadas e aprovadas.
+
+### 🧱 **3. Criação do Product Backlog**
+
+Na lista **Backlog**, adicione cartões para cada funcionalidade ou tarefa principal do projeto.
+Exemplo (para um sistema web):
+
+* 🧾 Cadastro de usuários
+* ⚙️ Integração com APIs externas
+* 📊 Dashboard de relatórios
+* 🔔 Sistema de notificações
+* 💾 Backup e exportação de dados
+
+💡 *Dica:* sempre use ícones no início dos cartões para identificar o tipo da tarefa (UI, backend, integração, documentação, etc.).
+
+### 🧭 **4. Priorização e Planejamento da Sprint**
+
+1. Ordene os cartões no **Backlog** por ordem de prioridade (do topo para baixo).
+2. Mova os cartões prioritários da Sprint atual para a coluna **A Fazer (To Do)**.
+3. Cada Sprint pode conter de 3 a 7 cartões, dependendo do tamanho da equipe e do prazo.
+
+### 🧰 **5. Detalhamento de Tarefas**
+
+Para cada cartão (tarefa):
+
+1. Clique no cartão e preencha:
+
+   * **Descrição:** explique claramente o objetivo da tarefa e o resultado esperado.
+     Exemplo:
+
+     > “Criar tela de login com autenticação e validação de campos obrigatórios.”
+2. Adicione um **Checklist** com as etapas práticas.
+   Exemplo:
+
+   * Criar layout da interface
+   * Implementar campos de entrada
+   * Validar formulários
+   * Conectar com backend
+   * Testar funcionalidade
+
+### 🏷️ **6. Etiquetas de Prioridade**
+
+Configure as etiquetas no Trello para padronizar o nível de prioridade:
+
+| Cor        | Nome da Etiqueta | Significado                             |
+| ---------- | ---------------- | --------------------------------------- |
+| 🟩 Verde   | Alta prioridade  | Tarefas críticas ou de entrega imediata |
+| 🟨 Amarela | Média prioridade | Importantes, mas não urgentes           |
+| 🟦 Azul    | Baixa prioridade | Melhorias, ajustes ou complementos      |
+
+🧩 Sempre marque pelo menos **uma etiqueta por tarefa**.
+
+### 👤 **7. Atribuição de Membros**
+
+Clique em **“Membros”** no cartão e adicione:
+
+* O **responsável principal** pela execução;
+* Outros colaboradores envolvidos (se aplicável).
+
+💬 Use o campo de comentários para atualizações de status, dificuldades ou decisões da equipe.
+
+### 🔄 **8. Fluxo de Execução da Sprint**
+
+Durante a execução:
+
+1. Mova o cartão de acordo com o progresso:
+
+   * **A Fazer → Em Progresso → Em Revisão → Concluído**
+2. Marque os itens do checklist à medida que forem sendo concluídos.
+3. Adicione comentários se houver bloqueios ou ajustes necessários.
+4. Ao concluir todas as etapas, mova o cartão para **🏁 Concluído (Done)**.
+
+### 📊 **9. Fechamento da Sprint**
+
+1. Revise as tarefas concluídas na coluna **Concluído**.
+2. Faça uma breve análise de desempenho (tempo, dificuldades e melhorias).
+3. Crie um novo grupo de tarefas no **Backlog** para a próxima Sprint.
+
+### 🧾 **10. Modelo Visual de Estrutura Final**
+
+```bash
+📋 Nome do Quadro: <Projeto> | <Tipo>
+
+📝 Backlog
+  ├─ Ideia 1
+  ├─ Ideia 2
+  ├─ Ideia 3
+✅ A Fazer
+  ├─ Tarefa 1 (com checklist)
+🔧 Em Progresso
+  ├─ Tarefa 2 (em andamento)
+🔍 Em Revisão
+  ├─ Tarefa 3 (aguardando revisão)
+🏁 Concluído
+  ├─ Tarefa 4 (finalizada e validada)
+```
+
+### 🧩 **Observações Importantes**
+
+* Sempre defina **um responsável** e **uma etiqueta** por cartão.
+* Prefira **tarefas pequenas e entregáveis**, que possam ser concluídas em no máximo 2 dias.
+* Utilize **comentários para comunicação assíncrona** dentro do próprio Trello.
+* A cada novo projeto, **duplique um quadro anterior** como modelo base e adapte as listas conforme necessário.
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
