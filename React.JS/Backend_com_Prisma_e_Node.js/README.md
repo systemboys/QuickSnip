@@ -74,7 +74,7 @@
      - 🔄 [Corrigindo problemas de dependências no Node.js](#automatizar-no-desenvolvimento "Corrigindo problemas de dependências no Node.js")
 
 ## ⚙️ 5. **Gerenciamento de Dependências no Node.js**
-   - 📦 [Diferença entre package.json e package-lock.json](#diferença-entre-packagejson-e-package-lockjson "Diferença entre package.json e package-lock.json")
+   - 📦 [Diferença entre package.json e package-lock.json](#-diferen%C3%A7a-entre-packagejson-e-package-lockjson "Diferença entre package.json e package-lock.json")
 
 ---
 
@@ -745,7 +745,7 @@ Ele registra **as versões exatas** dos pacotes instalados, garantindo que o pro
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
 [![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
 [![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
-[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+[![Início](../../images/control/11280_control_up_icon.png)](#-4-resolu%C3%A7%C3%A3o-de-erros-comuns-no-desenvolvimento "Conteúdo")
 <!-- /Botões de navegação -->
 
 ---
