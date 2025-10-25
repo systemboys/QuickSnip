@@ -73,6 +73,9 @@
      - 🧩 [Como identificar e encerrar processos do Node.js](#passo-a-passo-para-resolver "Como identificar e encerrar processos do Node.js")  
      - 🔄 [Corrigindo problemas de dependências no Node.js](#automatizar-no-desenvolvimento "Corrigindo problemas de dependências no Node.js")
 
+## ⚙️ 5. **Gerenciamento de Dependências no Node.js**
+   - 📦 [Diferença entre package.json e package-lock.json](#diferença-entre-packagejson-e-package-lockjson "Diferença entre package.json e package-lock.json")
+
 ---
 
 Todos os tópicos relacionados a **Frontend** estão organizados dentro de **React.JS**, facilitando o acesso ao conteúdo específico de React.
@@ -656,6 +659,87 @@ Depois, basta executar:
 ```bash
 freeport 3333
 ```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 📦 Diferença entre `package.json` e `package-lock.json`
+
+### 🧠 **Visão geral**
+
+Esses dois arquivos são fundamentais em qualquer projeto **Node.js**, pois controlam **as dependências** e **a consistência** do ambiente de desenvolvimento.
+Enquanto o `package.json` define **o que o projeto precisa**, o `package-lock.json` garante **que as mesmas versões sejam instaladas em qualquer máquina**.
+
+### 📘 **package.json**
+
+O `package.json` é o **arquivo principal de configuração** do seu projeto.
+Ele contém informações sobre o nome, versão, autor, scripts e, principalmente, **as dependências declaradas**.
+
+#### 🔹 Funções principais:
+
+* Lista dependências e suas versões compatíveis.
+* Define scripts de execução (`start`, `dev`, `build`, etc).
+* Contém metadados sobre o projeto (nome, descrição, licença, etc).
+* Permite definir versões compatíveis usando operadores como `^` ou `~`.
+
+#### 📄 Exemplo:
+
+```json
+{
+  "name": "meu-projeto",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon src/server.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "prisma": "^5.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
+```
+
+### 🔒 **package-lock.json**
+
+O `package-lock.json` é **gerado automaticamente** pelo npm ao executar `npm install`.
+Ele registra **as versões exatas** dos pacotes instalados, garantindo que o projeto funcione **da mesma forma em qualquer ambiente**.
+
+#### 🔹 Funções principais:
+
+* Garante reprodutibilidade exata das dependências.
+* Aumenta a velocidade de futuras instalações.
+* Evita conflitos entre versões.
+* Registra dependências aninhadas (as dependências das dependências).
+
+### ⚙️ **Comparativo rápido**
+
+| Arquivo             | Função principal                         | Editável manualmente? | Deve ser versionado no Git? |
+| ------------------- | ---------------------------------------- | --------------------- | --------------------------- |
+| `package.json`      | Define o que o projeto **precisa**       | ✅ Sim                 | ✅ Sim                       |
+| `package-lock.json` | Garante as versões **exatas instaladas** | ⚠️ Não recomendado    | ✅ Sim                       |
+
+### 💻 **O que acontece ao executar `npm install`**
+
+1. O npm lê o `package.json` para identificar os pacotes necessários.
+2. Consulta o `package-lock.json` (se existir) para instalar as versões exatas.
+3. Se não existir, cria o `package-lock.json` automaticamente.
+4. Instala tudo dentro de `node_modules/`.
+
+### 🚀 **Dica extra: `npm ci` vs `npm install`**
+
+| Comando       | Uso ideal         | Diferença                                                                                                         |
+| ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `npm install` | Desenvolvimento   | Pode atualizar versões conforme o `package.json`.                                                                 |
+| `npm ci`      | Produção ou CI/CD | Remove `node_modules/` e instala **exatamente** o que está no `package-lock.json`, garantindo consistência total. |
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
