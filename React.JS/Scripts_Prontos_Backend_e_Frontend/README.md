@@ -161,6 +161,7 @@ Exemplos de CRUD (Create, Read, Update, Delete) com integração de frontend e b
    - 🚀 [Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)](#-deploy-docker-frontend-com-nginx--backend-nodejs-aws-e-servidores-reais "Deploy Docker: Frontend com Nginx + Backend Node.js (AWS e servidores reais)")
    - 🔀 [Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS](#-configura%C3%A7%C3%A3o-de-proxy-reverso-nginx--vite_api_url-para-produ%C3%A7%C3%A3o-aws "Configuração de Proxy Reverso Nginx + VITE_API_URL para Produção AWS")
    - 🔙 [Clonar repositório em commit específico (rollback rápido com Git)](#-clonar-reposit%C3%B3rio-em-commit-espec%C3%ADfico-rollback-r%C3%A1pido-com-git "Clonar repositório em commit específico (rollback rápido com Git)")
+   - 🧭 [Configuração de Identidade e Autenticação do Git](#-configura%C3%A7%C3%A3o-de-identidade-e-autentica%C3%A7%C3%A3o-do-git)
    - 🧹 [Script de Limpeza de Disco no Servidor Linux](#-script-de-limpeza-de-disco-no-servidor-linux "Script de Limpeza de Disco no Servidor Linux")
    - 🧹 [Script de Limpeza de Disco (Versão Leve)](#-script-de-limpeza-de-disco-vers%C3%A3o-leve "Script de Limpeza de Disco (Versão Leve)")
    - 🧹 [Limpeza Manual de Disco no Linux (Comandos diretos)](#-limpeza-manual-de-disco-no-linux-comandos-diretos "Limpeza Manual de Disco no Linux (Comandos diretos)")
@@ -6834,6 +6835,93 @@ cd SeuRepo
 git fetch --depth 1 origin 5140f8a9e86df725ad40fc556c6ad723b943bea1
 git checkout 5140f8a9e86df725ad40fc556c6ad723b943bea1
 ```
+
+<!-- Botões de navegação -->
+[![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
+[![Início](../../images/control/11269_control_left_icon.png)](../README.md#quicksnip "Voltar")
+[![Início](../../images/control/11277_control_stop_up_icon.png)](#quicksnip "Topo")
+[![Início](../../images/control/11280_control_up_icon.png)](#conteúdo "Conteúdo")
+<!-- /Botões de navegação -->
+
+---
+
+## 🧭 Configuração de Identidade e Autenticação do Git
+
+### 🧩 Contexto
+
+Quando o Git exibe mensagens como:
+
+```bash
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+```
+
+significa que ele **não encontrou um nome e e-mail configurados** para identificar quem fez o commit.
+Isso pode acontecer em instalações novas, ambientes `root`, containers ou VPS.
+
+### ⚙️ Configurar identidade do usuário globalmente
+
+Use estes comandos para definir suas informações de forma permanente:
+
+```bash
+git config --global user.name "systemboys"
+git config --global user.email "systemboys@hotmail.com"
+```
+
+> 🔹 Substitua pelos seus dados do GitHub.
+> 🔹 Após isso, os commits futuros usarão essa identidade automaticamente.
+
+### 🔄 Corrigir o commit anterior (opcional)
+
+Se você já cometeu antes de configurar o nome e e-mail:
+
+```bash
+git commit --amend --reset-author
+git push origin main --force
+```
+
+> ⚠️ Use `--force` **somente se você for o único colaborador do repositório**, pois ele sobrescreve o histórico remoto.
+
+### 🔐 Evitar pedir usuário e senha a cada push
+
+#### 1. Configure o GitHub Token (PAT)
+
+Crie um token em:
+👉 [https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+Depois, substitua a URL remota por uma que use o token:
+
+```bash
+git remote set-url origin https://<TOKEN>@github.com/systemboys/Hostings.git
+```
+
+#### 2. (Alternativa) Use o Git Credential Manager
+
+Para armazenar credenciais de forma segura:
+
+```bash
+git config --global credential.helper store
+```
+
+O Git pedirá seu usuário e senha/token **apenas uma vez** e depois guardará localmente.
+
+### 📜 Verificar as configurações atuais
+
+```bash
+git config --list
+```
+
+### 📘 Resumo rápido
+
+| Função                      | Comando                                                              |
+| --------------------------- | -------------------------------------------------------------------- |
+| Definir nome global         | `git config --global user.name "SeuNome"`                            |
+| Definir e-mail global       | `git config --global user.email "seu@email.com"`                     |
+| Ver configs atuais          | `git config --list`                                                  |
+| Corrigir autor de commit    | `git commit --amend --reset-author`                                  |
+| Forçar push corrigido       | `git push origin main --force`                                       |
+| Salvar credenciais          | `git config --global credential.helper store`                        |
+| Alterar URL para usar token | `git remote set-url origin https://<TOKEN>@github.com/user/repo.git` |
 
 <!-- Botões de navegação -->
 [![Início](../../images/control/11273_control_stop_icon.png)](../../README.md#quicksnip "Início")
