@@ -6594,7 +6594,6 @@ MyProject/
 ### ⚙️ **Conteúdo do `docker-compose.yml`**
 
 ```yaml
-version: '3.3'
 services:
   frontend:
     build:
